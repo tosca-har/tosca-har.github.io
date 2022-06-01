@@ -9,7 +9,7 @@
 	<body>
 
 		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's Group
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's children
 		</div>
 
 		<!-- Import maps polyfill -->
@@ -98,8 +98,9 @@
 					const z = Math.random() * 4 - 2;
 					model.position.set( x, y, z );
 					model.scale.set( .1, .1, .1 );
-					//scene.add( model );
-					group.add( model );
+					//scene.add( model ); //note a the loaded model is a group- hopefully with only one child
+					group.add( model.children[0] );
+				
 
 				}, undefined, function ( error ) {
 
