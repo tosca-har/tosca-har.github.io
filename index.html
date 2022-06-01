@@ -9,7 +9,7 @@
 	<body>
 
 		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's obj
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's sce
 		</div>
 
 		<!-- Import maps polyfill -->
@@ -91,10 +91,13 @@
 
 				const loader = new THREE.ObjectLoader();
 
-				loader.load("models/model.json", function ( obj ) {
+				loader.load("models/model1.json", function ( obj ) {
 					obj.position.x = Math.random() * 4 - 2;
 					obj.position.y = Math.random() * 2;
 					obj.position.z = Math.random() * 4 - 2;
+					obj.scale.x = piecescale;
+					obj.scale.y = piecescale;
+					obj.scale.z = piecescale;
 				group.add( obj );
 	}, undefined, function ( error ) {
 					console.error( error );
