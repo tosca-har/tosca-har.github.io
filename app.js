@@ -34,7 +34,7 @@ class App{
         this.loadingBar = new LoadingBar();
         
         this.loadGLTF();
-        //this.loadFBX();
+    
         
         this.controls = new OrbitControls( this.camera, this.renderer.domElement );
         this.controls.target.set(0, 3.5, 0);
@@ -68,7 +68,7 @@ class App{
 		// Load a glTF resource
 		loader.load(
 			// resource URL
-			'office-chair.glb',
+			'polyC.glb',
 			// called when the resource is loaded
 			function ( gltf ) {
                 const bbox = new THREE.Box3().setFromObject( gltf.scene );
