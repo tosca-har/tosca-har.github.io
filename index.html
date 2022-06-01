@@ -9,7 +9,7 @@
 	<body>
 
 		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's scences2
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's scences9
 		</div>
 
 		<!-- Import maps polyfill -->
@@ -93,60 +93,27 @@
 
 				loader.load( 'models/gltf/cpuzzle.glb', function ( gltf ) {
 					const model = gltf.scene;
-					let x = Math.random() * 4 - 2;
-					let y = Math.random() * 2;
-					let z = Math.random() * 4 - 2;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
-					piece.scale.set( .1, .1, .1 );
-					//scene.add( model ); //note a the loaded model is a group- hopefully with only one child
-					group.add( piece);
-					const piece2 = model.children[1];
-					x = Math.random() * 4 - 2;
-					y = Math.random() * 2;
-					z = Math.random() * 4 - 2;
-					piece2.position.set( x, y, z );
-					piece2.scale.set( .1, .1, .1 );
-					//scene.add( model ); //note a the loaded model is a group- hopefully with only one child
-					group.add( piece2);
+					for ( let i = 0; i < 9; i ++ ) {
+						let x = Math.random() * 4 - 2;
+						let y = Math.random() * 2;
+						let z = Math.random() * 4 - 2;
+						const piece = model.children[i];
+						piece.position.set( x, y, z );
+						piece.scale.set( .1, .1, .1 );
+						group.add( piece);
+					}
 				
-
 				}, undefined, function ( error ) {
 
 					console.error( error );
 
 				} );
 
-				for ( let i = 0; i < 3; i ++ ) {
 
-					const geometry = new THREE.TorusGeometry( 0.2, 0.04, 64, 32 );
-					
-					const material = new THREE.MeshStandardMaterial( {
-						vertexColors: true,
-						flatShading: true,
-						roughness: 1,
-						metalness: 0
-					} );
+					//object.rotation.x = Math.random() * 2 * Math.PI;
+					//object.rotation.y = Math.random() * 2 * Math.PI;
+					//object.rotation.z = Math.random() * 2 * Math.PI;
 
-					const object = new THREE.Mesh( geometry, material );
-
-					object.position.x = Math.random() * 4 - 2;
-					object.position.y = Math.random() * 2;
-					object.position.z = Math.random() * 4 - 2;
-
-					object.rotation.x = Math.random() * 2 * Math.PI;
-					object.rotation.y = Math.random() * 2 * Math.PI;
-					object.rotation.z = Math.random() * 2 * Math.PI;
-
-
-					object.castShadow = true;
-					object.receiveShadow = true;
-
-					group.add( object );
-
-				}
-
-				//
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
