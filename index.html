@@ -30,6 +30,7 @@
 			import { OrbitControls } from './jsm/controls/OrbitControls.js';
 			import { VRButton } from './jsm/webxr/VRButton.js';
 			import { XRControllerModelFactory } from './jsm/webxr/XRControllerModelFactory.js';
+			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 
 			let container;
 			let camera, scene, renderer;
@@ -88,13 +89,29 @@
 				scene.add( group );
 
 
-				for ( let i = 0; i < 10; i ++ ) {
+				const loader = new GLTFLoader();
+
+				loader.load( 'models/gltf/Flamingo.glb', function ( gltf ) {
+					const model = gltf.scene;
+					model.position.set( 1, 1, 0 );
+					model.scale.set( 1, 1, 1 );
+					scene.add( model );
+
+				}, undefined, function ( error ) {
+
+					console.error( error );
+
+				} );
+
+				for ( let i = 0; i < 3; i ++ ) {
 
 					const geometry = new THREE.TorusGeometry( 0.2, 0.04, 64, 32 );
+					
 					const material = new THREE.MeshStandardMaterial( {
-						color: Math.random() * 0xffffff,
-						roughness: 0.7,
-						metalness: 0.0
+						vertexColors: true,
+						flatShading: true,
+						roughness: 1,
+						metalness: 0
 					} );
 
 					const object = new THREE.Mesh( geometry, material );
@@ -107,7 +124,6 @@
 					object.rotation.y = Math.random() * 2 * Math.PI;
 					object.rotation.z = Math.random() * 2 * Math.PI;
 
-					object.scale.setScalar( Math.random() + 0.5 );
 
 					object.castShadow = true;
 					object.receiveShadow = true;
