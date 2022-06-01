@@ -1,123 +1,106 @@
 import * as THREE from '../../libs/three/three.module.js';
-import { VRButton } from '../../libs/VRButton.js';
-import { XRControllerModelFactory } from '../../libs/three/jsm/XRControllerModelFactory.js';
-import { BoxLineGeometry } from '../../libs/three/jsm/BoxLineGeometry.js';
-import { Stats } from '../../libs/stats.module.js';
+import { GLTFLoader } from '../../libs/three/jsm/GLTFLoader.js';
+import { RGBELoader } from '../../libs/three/jsm/RGBELoader.js';
 import { OrbitControls } from '../../libs/three/jsm/OrbitControls.js';
-
+import { LoadingBar } from '../../libs/LoadingBar.js';
 
 class App{
 	constructor(){
 		const container = document.createElement( 'div' );
 		document.body.appendChild( container );
         
-        this.clock = new THREE.Clock();
-        
-		this.camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 100 );
-		this.camera.position.set( 0, 1.6, 3 );
+		this.camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 100 );
+		this.camera.position.set( 0, 4, 14 );
         
 		this.scene = new THREE.Scene();
-        this.scene.background = new THREE.Color( 0x505050 );
-
-		this.scene.add( new THREE.HemisphereLight( 0x606060, 0x404040 ) );
-
-        const light = new THREE.DirectionalLight( 0xffffff );
-        light.position.set( 1, 1, 1 ).normalize();
-		this.scene.add( light );
+        this.scene.background = new THREE.Color( #add8e6 );
+        
+		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 0.5);
+		this.scene.add(ambient);
+        
+        const light = new THREE.DirectionalLight( 0xFFFFFF, 1.5 );
+        light.position.set( 0.2, 1, 1);
+        this.scene.add(light);
 			
-		this.renderer = new THREE.WebGLRenderer({ antialias: true } );
+		this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true } );
 		this.renderer.setPixelRatio( window.devicePixelRatio );
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
         this.renderer.outputEncoding = THREE.sRGBEncoding;
+        this.renderer.physicallyCorrectLights = true;
+        container.appendChild( this.renderer.domElement );
+		this.setEnvironment();
+		
+        this.loadingBar = new LoadingBar();
         
-		container.appendChild( this.renderer.domElement );
+        this.loadGLTF();
+    
         
         this.controls = new OrbitControls( this.camera, this.renderer.domElement );
-        this.controls.target.set(0, 1.6, 0);
+        this.controls.target.set(0, 3.5, 0);
         this.controls.update();
         
-        this.stats = new Stats();
-        document.body.appendChild( this.stats.dom );
-        
-        this.raycaster = new THREE.Raycaster();
-        this.workingMatrix = new THREE.Matrix4();
-        this.workingVector = new THREE.Vector3();
-        
-        this.initScene();
-        this.setupXR();
-        
         window.addEventListener('resize', this.resize.bind(this) );
-        
-        this.renderer.setAnimationLoop( this.render.bind(this) );
 	}	
     
-    random( min, max ){
-        return Math.random() * (max-min) + min;
+    setEnvironment(){
+        const loader = new RGBELoader().setDataType( THREE.UnsignedByteType );
+        const pmremGenerator = new THREE.PMREMGenerator( this.renderer );
+        pmremGenerator.compileEquirectangularShader();
+        
+        const self = this;
+        
+        loader.load( '../../assets/hdr/venice_sunset_1k.hdr', ( texture ) => {
+          const envMap = pmremGenerator.fromEquirectangular( texture ).texture;
+          pmremGenerator.dispose();
+
+          self.scene.environment = envMap;
+
+        }, undefined, (err)=>{
+            console.error( 'An error occurred setting the environment');
+        } );
     }
     
-    initScene(){
-        this.radius = 0.08;
-        
-        this.room = new THREE.LineSegments(
-					new BoxLineGeometry( 6, 6, 6, 10, 10, 10 ),
-					new THREE.LineBasicMaterial( { color: 0x808080 } )
-				);
-        this.room.geometry.translate( 0, 3, 0 );
-        this.scene.add( this.room );
-        
-        const geometry = new THREE.IcosahedronBufferGeometry( this.radius, 2 );
+    loadGLTF(){
+        const loader = new GLTFLoader( ).setPath('../../assets/');
+        const self = this;
+		
+		// Load a glTF resource
+		loader.load(
+			// resource URL
+			'polyC.glb',
+			// called when the resource is loaded
+			function ( gltf ) {
+                const bbox = new THREE.Box3().setFromObject( gltf.scene );
+                console.log(`min:${bbox.min.x.toFixed(2)},${bbox.min.y.toFixed(2)},${bbox.min.z.toFixed(2)} -  max:${bbox.max.x.toFixed(2)},${bbox.max.y.toFixed(2)},${bbox.max.z.toFixed(2)}`);
+                
+                gltf.scene.traverse( ( child ) => {
+                    if (child.isMesh){
+                        child.material.metalness = 0.2;
+                    }
+                })
+                self.chair = gltf.scene;
+                
+				self.scene.add( gltf.scene );
+                
+                self.loadingBar.visible = false;
+				
+				self.renderer.setAnimationLoop( self.render.bind(self));
+			},
+			// called while loading is progressing
+			function ( xhr ) {
 
-        for ( let i = 0; i < 200; i ++ ) {
+				self.loadingBar.progress = (xhr.loaded / xhr.total);
+				
+			},
+			// called when loading has errors
+			function ( error ) {
 
-            const object = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( { color: Math.random() * 0xffffff } ) );
+				console.log( 'An error happened' );
 
-            object.position.x = this.random( -2, 2 );
-            object.position.y = this.random( -2, 2 );
-            object.position.z = this.random( -2, 2 );
-
-            this.room.add( object );
-
-        }
+			}  
+        );
     }
     
-    setupXR(){
-        this.renderer.xr.enabled = true;
-        
-        const button = new VRButton( this.renderer );
-        
-        this.controllers = this.buildControllers();
-    }
-    
-    buildControllers(){
-        const controllerModelFactory = new XRControllerModelFactory();
-
-        const geometry = new THREE.BufferGeometry().setFromPoints( [ new THREE.Vector3( 0, 0, 0 ), new THREE.Vector3( 0, 0, - 1 ) ] );
-
-        const line = new THREE.Line( geometry );
-        line.name = 'line';
-		line.scale.z = 10;
-        
-        const controllers = [];
-        
-        for(let i=0; i<=1; i++){
-            const controller = this.renderer.xr.getController( i );
-            controller.add( line.clone() );
-            controller.userData.selectPressed = false;
-            this.scene.add( controller );
-            
-            controllers.push( controller );
-            
-            const grip = this.renderer.xr.getControllerGrip( i );
-            grip.add( controllerModelFactory.createControllerModel( grip ) );
-            this.scene.add( grip );
-        }
-        
-        return controllers;
-    }
-    
-    handleController( controller ){
-        
-    }
     
     resize(){
         this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -126,15 +109,7 @@ class App{
     }
     
 	render( ) {   
-        this.stats.update();
-        
-        if (this.controllers ){
-            const self = this;
-            this.controllers.forEach( ( controller) => { 
-                self.handleController( controller ) 
-            });
-        }
-        
+        this.chair.rotateY( 0.01 );
         this.renderer.render( this.scene, this.camera );
     }
 }
