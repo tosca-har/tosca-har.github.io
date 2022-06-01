@@ -14,7 +14,7 @@ class App{
 		this.camera.position.set( 0, 4, 14 );
         
 		this.scene = new THREE.Scene();
-        this.scene.background = new THREE.Color( 0xaaaaaa );
+        this.scene.background = new THREE.Color( #ADD8E6 );
         
 		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 0.5);
 		this.scene.add(ambient);
@@ -102,34 +102,6 @@ class App{
         );
     }
     
-    loadFBX(){
-        const loader = new FBXLoader( ).setPath('../../assets/');
-        const self = this;
-    
-        loader.load( 'office-chair.fbx', 
-            function ( object ) {    
-                self.chair = object;
-
-                self.scene.add( object );
-            
-                self.loadingBar.visible = false;
-            
-                self.renderer.setAnimationLoop( self.render.bind(self));
-            },
-			// called while loading is progressing
-			function ( xhr ) {
-
-				self.loadingBar.progress = (xhr.loaded / xhr.total);
-				
-			},
-			// called when loading has errors
-			function ( error ) {
-
-				console.log( 'An error happened' );
-
-			} 
-        );
-    }
     
     resize(){
         this.camera.aspect = window.innerWidth / window.innerHeight;
