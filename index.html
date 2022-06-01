@@ -9,7 +9,7 @@
 	<body>
 
 		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's scences
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's move
 		</div>
 
 		<!-- Import maps polyfill -->
@@ -109,10 +109,35 @@
 
 				} );
 
+				for ( let i = 0; i < 3; i ++ ) {
 
-					//object.rotation.x = Math.random() * 2 * Math.PI;
-					//object.rotation.y = Math.random() * 2 * Math.PI;
-					//object.rotation.z = Math.random() * 2 * Math.PI;
+const geometry = new THREE.TorusGeometry( 0.2, 0.04, 64, 32 );
+
+const material = new THREE.MeshStandardMaterial( {
+	vertexColors: true,
+	flatShading: true,
+	roughness: 1,
+	metalness: 0
+} );
+
+const object = new THREE.Mesh( geometry, material );
+
+object.position.x = Math.random() * 4 - 2;
+object.position.y = Math.random() * 2;
+object.position.z = Math.random() * 4 - 2;
+
+object.rotation.x = Math.random() * 2 * Math.PI;
+object.rotation.y = Math.random() * 2 * Math.PI;
+object.rotation.z = Math.random() * 2 * Math.PI;
+
+
+object.castShadow = true;
+object.receiveShadow = true;
+
+group.add( object );
+
+}
+
 
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
