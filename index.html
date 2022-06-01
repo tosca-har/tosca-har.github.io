@@ -9,7 +9,7 @@
 	<body>
 
 		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's sce
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's four
 		</div>
 
 		<!-- Import maps polyfill -->
@@ -89,121 +89,60 @@
 				scene.add( group );
 				let piecescale = 0.05;
 
-				const loader = new THREE.ObjectLoader();
+const loader = new GLTFLoader();
 
-				loader.load("models/model1.json", function ( obj ) {
-					obj.position.x = Math.random() * 4 - 2;
-					obj.position.y = Math.random() * 2;
-					obj.position.z = Math.random() * 4 - 2;
-					obj.scale.x = piecescale;
-					obj.scale.y = piecescale;
-					obj.scale.z = piecescale;
-				group.add( obj );
-	}, undefined, function ( error ) {
+
+				loader.load( 'models/gltf/crinigans4_1.glb', function ( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() * 4 - 2;
+					const y = Math.random() * 2;
+					const z = Math.random() * 4 - 2;
+					const piece = model.children[0];
+					piece.position.set( x, y, z );
+					piece.scale.set( piecescale, piecescale, piecescale);
+					group.add( piece);				
+				}, undefined, function ( error ) {
 					console.error( error );
 				} );
-				//const loader = new GLTFLoader();
 
-
-				// loader.load( 'models/gltf/cpuzzle2.glb', function ( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() * 4 - 2;
-				// 	const y = Math.random() * 2;
-				// 	const z = Math.random() * 4 - 2;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	group.add( piece);				
-				// }, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-
-				// loader.load( 'models/gltf/cpuzzle3.glb', function ( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() * 4 - 2;
-				// 	const y = Math.random() * 2;
-				// 	const z = Math.random() * 4 - 2;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	group.add( piece);				
-				// }, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/cpuzzle4.glb', function ( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() * 4 - 2;
-				// 	const y = Math.random() * 2;
-				// 	const z = Math.random() * 4 - 2;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	group.add( piece);				
-				// }, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/cpuzzle5.glb', function ( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() * 4 - 2;
-				// 	const y = Math.random() * 2;
-				// 	const z = Math.random() * 4 - 2;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	group.add( piece);				
-				// }, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/cpuzzle6.glb', function ( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() * 4 - 2;
-				// 	const y = Math.random() * 2;
-				// 	const z = Math.random() * 4 - 2;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	group.add( piece);				
-				// }, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/cpuzzle7.glb', function ( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() * 4 - 2;
-				// 	const y = Math.random() * 2;
-				// 	const z = Math.random() * 4 - 2;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	group.add( piece);				
-				// }, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/cpuzzle8.glb', function ( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() * 4 - 2;
-				// 	const y = Math.random() * 2;
-				// 	const z = Math.random() * 4 - 2;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	group.add( piece);				
-				// }, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/cpuzzle9.glb', function ( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() * 4 - 2;
-				// 	const y = Math.random() * 2;
-				// 	const z = Math.random() * 4 - 2;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	group.add( piece);				
-				// }, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				
-
+				loader.load( 'models/gltf/crinigans4_2.glb', function ( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() * 4 - 2;
+					const y = Math.random() * 2;
+					const z = Math.random() * 4 - 2;
+					const piece = model.children[0];
+					piece.position.set( x, y, z );
+					piece.scale.set( piecescale, piecescale, piecescale);
+					group.add( piece);				
+				}, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/crinigans4_3.glb', function ( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() * 4 - 2;
+					const y = Math.random() * 2;
+					const z = Math.random() * 4 - 2;
+					const piece = model.children[0];
+					piece.position.set( x, y, z );
+					piece.scale.set( piecescale, piecescale, piecescale);
+					group.add( piece);				
+				}, undefined, function ( error ) {
+					console.error( error );
+				} );
+			
+				loader.load( 'models/gltf/crinigans4_4.glb', function ( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() * 4 - 2;
+					const y = Math.random() * 2;
+					const z = Math.random() * 4 - 2;
+					const piece = model.children[0];
+					piece.position.set( x, y, z );
+					piece.scale.set( piecescale, piecescale, piecescale);
+					group.add( piece);				
+				}, undefined, function ( error ) {
+					console.error( error );
+				} );
+		
 
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
