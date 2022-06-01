@@ -9,7 +9,7 @@
 	<body>
 
 		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> vr - dragging
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's Hut
 		</div>
 
 		<!-- Import maps polyfill -->
@@ -87,17 +87,10 @@
 				group = new THREE.Group();
 				scene.add( group );
 
-				const geometries = [
-					new THREE.BoxGeometry( 0.2, 0.2, 0.2 ),
-					new THREE.ConeGeometry( 0.2, 0.2, 64 ),
-					new THREE.CylinderGeometry( 0.2, 0.2, 0.2, 64 ),
-					new THREE.IcosahedronGeometry( 0.2, 8 ),
-					new THREE.TorusGeometry( 0.2, 0.04, 64, 32 )
-				];
 
 				for ( let i = 0; i < 10; i ++ ) {
 
-					const geometry = geometries[ Math.floor( Math.random() * geometries.length ) ];
+					const geometry = new THREE.TorusGeometry( 0.2, 0.04, 64, 32 );
 					const material = new THREE.MeshStandardMaterial( {
 						color: Math.random() * 0xffffff,
 						roughness: 0.7,
