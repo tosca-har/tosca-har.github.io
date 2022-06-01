@@ -9,7 +9,7 @@
 	<body>
 
 		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's Torus
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's Group
 		</div>
 
 		<!-- Import maps polyfill -->
@@ -98,7 +98,8 @@
 					const z = Math.random() * 4 - 2;
 					model.position.set( x, y, z );
 					model.scale.set( .1, .1, .1 );
-					scene.add( model );
+					//scene.add( model );
+					group.add( model );
 
 				}, undefined, function ( error ) {
 
