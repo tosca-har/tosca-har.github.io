@@ -9,7 +9,7 @@
 	<body>
 
 		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's four
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's rotate
 		</div>
 
 		<!-- Import maps polyfill -->
@@ -100,6 +100,10 @@ const loader = new GLTFLoader();
 					const piece = model.children[0];
 					piece.position.set( x, y, z );
 					piece.scale.set( piecescale, piecescale, piecescale);
+					const rx = Math.random() * 2 * Math.PI;
+					const ry = Math.random() * 2 * Math.PI;
+					const rz = Math.random() * 2 * Math.PI;
+					piece.rotate.set(rx, ry, rz);
 					group.add( piece);				
 				}, undefined, function ( error ) {
 					console.error( error );
@@ -112,7 +116,13 @@ const loader = new GLTFLoader();
 					const z = Math.random() * 4 - 2;
 					const piece = model.children[0];
 					piece.position.set( x, y, z );
+
 					piece.scale.set( piecescale, piecescale, piecescale);
+					const rx = Math.random() * 2 * Math.PI;
+					const ry = Math.random() * 2 * Math.PI;
+					const rz = Math.random() * 2 * Math.PI;
+					
+					piece.rotate.set(rx, ry, rz);
 					group.add( piece);				
 				}, undefined, function ( error ) {
 					console.error( error );
@@ -125,6 +135,10 @@ const loader = new GLTFLoader();
 					const piece = model.children[0];
 					piece.position.set( x, y, z );
 					piece.scale.set( piecescale, piecescale, piecescale);
+					const rx = Math.random() * 2 * Math.PI;
+					const ry = Math.random() * 2 * Math.PI;
+					const rz = Math.random() * 2 * Math.PI;
+					piece.rotate.set(rx, ry, rz);
 					group.add( piece);				
 				}, undefined, function ( error ) {
 					console.error( error );
@@ -138,6 +152,10 @@ const loader = new GLTFLoader();
 					const piece = model.children[0];
 					piece.position.set( x, y, z );
 					piece.scale.set( piecescale, piecescale, piecescale);
+					const rx = Math.random() * 2 * Math.PI;
+					const ry = Math.random() * 2 * Math.PI;
+					const rz = Math.random() * 2 * Math.PI;
+					piece.rotate.set(rx, ry, rz);
 					group.add( piece);				
 				}, undefined, function ( error ) {
 					console.error( error );
