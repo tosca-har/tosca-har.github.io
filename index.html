@@ -9,7 +9,7 @@
 	<body>
 
 		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's four
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Crinigan's fun
 		</div>
 
 		<!-- Import maps polyfill -->
@@ -89,60 +89,24 @@
 				scene.add( group );
 				let piecescale = 0.05;
 
-const loader = new GLTFLoader();
+				const loader = new GLTFLoader();
 
+				function onLoad( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() * 4 - 2;
+					const y = Math.random() * 2;
+					const z = Math.random() * 4 - 2;
+					const piece = model.children[0];
+					piece.position.set( x, y, z );
+					piece.scale.set( piecescale, piecescale, piecescale);
+					group.add( piece);
 
-				loader.load( 'models/gltf/crinigans4_1.glb', function ( gltf ) {
-					const model = gltf.scene;					
-					const x = Math.random() * 4 - 2;
-					const y = Math.random() * 2;
-					const z = Math.random() * 4 - 2;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
-					piece.scale.set( piecescale, piecescale, piecescale);
-					group.add( piece);				
-				}, undefined, function ( error ) {
+				}
+
+				loader.load( 'models/gltf/cpuzzle500_1.glb', onLoad, undefined, function ( error ) {
 					console.error( error );
 				} );
 
-				loader.load( 'models/gltf/crinigans4_2.glb', function ( gltf ) {
-					const model = gltf.scene;					
-					const x = Math.random() * 4 - 2;
-					const y = Math.random() * 2;
-					const z = Math.random() * 4 - 2;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
-					piece.scale.set( piecescale, piecescale, piecescale);
-					group.add( piece);				
-				}, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/crinigans4_3.glb', function ( gltf ) {
-					const model = gltf.scene;					
-					const x = Math.random() * 4 - 2;
-					const y = Math.random() * 2;
-					const z = Math.random() * 4 - 2;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
-					piece.scale.set( piecescale, piecescale, piecescale);
-					group.add( piece);				
-				}, undefined, function ( error ) {
-					console.error( error );
-				} );
-			
-				loader.load( 'models/gltf/crinigans4_4.glb', function ( gltf ) {
-					const model = gltf.scene;					
-					const x = Math.random() * 4 - 2;
-					const y = Math.random() * 2;
-					const z = Math.random() * 4 - 2;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
-					piece.scale.set( piecescale, piecescale, piecescale);
-					group.add( piece);				
-				}, undefined, function ( error ) {
-					console.error( error );
-				} );
-		
 
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
