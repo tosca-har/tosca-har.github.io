@@ -210,7 +210,8 @@
 					const intersection = intersections[ 0 ];
 
 					const object = intersection.object;
-					object.material.emissive.b = 1;
+					//object.material.emissive.b = 1;
+					object.material.emissive.b = 0;
 					controller.attach( object );
 
 					controller.userData.selected = object;
