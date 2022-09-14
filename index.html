@@ -89,9 +89,10 @@
 				group = new THREE.Group();
 				scene.add( group );
 				let piecescale = 1;
+				let piecescale2 = 1/8;
 
 				const loader = new GLTFLoader();
-
+// really should change so scale accepted as argument
 				function onLoad( gltf ) {
 					const model = gltf.scene;					
 					const x = Math.random() * 2 - 1;
@@ -105,6 +106,23 @@
 					piece.position.set( x, y, z );
 					piece.rotation.set( rx, ry, rz );
 					piece.scale.set( piecescale, piecescale, piecescale);
+					group.add( piece);
+
+				}
+// really should change so scale accepted as argument
+				function onLoad2( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() * 2 - 1;
+					//const y = Math.random() * 2;
+					const y = 0.001;
+					const z = Math.random() * 2 - 1;
+					const rx = Math.random() * 2 * Math.PI;
+					const ry = Math.random() * 2 * Math.PI;
+					const rz = Math.random() * 2 * Math.PI;
+					const piece = model.children[0];
+					piece.position.set( x, y, z );
+					piece.rotation.set( rx, ry, rz );
+					piece.scale.set( piecescale2, piecescale2, piecescale2);
 					group.add( piece);
 
 				}
@@ -142,16 +160,16 @@
 				loader.load( 'models/gltf/piece11_10000_resHi.glb', onLoad, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/piece12_10000_resHi.glb', onLoad, undefined, function ( error ) {
+				loader.load( 'models/gltf/piece12_10000_resHi.glb', onLoad2, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/piece13_10000_resHi.glb', onLoad, undefined, function ( error ) {
+				loader.load( 'models/gltf/piece13_10000_resHi.glb', onLoad2, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/piece14_10000_resHi.glb', onLoad, undefined, function ( error ) {
+				loader.load( 'models/gltf/piece14_10000_resHi.glb', onLoad2, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/piece15_10000_resHi.glb', onLoad, undefined, function ( error ) {
+				loader.load( 'models/gltf/piece15_10000_resHi.glb', onLoad2, undefined, function ( error ) {
 					console.error( error );
 				} );
 
