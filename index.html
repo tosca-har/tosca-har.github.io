@@ -9,7 +9,7 @@
 	<body>
 
 		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Uvira's Pot_l
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Uvira's Pot_m
 		</div>
 
 		<!-- Import maps polyfill -->
@@ -43,6 +43,7 @@
 
 			let intersected = [];
 			let tempMatrix = new THREE.Matrix4();
+			let controls, group;
 			
 // 			loadingManager.onStart = () =>
 // {
@@ -60,7 +61,7 @@
 // {
 //     console.log('loadingManager: loading error')
 // }
-			let controls, group;
+			
 
 
 
@@ -88,8 +89,8 @@
 
 				
 
- 				const textureLoader = new THREE.TextureLoader();
-				const colorTexture = textureLoader.load('textures/info/image1.jpg');
+ 				//const textureLoader = new THREE.TextureLoader();
+				//const colorTexture = textureLoader.load('textures/info/image1.jpg');
 // const colorTexture2 = textureLoader.load('textures/info/image2.jpg')
 // const colorTexture3 = textureLoader.load('textures/info/image3.jpg')
 // const colorTexture4 = textureLoader.load('textures/info/image4.jpg')
@@ -108,13 +109,13 @@
 // const colorTexture17 = textureLoader.load('textures/info/image17.jpg')
 // const colorTexture18 = textureLoader.load('textures/info/image18.jpg')
 
-const infoPlanes = new THREE.Group();
-scene.add( infoPlanes);
+				const infoPlanes = new THREE.Group();
+				scene.add( infoPlanes);
 
 
- const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: colorTexture }))
-mesh.position.set( 0, .5, -1.1);
-infoPlanes.add(mesh)
+ 				//const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: colorTexture }))
+				//mesh.position.set( 0, .5, -1.1);
+				//infoPlanes.add(mesh)
 // const mesh2 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.2, 1), new THREE.MeshBasicMaterial({ map: colorTexture2 }))
 // mesh2.position.set( 0.5, .75, -.9);
 // mesh2.rotation.y = - Math.PI / 6;
@@ -211,17 +212,14 @@ infoPlanes.add(mesh)
 				infoPlanes = new THREE.Group();
 				scene.add( infoPlanes);
 
-				//var planeTexture = new THREE.TextureLoader().load( “images/texture/floor.png” );
+			
 				const planeMaterial = new THREE.MeshStandardMaterial( {
 					color: 0x6b8e23,
 					roughness: 1.0,
 					metalness: 0.0
 				} );
 				const plane1 = new THREE.Mesh( new THREE.PlaneGeometry( 1, 2 ), planeMaterial );
-				//var groundMaterial = new THREE.MeshStandardMaterial( { map: groundTexture } );
-
-	
-
+		
 
 				group = new THREE.Group();
 				scene.add( group );
@@ -233,7 +231,6 @@ infoPlanes.add(mesh)
 				function onLoad( gltf ) {
 					const model = gltf.scene;					
 					const x = Math.random() * 2 - 1;
-					//const y = Math.random() * 2;
 					const y = 0.001;
 					const z = Math.random() * 2 - 1;
 					const rx = Math.random() * 2 * Math.PI;
@@ -246,11 +243,10 @@ infoPlanes.add(mesh)
 					group.add( piece);
 
 				}
-// really should change so scale accepted as argument
+
 				function onLoad2( gltf ) {
 					const model = gltf.scene;					
 					const x = Math.random() * 2 - 1;
-					//const y = Math.random() * 2;
 					const y = 0.001;
 					const z = Math.random() * 2 - 1;
 					const rx = Math.random() * 2 * Math.PI;
