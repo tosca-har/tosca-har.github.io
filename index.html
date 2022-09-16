@@ -9,7 +9,7 @@
 	<body>
 
 		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Agarabi Vessel
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Agarabi Vessel1
 		</div>
 
 		<!-- Import maps polyfill -->
@@ -61,6 +61,15 @@
 				controls = new OrbitControls( camera, container );
 				controls.target.set( 0, 1.6, 0 );
 				controls.update();
+
+				const colorTexture = new THREE.TextureLoader().load( 'textures/info/image1.jpg' );
+				const infoPlanes = new THREE.Group();
+				scene.add( infoPlanes);
+
+
+				const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: colorTexture }))
+				mesh.position.set( 0, .5, -1.1);
+				infoPlanes.add(mesh)
 
 				const floorGeometry = new THREE.PlaneGeometry( 4, 4 );
 				const floorMaterial = new THREE.MeshStandardMaterial( {
