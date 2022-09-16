@@ -19,7 +19,8 @@
 		<script type="importmap">
 			{
 				"imports": {
-					"three": "../build/three.module.js"
+					"three": "../build/three.module.js",
+					"three/addons/": "./jsm/"
 				}
 			}
 		</script>
@@ -42,7 +43,7 @@
 
 			const intersected = [];
 			const tempMatrix = new THREE.Matrix4();
-			const loadingManager = new THREE.LoadingManager()
+			const loadingManager = new THREE.LoadingManager();
 			let controls, group;
 
 
