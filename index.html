@@ -28,10 +28,10 @@
 		<script type="module">
 
 			import * as THREE from 'three';
-			//import { OrbitControls } from './jsm/controls/OrbitControls.js';
-			//import { VRButton } from './jsm/webxr/VRButton.js';
-			//import { XRControllerModelFactory } from './jsm/webxr/XRControllerModelFactory.js';
-			//import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+			import { OrbitControls } from './jsm/controls/OrbitControls.js';
+			import { VRButton } from './jsm/webxr/VRButton.js';
+			import { XRControllerModelFactory } from './jsm/webxr/XRControllerModelFactory.js';
+			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 
 
 			let container;
@@ -41,9 +41,9 @@
 
 			let raycaster;
 
-			const intersected = [];
-			const tempMatrix = new THREE.Matrix4();
-			const loadingManager = new THREE.LoadingManager();
+			let intersected = [];
+			let tempMatrix = new THREE.Matrix4();
+			
 // 			loadingManager.onStart = () =>
 // {
 //     console.log('loadingManager: loading started')
@@ -70,6 +70,8 @@
 
 			function init() {
 
+
+				//let loadingManager = new THREE.LoadingManager();
 				container = document.createElement( 'div' );
 				document.body.appendChild( container );
 
@@ -86,8 +88,8 @@
 
 				
 
-// const textureLoader = new THREE.TextureLoader(loadingManager)
-// const colorTexture = textureLoader.load('textures/info/image1.jpg')
+ 				const textureLoader = new THREE.TextureLoader();
+				const colorTexture = textureLoader.load('textures/info/image1.jpg');
 // const colorTexture2 = textureLoader.load('textures/info/image2.jpg')
 // const colorTexture3 = textureLoader.load('textures/info/image3.jpg')
 // const colorTexture4 = textureLoader.load('textures/info/image4.jpg')
@@ -110,9 +112,9 @@ const infoPlanes = new THREE.Group();
 scene.add( infoPlanes);
 
 
-// const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: colorTexture }))
-// mesh.position.set( 0, .5, -1.1);
-// infoPlanes.add(mesh)
+ const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: colorTexture }))
+mesh.position.set( 0, .5, -1.1);
+infoPlanes.add(mesh)
 // const mesh2 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.2, 1), new THREE.MeshBasicMaterial({ map: colorTexture2 }))
 // mesh2.position.set( 0.5, .75, -.9);
 // mesh2.rotation.y = - Math.PI / 6;
