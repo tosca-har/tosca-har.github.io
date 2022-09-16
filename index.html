@@ -42,7 +42,7 @@
 
 			const intersected = [];
 			const tempMatrix = new THREE.Matrix4();
-
+			const loadingManager = new THREE.LoadingManager()
 			let controls, group;
 
 
@@ -67,7 +67,7 @@
 				controls.update();
 
 
-				const loadingManager = new THREE.LoadingManager()
+				
 				loadingManager.onStart = () =>
 {
     console.log('loadingManager: loading started')
