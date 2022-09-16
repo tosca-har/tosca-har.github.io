@@ -9,7 +9,7 @@
 	<body>
 
 		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Uvira's Pot_load
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Uvira's Pot_l
 		</div>
 
 		<!-- Import maps polyfill -->
@@ -28,10 +28,10 @@
 		<script type="module">
 
 			import * as THREE from 'three';
-			import { OrbitControls } from './jsm/controls/OrbitControls.js';
-			import { VRButton } from './jsm/webxr/VRButton.js';
-			import { XRControllerModelFactory } from './jsm/webxr/XRControllerModelFactory.js';
-			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+			//import { OrbitControls } from './jsm/controls/OrbitControls.js';
+			//import { VRButton } from './jsm/webxr/VRButton.js';
+			//import { XRControllerModelFactory } from './jsm/webxr/XRControllerModelFactory.js';
+			//import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 
 
 			let container;
@@ -44,22 +44,22 @@
 			const intersected = [];
 			const tempMatrix = new THREE.Matrix4();
 			const loadingManager = new THREE.LoadingManager();
-			loadingManager.onStart = () =>
-{
-    console.log('loadingManager: loading started')
-}
-loadingManager.onLoad = () =>
-{
-    console.log('loadingManager: loading finished')
-}
-loadingManager.onProgress = () =>
-{
-    console.log('loadingManager: loading progressing')
-}
-loadingManager.onError = () =>
-{
-    console.log('loadingManager: loading error')
-}
+// 			loadingManager.onStart = () =>
+// {
+//     console.log('loadingManager: loading started')
+// }
+// loadingManager.onLoad = () =>
+// {
+//     console.log('loadingManager: loading finished')
+// }
+// loadingManager.onProgress = () =>
+// {
+//     console.log('loadingManager: loading progressing')
+// }
+// loadingManager.onError = () =>
+// {
+//     console.log('loadingManager: loading error')
+// }
 			let controls, group;
 
 
@@ -86,25 +86,25 @@ loadingManager.onError = () =>
 
 				
 
-const textureLoader = new THREE.TextureLoader(loadingManager)
-const colorTexture = textureLoader.load('textures/info/image1.jpg')
-const colorTexture2 = textureLoader.load('textures/info/image2.jpg')
-const colorTexture3 = textureLoader.load('textures/info/image3.jpg')
-const colorTexture4 = textureLoader.load('textures/info/image4.jpg')
-const colorTexture5 = textureLoader.load('textures/info/image5.jpg')
-const colorTexture6 = textureLoader.load('textures/info/image6.jpg')
-const colorTexture7 = textureLoader.load('textures/info/image7.jpg')
-const colorTexture8 = textureLoader.load('textures/info/image8.jpg')
-const colorTexture9 = textureLoader.load('textures/info/image9.jpg')
-const colorTexture10 = textureLoader.load('textures/info/image10.jpg')
-const colorTexture11 = textureLoader.load('textures/info/image11.jpg')
-const colorTexture12 = textureLoader.load('textures/info/image12.jpg')
-const colorTexture13 = textureLoader.load('textures/info/image13.jpg')
-const colorTexture14 = textureLoader.load('textures/info/image14.jpg')
-const colorTexture15 = textureLoader.load('textures/info/image15.jpg')
-const colorTexture16 = textureLoader.load('textures/info/image16.jpg')
-const colorTexture17 = textureLoader.load('textures/info/image17.jpg')
-const colorTexture18 = textureLoader.load('textures/info/image18.jpg')
+// const textureLoader = new THREE.TextureLoader(loadingManager)
+// const colorTexture = textureLoader.load('textures/info/image1.jpg')
+// const colorTexture2 = textureLoader.load('textures/info/image2.jpg')
+// const colorTexture3 = textureLoader.load('textures/info/image3.jpg')
+// const colorTexture4 = textureLoader.load('textures/info/image4.jpg')
+// const colorTexture5 = textureLoader.load('textures/info/image5.jpg')
+// const colorTexture6 = textureLoader.load('textures/info/image6.jpg')
+// const colorTexture7 = textureLoader.load('textures/info/image7.jpg')
+// const colorTexture8 = textureLoader.load('textures/info/image8.jpg')
+// const colorTexture9 = textureLoader.load('textures/info/image9.jpg')
+// const colorTexture10 = textureLoader.load('textures/info/image10.jpg')
+// const colorTexture11 = textureLoader.load('textures/info/image11.jpg')
+// const colorTexture12 = textureLoader.load('textures/info/image12.jpg')
+// const colorTexture13 = textureLoader.load('textures/info/image13.jpg')
+// const colorTexture14 = textureLoader.load('textures/info/image14.jpg')
+// const colorTexture15 = textureLoader.load('textures/info/image15.jpg')
+// const colorTexture16 = textureLoader.load('textures/info/image16.jpg')
+// const colorTexture17 = textureLoader.load('textures/info/image17.jpg')
+// const colorTexture18 = textureLoader.load('textures/info/image18.jpg')
 
 const infoPlanes = new THREE.Group();
 scene.add( infoPlanes);
