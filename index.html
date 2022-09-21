@@ -64,6 +64,11 @@
 
 				const textureLoader = new THREE.TextureLoader()
 				const colorTexture = textureLoader.load( 'textures/info/image1.png' );
+				const colorTexture2 = textureLoader.load( 'textures/info/image2.png' );
+				const colorTexture3 = textureLoader.load( 'textures/info/image3.png' );
+				const colorTexture4 = textureLoader.load( 'textures/info/image4.png' );
+				const colorTexture5 = textureLoader.load( 'textures/info/image5.png' );
+				const colorTexture6 = textureLoader.load( 'textures/info/image6.png' );
 				const infoPlanes = new THREE.Group();
 				scene.add( infoPlanes);
 
@@ -71,6 +76,26 @@
 				const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: colorTexture }))
 				mesh.position.set( 0, .5, -1.1);
 				infoPlanes.add(mesh)
+				const mesh2 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.2, 1), new THREE.MeshBasicMaterial({ map: colorTexture2 }))
+mesh2.position.set( 0.5, .75, -.9);
+mesh2.rotation.y = - Math.PI / 6;
+infoPlanes.add(mesh2)
+const mesh3 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.2, 1), new THREE.MeshBasicMaterial({ map: colorTexture3 }))
+mesh3.position.set( 0.5, .25, -.9);
+mesh3.rotation.y = - Math.PI / 6;
+infoPlanes.add(mesh3)
+const mesh4 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.2, 1), new THREE.MeshBasicMaterial({ map: colorTexture4 }))
+mesh4.position.set( .9, .75, -.5);
+mesh4.rotation.y = - Math.PI / 3;
+infoPlanes.add(mesh4)
+const mesh5 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.2, 1), new THREE.MeshBasicMaterial({ map: colorTexture5 }))
+mesh5.position.set( .9, .25, -.5);
+mesh5.rotation.y = - Math.PI / 3;
+infoPlanes.add(mesh5)
+const mesh6 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.4, 1), new THREE.MeshBasicMaterial({ map: colorTexture6 }))
+mesh6.position.set( 1, .75, 0);
+mesh6.rotation.y = - Math.PI / 2;
+infoPlanes.add(mesh6)
 
 				const floorGeometry = new THREE.PlaneGeometry( 4, 4 );
 				const floorMaterial = new THREE.MeshStandardMaterial( {
@@ -81,7 +106,7 @@
 				} );
 				const floor = new THREE.Mesh( floorGeometry, floorMaterial );
 				floor.rotation.x = - Math.PI / 2;
-				floor.receiveShadow = true;
+				//floor.receiveShadow = true;
 				scene.add( floor );
 
 				scene.add( new THREE.HemisphereLight( 0x808080, 0x606060 ) );
