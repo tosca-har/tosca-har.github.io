@@ -53,7 +53,7 @@
 				document.body.appendChild( container );
 
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color( 0x808080 );
+				scene.background = new THREE.Color( 0x87ceeb );
 
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
 				camera.position.set( 0, 1.6, 3 );
@@ -90,10 +90,10 @@
 				mesh.position.set( 0, baseY + .5, -1.1);
 				infoPlanes.add(mesh)
 				const mesh2 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.2, 1), new THREE.MeshBasicMaterial({ map: colorTexture2 }))
-mesh2.position.set( 0.5, baseY + .75, -.9);
-mesh2.rotation.y = - Math.PI / 6;
-infoPlanes.add(mesh2)
-const mesh3 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.2, 1), new THREE.MeshBasicMaterial({ map: colorTexture3 }))
+				mesh2.position.set( 0.5, baseY + .75, -.9);
+				mesh2.rotation.y = - Math.PI / 6;
+				infoPlanes.add(mesh2)
+				const mesh3 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.2, 1), new THREE.MeshBasicMaterial({ map: colorTexture3 }))
 mesh3.position.set( 0.5, baseY + .25, -.9);
 mesh3.rotation.y = - Math.PI / 6;
 infoPlanes.add(mesh3)
@@ -142,7 +142,7 @@ mesh14.position.set( -.9, baseY + .25, .5);
 mesh14.rotation.y = - Math.PI * 4/ 3;
 infoPlanes.add(mesh14)
 const mesh15 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: colorTexture15 }))
-mesh15.position.set( -1, .5, 0);
+mesh15.position.set( -1, baseY + .5, 0);
 mesh15.rotation.y = - Math.PI * 3/ 2;
 infoPlanes.add(mesh15)
 const mesh16 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: colorTexture16 }))
