@@ -92,76 +92,77 @@
 
 				const baseY = 0.5;
 				const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: colorTexture }))
-				mesh.position.set( 0, baseY + .5, -1.1);
+				//mesh.position.set( 0, baseY + .5, -1.1);
+				mesh.position.set( 0.5, baseY + .5, -0.9);
 				infoPlanes.add(mesh)
 				const mesh2 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture2 }))
-				mesh2.position.set( 0.5, baseY + .75, -.9);
+				mesh2.position.set( 0.9, baseY + .75, -.5);
 				mesh2.rotation.y = - Math.PI / 6;
 				infoPlanes.add(mesh2)
 				const mesh3 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture3 }))
-mesh3.position.set( 0.5, baseY + .25, -.9);
-mesh3.rotation.y = - Math.PI / 6;
-infoPlanes.add(mesh3)
-const mesh4 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture4 }))
-mesh4.position.set( .9, baseY + .75, -.5);
-mesh4.rotation.y = - Math.PI / 3;
-infoPlanes.add(mesh4)
-const mesh5 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture5 }))
-mesh5.position.set( .9, baseY + .25, -.5);
-mesh5.rotation.y = - Math.PI / 3;
-infoPlanes.add(mesh5)
-const mesh6 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.4, 1), new THREE.MeshBasicMaterial({ map: colorTexture6 }))
-mesh6.position.set( 1, baseY + .75, 0);
-mesh6.rotation.y = - Math.PI / 2;
-infoPlanes.add(mesh6)
-const mesh7 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.4, 1), new THREE.MeshBasicMaterial({ map: colorTexture7 }))
-mesh7.position.set( 1, baseY + .25, 0);
-mesh7.rotation.y = - Math.PI / 2;
-infoPlanes.add(mesh7)
-const mesh8 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.4, 1), new THREE.MeshBasicMaterial({ map: colorTexture8 }))
-mesh8.position.set( .9, baseY + .75, 0.5);
-mesh8.rotation.y =  -Math.PI * 2 / 3;
-infoPlanes.add(mesh8)
-const mesh9 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.4, 1), new THREE.MeshBasicMaterial({ map: colorTexture9 }))
-mesh9.position.set( .9, baseY + .25, 0.5);
-mesh9.rotation.y =  -Math.PI * 2/ 3;
-infoPlanes.add(mesh9)
-const mesh10 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.4, 1), new THREE.MeshBasicMaterial({ map: colorTexture10 }))
-mesh10.position.set( 0, baseY + .75, 1);
-mesh10.rotation.y =  -Math.PI * 5/ 6;
-infoPlanes.add(mesh10)
-const mesh11 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture11 }))
-mesh11.position.set( 0, baseY + .25, 1);
-mesh11.rotation.y = - Math.PI ;
-infoPlanes.add(mesh11)
-const mesh12 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.4, 1), new THREE.MeshBasicMaterial({ map: colorTexture12 }))
-mesh12.position.set( -.5, baseY + .5, 0.9);
-mesh12.rotation.y =  -Math.PI * 7/ 6;
-infoPlanes.add(mesh12)
-const mesh13 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture13 }))
-mesh13.position.set( -.9, baseY + .75, .5);
-mesh13.rotation.y = - Math.PI * 4 /3;
-infoPlanes.add(mesh13)
-const mesh14 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture14 }))
-mesh14.position.set( -.9, baseY + .25, .5);
-mesh14.rotation.y = - Math.PI * 4/ 3;
-infoPlanes.add(mesh14)
-const mesh15 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: colorTexture15 }))
-mesh15.position.set( -1, baseY + .5, 0);
-mesh15.rotation.y = - Math.PI * 3/ 2;
-infoPlanes.add(mesh15)
-const mesh16 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: colorTexture16 }))
-mesh16.position.set( -.9, baseY + .5, -.5);
-mesh16.rotation.y = - Math.PI * 5/ 3;
-infoPlanes.add(mesh16)
-const mesh17 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture17 }))
-mesh17.position.set( -.5, baseY +  .75, -.9);
-mesh17.rotation.y = - Math.PI * 11 /6;
-infoPlanes.add(mesh17)
-const mesh18 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture18 }))
-mesh18.position.set( -.5, baseY + .25, -.9);
-mesh18.rotation.y = - Math.PI * 11/ 6;
-infoPlanes.add(mesh18)
+				mesh3.position.set( 0.9, baseY + .25, -.5);
+				mesh3.rotation.y = - Math.PI / 6;
+				infoPlanes.add(mesh3)
+				const mesh4 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture4 }))
+				mesh4.position.set( 1, baseY + .75, 0);
+				mesh4.rotation.y = - Math.PI / 3;
+				infoPlanes.add(mesh4)
+				const mesh5 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture5 }))
+				mesh5.position.set( 1, baseY + .25, 0);
+				mesh5.rotation.y = - Math.PI / 3;	
+				infoPlanes.add(mesh5)
+				const mesh6 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.4, 1), new THREE.MeshBasicMaterial({ map: colorTexture6 }))
+				mesh6.position.set( 0.9, baseY + .75, 0.5);
+				mesh6.rotation.y = - Math.PI / 2;
+				infoPlanes.add(mesh6)
+				const mesh7 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.4, 1), new THREE.MeshBasicMaterial({ map: colorTexture7 }))
+				mesh7.position.set( 0.9, baseY + .25, 0.5);
+				mesh7.rotation.y = - Math.PI / 2;
+				infoPlanes.add(mesh7)
+				const mesh8 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.4, 1), new THREE.MeshBasicMaterial({ map: colorTexture8 }))
+				mesh8.position.set( .5, baseY + .75, 0.9);
+				mesh8.rotation.y =  -Math.PI * 2 / 3;
+				infoPlanes.add(mesh8)
+				const mesh9 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.4, 1), new THREE.MeshBasicMaterial({ map: colorTexture9 }))
+				mesh9.position.set( .5, baseY + .25, 0.9);
+				mesh9.rotation.y =  -Math.PI * 2/ 3;
+				infoPlanes.add(mesh9)
+				const mesh10 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.4, 1), new THREE.MeshBasicMaterial({ map: colorTexture10 }))
+				mesh10.position.set( 0, baseY + .75, 1);
+				mesh10.rotation.y =  -Math.PI * 5/ 6;
+				infoPlanes.add(mesh10)
+				const mesh11 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture11 }))
+				mesh11.position.set( 0, baseY + .25, 1);
+				mesh11.rotation.y = - Math.PI ;
+				infoPlanes.add(mesh11)
+				const mesh12 = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.4, 1), new THREE.MeshBasicMaterial({ map: colorTexture12 }))
+				mesh12.position.set( -.5, baseY + .5, 0.9);
+				mesh12.rotation.y =  -Math.PI * 7/ 6;
+				infoPlanes.add(mesh12)
+				const mesh13 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture13 }))
+				mesh13.position.set( -.9, baseY + .75, .5);
+				mesh13.rotation.y = - Math.PI * 4 /3;
+				infoPlanes.add(mesh13)
+				const mesh14 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture14 }))
+				mesh14.position.set( -.9, baseY + .25, .5);
+				mesh14.rotation.y = - Math.PI * 4/ 3;
+				infoPlanes.add(mesh14)
+				const mesh15 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: colorTexture15 }))
+				mesh15.position.set( -1, baseY + .5, 0);
+				mesh15.rotation.y = - Math.PI * 3/ 2;
+				infoPlanes.add(mesh15)
+				const mesh16 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: colorTexture16 }))
+				mesh16.position.set( -.9, baseY + .5, -.5);
+				mesh16.rotation.y = - Math.PI * 5/ 3;
+				infoPlanes.add(mesh16)
+				const mesh17 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture17 }))
+				mesh17.position.set( -.5, baseY +  .75, -.9);
+				mesh17.rotation.y = - Math.PI * 11 /6;
+				infoPlanes.add(mesh17)
+				const mesh18 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.225, 1), new THREE.MeshBasicMaterial({ map: colorTexture18 }))
+				mesh18.position.set( -.5, baseY + .25, -.9);
+				mesh18.rotation.y = - Math.PI * 11/ 6;
+				infoPlanes.add(mesh18)
 
 				const floorGeometry = new THREE.PlaneGeometry( 4, 4 );
 				//const floorMaterial = new THREE.MeshStandardMaterial( {
