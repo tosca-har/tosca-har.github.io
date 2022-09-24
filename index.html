@@ -57,7 +57,7 @@
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0x87ceeb );
 				let sky = new Sky();
-				//sky.scale.setScalar( 450000 );
+				sky.scale.setScalar( 450000 );
 				scene.add( sky );
 
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
@@ -186,12 +186,12 @@ infoPlanes.add(mesh18)
 
 				const light = new THREE.DirectionalLight( 0xffffff );
 				light.position.set( 0, 6, 0 );
-				light.castShadow = true;
-				light.shadow.camera.top = 2;
-				light.shadow.camera.bottom = - 2;
-				light.shadow.camera.right = 2;
-				light.shadow.camera.left = - 2;
-				light.shadow.mapSize.set( 4096, 4096 );
+				//light.castShadow = true;
+				//light.shadow.camera.top = 2;
+				//light.shadow.camera.bottom = - 2;
+				//light.shadow.camera.right = 2;
+				//light.shadow.camera.left = - 2;
+				//light.shadow.mapSize.set( 4096, 4096 );
 				scene.add( light );
 
 				group = new THREE.Group();
