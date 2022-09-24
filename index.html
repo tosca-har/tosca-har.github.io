@@ -68,6 +68,7 @@
 				controls.update();
 
 				const textureLoader = new THREE.TextureLoader()
+				const colorTexture0 = textureLoader.load( 'textures/info/image0.png' );
 				const colorTexture = textureLoader.load( 'textures/info/image1.png' );
 				const colorTexture2 = textureLoader.load( 'textures/info/image2.png' );
 				const colorTexture3 = textureLoader.load( 'textures/info/image3.png' );
@@ -91,8 +92,10 @@
 				scene.add( infoPlanes);
 
 				const baseY = 0.5;
+				const mesh0 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.45, 1), new THREE.MeshBasicMaterial({ map: colorTexture0 }))
+				mesh0.position.set( 0, baseY + .5, -1.1);
+				infoPlanes.add(mesh0)
 				const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: colorTexture }))
-				//mesh.position.set( 0, baseY + .5, -1.1);
 				mesh.position.set( 0.5, baseY + .5, -0.9);
 				mesh.rotation.y = - Math.PI / 6;
 				infoPlanes.add(mesh)
