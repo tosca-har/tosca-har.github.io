@@ -31,6 +31,8 @@
 			import { VRButton } from './jsm/webxr/VRButton.js';
 			import { XRControllerModelFactory } from './jsm/webxr/XRControllerModelFactory.js';
 			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+			import { Sky } from 'three/addons/objects/Sky.js';
+
 
 			let container;
 			let camera, scene, renderer;
@@ -54,6 +56,9 @@
 
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0x87ceeb );
+				let sky = new Sky();
+				//sky.scale.setScalar( 450000 );
+				scene.add( sky );
 
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
 				camera.position.set( 0, 1.6, 3 );
@@ -169,7 +174,7 @@ infoPlanes.add(mesh18)
 				grassTexture.repeat.y = 3
 				grassTexture.wrapS = THREE.RepeatWrapping
 				grassTexture.wrapT = THREE.RepeatWrapping
-				grassTexture.generateMipmaps = false //saves gpu if false
+				grassTexture.generateMipmaps = true //saves gpu if false
 				//colorTexture.minFilter = THREE.NearestFilter // use minFilter if images pixes smaller than renderers
 				//colorTexture.magFilter = THREE.NearestFilter
 				const floor = new THREE.Mesh( floorGeometry, new THREE.MeshBasicMaterial({ map: grassTexture }));
