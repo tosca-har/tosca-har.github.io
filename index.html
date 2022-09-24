@@ -169,7 +169,9 @@ infoPlanes.add(mesh18)
 				grassTexture.repeat.y = 3
 				grassTexture.wrapS = THREE.RepeatWrapping
 				grassTexture.wrapT = THREE.RepeatWrapping
-				grassTexture.generateMipmaps =false
+				grassTexture.generateMipmaps = false //saves gpu if false
+				//colorTexture.minFilter = THREE.NearestFilter // use minFilter if images pixes smaller than renderers
+				//colorTexture.magFilter = THREE.NearestFilter
 				const floor = new THREE.Mesh( floorGeometry, new THREE.MeshBasicMaterial({ map: grassTexture }));
 				floor.rotation.x = - Math.PI / 2;
 				//floor.receiveShadow = true;
