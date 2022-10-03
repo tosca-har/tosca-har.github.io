@@ -127,7 +127,7 @@
 				jars = new THREE.Group();
 				scene.add( jars );
 				const sectionMeshes = []
-				let piecescale = 1;
+				let piecescale = .01;
 				const loader = new GLTFLoader();
 				const dracoLoader = new DRACOLoader();
  				dracoLoader.setDecoderPath( '/draco/' );
@@ -198,7 +198,7 @@
 				const sectionTorus = []
 				const torusMaterial = new THREE.MeshBasicMaterial({color: 0x006400});
 				const torusGeometry = new THREE.TorusGeometry( 0.015, 0.05, 10, 20 );
-				object = new THREE.Mesh( torusGeometry, torusMaterial );
+				let object = new THREE.Mesh( torusGeometry, torusMaterial );
 				object.position.set( -2, 0.77, - 1 );
 				torus.add( object );
 
