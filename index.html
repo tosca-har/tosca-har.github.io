@@ -197,9 +197,10 @@
 				scene.add( torus );
 				const sectionTorus = []
 				const torusMaterial = new THREE.MeshBasicMaterial({color: 0x006400});
-				const torusGeometry = new THREE.TorusGeometry( 0.015, 0.05, 10, 20 );
+				const torusGeometry = new THREE.TorusGeometry( 0.015, 0.005, 10, 10 );
 				let torusObject = new THREE.Mesh( torusGeometry, torusMaterial );
-				torusObject.position.set( -2, 0.77, - 1 );
+				torusObject.position.set( -1.0, 0.77, - 0.5 );
+				torusObject.rotation.z = - Math.PI / 4;
 				torus.add( torusObject );
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
