@@ -200,8 +200,7 @@
 				const torusGeometry = new THREE.TorusGeometry( 0.015, 0.005, 10, 10 );
 				let torusObject = new THREE.Mesh( torusGeometry, torusMaterial );
 				torusObject.position.set( -1.0, 0.77, - 0.5 );
-				torusObject.rotation.z = - Math.PI / 4;
-				torusObject.rotation.x = - Math.PI / 2;
+				torusObject.rotation.x = -Math.PI * 1/2;;
 				torus.add( torusObject );
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
