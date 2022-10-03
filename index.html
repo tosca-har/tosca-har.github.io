@@ -37,7 +37,7 @@
 			let camera, scene, renderer;
 			let controller1, controller2;
 			let controllerGrip1, controllerGrip2;
-
+	
 			let raycaster;
 
 			const intersected = [];
@@ -198,9 +198,9 @@
 				const sectionTorus = []
 				const torusMaterial = new THREE.MeshBasicMaterial({color: 0x006400});
 				const torusGeometry = new THREE.TorusGeometry( 0.015, 0.05, 10, 20 );
-				let object = new THREE.Mesh( torusGeometry, torusMaterial );
-				object.position.set( -2, 0.77, - 1 );
-				torus.add( object );
+				let torusObject = new THREE.Mesh( torusGeometry, torusMaterial );
+				torusObject.position.set( -2, 0.77, - 1 );
+				torus.add( torusObject );
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
