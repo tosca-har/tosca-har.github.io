@@ -43,7 +43,7 @@
 			const intersected = [];
 			const tempMatrix = new THREE.Matrix4();
 
-			let controls, jars;
+			let controls, jars, torus;
 
 			init();
 			animate();
@@ -122,6 +122,8 @@
 				light.position.set( 0, 6, 0 );
 				scene.add( light );
 
+
+				// jars
 				jars = new THREE.Group();
 				scene.add( jars );
 				const sectionMeshes = []
@@ -129,10 +131,16 @@
 				const loader = new GLTFLoader();
 				const dracoLoader = new DRACOLoader();
  				dracoLoader.setDecoderPath( '/draco/' );
+				//dracoLoader.setDecoderPath( 'js/libs/draco/' );
+				// dracoLoader.setDecoderConfig( { type: 'js' } );
  				loader.setDRACOLoader( dracoLoader );
 
 				const parameters = {
-			    materialColor: '#9c5315'
+			    materialColor: '#9c5315',
+				ringTopColor: '#89c854',
+				coilColor: '#ff0000',
+				paddleColor: '#1e2f97',
+				coilBeatenColor: '#fc9483'
 				}
 
 // really should change so scale accepted as argument
@@ -184,7 +192,15 @@
 				// 	console.error( error );
 				// } );
 
-
+				// torus
+				torus = new THREE.Group();
+				scene.add( torus );
+				const sectionTorus = []
+				const torusMaterial = new THREE.MeshBasicMaterial({color: 0x006400});
+				const torusGeometry = new THREE.TorusGeometry( 0.015, 0.05, 10, 20 );
+				object = new THREE.Mesh( torusGeometry, torusMaterial );
+				object.position.set( -2, 0.77, - 1 );
+				torus.add( object );
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
