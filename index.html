@@ -151,6 +151,7 @@
 					const z = Math.random() * 2 - 1;
 					const piece = model.children[0];
 					//piece.position.set( x, y, z );
+					piece.set.y = 1.5;
 					piece.scale.set( piecescale, piecescale, piecescale);
 					piece.material.color.set(parameters.materialColor);
 					jars.add( piece);
