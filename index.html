@@ -151,7 +151,7 @@
 					const z = Math.random() * 2 - 1;
 					const piece = model.children[0];
 					//piece.position.set( x, y, z );
-					piece.position.y = 1.5;
+					//piece.position.y = 1.5;
 					piece.scale.set( piecescale, piecescale, piecescale);
 					piece.material.color.set(parameters.materialColor);
 					jars.add( piece);
@@ -161,46 +161,85 @@
 				loader.load( 'models/gltf/Maluku.glb', onLoad, undefined, function ( error ) {
 					console.error( error );
 				} );
-				//loader.load( 'models/gltf/Adzera.glb', onLoad, undefined, function ( error ) {
-				//	console.error( error );
-				//} );
-				// loader.load( 'models/gltf/Agarabi.glb', onLoad, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/Aibom.glb', onLoad, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/Bau.glb', onLoad, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/Collingwood.glb', onLoad, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/Demta.glb', onLoad, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/Dimiri.glb', onLoad, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/Huon.glb', onLoad, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/Ileales.glb', onLoad, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/Kaiep.glb', onLoad, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/Kombio.glb', onLoad, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
+				loader.load( 'models/gltf/adzera.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/agarabi.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/aibom.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/bau.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/aloalo.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/begilam.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/collingwood.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/demta.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/dimiri.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/huon.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/ilesales.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/kaiep.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/kombio.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/louisade.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/mailu.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/manus.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/marik.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/meno.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/moto.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/sumao.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/triobriand.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/tumleo.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/waiGeo.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/yabob.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
 
 				// torus
 				torus = new THREE.Group();
 				scene.add( torus );
 				const sectionTorus = []
 				const torusMaterial = new THREE.MeshBasicMaterial({color: 0x006400});
-				const torusGeometry = new THREE.TorusGeometry( 0.015, 0.005, 10, 10 );
+				const torusGeometry = new THREE.TorusGeometry( 0.015, 0.005, 20, 20 );
 				let torusObject = new THREE.Mesh( torusGeometry, torusMaterial );
 				torusObject.position.set( -1.0, 0.76, - 0.5 );
 				torusObject.rotation.x = -Math.PI * 1/2;;
