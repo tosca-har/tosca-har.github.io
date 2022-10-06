@@ -113,7 +113,7 @@
 				//colorTexture.magFilter = THREE.NearestFilter
 				const theMap = new THREE.Mesh( mapGeometry, new THREE.MeshBasicMaterial({ map: mapTexture }));
 				theMap.rotation.x = - Math.PI / 2;
-				theMap.position.set( 0, 0.75, 0);
+				theMap.position.set( 0, 0.73, 0);
 				scene.add( theMap);
 
 				//Lights
@@ -143,7 +143,7 @@
 				coilBeatenColor: '#fc9483'
 				}
 
-// really should change so scale accepted as argument
+// really should change so scale or colour accepted as argument if pos
 				function onLoad( gltf ) {
 					const model = gltf.scene;					
 					const x = Math.random() * 2 - 1;
@@ -154,6 +154,21 @@
 					//piece.position.y = 1.5;
 					piece.scale.set( piecescale, piecescale, piecescale);
 					piece.material.color.set(parameters.materialColor);
+					jars.add( piece);
+					sectionMeshes.push(piece);
+				}
+
+
+				function onLoadCoil( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() * 2 - 1;
+					const y = 1.001;
+					const z = Math.random() * 2 - 1;
+					const piece = model.children[0];
+					//piece.position.set( x, y, z );
+					//piece.position.y = 1.5;
+					piece.scale.set( piecescale, piecescale, piecescale);
+					piece.material.color.set(parameters.coilColor);
 					jars.add( piece);
 					sectionMeshes.push(piece);
 				}
@@ -170,13 +185,13 @@
 				loader.load( 'models/gltf/aibom.glb', onLoad, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/bau.glb', onLoad, undefined, function ( error ) {
+				loader.load( 'models/gltf/bau.glb', onLoadCoil, undefined, function ( error ) {
 					console.error( error );
 				} );
 				loader.load( 'models/gltf/aloalo.glb', onLoad, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/begilam.glb', onLoad, undefined, function ( error ) {
+				loader.load( 'models/gltf/begilam.glb', onLoadCoil, undefined, function ( error ) {
 					console.error( error );
 				} );
 				loader.load( 'models/gltf/collingwood.glb', onLoad, undefined, function ( error ) {
@@ -185,7 +200,7 @@
 				loader.load( 'models/gltf/demta.glb', onLoad, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/dimiri.glb', onLoad, undefined, function ( error ) {
+				loader.load( 'models/gltf/dimiri.glb', onLoadCoil, undefined, function ( error ) {
 					console.error( error );
 				} );
 				loader.load( 'models/gltf/huon.glb', onLoad, undefined, function ( error ) {
@@ -197,7 +212,7 @@
 				loader.load( 'models/gltf/kaiep.glb', onLoad, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/kombio.glb', onLoad, undefined, function ( error ) {
+				loader.load( 'models/gltf/kombio.glb', onLoadCoil, undefined, function ( error ) {
 					console.error( error );
 				} );
 				loader.load( 'models/gltf/louisade.glb', onLoad, undefined, function ( error ) {
@@ -209,16 +224,16 @@
 				loader.load( 'models/gltf/manus.glb', onLoad, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/marik.glb', onLoad, undefined, function ( error ) {
+				loader.load( 'models/gltf/marik.glb', onLoadCoil, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/meno.glb', onLoad, undefined, function ( error ) {
+				loader.load( 'models/gltf/meno.glb', onLoadCoil, undefined, function ( error ) {
 					console.error( error );
 				} );
 				loader.load( 'models/gltf/moto.glb', onLoad, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/sumao.glb', onLoad, undefined, function ( error ) {
+				loader.load( 'models/gltf/sumao.glb', onLoadCoil, undefined, function ( error ) {
 					console.error( error );
 				} );
 				loader.load( 'models/gltf/triobriand.glb', onLoad, undefined, function ( error ) {
@@ -240,10 +255,20 @@
 				const sectionTorus = []
 				const torusMaterial = new THREE.MeshBasicMaterial({color: 0x006400});
 				const torusGeometry = new THREE.TorusGeometry( 0.015, 0.005, 20, 20 );
-				let torusObject = new THREE.Mesh( torusGeometry, torusMaterial );
-				torusObject.position.set( -1.0, 0.76, - 0.5 );
-				torusObject.rotation.x = -Math.PI * 1/2;;
-				torus.add( torusObject );
+
+				function addTorus( xpos, zpos) {
+					let torusObject = new THREE.Mesh( torusGeometry, torusMaterial );				
+					torusObject.position.set( xpos, 0.74, zpos );	
+					torusObject.scale.set( piecescale, piecescale, piecescale);
+					torusObject.rotation.x = -Math.PI * 1/2;
+					torus.add( torusObject );
+					sectionTorus.push(torusObject);
+				}
+
+				addTorus(-0.86, 0.08)
+				//torusObject.position.set( -1.0, 0.74, - 0.5 );
+				
+				
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
