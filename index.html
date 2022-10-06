@@ -127,7 +127,7 @@
 				jars = new THREE.Group();
 				scene.add( jars );
 				const sectionMeshes = []
-				let piecescale = .01;
+				let piecescale = 1;
 				const loader = new GLTFLoader();
 				const dracoLoader = new DRACOLoader();
  				dracoLoader.setDecoderPath( '/draco/' );
@@ -150,17 +150,19 @@
 					const y = 1.001;
 					const z = Math.random() * 2 - 1;
 					const piece = model.children[0];
-					piece.position.set( x, y, z );
+					//piece.position.set( x, y, z );
 					piece.scale.set( piecescale, piecescale, piecescale);
 					piece.material.color.set(parameters.materialColor);
 					jars.add( piece);
 					sectionMeshes.push(piece);
 				}
 
-
-				loader.load( 'models/gltf/Adzera.glb', onLoad, undefined, function ( error ) {
+				loader.load( 'models/gltf/Maluku.glb', onLoad, undefined, function ( error ) {
 					console.error( error );
 				} );
+				//loader.load( 'models/gltf/Adzera.glb', onLoad, undefined, function ( error ) {
+				//	console.error( error );
+				//} );
 				// loader.load( 'models/gltf/Agarabi.glb', onLoad, undefined, function ( error ) {
 				// 	console.error( error );
 				// } );
