@@ -333,7 +333,7 @@
 				loader.load( 'models/gltf/moto.glb', onLoadPaddle, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/sumao.glb', onLoadCoil, undefined, function ( error ) {
+				loader.load( 'models/gltf/pubineri.glb', onLoadCoil, undefined, function ( error ) {
 					console.error( error );
 				} );
 				loader.load( 'models/gltf/triobriand.glb', onLoadAmp, undefined, function ( error ) {
@@ -540,7 +540,23 @@
 				}
 
 			}
+//mouse events
+				// function onPointerDown( event ) {
 
+				// mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+				// mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
+				// raycaster.setFromCamera( mouse, camera );
+				// const intersects = raycaster.intersectObjects( scene.children, false );
+				// if ( intersects.length > 0 ) {
+
+				// 	const object = intersects[ 0 ].object;
+				// 	object.layers.toggle( BLOOM_SCENE );
+				// 	render();
+
+				// }
+
+				// }
 			//
 
 			function animate() {
