@@ -90,6 +90,34 @@
 				// load technique key
 				// const keyTexture = textureLoader.load( 'textures/info/key.png' );
 				const mapTexture = textureLoader.load('textures/png.png'); //from google maps
+				const mapTexture2 = textureLoader.load('texturesP/pacificS.png'); //from google maps
+
+				const highres = textureLoader.load('texturesP/WD_2_14.png'); //
+				const jpgres = textureLoader.load('texturesP/WD_2_14_r50.png'); //
+				const medres = textureLoader.load('texturesP/WD_2_14_Pre.png'); //
+				const lowres = textureLoader.load('texturesP/WD_2_14_r10.png'); //
+				const petroGeometry = new THREE.PlaneGeometry( 0.5, 1 );
+				const petroGeometry2 = new THREE.PlaneGeometry( 0.25, 0.5 );
+
+				const gallery = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: highres }));
+				gallery.position.set( 0, 0.5, -1); 
+				scene.add( gallery);
+
+				const gallery2 = new THREE.Mesh( petroGeometry2, new THREE.MeshBasicMaterial({ map: highres }));
+				gallery2.position.set( -1, 0.5, -1); 
+				scene.add( gallery2);
+
+				const gallery3 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: jpgres }));
+				gallery3.position.set(1, 0.5, -1); 
+				scene.add( gallery3);
+
+				const gallery4 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: medres }));
+				gallery4.position.set(1, 0.5, 1); 
+				scene.add( gallery4);
+
+				const gallery5 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: lowres }));
+				gallery5.position.set(1, 0.5, 1); 
+				scene.add( gallery5);
 				//const infoPlanes = new THREE.Group();
 				//scene.add( infoPlanes);
 
@@ -107,14 +135,21 @@
 				
 				//the Map
 				const mapGeometry = new THREE.PlaneGeometry( 3.0, 1.5 );
-
+				const mapGeometry2 = new THREE.PlaneGeometry( 4.0, 4.0 );
 				mapTexture.generateMipmaps = true //saves gpu if false
+				mapTexture2.generateMipmaps = true //saves gpu if false
 				//colorTexture.minFilter = THREE.NearestFilter // use minFilter if images pixes smaller than renderers
 				//colorTexture.magFilter = THREE.NearestFilter
-				const theMap = new THREE.Mesh( mapGeometry, new THREE.MeshBasicMaterial({ map: mapTexture }));
+//for pots
+				//const theMap = new THREE.Mesh( mapGeometry, new THREE.MeshBasicMaterial({ map: mapTexture }));
+				const theMap = new THREE.Mesh( mapGeometry2, new THREE.MeshBasicMaterial({ map: mapTexture2 }));
 				theMap.rotation.x = - Math.PI / 2;
-				theMap.position.set( 0, 0.73, 0);
+				//theMap.position.set( 0, 0.73, 0); //desk
+				theMap.position.set( 0, 0, 0); //floor
 				scene.add( theMap);
+
+
+
 
 				//Lights
 				scene.add( new THREE.HemisphereLight( 0x808080, 0x606060 ) );
