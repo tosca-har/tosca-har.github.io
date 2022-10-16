@@ -93,30 +93,18 @@
 				const mapTexture2 = textureLoader.load('texturesP/pacificS.png'); //from google maps
 
 				const highres = textureLoader.load('texturesP/WD_2_14.png'); //
-				const jpgres = textureLoader.load('texturesP/WD_2_14_r50.jpg'); //
-				const medres = textureLoader.load('texturesP/WD_2_14_Pre.jpg'); //
+				//const jpgres = textureLoader.load('texturesP/WD_2_14_r50.jpg'); //
+				//const medres = textureLoader.load('texturesP/WD_2_14_Pre.jpg'); //
 				const lowres = textureLoader.load('texturesP/WD_2_14_r10.jpg'); //
 				const petroGeometry = new THREE.PlaneGeometry( 0.5, 1 );
 				const petroGeometry2 = new THREE.PlaneGeometry( 0.25, 0.5 );
 
 				const gallery = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: highres }));
-				gallery.position.set( 0, 0.5, -1); 
+				gallery.position.set( 0, 0.73, -1); 
 				scene.add( gallery);
 
-				const gallery2 = new THREE.Mesh( petroGeometry2, new THREE.MeshBasicMaterial({ map: highres }));
-				gallery2.position.set( -1, 0.5, -1); 
-				scene.add( gallery2);
-
-				const gallery3 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: jpgres }));
-				gallery3.position.set(1, 0.5, -1); 
-				scene.add( gallery3);
-
-				const gallery4 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: medres }));
-				gallery4.position.set(1, 0.5, 1); 
-				scene.add( gallery4);
-
 				const gallery5 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: lowres }));
-				gallery5.position.set(2, 0.5, 1); 
+				gallery5.position.set(0, 1.75, -1); 
 				scene.add( gallery5);
 				//const infoPlanes = new THREE.Group();
 				//scene.add( infoPlanes);
@@ -447,8 +435,8 @@
 				scene.add( controller1 );
 
 				controller2 = renderer.xr.getController( 1 );
-				controller2.addEventListener( 'selectstart', onSelectStart );
-				controller2.addEventListener( 'selectend', onSelectEnd );
+				controller2.addEventListener( 'selectstart', onSelectStart2 );
+				controller2.addEventListener( 'selectend', onSelectEnd2 );
 				scene.add( controller2 );
 
 				const controllerModelFactory = new XRControllerModelFactory();
@@ -489,6 +477,43 @@
 
 			}
 
+			function onSelectStart2( event ) {
+
+				const controller = event.target;
+
+				const intersections = getIntersections( controller );
+
+				if ( intersections.length > 0 ) {
+
+					const intersection = intersections[ 0 ];
+
+					const object = intersection.object;
+					//object.material.emissive.b = 1;
+					object.material.emissive.b = 0;
+					controller.attach( object );
+
+					controller.userData.selected = object;
+
+				}
+
+			}
+
+			function onSelectEnd2( event ) {
+
+				const controller = event.target;
+
+				if ( controller.userData.selected !== undefined ) {
+
+					const object = controller.userData.selected;
+					object.material.emissive.b = 0;
+					jars.attach( object );
+
+					controller.userData.selected = undefined;
+
+				}
+
+
+			}
 			function onSelectStart( event ) {
 
 				const controller = event.target;
@@ -510,7 +535,7 @@
 
 			}
 
-			function onSelectEnd( event ) {
+			function onSelectEnd2( event ) {
 
 				const controller = event.target;
 
@@ -526,6 +551,7 @@
 
 
 			}
+
 
 			function getIntersections( controller ) {
 
