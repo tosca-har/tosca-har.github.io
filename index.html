@@ -56,7 +56,6 @@
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0x87ceeb );
 				
-
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
 				camera.position.set( 0, 1.6, 3 );
 
@@ -66,8 +65,8 @@
 
 				const textureLoader = new THREE.TextureLoader()
 				// Load information panels  -first one is instructions
-				// const colorTexture0 = textureLoader.load( 'textures/info/image0.png' );
-				// const colorTexture = textureLoader.load( 'textures/info/image1.png' );
+				const introTexture = textureLoader.load( 'textures/Intro.jpg' );
+				const adzeraTexture = textureLoader.load( 'textures/Adzera.jpg' );
 				// const colorTexture2 = textureLoader.load( 'textures/info/image2.png' );
 				// const colorTexture3 = textureLoader.load( 'textures/info/image3.png' );
 				// const colorTexture4 = textureLoader.load( 'textures/info/image4.png' );
@@ -91,21 +90,11 @@
 				// const keyTexture = textureLoader.load( 'textures/info/key.png' );
 				const mapTexture = textureLoader.load('textures/png.png'); //from google maps
 	
-				const petroGeometry = new THREE.PlaneGeometry( 0.5, 0.5 );
-	
+				const infoGeometry = new THREE.PlaneGeometry( 0.5, 0.5 );
 
-				//const gallery = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: instructions }));
-				//gallery.position.set( 0, 0.73, -1); 
-				//scene.add( gallery);
-
-				//const infoPlanes = new THREE.Group();
-				//scene.add( infoPlanes);
-
-				//clue board need to change so dependent on torus selected.
-				//const baseY = 0.5;
-				//const mesh0 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.45, 1), new THREE.MeshBasicMaterial({ map: colorTexture0 }))
-				//mesh0.position.set( 0, baseY + .5, -1.1);
-				//infoPlanes.add(mesh0)
+				const gallery = new THREE.Mesh( infoGeometry, new THREE.MeshBasicMaterial({ map: introTexture }));
+				gallery.position.set( 0, 0.73, -.75); 
+				scene.add( gallery);
 
 				//technique key
 				//const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: keyTexture }))
