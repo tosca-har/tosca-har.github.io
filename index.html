@@ -68,7 +68,7 @@
 				// Load information panels  -first one is instructions
 				const introTexture = textureLoader.load( 'textures/Intro.jpg' );
 				const adzeraTexture = textureLoader.load( 'textures/Adzera.jpg' );
-				// const colorTexture2 = textureLoader.load( 'textures/info/image2.png' );
+				const keyTexture = textureLoader.load( 'textures/key.jpg' );
 				// const colorTexture3 = textureLoader.load( 'textures/info/image3.png' );
 				// const colorTexture4 = textureLoader.load( 'textures/info/image4.png' );
 				// const colorTexture5 = textureLoader.load( 'textures/info/image5.png' );
@@ -87,14 +87,16 @@
 				// const colorTexture18 = textureLoader.load( 'textures/info/image18.png' );
 				// const colorTexture17 = textureLoader.load( 'textures/info/image19.png' );
 				// const colorTexture18 = textureLoader.load( 'textures/info/image20.png' );
-				// load technique key
-				// const keyTexture = textureLoader.load( 'textures/info/key.png' );
+				
 				const mapTexture = textureLoader.load('textures/png.png'); //from google maps
 	
 				const infoGeometry = new THREE.PlaneGeometry( 0.5, 0.5 );
 				const gallery = new THREE.Mesh( infoGeometry, new THREE.MeshBasicMaterial({ map: introTexture }));
 				gallery.position.set( 0, 1.1, -.75); 
 				scene.add( gallery);
+				const gallery2 = new THREE.Mesh( infoGeometry, new THREE.MeshBasicMaterial({ map: keyTexture }));
+				gallery2.position.set( 0.75, 1.1, -.75); 
+				scene.add( gallery2);
 
 				//technique key
 				//const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: keyTexture }))
