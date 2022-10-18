@@ -9,7 +9,7 @@
 	<body>
 
 		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Select a torus
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> The Jars of Papua
 		</div>
 
 		<!-- Import maps polyfill -->
@@ -54,7 +54,8 @@
 				document.body.appendChild( container );
 
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color( 0x87ceeb );
+				//scene.background = new THREE.Color( 0x87ceeb ); // light blue
+				scene.background = new THREE.Color( 0xf7d382 ); // peach
 				
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
 				camera.position.set( 0, 1.6, 3 );
@@ -132,20 +133,18 @@
 				const loader = new GLTFLoader();
 				const dracoLoader = new DRACOLoader();
  				dracoLoader.setDecoderPath( '/draco/' );
-				//dracoLoader.setDecoderPath( 'js/libs/draco/' );
-				// dracoLoader.setDecoderConfig( { type: 'js' } );
  				loader.setDRACOLoader( dracoLoader );
 
 				const parameters = {
 			    materialColor: '#9c5315',
-				ringTopColor: '#89c854',
+				ringTopColor: '#19ffE7',
 				coilColor: '#ff0000',
 				paddleColor: '#1e2f97',
-				coilBeatenColor: '#fc9483',
-				paddleAddColor: '#1e2f97',
-				wangelaColor: '#e47200',
-				amphColor: '#382b00',
-				nabColor: '#e8e337'
+				coilBeatenColor: '#e8e337',
+				paddleAddColor: '#a61ef4',
+				wangelaColor: '#ff821A',
+				amphColor: '#fc9483',
+				nabColor: '#209F00'
 				}
 
 // really should change so scale or colour accepted as argument if pos
@@ -298,7 +297,7 @@
 				loader.load( 'models/gltf/collingwood.glb', onLoadWangela, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/demta.glb', onLoadPaddleD, undefined, function ( error ) {
+				loader.load( 'models/gltf/demta.glb', onLoad, undefined, function ( error ) {
 					console.error( error );
 				} );
 				loader.load( 'models/gltf/dimiri.glb', onLoadCoil, undefined, function ( error ) {
@@ -307,7 +306,7 @@
 				loader.load( 'models/gltf/huon.glb', onLoadPaddle, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/ilesales.glb', onLoadPaddleD, undefined, function ( error ) {
+				loader.load( 'models/gltf/ilesales.glb', onLoadPaddle, undefined, function ( error ) {
 					console.error( error );
 				} );
 				loader.load( 'models/gltf/kaiep.glb', onLoadPaddle, undefined, function ( error ) {
@@ -343,7 +342,7 @@
 				loader.load( 'models/gltf/tumleo.glb', onLoadPaddle, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/waiGeo.glb', onLoadPaddle, undefined, function ( error ) {
+				loader.load( 'models/gltf/waiGeo.glb', onLoadPaddleD, undefined, function ( error ) {
 					console.error( error );
 				} );
 				loader.load( 'models/gltf/yabob.glb', onLoadPaddle, undefined, function ( error ) {
