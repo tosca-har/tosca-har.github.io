@@ -19,7 +19,8 @@
 		<script type="importmap">
 			{
 				"imports": {
-					"three": "../build/three.module.js"
+					"three": "../build/three.module.js",
+					"three/addons/": "./jsm/"
 				}
 			}
 		</script>
@@ -30,7 +31,7 @@
 			import { OrbitControls } from './jsm/controls/OrbitControls.js';
 			import { VRButton } from './jsm/webxr/VRButton.js';
 			import { XRControllerModelFactory } from './jsm/webxr/XRControllerModelFactory.js';
-			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+			//import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 			
 			let container;
 			let camera, scene, renderer;
@@ -167,8 +168,6 @@
 				addSite(-1.1127, -0.61987); //Ulong
 			
 	
-				
-				
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
@@ -202,8 +201,6 @@
 				controllerGrip2.add( controllerModelFactory.createControllerModel( controllerGrip2 ) );
 				scene.add( controllerGrip2 );
 
-				//
-
 				const geometry = new THREE.BufferGeometry().setFromPoints( [ new THREE.Vector3( 0, 0, 0 ), new THREE.Vector3( 0, 0, - 1 ) ] );
 
 				const line = new THREE.Line( geometry );
@@ -215,8 +212,6 @@
 
 				raycaster = new THREE.Raycaster();
 
-				//
-
 				window.addEventListener( 'resize', onWindowResize );
 
 			}
@@ -225,7 +220,6 @@
 
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
-
 				renderer.setSize( window.innerWidth, window.innerHeight );
 
 			}
@@ -233,78 +227,56 @@
 			
 			function onSelectStart( event ) {
 
-const controller = event.target;
-const intersections = getIntersections( controller );
-if ( intersections.length > 0 ) {
-	const intersection = intersections[ 0 ];
-	const object = intersection.object;
-	object.material.emissive.b = 0;
-	controller.attach( object );
-	controller.userData.selected = object;
-}
+				const controller = event.target;
+				const intersections = getIntersections( controller );
+				if ( intersections.length > 0 ) {
+				const intersection = intersections[ 0 ];
+				const object = intersection.object;
+				object.material.emissive.b = 0;
+				controller.attach( object );
+				controller.userData.selected = object;
+				}
+			}
 
-}
+			function onSelectEnd( event ) {
+				const controller = event.target;
+				if ( controller.userData.selected !== undefined ) {
+					const object = controller.userData.selected;
+					object.material.emissive.b = 0;
+					cones.attach( object );
+					controller.userData.selected = undefined;
+				}
+			}
 
-function onSelectEnd( event ) {
+			function getIntersections( controller ) {
+				tempMatrix.identity().extractRotation( controller.matrixWorld );
+				raycaster.ray.origin.setFromMatrixPosition( controller.matrixWorld );
+				raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
+				return raycaster.intersectObjects( cones.children, false );
+			}
 
-const controller = event.target;
+			function intersectObjects( controller ) {
 
-if ( controller.userData.selected !== undefined ) {
-	const object = controller.userData.selected;
-	object.material.emissive.b = 0;
-	cones.attach( object );
-	controller.userData.selected = undefined;
-}
-}
+				if ( controller.userData.selected !== undefined ) return;
+				const line = controller.getObjectByName( 'line' );
+				const intersections = getIntersections( controller );
+				if ( intersections.length > 0 ) {
+					const intersection = intersections[ 0 ];
+					const object = intersection.object;
+					object.material.emissive.r = 1;
+					intersected.push( object );
+					line.scale.z = intersection.distance;
+				} else {
+					line.scale.z = 5;
+				}
+			}
 
-function getIntersections( controller ) {
-tempMatrix.identity().extractRotation( controller.matrixWorld );
-raycaster.ray.origin.setFromMatrixPosition( controller.matrixWorld );
-raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
-return raycaster.intersectObjects( cones.children, false );
-}
-
-function intersectObjects( controller ) {
-
-// Do not highlight when already selected
-if ( controller.userData.selected !== undefined ) return;
-const line = controller.getObjectByName( 'line' );
-const intersections = getIntersections( controller );
-if ( intersections.length > 0 ) {
-	const intersection = intersections[ 0 ];
-	const object = intersection.object;
-	object.material.emissive.r = 1;
-	intersected.push( object );
-	line.scale.z = intersection.distance;
-} else {
-	line.scale.z = 5;
-}
-}
-
-function cleanIntersected() {
-while ( intersected.length ) {
-	const object = intersected.pop();
-	object.material.emissive.r = 0;
-}
-}
-//mouse events
-				// function onPointerDown( event ) {
-
-				// mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-				// mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-
-				// raycaster.setFromCamera( mouse, camera );
-				// const intersects = raycaster.intersectObjects( scene.children, false );
-				// if ( intersects.length > 0 ) {
-
-				// 	const object = intersects[ 0 ].object;
-				// 	object.layers.toggle( BLOOM_SCENE );
-				// 	render();
-
-				// }
-
-				// }
-			//
+			function cleanIntersected() {
+				while ( intersected.length ) {
+					const object = intersected.pop();
+					object.material.emissive.r = 0;
+				}
+			}
 
 			function animate() {
 
@@ -315,10 +287,8 @@ while ( intersected.length ) {
 			function render() {
 
 				cleanIntersected();
-
 				intersectObjects( controller1 );
 				intersectObjects( controller2 );
-
 				renderer.render( scene, camera );
 
 			}
