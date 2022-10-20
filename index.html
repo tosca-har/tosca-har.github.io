@@ -53,7 +53,7 @@
 				document.body.appendChild( container );
 
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color( 0x87ceeb );
+				scene.background = new THREE.Color( 0x000000 );
 				
 
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
@@ -161,7 +161,7 @@
 				scene.add( cones );
 				const sectionMeshes = [];
 				const torusMaterial = new THREE.MeshBasicMaterial({color: 0xff0000});
-				const torusGeometry = new THREE.ConeGeometry( 0.1, .20, 10 );
+				const torusGeometry = new THREE.ConeGeometry( 0.05, .10, 10 );
 
 				function addSite( xpos, zpos) {
 					let siteObject = new THREE.Mesh( torusGeometry, torusMaterial );				
