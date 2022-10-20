@@ -43,7 +43,7 @@
 			const intersected = [];
 			const tempMatrix = new THREE.Matrix4();
 
-			let controls, cones;
+			let controls, group;
 
 			init();
 			animate();
@@ -136,17 +136,17 @@
 // 				} );
 				
 				// add sites cones in group so can test for ray intersection
-				cones = new THREE.Group();
-				scene.add( cones );
-				//const sectionMeshes = [];
-				const torusMaterial = new THREE.MeshBasicMaterial({color: 0x000000});
-				const torusGeometry = new THREE.ConeGeometry( 0.02, .10, 10 );
+				group = new THREE.Group();
+				scene.add( group);
+			
+				//const torusMaterial = new THREE.MeshBasicMaterial({color: 0x000000});
+				//const torusGeometry = new THREE.ConeGeometry( 0.02, .10, 10 );
 
 				function addSite( xpos, zpos) {
-					let siteObject = new THREE.Mesh( torusGeometry, torusMaterial );				
-					siteObject.position.set( xpos, 0.01, zpos );	
+					const object = new THREE.Mesh( new THREE.ConeGeometry( 0.02, .10, 10 ), new THREE.MeshBasicMaterial({color: 0x000000}) );				
+					object.position.set( xpos, 0.01, zpos );	
 					//siteObject.rotation.x = -Math.PI * 1/2;
-					cones.add( siteObject );
+					group.add( object );
 					
 				}
 
@@ -230,11 +230,11 @@
 				const controller = event.target;
 				const intersections = getIntersections( controller );
 				if ( intersections.length > 0 ) {
-				const intersection = intersections[ 0 ];
-				const object = intersection.object;
-				object.material.emissive.b = 0;
-				controller.attach( object );
-				controller.userData.selected = object;
+					const intersection = intersections[ 0 ];
+					const object = intersection.object;
+					object.material.emissive.b = 1;
+					controller.attach( object );
+					controller.userData.selected = object;
 				}
 			}
 
@@ -243,7 +243,7 @@
 				if ( controller.userData.selected !== undefined ) {
 					const object = controller.userData.selected;
 					object.material.emissive.b = 0;
-					cones.attach( object );
+					group.attach( object );
 					controller.userData.selected = undefined;
 				}
 			}
@@ -252,7 +252,7 @@
 				tempMatrix.identity().extractRotation( controller.matrixWorld );
 				raycaster.ray.origin.setFromMatrixPosition( controller.matrixWorld );
 				raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
-				return raycaster.intersectObjects( cones.children, false );
+				return raycaster.intersectObjects( group.children, false );
 			}
 
 			function intersectObjects( controller ) {
