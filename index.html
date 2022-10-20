@@ -210,8 +210,8 @@
 				scene.add( controller1 );
 
 				controller2 = renderer.xr.getController( 1 );
-				controller2.addEventListener( 'selectstart', onSelectStart2 );
-				controller2.addEventListener( 'selectend', onSelectEnd2 );
+				controller2.addEventListener( 'selectstart', onSelectStart );
+				controller2.addEventListener( 'selectend', onSelectEnd );
 				scene.add( controller2 );
 
 				const controllerModelFactory = new XRControllerModelFactory();
@@ -252,43 +252,7 @@
 
 			}
 
-			function onSelectStart2( event ) {
-
-				const controller = event.target;
-
-				const intersections = getIntersections( controller );
-
-				if ( intersections.length > 0 ) {
-
-					const intersection = intersections[ 0 ];
-
-					const object = intersection.object;
-					//object.material.emissive.b = 1;
-					object.material.emissive.b = 0;
-					controller.attach( object );
-
-					controller.userData.selected = object;
-
-				}
-
-			}
-
-			function onSelectEnd2( event ) {
-
-				const controller = event.target;
-
-				if ( controller.userData.selected !== undefined ) {
-
-					const object = controller.userData.selected;
-					object.material.emissive.b = 0;
-					cones.attach( object );
-
-					controller.userData.selected = undefined;
-
-				}
-
-
-			}
+			
 			function onSelectStart( event ) {
 
 				const controller = event.target;
@@ -301,10 +265,9 @@
 
 					const object = intersection.object;
 					//const agroup =  object.userData.group;
-					object.material.emissive.b = 0;
 					//if ( agroup.visible ) { agroup.visible = false}
 					//else { agroup.visible = true }
-					//controller.attach( object );
+					controller.attach( object );
 
 					controller.userData.selected = object;
 
@@ -317,13 +280,10 @@
 				const controller = event.target;
 
 				if ( controller.userData.selected !== undefined ) {
-
-					//const object = controller.userData.selected;
-					//object.material.emissive.b = 0;
-					//cones.attach( object );
-
+					const object = controller.userData.selected;
+					object.material.emissive.b = 0;
+					group.attach( object );
 					controller.userData.selected = undefined;
-
 				}
 
 
@@ -355,7 +315,7 @@
 					const intersection = intersections[ 0 ];
 
 					const object = intersection.object;
-					object.material.emissive.r = 1;
+					object.material.emissive.b = 1;
 					intersected.push( object );
 
 					line.scale.z = intersection.distance;
@@ -373,7 +333,7 @@
 				while ( intersected.length ) {
 
 					const object = intersected.pop();
-					object.material.emissive.r = 0;
+					object.material.emissive.b = 0;
 
 				}
 
