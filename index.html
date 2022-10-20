@@ -9,7 +9,7 @@
 	<body>
 
 		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Select a torus
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> Virtual Petrography
 		</div>
 
 		<!-- Import maps polyfill -->
@@ -90,10 +90,10 @@
 				
 				const mapTexture2 = textureLoader.load('textures/pacificS.png'); //from google maps
 
-				const lowres = textureLoader.load('textures/WD_2_14_r10.jpg'); //
+				const bandaI1 = textureLoader.load('textures/WD_2_14.jpg'); //
 				const petroGeometry = new THREE.PlaneGeometry( 0.5, 1 );
 
-				const gallery = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: highres }));
+				const gallery = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: bandaI1 }));
 				gallery.position.set( 0, 0.73, -1); 
 				scene.add( gallery);
 
@@ -300,10 +300,11 @@
 					const intersection = intersections[ 0 ];
 
 					const object = intersection.object;
-					const agroup =  object.userData.group;
+					//const agroup =  object.userData.group;
 					object.material.emissive.b = 0;
-					object.userData.group.visible
-					controller.attach( object );
+					//if ( agroup.visible ) { agroup.visible = false}
+					//else { agroup.visible = true }
+					//controller.attach( object );
 
 					controller.userData.selected = object;
 
@@ -317,9 +318,9 @@
 
 				if ( controller.userData.selected !== undefined ) {
 
-					const object = controller.userData.selected;
-					object.material.emissive.b = 0;
-					cones.attach( object );
+					//const object = controller.userData.selected;
+					//object.material.emissive.b = 0;
+					//cones.attach( object );
 
 					controller.userData.selected = undefined;
 
