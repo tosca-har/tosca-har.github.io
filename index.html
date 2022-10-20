@@ -64,54 +64,25 @@
 				controls.update();
 
 				const textureLoader = new THREE.TextureLoader()
-				// Load information panels  -first one is instructions
-				// const colorTexture0 = textureLoader.load( 'textures/info/image0.png' );
-				// const colorTexture = textureLoader.load( 'textures/info/image1.png' );
-				// const colorTexture2 = textureLoader.load( 'textures/info/image2.png' );
-				// const colorTexture3 = textureLoader.load( 'textures/info/image3.png' );
-				// const colorTexture4 = textureLoader.load( 'textures/info/image4.png' );
-				// const colorTexture5 = textureLoader.load( 'textures/info/image5.png' );
-				// const colorTexture6 = textureLoader.load( 'textures/info/image6.png' );
-				// const colorTexture7 = textureLoader.load( 'textures/info/image7.png' );
-				// const colorTexture8 = textureLoader.load( 'textures/info/image8.png' );
-				// const colorTexture9 = textureLoader.load( 'textures/info/image9.png' );
-				// const colorTexture10 = textureLoader.load( 'textures/info/image10.png' );
-				// const colorTexture11 = textureLoader.load( 'textures/info/image11.png' );
-				// const colorTexture12 = textureLoader.load( 'textures/info/image12.png' );
-				// const colorTexture13 = textureLoader.load( 'textures/info/image13.png' );
-				// const colorTexture14 = textureLoader.load( 'textures/info/image14.png' );
-				// const colorTexture15 = textureLoader.load( 'textures/info/image15.png' );
-				// const colorTexture16 = textureLoader.load( 'textures/info/image16.png' );
-				// const colorTexture17 = textureLoader.load( 'textures/info/image17.png' );
-				// const colorTexture18 = textureLoader.load( 'textures/info/image18.png' );
-				// const colorTexture17 = textureLoader.load( 'textures/info/image19.png' );
-				// const colorTexture18 = textureLoader.load( 'textures/info/image20.png' );
-			
 				
 				const mapTexture2 = textureLoader.load('textures/pacificS.png'); //from google maps
-
-				const bandaI1 = textureLoader.load('textures/WD_2_14.jpg'); //
 				const petroGeometry = new THREE.PlaneGeometry( 0.5, 1 );
 
-				const gallery = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: bandaI1 }));
-				gallery.position.set( 0, 0.73, -1); 
-				scene.add( gallery);
+				const bandaPlanes = new THREE.Group();
+				scene.add( bandaPlanes);
 
 
-				//const infoPlanes = new THREE.Group();
-				//scene.add( infoPlanes);
+			
+				const bandaI1Tex = textureLoader.load('textures/WD_2_14.jpg'); //
 
-				//clue board need to change so dependent on torus selected.
-				//const baseY = 0.5;
-				//const mesh0 = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.45, 1), new THREE.MeshBasicMaterial({ map: colorTexture0 }))
-				//mesh0.position.set( 0, baseY + .5, -1.1);
-				//infoPlanes.add(mesh0)
+				const bandaI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: bandaI1Tex }));
+				bandaI1.position.set( 0, 0.73, -1); 
+				bandaPlanes.add( bandaI1 );
 
-				//technique key
-				//const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.9, 1), new THREE.MeshBasicMaterial({ map: keyTexture }))
-				//mesh.position.set( 0.5, baseY + .5, -0.9);
-				//mesh.rotation.y = - Math.PI / 6;
-				//infoPlanes.add(mesh)
+
+				
+
+	
 				
 				//the Map
 				const mapGeometry2 = new THREE.PlaneGeometry( 4.0, 4.0 );
@@ -136,21 +107,6 @@
 
 
 
-// // really should change so scale or colour accepted as argument if pos
-// 				function onLoad( gltf ) {
-// 					const model = gltf.scene;					
-// 					const x = Math.random() * 2 - 1;
-// 					const y = 1.001;
-// 					const z = Math.random() * 2 - 1;
-// 					const piece = model.children[0];
-// 					//piece.position.set( x, y, z );
-// 					//piece.position.y = 1.5;
-// 					piece.scale.set( piecescale, piecescale, piecescale);
-// 					piece.material.color.set(parameters.materialColor);
-// 					jars.add( piece);
-// 					sectionMeshes.push(piece);
-// 				}
-
 
 // 				loader.load( 'models/gltf/maluku.glb', onLoadPaddleD, undefined, function ( error ) {
 // 					console.error( error );
@@ -159,16 +115,16 @@
 				// add sites cones in group so can test for ray intersection
 				cones = new THREE.Group();
 				scene.add( cones );
-				const sectionMeshes = [];
+				//const sectionMeshes = [];
 				const torusMaterial = new THREE.MeshBasicMaterial({color: 0xff0000});
-				const torusGeometry = new THREE.ConeGeometry( 0.05, .10, 10 );
+				const torusGeometry = new THREE.ConeGeometry( 0.02, .10, 10 );
 
 				function addSite( xpos, zpos) {
 					let siteObject = new THREE.Mesh( torusGeometry, torusMaterial );				
 					siteObject.position.set( xpos, 0.01, zpos );	
 					//siteObject.rotation.x = -Math.PI * 1/2;
 					cones.add( siteObject );
-					sectionMeshes.push(siteObject);
+					
 				}
 
 				addSite(-0.65438, -0.088925); //Aitape
@@ -255,89 +211,60 @@
 			
 			function onSelectStart( event ) {
 
-				const controller = event.target;
+const controller = event.target;
+const intersections = getIntersections( controller );
+if ( intersections.length > 0 ) {
+	const intersection = intersections[ 0 ];
+	const object = intersection.object;
+	object.material.emissive.b = 0;
+	controller.attach( object );
+	controller.userData.selected = object;
+}
 
-				const intersections = getIntersections( controller );
-			
-				if ( intersections.length > 0 ) {
+}
 
-					const intersection = intersections[ 0 ];
+function onSelectEnd( event ) {
 
-					const object = intersection.object;
-					//const agroup =  object.userData.group;
-					//if ( agroup.visible ) { agroup.visible = false}
-					//else { agroup.visible = true }
-					controller.attach( object );
+const controller = event.target;
 
-					controller.userData.selected = object;
+if ( controller.userData.selected !== undefined ) {
+	const object = controller.userData.selected;
+	object.material.emissive.b = 0;
+	cones.attach( object );
+	controller.userData.selected = undefined;
+}
+}
 
-				}
+function getIntersections( controller ) {
+tempMatrix.identity().extractRotation( controller.matrixWorld );
+raycaster.ray.origin.setFromMatrixPosition( controller.matrixWorld );
+raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
+return raycaster.intersectObjects( cones.children, false );
+}
 
-			}
+function intersectObjects( controller ) {
 
-			function onSelectEnd( event ) {
+// Do not highlight when already selected
+if ( controller.userData.selected !== undefined ) return;
+const line = controller.getObjectByName( 'line' );
+const intersections = getIntersections( controller );
+if ( intersections.length > 0 ) {
+	const intersection = intersections[ 0 ];
+	const object = intersection.object;
+	object.material.emissive.r = 1;
+	intersected.push( object );
+	line.scale.z = intersection.distance;
+} else {
+	line.scale.z = 5;
+}
+}
 
-				const controller = event.target;
-
-				if ( controller.userData.selected !== undefined ) {
-					const object = controller.userData.selected;
-					object.material.emissive.b = 0;
-					group.attach( object );
-					controller.userData.selected = undefined;
-				}
-
-
-			}
-
-
-			function getIntersections( controller ) {
-
-				tempMatrix.identity().extractRotation( controller.matrixWorld );
-
-				raycaster.ray.origin.setFromMatrixPosition( controller.matrixWorld );
-				raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
-
-				return raycaster.intersectObjects( cones.children, false );
-
-			}
-
-			function intersectObjects( controller ) {
-
-				// Do not highlight when already selected
-
-				if ( controller.userData.selected !== undefined ) return;
-
-				const line = controller.getObjectByName( 'line' );
-				const intersections = getIntersections( controller );
-
-				if ( intersections.length > 0 ) {
-
-					const intersection = intersections[ 0 ];
-
-					const object = intersection.object;
-					object.material.emissive.b = 1;
-					intersected.push( object );
-
-					line.scale.z = intersection.distance;
-
-				} else {
-
-					line.scale.z = 5;
-
-				}
-
-			}
-
-			function cleanIntersected() {
-
-				while ( intersected.length ) {
-
-					const object = intersected.pop();
-					object.material.emissive.b = 0;
-
-				}
-
-			}
+function cleanIntersected() {
+while ( intersected.length ) {
+	const object = intersected.pop();
+	object.material.emissive.r = 0;
+}
+}
 //mouse events
 				// function onPointerDown( event ) {
 
