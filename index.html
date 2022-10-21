@@ -208,7 +208,28 @@
 				nissI2.position.set( -0.5, 1.9, 1.9); 
 				nissI2.rotation.y = - Math.PI * 1.08;
 				nissPlanes.add( nissI2 ); //6a
-
+				const manusPlanes = new THREE.Group();
+				scene.add( manusPlanes);
+				const nissI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: manI1Tex }));
+				manusI1.position.set( -1.0, 0.7, 1.8); //7
+				manusI1.rotation.y = - Math.PI * 7 / 6;
+				manusPlanes.add( manusI1 );
+				const pngPlanes = new THREE.Group();
+				scene.add( pngPlanes);
+				const pngI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: pngI1Tex }));
+				pngI1.position.set( -1.4, 1.9, 1.4); 
+				pngI1.rotation.y = - Math.PI * 1.25;
+				pngPlanes.add( pngI1 ); //7a
+				const pngI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: pngI2Tex }));
+				pngI2.position.set( -1.8, 0.7, 1.0); //8
+				pngI2.rotation.y = - Math.PI * 4 / 3;
+				pngPlanes.add( pngI2 );
+				const lizPlanes = new THREE.Group();
+				scene.add( lizPlanes);
+				const lizI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: lizI1Tex }));
+				lizI1.position.set( -1.9, 1.9, 0.5); 
+				lizI1.rotation.y = - Math.PI * 1.42;
+				lizPlanes.add( lizI1 ); //8a
 				
 				//the Map
 				const mapGeometry2 = new THREE.PlaneGeometry( 4.0, 4.0 );
