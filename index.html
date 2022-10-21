@@ -253,24 +253,22 @@
 
 			
 
-			
-				const geometryC = new THREE.ConeGeometry(  0.02, .10, 15  );
-				const material = new THREE.MeshStandardMaterial( {
-						color: 0xff0000
-					} );
-
-
-				const aluSite = new THREE.Mesh( geometryC, material );
+		
+				const aluSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ));
 				aluSite.position.x = -0.03674;
 				aluSite.position.y = 0.01; 
 				aluSite.position.z = 0.085507;
 				group.add( aluSite);
 
-				const aitapeSite = new THREE.Mesh( geometryC, material );
+				const aitapeSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
 				aitapeSite.position.x = -0.65438;
 				aitapeSite.position.y = 0.01; 
 				aitapeSite.position.z = -0.088925;
 				group.add( aitapeSite);
+
+				const bandaSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
+				bandaSite.position.set(-1.325, 0.01,  -0.041207);
+				group.add( bandaSite);
 
 				//
 
