@@ -109,7 +109,7 @@
 				const timorPlanes = new THREE.Group();
 				scene.add( timorPlanes);
 				const timorI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: timorI1Tex }));
-				timorI1.position.set( -1.9, 1.7, -.5); //9a
+				timorI1.position.set( -1.9, 1.9, -.5); //9a
 				timorI1.rotation.y = - Math.PI * 1.58;
 				timorPlanes.add( timorI1 );
 
@@ -118,7 +118,7 @@
 				timorI2.rotation.y = - Math.PI * 5/3;
 				timorPlanes.add( timorI2 );
 				const timorI3 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: timorI3Tex }));
-				timorI3.position.set( -1.4, 1.7, -1.4); //10a
+				timorI3.position.set( -1.4, 1.9, -1.4); //10a
 				timorI3.rotation.y = - Math.PI * 1.75;
 				timorPlanes.add( timorI3 );
 				const caroPlanes = new THREE.Group();
@@ -128,7 +128,7 @@
 				caroI1.rotation.y = - Math.PI * 11/ 6;
 				caroPlanes.add( caroI1 );
 				const caroI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: carI2Tex }));
-				caroI2.position.set( -0.5, 1.7, -2.0); //11a
+				caroI2.position.set( -0.5, 1.9, -2.0); //11a
 				caroI2.rotation.y = - Math.PI * 1.92;
 				caroPlanes.add( caroI2 );
 				const guaPlanes = new THREE.Group();
@@ -137,9 +137,23 @@
 				guaI2.position.set( 0, 0.7, -2.2); //12
 				guaPlanes.add( guaI2 );
 				const guaI3 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: marI3Tex }));
-				guaI3.position.set( 0.5, 1.7, -2.0); //12a
+				guaI3.position.set( 0.5, 1.9, -2.0); //12a
 				guaI3.rotation.y = - Math.PI / 12;
 				guaPlanes.add( guaI3 );
+				const guaI4 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: marI4Tex }));
+				guaI4.position.set( 1, 0.7, -1.8); //1
+				guaI4.rotation.y = - Math.PI / 6;
+				guaPlanes.add( guaI4 );
+				const tinPlanes = new THREE.Group();
+				scene.add( tinPlanes);
+				const tinI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: marI1Tex }));
+				tinI1.position.set( 1.4, 1.9, -1.4); //1a
+				tinI1.rotation.y = - Math.PI / 4;
+				tinPlanes.add( tinI1 );
+
+
+
+
 				
 				//the Map
 				const mapGeometry2 = new THREE.PlaneGeometry( 4.0, 4.0 );
