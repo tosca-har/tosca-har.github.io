@@ -102,31 +102,44 @@
 				const bandaPlanes = new THREE.Group();
 				scene.add( bandaPlanes);
 				const bandaI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: bandaI1Tex }));
-				bandaI1.position.set( -1.0, 0.7, 0); //9
+				bandaI1.position.set( -2.0, 0.7, 0); //9
 				bandaI1.rotation.y = - Math.PI * 3/ 2;
 				bandaPlanes.add( bandaI1 );
 
 				const timorPlanes = new THREE.Group();
 				scene.add( timorPlanes);
 				const timorI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: timorI1Tex }));
-				timorI1.position.set( -0.95, 1.7, -.25); //9a
+				timorI1.position.set( -1.9, 1.7, -.5); //9a
 				timorI1.rotation.y = - Math.PI * 1.58;
 				timorPlanes.add( timorI1 );
 
 				const timorI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: timorI2Tex }));
-				timorI2.position.set( -0.9, 0.7, -0.5); //10
+				timorI2.position.set( -1.8, 0.7, -1.0); //10
 				timorI2.rotation.y = - Math.PI * 5/3;
 				timorPlanes.add( timorI2 );
 				const timorI3 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: timorI3Tex }));
-				timorI3.position.set( -0.7, 1.7, -0.7); //10a
+				timorI3.position.set( -1.4, 1.7, -1.4); //10a
 				timorI3.rotation.y = - Math.PI * 1.75;
 				timorPlanes.add( timorI3 );
 				const caroPlanes = new THREE.Group();
 				scene.add( caroPlanes);
 				const caroI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: carI1Tex }));
-				caroI1.position.set( -0.5, 0.7, -0.9); //11
+				caroI1.position.set( -1.0, 0.7, -1.8); //11
 				caroI1.rotation.y = - Math.PI * 11/ 6;
 				caroPlanes.add( caroI1 );
+				const caroI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: carI2Tex }));
+				caroI2.position.set( -0.5, 1.7, -2.0); //11a
+				caroI2.rotation.y = - Math.PI * 1.92;
+				caroPlanes.add( caroI2 );
+				const guaPlanes = new THREE.Group();
+				scene.add( guaPlanes);
+				const guaI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: marI2Tex }));
+				guaI2.position.set( 0, 0.7, -2.2); //12
+				guaPlanes.add( guaI2 );
+				const guaI3 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: marI3Tex }));
+				guaI3.position.set( 0.5, 1.7, -2.0); //12a
+				guaI3.rotation.y = - Math.PI / 12;
+				guaPlanes.add( guaI3 );
 				
 				//the Map
 				const mapGeometry2 = new THREE.PlaneGeometry( 4.0, 4.0 );
