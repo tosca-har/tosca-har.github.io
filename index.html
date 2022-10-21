@@ -171,10 +171,9 @@
 				const pauPlanes = new THREE.Group();
 				scene.add( pauPlanes);
 				const pauI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: bougI1Tex }));
-				pauI1.position.set( -1.9, 1.9, 0.5); 
+				pauI1.position.set( 1.9, 1.9, 0.5); 
 				pauI1.rotation.y = - Math.PI * 0.58;
 				pauPlanes.add( pauI1 ); //3a
-
 				const aluPlanes = new THREE.Group();
 				scene.add( aluPlanes);
 				const aluI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: solI3Tex }));
@@ -187,8 +186,28 @@
 				malaI1.position.set( 1.4, 1.9, 1.4); 
 				malaI1.rotation.y = - Math.PI * 3 / 4;
 				malaPlanes.add( malaI1 ); //4a
-
-
+				const maloPlanes = new THREE.Group();
+				scene.add( maloPlanes);
+				const maloI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: vanI2Tex }));
+				maloI1.position.set( 1.0, 0.7, 1.8); //5
+				maloI1.rotation.y = - Math.PI * 5 / 6;
+				maloPlanes.add( maloI1 );
+				const teoPlanes = new THREE.Group();
+				scene.add( teoPlanes);
+				const teoI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: vanI3Tex }));
+				teoI1.position.set( 0.5, 1.9, 1.9); 
+				teoI1.rotation.y = - Math.PI * 0.917;
+				teoPlanes.add( teoI1 ); //5a
+				const nissPlanes = new THREE.Group();
+				scene.add( nissPlanes);
+				const nissI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: nisI1Tex }));
+				nissI1.position.set( 0, 0.7, 2.2); //6
+				nissI1.rotation.y = - Math.PI;
+				nissPlanes.add( nissI1 );
+				const nissI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: nisI2Tex }));
+				nissI2.position.set( -0.5, 1.9, 1.9); 
+				nissI2.rotation.y = - Math.PI * 1.08;
+				nissPlanes.add( nissI2 ); //6a
 
 				
 				//the Map
