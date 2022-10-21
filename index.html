@@ -158,10 +158,10 @@
 				tauPlanes.add( tauI1 );
 				const reefPlanes = new THREE.Group();
 				scene.add( reefPlanes);
-				const tinI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: solI1Tex }));
-				tinI1.position.set( 1.9, 1.9, -0.5); 
-				tinI1.rotation.y = - Math.PI / 2.4;
-				reefPlanes.add( tinI1 ); //2a
+				const reefI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: solI1Tex }));
+				reefI1.position.set( 1.9, 1.9, -0.5); 
+				reefI1.rotation.y = - Math.PI / 2.4;
+				reefPlanes.add( reefI1 ); //2a
 				const bukaPlanes = new THREE.Group();
 				scene.add( bukaPlanes);
 				const bukI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: bougI2Tex }));
