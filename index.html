@@ -150,7 +150,43 @@
 				tinI1.position.set( 1.4, 1.9, -1.4); //1a
 				tinI1.rotation.y = - Math.PI / 4;
 				tinPlanes.add( tinI1 );
+				const tauPlanes = new THREE.Group();
+				scene.add( tauPlanes);
+				const tauI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: solI2Tex }));
+				tauI1.position.set( 1.8, 0.7, -1.0); //2
+				tauI1.rotation.y = - Math.PI / 3;
+				tauPlanes.add( tauI1 );
+				const reefPlanes = new THREE.Group();
+				scene.add( reefPlanes);
+				const tinI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: solI1Tex }));
+				tinI1.position.set( 1.9, 1.9, -0.5); 
+				tinI1.rotation.y = - Math.PI / 2.4;
+				reefPlanes.add( tinI1 ); //2a
+				const bukaPlanes = new THREE.Group();
+				scene.add( bukaPlanes);
+				const bukI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: bougI2Tex }));
+				bukI1.position.set( 2, 0.7, 0); //3
+				bukI1.rotation.y = - Math.PI / 2;
+				bukaPlanes.add( bukI1 );
+				const pauPlanes = new THREE.Group();
+				scene.add( pauPlanes);
+				const pauI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: bougI1Tex }));
+				pauI1.position.set( -1.9, 1.9, 0.5); 
+				pauI1.rotation.y = - Math.PI * 0.58;
+				pauPlanes.add( pauI1 ); //3a
 
+				const aluPlanes = new THREE.Group();
+				scene.add( aluPlanes);
+				const aluI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: solI3Tex }));
+				aluI1.position.set( 1.8, 0.7, 1); //4
+				aluI1.rotation.y = - Math.PI * 2 / 3;
+				aluPlanes.add( aluI1 );
+				const malaPlanes = new THREE.Group();
+				scene.add( malaPlanes);
+				const malaI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: vanI1Tex }));
+				malaI1.position.set( 1.4, 1.9, 1.4); 
+				malaI1.rotation.y = - Math.PI * 3 / 4;
+				malaPlanes.add( malaI1 ); //4a
 
 
 
