@@ -44,6 +44,7 @@
 
 			let controls, group;
 
+			let pngplanes;
 			init();
 			animate();
 
@@ -216,7 +217,8 @@
 				manusI1.position.set( -1.0, 0.7, 1.8); //7
 				manusI1.rotation.y = - Math.PI * 7 / 6;
 				manusPlanes.add( manusI1 );
-				const pngPlanes = new THREE.Group();
+				
+				pngPlanes = new THREE.Group();
 				scene.add( pngPlanes);
 				const pngI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: pngI1Tex }));
 				pngI1.position.set( -1.4, 1.9, 1.4); 
@@ -348,8 +350,7 @@
 					const object = intersection.object;
 					object.material.emissive.r = 1;
 					//controller.attach( object );
-					const groupInt = pngPlanes;
-					groupInt.visible = false;
+					
 
 					controller.userData.selected = object;
 
@@ -360,13 +361,13 @@
 			function onSelectEnd( event ) {
 
 				const controller = event.target;
-
+				const groupInt = pngPlanes;
 				if ( controller.userData.selected !== undefined ) {
 
 					const object = controller.userData.selected;
 					object.material.emissive.r = 0;
 					//group.attach( object );
-
+					groupInt.visible = false;
 					controller.userData.selected = undefined;
 
 				}
