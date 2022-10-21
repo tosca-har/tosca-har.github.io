@@ -64,9 +64,9 @@
 
 
 				const textureLoader = new THREE.TextureLoader()
-				
+				//map floor
 				const mapTexture2 = textureLoader.load('textures/pacificS.png'); //from google maps
-				const petroGeometry = new THREE.PlaneGeometry( 0.5, 1 );
+				
 				const mapGeometry2 = new THREE.PlaneGeometry( 4.0, 4.0 );
 				mapTexture2.generateMipmaps = true //saves gpu if false
 				const theMap = new THREE.Mesh( mapGeometry2, new THREE.MeshBasicMaterial({ map: mapTexture2 }));
@@ -75,6 +75,163 @@
 				scene.add( theMap);
 
 				
+			
+				const bandaI1Tex = textureLoader.load('textures/WD_17_12.jpg'); //
+				const timorI1Tex = textureLoader.load('textures/WD_86_2.jpg'); //
+				const timorI2Tex = textureLoader.load('textures/WD_86_6.jpg'); //
+				const timorI3Tex = textureLoader.load('textures/WD_86_17.jpg'); //
+				const lizI1Tex = textureLoader.load('textures/WD_83_12.jpg'); //
+				const vanI1Tex = textureLoader.load('textures/WD_49_22.jpg'); //
+				const vanI2Tex = textureLoader.load('textures/WD_51_6.jpg'); //
+				const vanI3Tex = textureLoader.load('textures/WD_45_12.jpg'); //
+				const nisI1Tex = textureLoader.load('textures/WD_32_24.jpg'); //
+				const nisI2Tex = textureLoader.load('textures/WD_38_14.jpg'); //
+				const bougI1Tex = textureLoader.load('textures/WD_34_19.jpg'); //
+				const bougI2Tex = textureLoader.load('textures/WD_101_3.jpg'); //
+				const manI1Tex = textureLoader.load('textures/WD_41_4.jpg'); //
+				const solI1Tex = textureLoader.load('textures/WD_84_1.jpg'); //
+				const solI2Tex = textureLoader.load('textures/WD_105_1.jpg'); //
+				const solI3Tex = textureLoader.load('textures/WD_103_13.jpg'); //
+				const pngI1Tex = textureLoader.load('textures/WD_28_16.jpg'); //
+				const pngI2Tex = textureLoader.load('textures/WD_28_4.jpg'); //
+				const carI1Tex = textureLoader.load('textures/WD_10_14.jpg'); //
+				const carI2Tex = textureLoader.load('textures/WD_10_10.jpg'); //
+				const marI1Tex = textureLoader.load('textures/WD_2_14.jpg'); //
+				const marI2Tex = textureLoader.load('textures/WD_7_24.jpg'); //
+				const marI3Tex = textureLoader.load('textures/WD_15_23.jpg'); //
+				const marI4Tex = textureLoader.load('textures/WD_8_12.jpg'); //
+
+//petroplanes
+				const petroGeometry = new THREE.PlaneGeometry( 0.5, 1 );
+				const bandaPlanes = new THREE.Group();
+				scene.add( bandaPlanes);
+				const bandaI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: bandaI1Tex }));
+				bandaI1.position.set( -2.0, 0.7, 0); //9
+				bandaI1.rotation.y = - Math.PI * 3/ 2;
+				bandaPlanes.add( bandaI1 );
+				const timorPlanes = new THREE.Group();
+				scene.add( timorPlanes);
+				const timorI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: timorI1Tex }));
+				timorI1.position.set( -1.9, 1.9, -.5); //9a
+				timorI1.rotation.y = - Math.PI * 1.58;
+				timorPlanes.add( timorI1 );
+				const timorI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: timorI2Tex }));
+				timorI2.position.set( -1.8, 0.7, -1.0); //10
+				timorI2.rotation.y = - Math.PI * 5/3;
+				timorPlanes.add( timorI2 );
+				const timorI3 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: timorI3Tex }));
+				timorI3.position.set( -1.4, 1.9, -1.4); //10a
+				timorI3.rotation.y = - Math.PI * 1.75;
+				timorPlanes.add( timorI3 );
+				const caroPlanes = new THREE.Group();
+				scene.add( caroPlanes);
+				const caroI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: carI1Tex }));
+				caroI1.position.set( -1.0, 0.7, -1.8); //11
+				caroI1.rotation.y = - Math.PI * 11/ 6;
+				caroPlanes.add( caroI1 );
+				const caroI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: carI2Tex }));
+				caroI2.position.set( -0.5, 1.9, -2.0); //11a
+				caroI2.rotation.y = - Math.PI * 1.92;
+				caroPlanes.add( caroI2 );
+				const guaPlanes = new THREE.Group();
+				scene.add( guaPlanes);
+				const guaI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: marI2Tex }));
+				guaI2.position.set( 0, 0.7, -2.2); //12
+				guaPlanes.add( guaI2 );
+				const guaI3 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: marI3Tex }));
+				guaI3.position.set( 0.5, 1.9, -2.0); //12a
+				guaI3.rotation.y = - Math.PI / 12;
+				guaPlanes.add( guaI3 );
+				const guaI4 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: marI4Tex }));
+				guaI4.position.set( 1, 0.7, -1.8); //1
+				guaI4.rotation.y = - Math.PI / 6;
+				guaPlanes.add( guaI4 );
+				const tinPlanes = new THREE.Group();
+				scene.add( tinPlanes);
+				const tinI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: marI1Tex }));
+				tinI1.position.set( 1.4, 1.9, -1.4); //1a
+				tinI1.rotation.y = - Math.PI / 4;
+				tinPlanes.add( tinI1 );
+				const tauPlanes = new THREE.Group();
+				scene.add( tauPlanes);
+				const tauI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: solI2Tex }));
+				tauI1.position.set( 1.8, 0.7, -1.0); //2
+				tauI1.rotation.y = - Math.PI / 3;
+				tauPlanes.add( tauI1 );
+				const reefPlanes = new THREE.Group();
+				scene.add( reefPlanes);
+				const reefI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: solI1Tex }));
+				reefI1.position.set( 1.9, 1.9, -0.5); 
+				reefI1.rotation.y = - Math.PI / 2.4;
+				reefPlanes.add( reefI1 ); //2a
+				const bukaPlanes = new THREE.Group();
+				scene.add( bukaPlanes);
+				const bukI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: bougI2Tex }));
+				bukI1.position.set( 2, 0.7, 0); //3
+				bukI1.rotation.y = - Math.PI / 2;
+				bukaPlanes.add( bukI1 );
+				const pauPlanes = new THREE.Group();
+				scene.add( pauPlanes);
+				const pauI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: bougI1Tex }));
+				pauI1.position.set( 1.9, 1.9, 0.5); 
+				pauI1.rotation.y = - Math.PI * 0.58;
+				pauPlanes.add( pauI1 ); //3a
+				const aluPlanes = new THREE.Group();
+				scene.add( aluPlanes);
+				const aluI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: solI3Tex }));
+				aluI1.position.set( 1.8, 0.7, 1); //4
+				aluI1.rotation.y = - Math.PI * 2 / 3;
+				aluPlanes.add( aluI1 );
+				const malaPlanes = new THREE.Group();
+				scene.add( malaPlanes);
+				const malaI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: vanI1Tex }));
+				malaI1.position.set( 1.4, 1.9, 1.4); 
+				malaI1.rotation.y = - Math.PI * 3 / 4;
+				malaPlanes.add( malaI1 ); //4a
+				const maloPlanes = new THREE.Group();
+				scene.add( maloPlanes);
+				const maloI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: vanI2Tex }));
+				maloI1.position.set( 1.0, 0.7, 1.8); //5
+				maloI1.rotation.y = - Math.PI * 5 / 6;
+				maloPlanes.add( maloI1 );
+				const teoPlanes = new THREE.Group();
+				scene.add( teoPlanes);
+				const teoI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: vanI3Tex }));
+				teoI1.position.set( 0.5, 1.9, 1.9); 
+				teoI1.rotation.y = - Math.PI * 0.917;
+				teoPlanes.add( teoI1 ); //5a
+				const nissPlanes = new THREE.Group();
+				scene.add( nissPlanes);
+				const nissI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: nisI1Tex }));
+				nissI1.position.set( 0, 0.7, 2.2); //6
+				nissI1.rotation.y = - Math.PI;
+				nissPlanes.add( nissI1 );
+				const nissI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: nisI2Tex }));
+				nissI2.position.set( -0.5, 1.9, 1.9); 
+				nissI2.rotation.y = - Math.PI * 1.08;
+				nissPlanes.add( nissI2 ); //6a
+				const manusPlanes = new THREE.Group();
+				scene.add( manusPlanes);
+				const manusI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: manI1Tex }));
+				manusI1.position.set( -1.0, 0.7, 1.8); //7
+				manusI1.rotation.y = - Math.PI * 7 / 6;
+				manusPlanes.add( manusI1 );
+				const pngPlanes = new THREE.Group();
+				scene.add( pngPlanes);
+				const pngI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: pngI1Tex }));
+				pngI1.position.set( -1.4, 1.9, 1.4); 
+				pngI1.rotation.y = - Math.PI * 1.25;
+				pngPlanes.add( pngI1 ); //7a
+				const pngI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: pngI2Tex }));
+				pngI2.position.set( -1.8, 0.7, 1.0); //8
+				pngI2.rotation.y = - Math.PI * 4 / 3;
+				pngPlanes.add( pngI2 );
+				const lizPlanes = new THREE.Group();
+				scene.add( lizPlanes);
+				const lizI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: lizI1Tex }));
+				lizI1.position.set( -1.9, 1.9, 0.5); 
+				lizI1.rotation.y = - Math.PI * 1.42;
+				lizPlanes.add( lizI1 ); //8a
 
 
 
