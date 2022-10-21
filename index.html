@@ -270,8 +270,8 @@
 				bandaSite.position.set(-1.325, 0.01,  -0.041207);
 				group.add( bandaSite);
 
-				const groupInt = pngPlanes;
-				groupInt.visible = false;
+				//const groupInt = pngPlanes;
+				//groupInt.visible = false;
 
 				//
 
@@ -347,7 +347,9 @@
 
 					const object = intersection.object;
 					object.material.emissive.r = 1;
-					controller.attach( object );
+					//controller.attach( object );
+					const groupInt = pngPlanes;
+					groupInt.visible = false;
 
 					controller.userData.selected = object;
 
@@ -363,7 +365,7 @@
 
 					const object = controller.userData.selected;
 					object.material.emissive.r = 0;
-					group.attach( object );
+					//group.attach( object );
 
 					controller.userData.selected = undefined;
 
