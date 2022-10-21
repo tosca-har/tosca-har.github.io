@@ -254,19 +254,23 @@
 			
 
 			
-				const geometryC = new THREE.ConeGeometry( 0.2, 0.2, 64 );
+				const geometryC = new THREE.ConeGeometry(  0.02, .10, 15  );
 				const material = new THREE.MeshStandardMaterial( {
 						color: 0xff0000
 					} );
-				const aluSite = new THREE.Mesh( geometryC, material );
 
+
+				const aluSite = new THREE.Mesh( geometryC, material );
 				aluSite.position.x = -0.03674;
 				aluSite.position.y = 0.01; 
 				aluSite.position.z = 0.085507;
-
 				group.add( aluSite);
 
-
+				const aitapeSite = new THREE.Mesh( geometryC, material );
+				aitapeSite.position.x = -0.65438;
+				aitapeSite.position.y = 0.01; 
+				aitapeSite.position.z = -0.088925;
+				group.add( aitapeSite);
 
 				//
 
@@ -341,7 +345,7 @@
 					const intersection = intersections[ 0 ];
 
 					const object = intersection.object;
-					object.material.emissive.b = 1;
+					object.material.emissive.r = 1;
 					controller.attach( object );
 
 					controller.userData.selected = object;
@@ -357,7 +361,7 @@
 				if ( controller.userData.selected !== undefined ) {
 
 					const object = controller.userData.selected;
-					object.material.emissive.b = 0;
+					object.material.emissive.r = 0;
 					group.attach( object );
 
 					controller.userData.selected = undefined;
@@ -392,7 +396,7 @@
 					const intersection = intersections[ 0 ];
 
 					const object = intersection.object;
-					object.material.emissive.r = 1;
+					object.material.emissive.b = 1;
 					intersected.push( object );
 
 					line.scale.z = intersection.distance;
@@ -410,7 +414,7 @@
 				while ( intersected.length ) {
 
 					const object = intersected.pop();
-					object.material.emissive.r = 0;
+					object.material.emissive.b = 0;
 
 				}
 
