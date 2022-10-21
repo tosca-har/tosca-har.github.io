@@ -69,8 +69,7 @@
 				const mapTexture2 = textureLoader.load('textures/pacificS.png'); //from google maps
 				const petroGeometry = new THREE.PlaneGeometry( 0.5, 1 );
 
-				const bandaPlanes = new THREE.Group();
-				scene.add( bandaPlanes);
+				
 
 
 			
@@ -98,14 +97,36 @@
 				const marI2Tex = textureLoader.load('textures/WD_7_24.jpg'); //
 				const marI3Tex = textureLoader.load('textures/WD_15_23.jpg'); //
 				const marI4Tex = textureLoader.load('textures/WD_8_12.jpg'); //
+
+
+				const bandaPlanes = new THREE.Group();
+				scene.add( bandaPlanes);
 				const bandaI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: bandaI1Tex }));
-				bandaI1.position.set( 0, 0.73, -1); 
+				bandaI1.position.set( -1.0, 0.7, 0); //9
+				bandaI1.rotation.y = - Math.PI * 3/ 2;
 				bandaPlanes.add( bandaI1 );
 
+				const timorPlanes = new THREE.Group();
+				scene.add( timorPlanes);
+				const timorI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: timorI1Tex }));
+				timorI1.position.set( -0.95, 1.7, -.25); //9a
+				timorI1.rotation.y = - Math.PI * 1.58;
+				timorPlanes.add( timorI1 );
 
-				
-
-	
+				const timorI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: timorI2Tex }));
+				timorI2.position.set( -0.9, 0.7, -0.5); //10
+				timorI2.rotation.y = - Math.PI * 5/3;
+				timorPlanes.add( timorI2 );
+				const timorI3 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: timorI3Tex }));
+				timorI3.position.set( -0.7, 1.7, -0.7); //10a
+				timorI3.rotation.y = - Math.PI * 1.75;
+				timorPlanes.add( timorI3 );
+				const caroPlanes = new THREE.Group();
+				scene.add( caroPlanes);
+				const caroI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: carI1Tex }));
+				caroI1.position.set( -0.5, 0.7, -0.9); //11
+				caroI1.rotation.y = - Math.PI * 11/ 6;
+				caroPlanes.add( caroI1 );
 				
 				//the Map
 				const mapGeometry2 = new THREE.PlaneGeometry( 4.0, 4.0 );
@@ -155,7 +176,7 @@
 				addSite(-1.325, -0.041207); //Banda
 				addSite(-0.087207, 0.014064); //Buka
 				addSite(-0.57795, -0.94011); //Guam
-				addSite(-0.53189, 0.46846); //Malo
+				addSite(-0.53189, 0.46846); //Lizard
 				addSite(-0.47503, -0.16805); //Manus
 				addSite(-0.9299, -0.70531); //Ngulu
 				addSite(-0.1101, -0.045463); //Nissan
@@ -165,8 +186,8 @@
 				addSite(0.59172, 0.61382); //Teouma
 				addSite(-1.4615, 0.1559); //Timor
 				addSite(-0.54594, -1.0055); //Tinian
-				addSite(-1.1127, -0.61987); //Ulong
-			
+				//addSite(-1.1127, -0.61987); //Malo
+				//addSite(-1.1127, -0.61987); //Malakula
 	
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
