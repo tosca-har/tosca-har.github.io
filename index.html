@@ -253,22 +253,20 @@
 
 			
 
-				for ( let i = 0; i < 50; i ++ ) {
-
-					const geometry = new THREE.ConeGeometry( 0.2, 0.2, 64 );
-					const material = new THREE.MeshStandardMaterial( {
+			
+				const geometryC = new THREE.ConeGeometry( 0.2, 0.2, 64 );
+				const material = new THREE.MeshStandardMaterial( {
 						color: 0xff0000
 					} );
+				const aluSite = new THREE.Mesh( geometryC, material );
 
-					const object = new THREE.Mesh( geometry, material );
+				aluSite.position.x = -0.03674;
+				aluSite.position.y = 0.01; 
+				aluSite.position.z = 0.085507;
 
-					object.position.x = Math.random() * 4 - 2;
-					object.position.y = Math.random() * 2;
-					object.position.z = Math.random() * 4 - 2;
+				group.add( aluSite);
 
-					group.add( object );
 
-				}
 
 				//
 
