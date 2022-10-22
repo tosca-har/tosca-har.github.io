@@ -275,10 +275,12 @@
 				bandaSite.userData.planes = bandaPlanes;
 				group.add( bandaSite);
 
-				//const groupInt = pngPlanes;
-				//groupInt.visible = false;
+				const bukaSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
+				bukaSite.position.set(-0.087207, 0.01, 0.014064);
+				bukaSite.userData.planes = bukaPlanes;
+				group.add( bukaSite);
 
-				//
+
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
@@ -371,7 +373,8 @@
 					object.material.emissive.r = 0;
 					//group.attach( object );
 					groupInt = object.userData.planes;
-					groupInt.visible = false;
+					//groupInt.visible = false;
+					groupInt.visible = !groupInt.visible;
 					controller.userData.selected = undefined;
 
 				}
