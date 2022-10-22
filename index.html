@@ -235,9 +235,7 @@
 				lizI1.rotation.y = - Math.PI * 1.42;
 				lizPlanes.add( lizI1 ); //8a
 
-
-
-
+			
 				scene.add( new THREE.HemisphereLight( 0x808080, 0x606060 ) );
 
 				const light = new THREE.DirectionalLight( 0xffffff );
@@ -279,6 +277,65 @@
 				bukaSite.position.set(-0.087207, 0.01, 0.014064);
 				bukaSite.userData.planes = bukaPlanes;
 				group.add( bukaSite);
+
+				const lizSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
+				lizSite.position.set(-0.53189, 0.01, 0.46846);
+				lizSite.userData.planes = lizPlanes;
+				group.add( lizSite);
+
+				const guamSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
+				guamSite.position.set(-0.57795, 0.01, -0.94011);
+				guamSite.userData.planes = guaPlanes;
+				group.add( guamSite );
+
+				const manusSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
+				manusSite.position.set(-0.47503, 0.01, -0.16805);
+				manusSite.userData.planes = manusPlanes;
+				group.add( manusSite );
+				const timorSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
+				timorSite.position.set(-1.4615, 0.01,  0.1559);
+				timorSite.userData.planes = timorPlanes;
+				group.add( timorSite );
+				const nguluSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
+				nguluSite.position.set(-0.9299, 0.01,  -0.70531);
+				nguluSite.userData.planes = caroPlanes;
+				group.add( nguluSite );
+				const tinianSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
+				tinianSite.position.set(-0.54594, 0.01, -1.0055);
+				tinianSite.userData.planes = tinPlanes;
+				group.add( tinianSite );
+
+				const tauSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
+				tauSite.position.set(0.46966, 0.01,  0.23724);
+				tauSite.userData.planes = tauPlanes;
+				group.add( timorSite );
+				const reefSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
+				reefSite.position.set(0.46754, 0.01,  0.25732);
+				reefSite.userData.planes = reefPlanes;
+				group.add( reefSite );
+				const pauSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
+				pauSite.position.set(-0.037601, 0.01, 0.067741);
+				pauSite.userData.planes =  pauPlanes;
+				group.add( pauSite );
+				const malaSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
+				malaSite.position.set(0.51767, 0.01,  0.50144);
+				malaSite.userData.planes = malaPlanes;
+				group.add( malaSite );
+				const maloSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
+				maloSite.position.set(0.53238, 0.01,  0.51707);
+				maloSite.userData.planes = maloPlanes;
+				group.add( maloSite );
+				const teoSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
+				teoSite.position.set(0.59172, 0.01, 0.61382);
+				teoSite.userData.planes = teoPlanes;
+				group.add( teoSite );
+				const nissanSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ) );
+				nissanSite.position.set(-0.1101, 0.01, -0.045463);
+				nissanSite.userData.planes =  nissPlanes;
+				group.add( nissanSite );
+			
+
+
 
 
 
