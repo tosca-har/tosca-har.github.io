@@ -705,7 +705,7 @@
 			raycaster.ray.origin.setFromMatrixPosition( controller.matrixWorld );
 			raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
 //need to text if jar or torus- or select different
-			return raycaster.intersectObjects( jars.children, false );
+			return raycaster.intersectObjects( torus.children, false );
 
 			}			
 
