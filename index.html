@@ -341,22 +341,22 @@
 
 				
 
-				addTorus(-0.86, -0.08); //Maluku
-				addTorus(-0.65, -0.35); // waiGeo
-				addTorus(0.13, -0.16); //Demta
-				addTorus(0.27, -0.12); // Tumleo
-				addTorus(0.33, -0.08); //Meno
-				addTorus(0.29, -0.05); // Kombio
-				addTorus(0.36, -0.01); //aibom
-				addTorus(0.41, -0.07); // kaiep
-				addTorus(0.66, -0.2); //Manus
-				addTorus(0.535, 0.04); // bau
-				addTorus(0.572, 0.0396); //yabob
-				addTorus(0.53, 0.09); // sumeo
-				addTorus(0.575, 0.079); ///marik
-				addTorus(0.71,0.13); // huon
-				addTorus(0.61, 0.15); //adzera
-				addTorus(1.01, 0.33); // triobriand
+				//addTorus(-0.86, -0.08); //Maluku
+				//addTorus(-0.65, -0.35); // waiGeo
+				//addTorus(0.13, -0.16); //Demta
+				//addTorus(0.27, -0.12); // Tumleo
+				//addTorus(0.33, -0.08); //Meno
+				//addTorus(0.29, -0.05); // Kombio
+				//addTorus(0.36, -0.01); //aibom
+				//addTorus(0.41, -0.07); // kaiep
+				//addTorus(0.66, -0.2); //Manus
+				//addTorus(0.535, 0.04); // bau
+				//addTorus(0.572, 0.0396); //yabob
+				//addTorus(0.53, 0.09); // sumeo
+				//addTorus(0.575, 0.079); ///marik
+				//addTorus(0.71,0.13); // huon
+				//addTorus(0.61, 0.15); //adzera
+				//addTorus(1.01, 0.33); // triobriand
 				//addTorus(0.85, 0.4); //collingwood
 				//addTorus(0.71, 0.42); // moto
 				//addTorus(0.84, 0.48); //mailu
@@ -394,18 +394,13 @@
 				ilesalesSite.rotation.x = -Math.PI * 1/2;
 				// ilesalesSite.userData.planes = ilesalesG;
 				torus.add( ilesalesSite);
-
-				
+		
 				const louisadeSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
 				louisadeSite.position.set(1.1, 0.74, 0.55);
 				louisadeSite.scale.set( piecescale, piecescale, piecescale);
 				louisadeSite.rotation.x = -Math.PI * 1/2;
 				// louisadeSite.userData.planes = louisadeG;
 				torus.add(louisadeSite);
-
-
-				// adzeraG,  aibomG,  bauG,, collG, demtaG, huonG,waiGeoG, yabobG ;
-			// kaiepG, kombioG, , malukuG, manusG, marikG, menoG,, pubineriG, triobriandG, tumleoG;
 
 				const aloaloSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
 				aloaloSite.position.set(0.9, 0.74, 0.49);
@@ -428,7 +423,6 @@
 				// motoSite.userData.planes = motoG;
 				torus.add( motoSite);
 
-				
 				const collSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
 				collSite.position.set(0.85, 0.74, 0.4);
 				collSite.scale.set( piecescale, piecescale, piecescale);
@@ -436,20 +430,126 @@
 				// collSite.userData.planes = collG;
 				torus.add(collSite);
 
+				const triobriandSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				triobriandSite.position.set(1.01, 0.74, 0.33);
+				triobriandSite.scale.set( piecescale, piecescale, piecescale);
+				triobriandSite.rotation.x = -Math.PI * 1/2;
+				//triobriandSite.userData.planes = triobriandG;
+				torus.add(triobriandSite);
+
+				const adzeraSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				adzeraSite.position.set(0.61, 0.74, 0.15);
+				adzeraSite.scale.set( piecescale, piecescale, piecescale);
+				adzeraSite.rotation.x = -Math.PI * 1/2;
+				//adzeraSite.userData.planes = adzeraG;
+				torus.add(adzeraSite);
+
+				const huonSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				huonSite.position.set(0.71, 0.74, 0.13);
+				huonSite.scale.set( piecescale, piecescale, piecescale);
+				huonSite.rotation.x = -Math.PI * 1/2;
+				// huonSite.userData.planes = huonG;
+				torus.add( huonSite);
+
+				const marikSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				marikSite.position.set(0.575, 0.74, 0.079);
+				marikSite.scale.set( piecescale, piecescale, piecescale);
+				marikSite.rotation.x = -Math.PI * 1/2;
+				// marikSite.userData.planes = marikG;
+				torus.add(marikSite);
+
+				const sumeoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				sumeoSite.position.set(0.53, 0.74, 0.09);
+				sumeoSite.scale.set( piecescale, piecescale, piecescale);
+				sumeoSite.rotation.x = -Math.PI * 1/2;
+				//sumeoSite.userData.planes = pubineriG;
+				torus.add(sumeoSite);
+
+				const yabobSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				yabobSite.position.set(0.572, 0.74, 0.0396);
+				yabobSite.scale.set( piecescale, piecescale, piecescale);
+				yabobSite.rotation.x = -Math.PI * 1/2;
+				//yabobSite.userData.planes = yabobG;
+				torus.add(yabobSite);
+
+				const bauSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				bauSite.position.set(0.535, 0.74, 0.04);
+				bauSite.scale.set( piecescale, piecescale, piecescale);
+				bauSite.rotation.x = -Math.PI * 1/2;
+				// bauSite.userData.planes = bauG;
+				torus.add( bauSite);
+
+				const manusSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				manusSite.position.set(0.66, 0.74, -0.2);
+				manusSite.scale.set( piecescale, piecescale, piecescale);
+				manusSite.rotation.x = -Math.PI * 1/2;
+				// manusSite.userData.planes = manusG;
+				torus.add(manusSite);
 				
+				const kaiepSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				kaiepSite.position.set(0.41, 0.74, -0.07);
+				kaiepSite.scale.set( piecescale, piecescale, piecescale);
+				kaiepSite.rotation.x = -Math.PI * 1/2;
+				//kaiepSite.userData.planes = kaiepG;
+				torus.add(kaiepSite);
 
+				const aibomSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				aibomSite.position.set(0.36, 0.74,-0.01);
+				aibomSite.scale.set( piecescale, piecescale, piecescale);
+				aibomSite.rotation.x = -Math.PI * 1/2;
+				//aibomSite.userData.planes = aibomG;
+				torus.add(aibomSite);
 
+				const kombioSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				kombioSite.position.set(0.29, 0.74, -0.05);
+				kombioSite.scale.set( piecescale, piecescale, piecescale);
+				kombioSite.rotation.x = -Math.PI * 1/2;
+				// kombioSite.userData.planes = kombioG;
+				torus.add( kombioSite);
 
+				const menoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				menoSite.position.set(0.33, 0.74, -0.08);
+				menoSite.scale.set( piecescale, piecescale, piecescale);
+				menoSite.rotation.x = -Math.PI * 1/2;
+				// menoSite.userData.planes = menoG;
+				torus.add(menoSite);
 
-				
-				function addTorus( xpos, zpos) {
-					let torusObject = new THREE.Mesh( torusGeometry, torusMaterial );				
-					torusObject.position.set( xpos, 0.74, zpos );	
-					torusObject.scale.set( piecescale, piecescale, piecescale);
-					torusObject.rotation.x = -Math.PI * 1/2;
-					torus.add( torusObject );
-					sectionTorus.push(torusObject);
-				}
+				const tumleoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				tumleoSite.position.set(0.27, 0.74, -0.12);
+				tumleoSite.scale.set( piecescale, piecescale, piecescale);
+				tumleoSite.rotation.x = -Math.PI * 1/2;
+				//tumleoSite.userData.planes = tumleoG;
+				torus.add(tumleoSite);
+
+				const demtaSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				demtaSite.position.set(0.13, 0.74, -0.16);
+				demtaSite.scale.set( piecescale, piecescale, piecescale);
+				demtaSite.rotation.x = -Math.PI * 1/2;
+				//demtaSite.userData.planes = demtaG;
+				torus.add(demtaSite);
+
+				const waigeoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				waigeoSite.position.set(-0.65, 0.74, -0.35);
+				waigeoSite.scale.set( piecescale, piecescale, piecescale);
+				waigeoSite.rotation.x = -Math.PI * 1/2;
+				// waigeoSite.userData.planes = waiGeoG;
+				torus.add( waigeoSite);
+
+				const malukuSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				malukuSite.position.set(-0.86, 0.74, -0.08);
+				malukuSite.scale.set( piecescale, piecescale, piecescale);
+				malukuSite.rotation.x = -Math.PI * 1/2;
+				// menoSite.userData.planes = malukuG;
+				torus.add(malukuSite);
+
+				// function addTorus( xpos, zpos) {
+				// 	let torusObject = new THREE.Mesh( torusGeometry, torusMaterial );				
+				// 	torusObject.position.set( xpos, 0.74, zpos );	
+				// 	torusObject.scale.set( piecescale, piecescale, piecescale);
+				// 	torusObject.rotation.x = -Math.PI * 1/2;
+				// 	torus.add( torusObject );
+				// 	sectionTorus.push(torusObject);
+				// }
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
