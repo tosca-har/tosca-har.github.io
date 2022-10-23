@@ -369,10 +369,17 @@
 
 				const agarabiSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
 				agarabiSite.position.set(0.55, 0.74, 0.15);
-				torusObject.scale.set( piecescale, piecescale, piecescale);
-				torusObject.rotation.x = -Math.PI * 1/2;
+				agarabiSite.scale.set( piecescale, piecescale, piecescale);
+				agarabiSite.rotation.x = -Math.PI * 1/2;
 				//agarabiSite.userData.planes = agarabiG;
 				torus.add( agarabiSite);
+
+				const dimiriSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				dimiriSite.position.set(0.43, 0.74, 0);
+				dimiriSite.scale.set( piecescale, piecescale, piecescale);
+				dimiriSite.rotation.x = -Math.PI * 1/2;
+				//dimiriSite.userData.planes = agarabiG;
+				torus.add(dimiriSite);
 
 
 
