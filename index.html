@@ -71,38 +71,25 @@
 
 				const textureLoader = new THREE.TextureLoader()
 				// Load information panels  -first one is instructions
-				const introTexture = textureLoader.load( 'textures/Intro.jpg' );
-				const adzeraTexture = textureLoader.load( 'textures/Adzera.jpg' );
+				const introTexture = textureLoader.load( 'textures/Intro.jpg' );			
 				const keyTexture = textureLoader.load( 'textures/key.jpg' );
-				// const colorTexture3 = textureLoader.load( 'textures/info/image3.png' );
-				// const colorTexture4 = textureLoader.load( 'textures/info/image4.png' );
-				// const colorTexture5 = textureLoader.load( 'textures/info/image5.png' );
-				// const colorTexture6 = textureLoader.load( 'textures/info/image6.png' );
-				// const colorTexture7 = textureLoader.load( 'textures/info/image7.png' );
-				// const colorTexture8 = textureLoader.load( 'textures/info/image8.png' );
-				// const colorTexture9 = textureLoader.load( 'textures/info/image9.png' );
-				// const colorTexture10 = textureLoader.load( 'textures/info/image10.png' );
-				// const colorTexture11 = textureLoader.load( 'textures/info/image11.png' );
-				// const colorTexture12 = textureLoader.load( 'textures/info/image12.png' );
-				// const colorTexture13 = textureLoader.load( 'textures/info/image13.png' );
-				// const colorTexture14 = textureLoader.load( 'textures/info/image14.png' );
-				// const colorTexture15 = textureLoader.load( 'textures/info/image15.png' );
-				// const colorTexture16 = textureLoader.load( 'textures/info/image16.png' );
-				// const colorTexture17 = textureLoader.load( 'textures/info/image17.png' );
-				// const colorTexture18 = textureLoader.load( 'textures/info/image18.png' );
-				// const colorTexture17 = textureLoader.load( 'textures/info/image19.png' );
-				// const colorTexture18 = textureLoader.load( 'textures/info/image20.png' );
-				
-				
-	
-				const infoGeometry = new THREE.PlaneGeometry( 0.5, 0.5 );
-				gallery = new THREE.Mesh( infoGeometry, new THREE.MeshBasicMaterial({ map: introTexture }));
-				gallery.position.set( 0, 1.1, -.75); 
-				scene.add( gallery);
-				const gallery2 = new THREE.Mesh( infoGeometry, new THREE.MeshBasicMaterial({ map: keyTexture }));
+				const adzeraTexture = textureLoader.load( 'textures/Adzera.jpg' );
+
+
+				const gallery2 = new THREE.Mesh(new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: keyTexture }));
 				gallery2.position.set( 0.75, 1.1, -.75); 
 				scene.add( gallery2);
-				
+
+
+				gallery = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: introTexture }));
+				gallery.position.set( 0, 1.1, -.75); 
+				scene.add( gallery);
+
+				adzeraG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: adzeraTexture }));
+				adzeraG.position.set( 0, 1.1, -.75); 
+				scene.add( adzeraG);
+				adzeraG.visible = false;
+
 				//the Map
 				const mapGeometry = new THREE.PlaneGeometry( 3.0, 1.5 );
 				
