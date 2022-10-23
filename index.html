@@ -105,9 +105,9 @@
 				
 				//the Map
 				const mapGeometry = new THREE.PlaneGeometry( 3.0, 1.5 );
-				mapTexture.generateMipmaps = true //saves gpu if false
-//for pots
+				
 				const mapTexture = textureLoader.load('textures/png.png'); //from google maps
+				mapTexture.generateMipmaps = true //saves gpu if false
 				const theMap = new THREE.Mesh( mapGeometry, new THREE.MeshBasicMaterial({ map: mapTexture }));
 				theMap.rotation.x = - Math.PI / 2;
 				theMap.position.set( 0, 0.73, 0); //desk
@@ -390,7 +390,7 @@
 
 
 
-				
+
 				
 				function addTorus( xpos, zpos) {
 					let torusObject = new THREE.Mesh( torusGeometry, torusMaterial );				
