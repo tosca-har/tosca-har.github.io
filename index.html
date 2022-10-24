@@ -48,7 +48,7 @@
 // can either have 26 galleries that hide and show, or change the texture on one gallery. As changed out of init must be declared here.
 			let gallery, adzeraG, agarabiG, aibomG, aloaloG, bauG, begilamG, collG, demtaG, dimiriG, huonG, ilesalesG;
 			let kaiepG, kombioG, louisadeG, mailuG, malukuG, manusG, marikG, menoG, motoG, pubineriG, triobriandG, tumleoG;
-			let waiGeoG, yabobG;
+			let waigeoG, yabobG;
 
 			init();
 			animate();
@@ -166,10 +166,10 @@
 				mailuG.position.set( 0, 1.1, -.75); 
 				scene.add( mailuG);
 				mailuG.visible = false;
-				waiGeoG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: waigeoTexture}));
-				waiGeoG.position.set( 0, 1.1, -.75); 
-				scene.add( waiGeoG);
-				waiGeoG.visible = false;
+				waigeoG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: waigeoTexture }));
+				waigeoG.position.set( 0, 1.1, -.75); 
+				scene.add( waigeoG);
+				waigeoG.visible = false;
 				dimiriG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: dimiriTexture }));
 				dimiriG.position.set( 0, 1.1, -.75); 
 				scene.add(dimiriG);
@@ -636,14 +636,14 @@
 				waigeoSite.position.set(-0.65, 0.74, -0.35);
 				waigeoSite.scale.set( piecescale, piecescale, piecescale);
 				waigeoSite.rotation.x = -Math.PI * 1/2;
-				waigeoSite.userData.planes = waiGeoG;
+				waigeoSite.userData.planes = waigeoG;
 				torus.add( waigeoSite);
 
 				const malukuSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
 				malukuSite.position.set(-0.86, 0.74, -0.08);
 				malukuSite.scale.set( piecescale, piecescale, piecescale);
 				malukuSite.rotation.x = -Math.PI * 1/2;
-				menoSite.userData.planes = malukuG;
+				malukuSite.userData.planes = malukuG;
 				torus.add(malukuSite);
 
 
