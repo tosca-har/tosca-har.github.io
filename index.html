@@ -702,13 +702,7 @@
 				//
 
 				window.addEventListener( 'resize', onWindowResize );
-
-				for (let i = 0; i < sectionMeshes.length; i++) { 
-  						console.log(sectionMeshes[i].position)
-}
-
-
-				}
+			}
 
 
 
@@ -793,12 +787,13 @@
 					//test if position is 0
 					let aposition;
 					jars.attach( object );
-					//object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
-					//if ( aposition.distanceTo( zero ) < 0.1 ) {
-						//scene.attach( object );
-						//object.position.set = zero;
+
+					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
+					if ( aposition.distanceTo( zero ) < 0.1 ) {
+						scene.attach( object );
+						object.position.set = zero;
 						
-					//}
+					}
 					//jars.attach( object );
 					
 
