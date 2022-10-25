@@ -781,9 +781,11 @@
 					let aposition;
 					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
 					if ( aposition.distanceTo( zero ) < 0.1 ) {
+						scene.attach( object );
 						object.position.set = zero;
+						
 					}
-					else { jars.attach( object ); }
+					jars.attach( object );
 					
 
 					controller.userData.selected = undefined;
