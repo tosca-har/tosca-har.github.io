@@ -778,8 +778,9 @@
 					object.material.emissive.b = 0;
 
 					//test if position is 0
-					const aposition = object.position //a Vector3 (x,y,z)
-					if ( aposition.distanceTo( zero ) < 0.02 ) {
+					let aposition;
+					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
+					if ( aposition.distanceTo( zero ) < 0.1 ) {
 						object.position.set = zero;
 					}
 					else { jars.attach( object ); }
