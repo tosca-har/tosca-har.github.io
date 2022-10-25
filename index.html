@@ -385,6 +385,10 @@
 					piece.material.color.set(parameters.ringTopColor);
 					jars.add( piece);
 					sectionMeshes.push(piece);
+					let ap;
+					piece.getWorldPosition(ap)
+					console.log(ap);
+
 				}
 
 				loader.load( 'models/gltf/maluku.glb', onLoadPaddleD, undefined, function ( error ) {
@@ -646,6 +650,8 @@
 				malukuSite.rotation.x = -Math.PI * 1/2;
 				malukuSite.userData.planes = malukuG;
 				torus.add(malukuSite);
+
+
 
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
