@@ -710,7 +710,7 @@
 
 				}
 
-			}
+
 
 			function onWindowResize() {
 
@@ -789,9 +789,10 @@
 
 					const object = controller.userData.selected;
 					object.material.emissive.b = 0;
-					jars.attach( object );
+					
 					//test if position is 0
 					let aposition;
+					jars.attach( object );
 					//object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
 					//if ( aposition.distanceTo( zero ) < 0.1 ) {
 						//scene.attach( object );
