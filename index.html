@@ -785,16 +785,17 @@
 					object.material.emissive.b = 0;
 					
 					//test if position is 0
-					let aposition;
-					jars.attach( object );
-
-					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
+					
+					//jars.attach( object );
+					scene.attach( object );
+					let aposition = object.position;
+					//object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
 					if ( aposition.distanceTo( zero ) < 0.1 ) {
-						scene.attach( object );
+						//scene.attach( object );
 						object.position.set = zero;
 						object.position.set.y = .5;
 					}
-					//jars.attach( object );
+					jars.attach( object );
 					
 
 					controller.userData.selected = undefined;
