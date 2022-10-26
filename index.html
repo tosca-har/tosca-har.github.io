@@ -893,12 +893,12 @@
 					//aposition = object.position;
 					trueposition = object.userData.loc;
 					jars.attach( object );
-					object.position.set(trueposition);
+					//object.position.set(trueposition);
 					//object.position.x = 0;
 					//object.position.y = 0.7;
 					//object.position.set(0, 0.74, 0);
 					//object.position.z = 0;
-					 if ( aposition.distanceTo( zeroz ) < .3) {
+					 if ( aposition.distanceTo( trueposition ) < .3) {
 					// 	//scene.attach( object );
 					 	scene.background = new THREE.Color( 0x87ceeb ); // blue
 					// 	//object.position.set(zeroz);
