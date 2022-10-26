@@ -49,7 +49,7 @@
 			let gallery, adzeraG, agarabiG, aibomG, aloaloG, bauG, begilamG, collG, demtaG, dimiriG, huonG, ilesalesG;
 			let kaiepG, kombioG, louisadeG, mailuG, malukuG, manusG, marikG, menoG, motoG, pubineriG, triobriandG, tumleoG;
 			let waigeoG, yabobG;
-			let agarabiM, adzeraM;
+			let agarabiM, adzeraM, collingwoodM, triobriandM, aibomM, demtaM, mailuM, bauM, pubineriM, marikM, yabobM;
 
 			init();
 			animate();
@@ -284,13 +284,13 @@
 					const x = Math.random() - 1;
 					const y = 0.9;
 					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.coilBeatenColor);
-					piece.userData.trueLocation = new THREE.Vector3(0.55, 0.74, 0.15);
-					jars.add( piece);
-					sectionMeshes.push(piece);
+					agarabiM = model.children[0];
+					agarabiM.position.set( x, y, z );
+					agarabiM.scale.set( piecescale, piecescale, piecescale);
+					agarabiM.material.color.set(parameters.coilBeatenColor);
+					agarabiM.userData.trueLocation = new THREE.Vector3(0.55, 0.74, 0.15);
+					jars.add( agarabiM);
+					sectionMeshes.push(agarabiM);
 				}
 
 				function onLoadDemta( gltf ) {
@@ -298,13 +298,13 @@
 					const x = Math.random() - 1;
 					const y = 0.9;
 					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.materialColor);
-					piece.userData.trueLocation = new THREE.Vector3(0.13, 0.74, -0.16);
-					jars.add( piece);
-					sectionMeshes.push(piece);
+					demtaM = model.children[0];
+					demtaM.position.set( x, y, z );
+					demtaM.scale.set( piecescale, piecescale, piecescale);
+					demtaM.material.color.set(parameters.materialColor);
+					demtaM.userData.trueLocation = new THREE.Vector3(0.13, 0.74, -0.16);
+					jars.add( demtaM);
+					sectionMeshes.push(demtaM);
 				}
 
 				function onLoadAibom( gltf ) {
@@ -312,13 +312,13 @@
 					const x = Math.random() - 1;
 					const y = 0.9;
 					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.materialColor);
-					piece.userData.trueLocation = new THREE.Vector3(0.36, 0.74,-0.01);
-					jars.add( piece);
-					sectionMeshes.push(piece);
+					aibomM = model.children[0];
+					aibomM.position.set( x, y, z );
+					aibomM.scale.set( piecescale, piecescale, piecescale);
+					aibomM.material.color.set(parameters.materialColor);
+					aibomM.userData.trueLocation = new THREE.Vector3(0.36, 0.74,-0.01);
+					jars.add( aibomM);
+					sectionMeshes.push(aibomM);
 				}
 
 				function onLoadMailu( gltf ) {
@@ -326,13 +326,13 @@
 					const x = Math.random() - 1.0;
 					const y = .9;
 					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.nabColor);
-					piece.userData.trueLocation = new THREE.Vector3(0.84, 0.74, 0.48);
-					jars.add( piece);
-					sectionMeshes.push(piece);
+					mailuM = model.children[0];
+					mailuM.position.set( x, y, z );
+					mailuM.scale.set( piecescale, piecescale, piecescale);
+					mailuM.material.color.set(parameters.nabColor);
+					mailuM.userData.trueLocation = new THREE.Vector3(0.84, 0.74, 0.48);
+					jars.add( mailuM);
+					sectionMeshes.push(mailuM);
 				}
 
 				function onLoadTriobriand( gltf ) {
@@ -340,13 +340,13 @@
 					const x = Math.random() - 1.5;
 					const y = 1.2;
 					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.amphColor);
-					piece.userData.trueLocation = new THREE.Vector3(1.01, 0.74, 0.33);
-					jars.add( piece);
-					sectionMeshes.push(piece);
+					triobriandM = model.children[0];
+					triobriandM.position.set( x, y, z );
+					triobriandM.scale.set( piecescale, piecescale, piecescale);
+					triobriandM.material.color.set(parameters.amphColor);
+					triobriandM.userData.trueLocation = new THREE.Vector3(1.01, 0.74, 0.33);
+					jars.add( triobriandM);
+					sectionMeshes.push(triobriandM);
 				}
 
 				function onLoadCollingwood( gltf ) {
@@ -354,13 +354,13 @@
 					const x = Math.random() - 1.5;
 					const y = 1.2;
 					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.wangelaColor);
-					piece.userData.trueLocation = new THREE.Vector3(0.85, 0.74, 0.4);
-					jars.add( piece);
-					sectionMeshes.push(piece);
+					collingwoodM = model.children[0];
+					collingwoodM.position.set( x, y, z );
+					collingwoodM.scale.set( piecescale, piecescale, piecescale);
+					collingwoodM.material.color.set(parameters.wangelaColor);
+					collingwoodM.userData.trueLocation = new THREE.Vector3(0.85, 0.74, 0.4);
+					jars.add( collingwoodM);
+					sectionMeshes.push(collingwoodM);
 				}
 
 
