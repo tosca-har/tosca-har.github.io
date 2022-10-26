@@ -49,6 +49,7 @@
 			let gallery, adzeraG, agarabiG, aibomG, aloaloG, bauG, begilamG, collG, demtaG, dimiriG, huonG, ilesalesG;
 			let kaiepG, kombioG, louisadeG, mailuG, malukuG, manusG, marikG, menoG, motoG, pubineriG, triobriandG, tumleoG;
 			let waigeoG, yabobG;
+			let agarabiM, adzeraM;
 
 			init();
 			animate();
@@ -267,14 +268,15 @@
 					const x = Math.random() - 1;
 					const y = 1.2;
 					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
+					adzeraM = model.children[0];
+					adzeraM.position.set( x, y, z );
 					//piece.position.set( 0, 0.73, 0); //desk
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.coilBeatenColor);
-					piece.userData.loc = new THREE.Vector3(0.61, 0.74, 0.15);
-					jars.add( piece);
-					sectionMeshes.push(piece);
+					adzeraM.scale.set( piecescale, piecescale, piecescale);
+					adzeraM.material.color.set(parameters.coilBeatenColor);
+					const aloc = new THREE.Vector3(0.61, 0.74, 0.15);
+					adzeraM.userData.loc = aloc;
+					jars.add( adzeraM);
+					sectionMeshes.push(adzeraM);
 				}
 
 				function onLoadAgarabi( gltf ) {
@@ -860,7 +862,7 @@
 					//aposition = object.position;
 					trueposition = object.userData.loc;
 					jars.attach( object );
-					object.position.set(trueposition);
+					//object.position.set(trueposition);
 					//object.position.x = 0;
 					//object.position.y = 0.7;
 					//object.position.set(0, 0.74, 0);
