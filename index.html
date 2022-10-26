@@ -321,6 +321,49 @@
 					sectionMeshes.push(piece);
 				}
 
+				function onLoadMailu( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1.0;
+					const y = .9;
+					const z = Math.random() * 0.5 - 0.3 ;
+					const piece = model.children[0];
+					piece.position.set( x, y, z );
+					piece.scale.set( piecescale, piecescale, piecescale);
+					piece.material.color.set(parameters.nabColor);
+					piece.userData.trueLocation = new THREE.Vector3(0.84, 0.74, 0.48);
+					jars.add( piece);
+					sectionMeshes.push(piece);
+				}
+
+				function onLoadTriobriand( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1.5;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					const piece = model.children[0];
+					piece.position.set( x, y, z );
+					piece.scale.set( piecescale, piecescale, piecescale);
+					piece.material.color.set(parameters.amphColor);
+					piece.userData.trueLocation = new THREE.Vector3(1.01, 0.74, 0.33);
+					jars.add( piece);
+					sectionMeshes.push(piece);
+				}
+
+				function onLoadCollingwood( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1.5;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					const piece = model.children[0];
+					piece.position.set( x, y, z );
+					piece.scale.set( piecescale, piecescale, piecescale);
+					piece.material.color.set(parameters.wangelaColor);
+					piece.userData.trueLocation = new THREE.Vector3(0.85, 0.74, 0.4);
+					jars.add( piece);
+					sectionMeshes.push(piece);
+				}
+
+
 
 
 
@@ -411,19 +454,7 @@
 					sectionMeshes.push(piece);
 				}
 
-				function onLoadMailu( gltf ) {
-					const model = gltf.scene;					
-					const x = Math.random() - 1.5;
-					const y = .7;
-					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
 
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.nabColor);
-					jars.add( piece);
-					sectionMeshes.push(piece);
-				}
 
 				function onLoadPaddleD( gltf ) {
 					const model = gltf.scene;					
@@ -862,12 +893,12 @@
 					//aposition = object.position;
 					trueposition = object.userData.loc;
 					jars.attach( object );
-					//object.position.set(trueposition);
+					object.position.set(trueposition);
 					//object.position.x = 0;
 					//object.position.y = 0.7;
 					//object.position.set(0, 0.74, 0);
 					//object.position.z = 0;
-					 if ( aposition.distanceTo( zeroz ) < .4) {
+					 if ( aposition.distanceTo( zeroz ) < .3) {
 					// 	//scene.attach( object );
 					 	scene.background = new THREE.Color( 0x87ceeb ); // blue
 					// 	//object.position.set(zeroz);
