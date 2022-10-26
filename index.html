@@ -49,8 +49,8 @@
 			let gallery, adzeraG, agarabiG, aibomG, aloaloG, bauG, begilamG, collG, demtaG, dimiriG, huonG, ilesalesG;
 			let kaiepG, kombioG, louisadeG, mailuG, malukuG, manusG, marikG, menoG, motoG, pubineriG, triobriandG, tumleoG;
 			let waigeoG, yabobG;
-			let agarabiM, adzeraM, collingwoodM, triobriandM, aibomM, demtaM, mailuM, bauM, pubineriM, marikM, yabobM;
-			let aloaloM, louisadeM;
+			let agarabiM, adzeraM, collingwoodM, triobriandM, aibomM, demtaM, mailuM, bauM, pubineriM, marikM, yabobM, waigeoM;
+			let aloaloM, louisadeM, dimiriM, begilamM, kombioM, menoM, tumleoM, ilesalesM, malukuM, kaiepM, manusM, motoM, huonM;
 			init();
 			animate();
 
@@ -282,7 +282,7 @@
 				function onLoadAgarabi( gltf ) {
 					const model = gltf.scene;					
 					const x = Math.random() - 1;
-					const y = 0.9;
+					const y = 1.2;
 					const z = Math.random() * 0.5 - 0.3 ;
 					agarabiM = model.children[0];
 					agarabiM.position.set( x, y, z );
@@ -296,7 +296,7 @@
 				function onLoadDemta( gltf ) {
 					const model = gltf.scene;					
 					const x = Math.random() - 1;
-					const y = 0.9;
+					const y = 1.2;
 					const z = Math.random() * 0.5 - 0.3 ;
 					demtaM = model.children[0];
 					demtaM.position.set( x, y, z );
@@ -310,7 +310,7 @@
 				function onLoadAibom( gltf ) {
 					const model = gltf.scene;					
 					const x = Math.random() - 1;
-					const y = 0.9;
+					const y = 1.2;
 					const z = Math.random() * 0.5 - 0.3 ;
 					aibomM = model.children[0];
 					aibomM.position.set( x, y, z );
@@ -324,7 +324,7 @@
 				function onLoadMailu( gltf ) {
 					const model = gltf.scene;					
 					const x = Math.random() - 1.0;
-					const y = .9;
+					const y = 1.2;
 					const z = Math.random() * 0.5 - 0.3 ;
 					mailuM = model.children[0];
 					mailuM.position.set( x, y, z );
@@ -366,12 +366,12 @@
 				function onLoadLouisade( gltf ) {
 					const model = gltf.scene;					
 					const x = Math.random() - 1;
-					const y = .7;
+					const y = 1.2;
 					const z = Math.random() * 0.5 - 0.3 ;
 					louisadeM = model.children[0];
 					louisadeM.position.set( x, y, z );
 					louisadeM.scale.set( piecescale, piecescale, piecescale);
-					louisadeM.material.color.set(parameters.coilColor);
+					louisadeM.material.color.set(parameters.ringTopColor);
 					louisadeM.userData.trueLocation = new THREE.Vector3(1.1, 0.74, 0.55);
 					jars.add( louisadeM);
 					sectionMeshes.push(louisadeM);
@@ -380,215 +380,428 @@
 				function onLoadAloalo( gltf ) {
 					const model = gltf.scene;					
 					const x = Math.random() - 1;
-					const y = .7;
+					const y = 1.2;
 					const z = Math.random() * 0.5 - 0.3 ;
 					aloaloM = model.children[0];
 					aloaloM.position.set( x, y, z );
 					aloaloM.scale.set( piecescale, piecescale, piecescale);
-					aloaloM.material.color.set(parameters.coilColor);
+					aloaloM.material.color.set(parameters.ringTopColor);
 					aloaloM.userData.trueLocation = new THREE.Vector3(0.9, 0.74, 0.49);
 					jars.add( aloaloM);
 					sectionMeshes.push(aloaloM);
 				}
 
+				function onLoadMarik( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					marikM = model.children[0];
+					marikM.position.set( x, y, z );
+					marikM.scale.set( piecescale, piecescale, piecescale);
+					marikM.material.color.set(parameters.coilColor);
+					marikM.userData.trueLocation = new THREE.Vector3(0.575, 0.74, 0.079);
+					jars.add( marikM);
+					sectionMeshes.push(marikM);
+				}
 
+				function onLoadDimiri( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					dimiriM = model.children[0];
+					dimiriM.position.set( x, y, z );
+					dimiriM.scale.set( piecescale, piecescale, piecescale);
+					dimiriM.material.color.set(parameters.coilColor);
+					dimiriM.userData.trueLocation = new THREE.Vector3(0.43, 0.74, 0);
+					jars.add( dimiriM);
+					sectionMeshes.push(dimiriM);
+				}
+
+				function onLoadBegilam( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					begilamM = model.children[0];
+					begilamM.position.set( x, y, z );
+					begilamM.scale.set( piecescale, piecescale, piecescale);
+					begilamM.material.color.set(parameters.coilColor);
+					begilamM.userData.trueLocation = new THREE.Vector3(0.28, 0.74, -0.01);
+					jars.add( begilamM);
+					sectionMeshes.push(begilamM);
+				}
+
+				function onLoadSumeo( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					pubineriM = model.children[0];
+					pubineriM.position.set( x, y, z );
+					pubineriM.scale.set( piecescale, piecescale, piecescale);
+					pubineriM.material.color.set(parameters.coilColor);
+					pubineriM.userData.trueLocation = new THREE.Vector3(0.53, 0.74, 0.09);
+					jars.add( pubineriM);
+					sectionMeshes.push(pubineriM);
+				}
+
+				function onLoadBau( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					bauM = model.children[0];
+					bauM.position.set( x, y, z );
+					bauM.scale.set( piecescale, piecescale, piecescale);
+					bauM.material.color.set(parameters.coilColor);
+					bauM.userData.trueLocation = new THREE.Vector3(0.535, 0.74, 0.04);
+					jars.add( bauM);
+					sectionMeshes.push(bauM);
+				}
+
+				function onLoadKombio( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					kombioM = model.children[0];
+					kombioM.position.set( x, y, z );
+					kombioM.scale.set( piecescale, piecescale, piecescale);
+					kombioM.material.color.set(parameters.coilColor);
+					kombioM.userData.trueLocation = new THREE.Vector3(0.29, 0.74, -0.05);
+					jars.add( kombioM);
+					sectionMeshes.push(kombioM);
+				}
+
+				function onLoadMeno( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					menoM = model.children[0];
+					menoM.position.set( x, y, z );
+					menoM.scale.set( piecescale, piecescale, piecescale);
+					menoM.material.color.set(parameters.coilColor);
+					menoM.userData.trueLocation = new THREE.Vector3(0.33, 0.74, -0.08);
+					jars.add( menoM);
+					sectionMeshes.push(menoM);
+				}
+
+				function onLoadYabob( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 0.2;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					yabobM = model.children[0];
+					yabobM.position.set( x, y, z );
+					yabobM.scale.set( piecescale, piecescale, piecescale);
+					yabobM.material.color.set(parameters.paddleColor);
+					yabobM.userData.trueLocation = new THREE.Vector3(0.572, 0.74, 0.0396);
+					jars.add( yabobM);
+					sectionMeshes.push(yabobM);
+				}
+				function onLoadTumleo( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 0.2;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					tumleoM = model.children[0];
+					tumleoM.position.set( x, y, z );
+					tumleoM.scale.set( piecescale, piecescale, piecescale);
+					tumleoM.material.color.set(parameters.paddleColor);
+					tumleoM.userData.trueLocation = new THREE.Vector3(0.27, 0.74, -0.12);
+					jars.add( tumleoM);
+					sectionMeshes.push(tumleoM);
+				}
+				function onLoadKaiep( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 0.2;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					kaiepM = model.children[0];
+					kaiepM.position.set( x, y, z );
+					kaiepM.scale.set( piecescale, piecescale, piecescale);
+					kaiepM.material.color.set(parameters.paddleColor);
+					kaiepM.userData.trueLocation = new THREE.Vector3(0.41, 0.74, -0.07);
+					jars.add( kaiepM);
+					sectionMeshes.push(kaiepM);
+				}
+				function onLoadMoto( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 0.2;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					motoM = model.children[0];
+					motoM.position.set( x, y, z );
+					motoM.scale.set( piecescale, piecescale, piecescale);
+					motoM.material.color.set(parameters.paddleColor);
+					motoM.userData.trueLocation = new THREE.Vector3(0.71, 0.74, 0.42);
+					jars.add( motoM);
+					sectionMeshes.push(motoM);
+				}
+				function onLoadHuon( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 0.2;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					huonM = model.children[0];
+					huonM.position.set( x, y, z );
+					huonM.scale.set( piecescale, piecescale, piecescale);
+					huonM.material.color.set(parameters.paddleColor);
+					huonM.userData.trueLocation = new THREE.Vector3(0.71, 0.74, 0.13);
+					jars.add( huonM);
+					sectionMeshes.push(huonM);
+				}
+				function onLoadManus( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 0.2;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					manusM = model.children[0];
+					manusM.position.set( x, y, z );
+					manusM.scale.set( piecescale, piecescale, piecescale);
+					manusM.material.color.set(parameters.paddleColor);
+					manusM.userData.trueLocation = new THREE.Vector3(0.66, 0.74, -0.2);
+					jars.add( manusM);
+					sectionMeshes.push(manusM);
+				}
+				function onLoadIlesales( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 0.2;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					ilesalesM = model.children[0];
+					ilesalesM.position.set( x, y, z );
+					ilesalesM.scale.set( piecescale, piecescale, piecescale);
+					ilesalesM.material.color.set(parameters.paddleColor);
+					ilesalesM.userData.trueLocation = new THREE.Vector3(-0.34, 0.74, 0.11);
+					jars.add( ilesalesM);
+					sectionMeshes.push(ilesalesM);
+				}
+
+				function onLoadMaluku( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() ;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					malukuM = model.children[0];
+					malukuM.position.set( x, y, z );
+					malukuM.scale.set( piecescale, piecescale, piecescale);
+					malukuM.material.color.set(parameters.paddleAddColor);
+					malukuM.userData.trueLocation = new THREE.Vector3(-0.86, 0.74, -0.08);
+					jars.add( malukuM);
+					sectionMeshes.push(malukuM);
+				}
+
+				function onLoadWaigeo( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() ;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					waigeoM = model.children[0];
+					waigeoM.position.set( x, y, z );
+					waigeoM.scale.set( piecescale, piecescale, piecescale);
+					waigeoM.material.color.set(parameters.paddleAddColor);
+					waigeoM.userData.trueLocation = new THREE.Vector3(-0.65, 0.74, -0.35);
+					jars.add( waigeoM);
+					sectionMeshes.push(waigeoM);
+				}
 
 
 
 
 				//old load functions 
-				function onLoad( gltf ) {
-					const model = gltf.scene;					
-					const x = Math.random() - 1;
-					const y = .7;
-					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );					
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.materialColor);
-					jars.add( piece);
-					sectionMeshes.push(piece);
-				}
+				// function onLoad( gltf ) {
+				// 	const model = gltf.scene;					
+				// 	const x = Math.random() - 1;
+				// 	const y = .7;
+				// 	const z = Math.random() * 0.5 - 0.3 ;
+				// 	const piece = model.children[0];
+				// 	piece.position.set( x, y, z );					
+				// 	piece.scale.set( piecescale, piecescale, piecescale);
+				// 	piece.material.color.set(parameters.materialColor);
+				// 	jars.add( piece);
+				// 	sectionMeshes.push(piece);
+				// }
 
 
-				function onLoadCoil( gltf ) {
-					const model = gltf.scene;					
-					const x = Math.random() - 1;
-					const y = .7;
-					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
+				// function onLoadCoil( gltf ) {
+				// 	const model = gltf.scene;					
+				// 	const x = Math.random() - 1;
+				// 	const y = .7;
+				// 	const z = Math.random() * 0.5 - 0.3 ;
+				// 	const piece = model.children[0];
+				// 	piece.position.set( x, y, z );
+				// 	piece.scale.set( piecescale, piecescale, piecescale);
+				// 	piece.material.color.set(parameters.coilColor);
+				// 	jars.add( piece);
+				// 	sectionMeshes.push(piece);
+				// }
 
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.coilColor);
-					jars.add( piece);
-					sectionMeshes.push(piece);
-				}
-
-				function onLoadCoilBeat( gltf ) {
-					const model = gltf.scene;					
-					const x = Math.random() - 1;
-					const y = .7;
-					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
+				// function onLoadCoilBeat( gltf ) {
+				// 	const model = gltf.scene;					
+				// 	const x = Math.random() - 1;
+				// 	const y = .7;
+				// 	const z = Math.random() * 0.5 - 0.3 ;
+				// 	const piece = model.children[0];
+				// 	piece.position.set( x, y, z );
 	
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.coilBeatenColor);
-					jars.add( piece);
-					sectionMeshes.push(piece);
-				}
-				function onLoadPaddle( gltf ) {
-					const model = gltf.scene;					
-					const x = Math.random() - 0.2;
-					const y = .7;
-					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
+				// 	piece.scale.set( piecescale, piecescale, piecescale);
+				// 	piece.material.color.set(parameters.coilBeatenColor);
+				// 	jars.add( piece);
+				// 	sectionMeshes.push(piece);
+				// }
+				// function onLoadPaddle( gltf ) {
+				// 	const model = gltf.scene;					
+				// 	const x = Math.random() - 0.2;
+				// 	const y = .7;
+				// 	const z = Math.random() * 0.5 - 0.3 ;
+				// 	const piece = model.children[0];
+				// 	piece.position.set( x, y, z );
 
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.paddleColor);
-					jars.add( piece);
-					sectionMeshes.push(piece);
-				}
-				function onLoadWangela( gltf ) {
-					const model = gltf.scene;					
-					const x = Math.random() - 1.5;
-					const y = .7;
-					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
+				// 	piece.scale.set( piecescale, piecescale, piecescale);
+				// 	piece.material.color.set(parameters.paddleColor);
+				// 	jars.add( piece);
+				// 	sectionMeshes.push(piece);
+				// }
+				// function onLoadWangela( gltf ) {
+				// 	const model = gltf.scene;					
+				// 	const x = Math.random() - 1.5;
+				// 	const y = .7;
+				// 	const z = Math.random() * 0.5 - 0.3 ;
+				// 	const piece = model.children[0];
+				// 	piece.position.set( x, y, z );
 
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.wangelaColor);
-					jars.add( piece);
-					sectionMeshes.push(piece);
-				}
-				function onLoadAmp( gltf ) {
-					const model = gltf.scene;					
-					const x = Math.random() - 1.5;
-					const y = .7;
-					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
+				// 	piece.scale.set( piecescale, piecescale, piecescale);
+				// 	piece.material.color.set(parameters.wangelaColor);
+				// 	jars.add( piece);
+				// 	sectionMeshes.push(piece);
+				// }
+				// function onLoadAmp( gltf ) {
+				// 	const model = gltf.scene;					
+				// 	const x = Math.random() - 1.5;
+				// 	const y = .7;
+				// 	const z = Math.random() * 0.5 - 0.3 ;
+				// 	const piece = model.children[0];
+				// 	piece.position.set( x, y, z );
 
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.amphColor);
-					jars.add( piece);
-					sectionMeshes.push(piece);
-				}
-
-
-
-				function onLoadPaddleD( gltf ) {
-					const model = gltf.scene;					
-					const x = Math.random() ;
-					const y = .7;
-					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
-
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.paddleAddColor);
-					jars.add( piece);
-					sectionMeshes.push(piece);
-				}
+				// 	piece.scale.set( piecescale, piecescale, piecescale);
+				// 	piece.material.color.set(parameters.amphColor);
+				// 	jars.add( piece);
+				// 	sectionMeshes.push(piece);
+				// }
 
 
-				function onLoadRing( gltf ) {
-					const model = gltf.scene;					
-					const x = Math.random() - 1.5;
-					const y = .7;
-					const z = Math.random() * 0.5 - 0.3 ;
-					const piece = model.children[0];
-					piece.position.set( x, y, z );
 
-					piece.scale.set( piecescale, piecescale, piecescale);
-					piece.material.color.set(parameters.ringTopColor);
-					jars.add( piece);
-					sectionMeshes.push(piece);
+				// function onLoadPaddleD( gltf ) {
+				// 	const model = gltf.scene;					
+				// 	const x = Math.random() ;
+				// 	const y = .7;
+				// 	const z = Math.random() * 0.5 - 0.3 ;
+				// 	const piece = model.children[0];
+				// 	piece.position.set( x, y, z );
+
+				// 	piece.scale.set( piecescale, piecescale, piecescale);
+				// 	piece.material.color.set(parameters.paddleAddColor);
+				// 	jars.add( piece);
+				// 	sectionMeshes.push(piece);
+				// }
 
 
-				}
+				// function onLoadRing( gltf ) {
+				// 	const model = gltf.scene;					
+				// 	const x = Math.random() - 1.5;
+				// 	const y = .7;
+				// 	const z = Math.random() * 0.5 - 0.3 ;
+				// 	const piece = model.children[0];
+				// 	piece.position.set( x, y, z );
 
-				// loader.load( 'models/gltf/maluku.glb', onLoadPaddleD, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/adzera.glb', onLoadCoilBeat, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
+				// 	piece.scale.set( piecescale, piecescale, piecescale);
+				// 	piece.material.color.set(parameters.ringTopColor);
+				// 	jars.add( piece);
+				// 	sectionMeshes.push(piece);
+
+
+				// }
+
+				loader.load( 'models/gltf/maluku.glb', onLoadMaluku, undefined, function ( error ) {
+					console.error( error );
+				} );
+		
 				loader.load( 'models/gltf/adzera.glb', onLoadAdzera, undefined, function ( error ) {
 					console.error( error );
 				} );
-				// loader.load( 'models/gltf/agarabi.glb', onLoadCoilBeat, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/aibom.glb', onLoad, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/bau.glb', onLoadCoil, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/aloalo.glb', onLoadRing, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/begilam.glb', onLoadCoil, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/collingwood.glb', onLoadWangela, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/demta.glb', onLoad, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/dimiri.glb', onLoadCoil, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/huon.glb', onLoadPaddle, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/ilesales.glb', onLoadPaddle, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/kaiep.glb', onLoadPaddle, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/kombio.glb', onLoadCoil, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/louisade.glb', onLoadRing, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/mailu.glb', onLoadMailu, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/manus.glb', onLoadPaddle, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/marik.glb', onLoadCoil, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/meno.glb', onLoadCoil, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/moto.glb', onLoadPaddle, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/pubineri.glb', onLoadCoil, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/triobriand.glb', onLoadAmp, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/tumleo.glb', onLoadPaddle, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/waiGeo.glb', onLoadPaddleD, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
-				// loader.load( 'models/gltf/yabob.glb', onLoadPaddle, undefined, function ( error ) {
-				// 	console.error( error );
-				// } );
+				loader.load( 'models/gltf/agarabi.glb', onLoadAgarabi, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/aibom.glb', onLoadAibom, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/bau.glb', onLoadBau, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/aloalo.glb', onLoadAloalo, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/begilam.glb', onLoadBegilam, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/collingwood.glb', onLoadCollingwood, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/demta.glb', onLoadDemta, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/dimiri.glb', onLoadDimiri, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/huon.glb', onLoadHuon, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/ilesales.glb', onLoadIlesales, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/kaiep.glb', onLoadKaiep, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/kombio.glb', onLoadKombio, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/louisade.glb', onLoadLouisade, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/mailu.glb', onLoadMailu, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/manus.glb', onLoadManus, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/marik.glb', onLoadMarik, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/meno.glb', onLoadMeno, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/moto.glb', onLoadMoto, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/pubineri.glb', onLoadSumeo, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/triobriand.glb', onLoadTriobriand, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/tumleo.glb', onLoadTumleo, undefined, function ( error ) {
+					console.error( error );
+				} );
+				 loader.load( 'models/gltf/waiGeo.glb', onLoadWaigeo, undefined, function ( error ) {
+				 	console.error( error );
+				 } );
+				loader.load( 'models/gltf/yabob.glb', onLoadYabob, undefined, function ( error ) {
+					console.error( error );
+				} );
 
 				// torus
 				torus = new THREE.Group();
