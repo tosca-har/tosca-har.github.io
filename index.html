@@ -806,7 +806,7 @@
 					//test if position is 0
 					let aposition = new THREE.Vector3(0,0,0);
 					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
-					jars.attach( object );
+					
 					//scene.attach( object );
 					//object.position.x = 0; // for testing
 					//
@@ -822,7 +822,7 @@
 					}
 					//jars.attach( object );
 					
-
+					jars.attach( object );
 					controller.userData.selected = undefined;
 
 				}
