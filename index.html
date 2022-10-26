@@ -812,7 +812,7 @@
 					//
 					//aposition = object.position;
 					let trueposition = object.userData.trueLocation;
-
+					object.position.set(trueposition);
 					if ( aposition.distanceTo( trueposition ) < .2) {
 						//scene.attach( object );
 						scene.background = new THREE.Color( 0x87ceeb ); // blue
