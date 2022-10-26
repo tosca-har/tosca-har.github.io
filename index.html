@@ -812,6 +812,7 @@
 					//
 					//aposition = object.position;
 					//const trueposition = object.userData.trueLocation;
+					scene.attach( object );
 					object.position.set(object.userData.trueLocation);
 
 					if ( aposition.distanceTo( trueposition ) < .4) {
@@ -822,7 +823,7 @@
 					}
 					//jars.attach( object );
 					
-					jars.attach( object );
+					
 					controller.userData.selected = undefined;
 
 				}
