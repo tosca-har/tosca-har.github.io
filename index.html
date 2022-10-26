@@ -50,7 +50,7 @@
 			let kaiepG, kombioG, louisadeG, mailuG, malukuG, manusG, marikG, menoG, motoG, pubineriG, triobriandG, tumleoG;
 			let waigeoG, yabobG;
 			let agarabiM, adzeraM, collingwoodM, triobriandM, aibomM, demtaM, mailuM, bauM, pubineriM, marikM, yabobM;
-
+			let aloaloM, louisadeM;
 			init();
 			animate();
 
@@ -363,9 +363,33 @@
 					sectionMeshes.push(collingwoodM);
 				}
 
+				function onLoadLouisade( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = .7;
+					const z = Math.random() * 0.5 - 0.3 ;
+					louisadeM = model.children[0];
+					louisadeM.position.set( x, y, z );
+					louisadeM.scale.set( piecescale, piecescale, piecescale);
+					louisadeM.material.color.set(parameters.coilColor);
+					louisadeM.userData.trueLocation = new THREE.Vector3(1.1, 0.74, 0.55);
+					jars.add( louisadeM);
+					sectionMeshes.push(louisadeM);
+				}
 
-
-
+				function onLoadAloalo( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = .7;
+					const z = Math.random() * 0.5 - 0.3 ;
+					aloaloM = model.children[0];
+					aloaloM.position.set( x, y, z );
+					aloaloM.scale.set( piecescale, piecescale, piecescale);
+					aloaloM.material.color.set(parameters.coilColor);
+					aloaloM.userData.trueLocation = new THREE.Vector3(0.9, 0.74, 0.49);
+					jars.add( aloaloM);
+					sectionMeshes.push(aloaloM);
+				}
 
 
 
@@ -898,9 +922,9 @@
 					//object.position.y = 0.7;
 					//object.position.set(0, 0.74, 0);
 					//object.position.z = 0;
-					 if ( aposition.distanceTo( trueposition ) < .3) {
+					 if ( aposition.distanceTo( trueposition ) < .05) {
 					// 	//scene.attach( object );
-					 	scene.background = new THREE.Color( 0x87ceeb ); // blue
+					 	scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
 					// 	//object.position.set(zeroz);
 					// 	//object.position.set.y = 1.5;
 					 }
