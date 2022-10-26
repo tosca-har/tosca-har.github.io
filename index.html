@@ -262,6 +262,24 @@
 				}
 
 // really should change so scale or colour accepted as argument if pos
+				function onLoadAdzera( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					const piece = model.children[0];
+					piece.position.set( x, y, z );
+	
+					piece.scale.set( piecescale, piecescale, piecescale);
+					piece.material.color.set(parameters.coilBeatenColor);
+					piece.userData.trueLocation = new THREE.Vector3(0.61, 0.74, 0.15);
+					jars.add( piece);
+					//sectionMeshes.push(piece);
+				}
+
+
+
+
 				function onLoad( gltf ) {
 					const model = gltf.scene;					
 					const x = Math.random() - 1;
@@ -385,87 +403,88 @@
 					piece.material.color.set(parameters.ringTopColor);
 					jars.add( piece);
 					sectionMeshes.push(piece);
-					//let ap;
-					//piece.getWorldPosition(ap)
-					//console.log(ap);
+
 
 				}
 
-				loader.load( 'models/gltf/maluku.glb', onLoadPaddleD, undefined, function ( error ) {
+				// loader.load( 'models/gltf/maluku.glb', onLoadPaddleD, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/adzera.glb', onLoadCoilBeat, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				loader.load( 'models/gltf/adzera.glb', onLoadAdzera, undefined, function ( error ) {
 					console.error( error );
 				} );
-				loader.load( 'models/gltf/adzera.glb', onLoadCoilBeat, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/agarabi.glb', onLoadCoilBeat, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/aibom.glb', onLoad, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/bau.glb', onLoadCoil, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/aloalo.glb', onLoadRing, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/begilam.glb', onLoadCoil, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/collingwood.glb', onLoadWangela, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/demta.glb', onLoad, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/dimiri.glb', onLoadCoil, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/huon.glb', onLoadPaddle, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/ilesales.glb', onLoadPaddle, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/kaiep.glb', onLoadPaddle, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/kombio.glb', onLoadCoil, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/louisade.glb', onLoadRing, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/mailu.glb', onLoadMailu, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/manus.glb', onLoadPaddle, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/marik.glb', onLoadCoil, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/meno.glb', onLoadCoil, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/moto.glb', onLoadPaddle, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/pubineri.glb', onLoadCoil, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/triobriand.glb', onLoadAmp, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/tumleo.glb', onLoadPaddle, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/waiGeo.glb', onLoadPaddleD, undefined, function ( error ) {
-					console.error( error );
-				} );
-				loader.load( 'models/gltf/yabob.glb', onLoadPaddle, undefined, function ( error ) {
-					console.error( error );
-				} );
+				// loader.load( 'models/gltf/agarabi.glb', onLoadCoilBeat, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/aibom.glb', onLoad, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/bau.glb', onLoadCoil, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/aloalo.glb', onLoadRing, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/begilam.glb', onLoadCoil, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/collingwood.glb', onLoadWangela, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/demta.glb', onLoad, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/dimiri.glb', onLoadCoil, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/huon.glb', onLoadPaddle, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/ilesales.glb', onLoadPaddle, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/kaiep.glb', onLoadPaddle, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/kombio.glb', onLoadCoil, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/louisade.glb', onLoadRing, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/mailu.glb', onLoadMailu, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/manus.glb', onLoadPaddle, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/marik.glb', onLoadCoil, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/meno.glb', onLoadCoil, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/moto.glb', onLoadPaddle, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/pubineri.glb', onLoadCoil, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/triobriand.glb', onLoadAmp, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/tumleo.glb', onLoadPaddle, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/waiGeo.glb', onLoadPaddleD, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
+				// loader.load( 'models/gltf/yabob.glb', onLoadPaddle, undefined, function ( error ) {
+				// 	console.error( error );
+				// } );
 
 				// torus
 				torus = new THREE.Group();
@@ -785,20 +804,21 @@
 					object.material.emissive.b = 0;
 					
 					//test if position is 0
-					//let aposition = new THREE.Vector3(0,0,0);
-					//object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
+					let aposition = new THREE.Vector3(0,0,0);
+					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
 					jars.attach( object );
 					//scene.attach( object );
 					//object.position.x = 0; // for testing
 					//
 					//aposition = object.position;
-					
-					//if ( aposition.distanceTo( zeroz ) < .4) {
+					let trueposition = object.userData.trueLocation;
+
+					if ( aposition.distanceTo( trueposition ) < .2) {
 						//scene.attach( object );
-						//scene.background = new THREE.Color( 0x87ceeb ); // blue
+						scene.background = new THREE.Color( 0x87ceeb ); // blue
 						//object.position.set(zeroz);
 						//object.position.set.y = 1.5;
-					//}
+					}
 					//jars.attach( object );
 					
 
