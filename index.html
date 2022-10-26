@@ -786,15 +786,16 @@
 					
 					//test if position is 0
 					let aposition = new THREE.Vector3(0,0,0);
-					//object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
+					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
 					//jars.attach( object );
 					scene.attach( object );
-					aposition = object.position;
+					//aposition = object.position;
 					
-					if ( aposition.distanceTo( zero ) < 0.1 ) {
+					if ( aposition.distanceTo( zero ) < 0.2) {
 						//scene.attach( object );
+						scene.background = new THREE.Color( 0x87ceeb ); // peach
 						object.position.set = zero;
-						object.position.set.y = 1.5;
+						//object.position.set.y = 1.5;
 					}
 					jars.attach( object );
 					
