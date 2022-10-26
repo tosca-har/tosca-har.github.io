@@ -274,7 +274,7 @@
 					piece.material.color.set(parameters.coilBeatenColor);
 					piece.userData.trueLocation = new THREE.Vector3(0.61, 0.74, 0.15);
 					jars.add( piece);
-					//sectionMeshes.push(piece);
+					sectionMeshes.push(piece);
 				}
 
 
@@ -812,15 +812,17 @@
 					//
 					//aposition = object.position;
 					//const trueposition = object.userData.trueLocation;
-					scene.attach( object );
-					object.position.set(object.userData.trueLocation);
-
-					if ( aposition.distanceTo( trueposition ) < .4) {
-						//scene.attach( object );
-						scene.background = new THREE.Color( 0x87ceeb ); // blue
-						//object.position.set(zeroz);
-						//object.position.set.y = 1.5;
-					}
+					jars.attach( object );
+					//object.position.set(object.userData.trueLocation);
+					object.position.x = 0;
+					object.position.y = 0.7;
+					object.position.z = 0;
+					// if ( aposition.distanceTo( trueposition ) < .4) {
+					// 	//scene.attach( object );
+					// 	scene.background = new THREE.Color( 0x87ceeb ); // blue
+					// 	//object.position.set(zeroz);
+					// 	//object.position.set.y = 1.5;
+					// }
 					//jars.attach( object );
 					
 					
