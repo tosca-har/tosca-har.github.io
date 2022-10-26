@@ -44,7 +44,7 @@
 			const intersected2 = [];
 			const tempMatrix = new THREE.Matrix4();
 			let zeroz = new THREE.Vector3( 0, 0.74 , 0); // table height
-			let controls, jars, torus, selectedPlane;
+			let controls, jars, torus, selectedPlane, trueposition;
 // can either have 26 galleries that hide and show, or change the texture on one gallery. As changed out of init must be declared here.
 			let gallery, adzeraG, agarabiG, aibomG, aloaloG, bauG, begilamG, collG, demtaG, dimiriG, huonG, ilesalesG;
 			let kaiepG, kombioG, louisadeG, mailuG, malukuG, manusG, marikG, menoG, motoG, pubineriG, triobriandG, tumleoG;
@@ -272,7 +272,7 @@
 					//piece.position.set( 0, 0.73, 0); //desk
 					piece.scale.set( piecescale, piecescale, piecescale);
 					piece.material.color.set(parameters.coilBeatenColor);
-					piece.userData.trueLocation = new THREE.Vector3(0.61, 0.74, 0.15);
+					piece.userData.loc = new THREE.Vector3(0.61, 0.74, 0.15);
 					jars.add( piece);
 					sectionMeshes.push(piece);
 				}
@@ -858,9 +858,9 @@
 					//object.position.x = 0; // for testing
 					//
 					//aposition = object.position;
-					//const trueposition = object.userData.trueLocation;
+					trueposition = object.userData.loc;
 					jars.attach( object );
-					object.position.set(object.userData.trueLocation);
+					object.position.set(trueposition);
 					//object.position.x = 0;
 					//object.position.y = 0.7;
 					//object.position.set(0, 0.74, 0);
