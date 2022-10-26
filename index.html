@@ -789,9 +789,10 @@
 					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
 					//jars.attach( object );
 					scene.attach( object );
+					object.position.set = zero;
 					//aposition = object.position;
 					
-					if ( aposition.distanceTo( zero ) < 0.2) {
+					if ( aposition.distanceTo( zero ) < 1) {
 						//scene.attach( object );
 						scene.background = new THREE.Color( 0x87ceeb ); // peach
 						object.position.set = zero;
