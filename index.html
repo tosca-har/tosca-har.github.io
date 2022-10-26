@@ -268,7 +268,7 @@
 					const y = 1.0;
 					const z = Math.random() * 0.5 - 0.3 ;
 					const piece = model.children[0];
-					piece.position.set( x, y, z );
+					//piece.position.set( x, y, z );
 					piece.position.set( 0, 0.73, 0); //desk
 					piece.scale.set( piecescale, piecescale, piecescale);
 					piece.material.color.set(parameters.coilBeatenColor);
@@ -277,7 +277,47 @@
 					sectionMeshes.push(piece);
 				}
 
+				function onLoadAgarabi( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 0.9;
+					const z = Math.random() * 0.5 - 0.3 ;
+					const piece = model.children[0];
+					piece.position.set( x, y, z );
+					piece.scale.set( piecescale, piecescale, piecescale);
+					piece.material.color.set(parameters.coilBeatenColor);
+					piece.userData.trueLocation = new THREE.Vector3(0.55, 0.74, 0.15);
+					jars.add( piece);
+					sectionMeshes.push(piece);
+				}
 
+				function onLoadDemta( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 0.9;
+					const z = Math.random() * 0.5 - 0.3 ;
+					const piece = model.children[0];
+					piece.position.set( x, y, z );
+					piece.scale.set( piecescale, piecescale, piecescale);
+					piece.material.color.set(parameters.materialColor);
+					piece.userData.trueLocation = new THREE.Vector3(0.13, 0.74, -0.16);
+					jars.add( piece);
+					sectionMeshes.push(piece);
+				}
+
+				function onLoadAibom( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 0.9;
+					const z = Math.random() * 0.5 - 0.3 ;
+					const piece = model.children[0];
+					piece.position.set( x, y, z );
+					piece.scale.set( piecescale, piecescale, piecescale);
+					piece.material.color.set(parameters.materialColor);
+					piece.userData.trueLocation = new THREE.Vector3(0.36, 0.74,-0.01);
+					jars.add( piece);
+					sectionMeshes.push(piece);
+				}
 
 
 				function onLoad( gltf ) {
@@ -286,8 +326,7 @@
 					const y = .7;
 					const z = Math.random() * 0.5 - 0.3 ;
 					const piece = model.children[0];
-					piece.position.set( x, y, z );
-					
+					piece.position.set( x, y, z );					
 					piece.scale.set( piecescale, piecescale, piecescale);
 					piece.material.color.set(parameters.materialColor);
 					jars.add( piece);
