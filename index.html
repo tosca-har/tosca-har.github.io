@@ -789,13 +789,13 @@
 					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
 					//jars.attach( object );
 					scene.attach( object );
-					object.position.set = zero;
+					object.position.set(zero); // for testing
 					//aposition = object.position;
 					
 					if ( aposition.distanceTo( zero ) < 1) {
 						//scene.attach( object );
-						scene.background = new THREE.Color( 0x87ceeb ); // peach
-						object.position.set = zero;
+						scene.background = new THREE.Color( 0x87ceeb ); // blue
+						object.position.set(zero);
 						//object.position.set.y = 1.5;
 					}
 					jars.attach( object );
