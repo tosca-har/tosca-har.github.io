@@ -72,7 +72,8 @@
 
 				const textureLoader = new THREE.TextureLoader()
 				// Load information panels  -first one is instructions
-				const introTexture = textureLoader.load( 'textures/Intro.jpg' );			
+				const introTexture = textureLoader.load( 'textures/Intro.jpg' );
+				const refTexture = textureLoader.load( 'textures/sources.jpg' );			
 				const keyTexture = textureLoader.load( 'textures/key.jpg' );
 				const adzeraTexture = textureLoader.load( 'textures/Adzera.jpg' );
 				const agarabiTexture = textureLoader.load( 'textures/Agarabi.jpg' );
@@ -105,6 +106,9 @@
 				const gallery2 = new THREE.Mesh(new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: keyTexture }));
 				gallery2.position.set( 0.75, 1.1, -.75); 
 				scene.add( gallery2);
+				const gallery3 = new THREE.Mesh(new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: refTexture }));
+				gallery3.position.set(-0.75, 1.1, -.75); 
+				scene.add( gallery3);
 
 
 				gallery = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: introTexture }));
@@ -414,7 +418,7 @@
 					dimiriM.position.set( x, y, z );
 					dimiriM.scale.set( piecescale, piecescale, piecescale);
 					dimiriM.material.color.set(parameters.coilColor);
-					dimiriM.userData.tloc = new THREE.Vector3(0.43, 0.74, 0);
+					dimiriM.userData.loc = new THREE.Vector3(0.43, 0.74, 0);
 					jars.add( dimiriM);
 					sectionMeshes.push(dimiriM);
 				}
