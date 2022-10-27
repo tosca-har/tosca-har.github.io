@@ -288,7 +288,7 @@
 					agarabiM.position.set( x, y, z );
 					agarabiM.scale.set( piecescale, piecescale, piecescale);
 					agarabiM.material.color.set(parameters.coilBeatenColor);
-					agarabiM.userData.trueLocation = new THREE.Vector3(0.55, 0.74, 0.15);
+					agarabiM.userData.loc = new THREE.Vector3(0.55, 0.74, 0.15);
 					jars.add( agarabiM);
 					sectionMeshes.push(agarabiM);
 				}
@@ -302,7 +302,7 @@
 					demtaM.position.set( x, y, z );
 					demtaM.scale.set( piecescale, piecescale, piecescale);
 					demtaM.material.color.set(parameters.materialColor);
-					demtaM.userData.trueLocation = new THREE.Vector3(0.13, 0.74, -0.16);
+					demtaM.userData.loc = new THREE.Vector3(0.13, 0.74, -0.16);
 					jars.add( demtaM);
 					sectionMeshes.push(demtaM);
 				}
@@ -316,7 +316,7 @@
 					aibomM.position.set( x, y, z );
 					aibomM.scale.set( piecescale, piecescale, piecescale);
 					aibomM.material.color.set(parameters.materialColor);
-					aibomM.userData.trueLocation = new THREE.Vector3(0.36, 0.74,-0.01);
+					aibomM.userData.loc = new THREE.Vector3(0.36, 0.74,-0.01);
 					jars.add( aibomM);
 					sectionMeshes.push(aibomM);
 				}
@@ -330,7 +330,7 @@
 					mailuM.position.set( x, y, z );
 					mailuM.scale.set( piecescale, piecescale, piecescale);
 					mailuM.material.color.set(parameters.nabColor);
-					mailuM.userData.trueLocation = new THREE.Vector3(0.84, 0.74, 0.48);
+					mailuM.userData.loc = new THREE.Vector3(0.84, 0.74, 0.48);
 					jars.add( mailuM);
 					sectionMeshes.push(mailuM);
 				}
@@ -344,7 +344,7 @@
 					triobriandM.position.set( x, y, z );
 					triobriandM.scale.set( piecescale, piecescale, piecescale);
 					triobriandM.material.color.set(parameters.amphColor);
-					triobriandM.userData.trueLocation = new THREE.Vector3(1.01, 0.74, 0.33);
+					triobriandM.userData.loc = new THREE.Vector3(1.01, 0.74, 0.33);
 					jars.add( triobriandM);
 					sectionMeshes.push(triobriandM);
 				}
@@ -358,7 +358,7 @@
 					collingwoodM.position.set( x, y, z );
 					collingwoodM.scale.set( piecescale, piecescale, piecescale);
 					collingwoodM.material.color.set(parameters.wangelaColor);
-					collingwoodM.userData.trueLocation = new THREE.Vector3(0.85, 0.74, 0.4);
+					collingwoodM.userData.loc = new THREE.Vector3(0.85, 0.74, 0.4);
 					jars.add( collingwoodM);
 					sectionMeshes.push(collingwoodM);
 				}
@@ -372,7 +372,7 @@
 					louisadeM.position.set( x, y, z );
 					louisadeM.scale.set( piecescale, piecescale, piecescale);
 					louisadeM.material.color.set(parameters.ringTopColor);
-					louisadeM.userData.trueLocation = new THREE.Vector3(1.1, 0.74, 0.55);
+					louisadeM.userData.loc = new THREE.Vector3(1.1, 0.74, 0.55);
 					jars.add( louisadeM);
 					sectionMeshes.push(louisadeM);
 				}
@@ -386,7 +386,7 @@
 					aloaloM.position.set( x, y, z );
 					aloaloM.scale.set( piecescale, piecescale, piecescale);
 					aloaloM.material.color.set(parameters.ringTopColor);
-					aloaloM.userData.trueLocation = new THREE.Vector3(0.9, 0.74, 0.49);
+					aloaloM.userData.loc = new THREE.Vector3(0.9, 0.74, 0.49);
 					jars.add( aloaloM);
 					sectionMeshes.push(aloaloM);
 				}
@@ -400,7 +400,7 @@
 					marikM.position.set( x, y, z );
 					marikM.scale.set( piecescale, piecescale, piecescale);
 					marikM.material.color.set(parameters.coilColor);
-					marikM.userData.trueLocation = new THREE.Vector3(0.575, 0.74, 0.079);
+					marikM.userData.loc = new THREE.Vector3(0.575, 0.74, 0.079);
 					jars.add( marikM);
 					sectionMeshes.push(marikM);
 				}
@@ -414,7 +414,7 @@
 					dimiriM.position.set( x, y, z );
 					dimiriM.scale.set( piecescale, piecescale, piecescale);
 					dimiriM.material.color.set(parameters.coilColor);
-					dimiriM.userData.trueLocation = new THREE.Vector3(0.43, 0.74, 0);
+					dimiriM.userData.tloc = new THREE.Vector3(0.43, 0.74, 0);
 					jars.add( dimiriM);
 					sectionMeshes.push(dimiriM);
 				}
@@ -428,7 +428,7 @@
 					begilamM.position.set( x, y, z );
 					begilamM.scale.set( piecescale, piecescale, piecescale);
 					begilamM.material.color.set(parameters.coilColor);
-					begilamM.userData.trueLocation = new THREE.Vector3(0.28, 0.74, -0.01);
+					begilamM.userData.loc = new THREE.Vector3(0.28, 0.74, -0.01);
 					jars.add( begilamM);
 					sectionMeshes.push(begilamM);
 				}
@@ -442,7 +442,7 @@
 					pubineriM.position.set( x, y, z );
 					pubineriM.scale.set( piecescale, piecescale, piecescale);
 					pubineriM.material.color.set(parameters.coilColor);
-					pubineriM.userData.trueLocation = new THREE.Vector3(0.53, 0.74, 0.09);
+					pubineriM.userData.loc = new THREE.Vector3(0.53, 0.74, 0.09);
 					jars.add( pubineriM);
 					sectionMeshes.push(pubineriM);
 				}
@@ -456,7 +456,7 @@
 					bauM.position.set( x, y, z );
 					bauM.scale.set( piecescale, piecescale, piecescale);
 					bauM.material.color.set(parameters.coilColor);
-					bauM.userData.trueLocation = new THREE.Vector3(0.535, 0.74, 0.04);
+					bauM.userData.loc = new THREE.Vector3(0.535, 0.74, 0.04);
 					jars.add( bauM);
 					sectionMeshes.push(bauM);
 				}
@@ -470,7 +470,7 @@
 					kombioM.position.set( x, y, z );
 					kombioM.scale.set( piecescale, piecescale, piecescale);
 					kombioM.material.color.set(parameters.coilColor);
-					kombioM.userData.trueLocation = new THREE.Vector3(0.29, 0.74, -0.05);
+					kombioM.userData.loc = new THREE.Vector3(0.29, 0.74, -0.05);
 					jars.add( kombioM);
 					sectionMeshes.push(kombioM);
 				}
@@ -484,7 +484,7 @@
 					menoM.position.set( x, y, z );
 					menoM.scale.set( piecescale, piecescale, piecescale);
 					menoM.material.color.set(parameters.coilColor);
-					menoM.userData.trueLocation = new THREE.Vector3(0.33, 0.74, -0.08);
+					menoM.userData.loc = new THREE.Vector3(0.33, 0.74, -0.08);
 					jars.add( menoM);
 					sectionMeshes.push(menoM);
 				}
@@ -498,7 +498,7 @@
 					yabobM.position.set( x, y, z );
 					yabobM.scale.set( piecescale, piecescale, piecescale);
 					yabobM.material.color.set(parameters.paddleColor);
-					yabobM.userData.trueLocation = new THREE.Vector3(0.572, 0.74, 0.0396);
+					yabobM.userData.loc = new THREE.Vector3(0.572, 0.74, 0.0396);
 					jars.add( yabobM);
 					sectionMeshes.push(yabobM);
 				}
@@ -511,7 +511,7 @@
 					tumleoM.position.set( x, y, z );
 					tumleoM.scale.set( piecescale, piecescale, piecescale);
 					tumleoM.material.color.set(parameters.paddleColor);
-					tumleoM.userData.trueLocation = new THREE.Vector3(0.27, 0.74, -0.12);
+					tumleoM.userData.loc = new THREE.Vector3(0.27, 0.74, -0.12);
 					jars.add( tumleoM);
 					sectionMeshes.push(tumleoM);
 				}
@@ -524,7 +524,7 @@
 					kaiepM.position.set( x, y, z );
 					kaiepM.scale.set( piecescale, piecescale, piecescale);
 					kaiepM.material.color.set(parameters.paddleColor);
-					kaiepM.userData.trueLocation = new THREE.Vector3(0.41, 0.74, -0.07);
+					kaiepM.userData.loc = new THREE.Vector3(0.41, 0.74, -0.07);
 					jars.add( kaiepM);
 					sectionMeshes.push(kaiepM);
 				}
@@ -537,7 +537,7 @@
 					motoM.position.set( x, y, z );
 					motoM.scale.set( piecescale, piecescale, piecescale);
 					motoM.material.color.set(parameters.paddleColor);
-					motoM.userData.trueLocation = new THREE.Vector3(0.71, 0.74, 0.42);
+					motoM.userData.loc = new THREE.Vector3(0.71, 0.74, 0.42);
 					jars.add( motoM);
 					sectionMeshes.push(motoM);
 				}
@@ -550,7 +550,7 @@
 					huonM.position.set( x, y, z );
 					huonM.scale.set( piecescale, piecescale, piecescale);
 					huonM.material.color.set(parameters.paddleColor);
-					huonM.userData.trueLocation = new THREE.Vector3(0.71, 0.74, 0.13);
+					huonM.userData.loc = new THREE.Vector3(0.71, 0.74, 0.13);
 					jars.add( huonM);
 					sectionMeshes.push(huonM);
 				}
@@ -563,7 +563,7 @@
 					manusM.position.set( x, y, z );
 					manusM.scale.set( piecescale, piecescale, piecescale);
 					manusM.material.color.set(parameters.paddleColor);
-					manusM.userData.trueLocation = new THREE.Vector3(0.66, 0.74, -0.2);
+					manusM.userData.loc = new THREE.Vector3(0.66, 0.74, -0.2);
 					jars.add( manusM);
 					sectionMeshes.push(manusM);
 				}
@@ -576,7 +576,7 @@
 					ilesalesM.position.set( x, y, z );
 					ilesalesM.scale.set( piecescale, piecescale, piecescale);
 					ilesalesM.material.color.set(parameters.paddleColor);
-					ilesalesM.userData.trueLocation = new THREE.Vector3(-0.34, 0.74, 0.11);
+					ilesalesM.userData.loc = new THREE.Vector3(-0.34, 0.74, 0.11);
 					jars.add( ilesalesM);
 					sectionMeshes.push(ilesalesM);
 				}
@@ -590,7 +590,7 @@
 					malukuM.position.set( x, y, z );
 					malukuM.scale.set( piecescale, piecescale, piecescale);
 					malukuM.material.color.set(parameters.paddleAddColor);
-					malukuM.userData.trueLocation = new THREE.Vector3(-0.86, 0.74, -0.08);
+					malukuM.userData.loc = new THREE.Vector3(-0.86, 0.74, -0.08);
 					jars.add( malukuM);
 					sectionMeshes.push(malukuM);
 				}
@@ -604,7 +604,7 @@
 					waigeoM.position.set( x, y, z );
 					waigeoM.scale.set( piecescale, piecescale, piecescale);
 					waigeoM.material.color.set(parameters.paddleAddColor);
-					waigeoM.userData.trueLocation = new THREE.Vector3(-0.65, 0.74, -0.35);
+					waigeoM.userData.loc = new THREE.Vector3(-0.65, 0.74, -0.35);
 					jars.add( waigeoM);
 					sectionMeshes.push(waigeoM);
 				}
