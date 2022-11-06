@@ -60,7 +60,6 @@
 				document.body.appendChild( container );
 
 				scene = new THREE.Scene();
-				//scene.background = new THREE.Color( 0x87ceeb ); // light blue
 				scene.background = new THREE.Color( 0xf7d382 ); // peach
 				
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
@@ -227,7 +226,6 @@
 
 				//the Map
 				const mapGeometry = new THREE.PlaneGeometry( 3.0, 1.5 );
-				
 				const mapTexture = textureLoader.load('textures/png.png'); //from google maps
 				mapTexture.generateMipmaps = true //saves gpu if false
 				const theMap = new THREE.Mesh( mapGeometry, new THREE.MeshBasicMaterial({ map: mapTexture }));
@@ -376,7 +374,7 @@
 					louisadeM.position.set( x, y, z );
 					louisadeM.scale.set( piecescale, piecescale, piecescale);
 					louisadeM.material.color.set(parameters.ringTopColor);
-					louisadeM.userData.loc = new THREE.Vector3(1.1, 0.74, 0.55);
+					louisadeM.userData.loc = new THREE.Vector3(0.99, 0.74, 0.59);
 					jars.add( louisadeM);
 					sectionMeshes.push(louisadeM);
 				}
@@ -616,119 +614,6 @@
 
 
 
-				//old load functions 
-				// function onLoad( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() - 1;
-				// 	const y = .7;
-				// 	const z = Math.random() * 0.5 - 0.3 ;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );					
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	piece.material.color.set(parameters.materialColor);
-				// 	jars.add( piece);
-				// 	sectionMeshes.push(piece);
-				// }
-
-
-				// function onLoadCoil( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() - 1;
-				// 	const y = .7;
-				// 	const z = Math.random() * 0.5 - 0.3 ;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	piece.material.color.set(parameters.coilColor);
-				// 	jars.add( piece);
-				// 	sectionMeshes.push(piece);
-				// }
-
-				// function onLoadCoilBeat( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() - 1;
-				// 	const y = .7;
-				// 	const z = Math.random() * 0.5 - 0.3 ;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );
-	
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	piece.material.color.set(parameters.coilBeatenColor);
-				// 	jars.add( piece);
-				// 	sectionMeshes.push(piece);
-				// }
-				// function onLoadPaddle( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() - 0.2;
-				// 	const y = .7;
-				// 	const z = Math.random() * 0.5 - 0.3 ;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );
-
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	piece.material.color.set(parameters.paddleColor);
-				// 	jars.add( piece);
-				// 	sectionMeshes.push(piece);
-				// }
-				// function onLoadWangela( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() - 1.5;
-				// 	const y = .7;
-				// 	const z = Math.random() * 0.5 - 0.3 ;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );
-
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	piece.material.color.set(parameters.wangelaColor);
-				// 	jars.add( piece);
-				// 	sectionMeshes.push(piece);
-				// }
-				// function onLoadAmp( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() - 1.5;
-				// 	const y = .7;
-				// 	const z = Math.random() * 0.5 - 0.3 ;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );
-
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	piece.material.color.set(parameters.amphColor);
-				// 	jars.add( piece);
-				// 	sectionMeshes.push(piece);
-				// }
-
-
-
-				// function onLoadPaddleD( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() ;
-				// 	const y = .7;
-				// 	const z = Math.random() * 0.5 - 0.3 ;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );
-
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	piece.material.color.set(parameters.paddleAddColor);
-				// 	jars.add( piece);
-				// 	sectionMeshes.push(piece);
-				// }
-
-
-				// function onLoadRing( gltf ) {
-				// 	const model = gltf.scene;					
-				// 	const x = Math.random() - 1.5;
-				// 	const y = .7;
-				// 	const z = Math.random() * 0.5 - 0.3 ;
-				// 	const piece = model.children[0];
-				// 	piece.position.set( x, y, z );
-
-				// 	piece.scale.set( piecescale, piecescale, piecescale);
-				// 	piece.material.color.set(parameters.ringTopColor);
-				// 	jars.add( piece);
-				// 	sectionMeshes.push(piece);
-
-
-				// }
 
 				loader.load( 'models/gltf/maluku.glb', onLoadMaluku, undefined, function ( error ) {
 					console.error( error );
@@ -845,7 +730,7 @@
 				torus.add( ilesalesSite);
 		
 				const louisadeSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				louisadeSite.position.set(1.1, 0.74, 0.55);
+				louisadeSite.position.set(0.99, 0.74, 0.59);
 				louisadeSite.scale.set( piecescale, piecescale, piecescale);
 				louisadeSite.rotation.x = -Math.PI * 1/2;
 				louisadeSite.userData.planes = louisadeG;
@@ -1026,10 +911,8 @@
 				controllerGrip2.add( controllerModelFactory.createControllerModel( controllerGrip2 ) );
 				scene.add( controllerGrip2 );
 
-				//
 
 				const geometry = new THREE.BufferGeometry().setFromPoints( [ new THREE.Vector3( 0, 0, 0 ), new THREE.Vector3( 0, 0, - 1 ) ] );
-
 				const line = new THREE.Line( geometry );
 				line.name = 'line';
 				line.scale.z = 5;
@@ -1038,8 +921,6 @@
 				controller2.add( line.clone() );
 
 				raycaster = new THREE.Raycaster();
-
-				//
 
 				window.addEventListener( 'resize', onWindowResize );
 			}
@@ -1064,7 +945,6 @@
 				if ( intersections.length > 0 ) {
 
 					const intersection = intersections[ 0 ];
-
 					const object = intersection.object;
 					//object.material.emissive.b = 1;
 					object.material.emissive.b = 0;
@@ -1084,7 +964,6 @@
 
 					const object = controller.userData.selected;
 					object.material.emissive.b = 0;
-					//torus.attach( object );
 					selectedPlane.visible = false;
 					selectedPlane = object.userData.planes;
 					selectedPlane.visible = true;
@@ -1122,36 +1001,20 @@
 				if ( controller.userData.selected !== undefined ) {
 
 					const object = controller.userData.selected;
-					object.material.emissive.b = 0;
-					
-					//test if position is 0
-					let aposition = new THREE.Vector3(0,0,0);
+					object.material.emissive.b = 0;				
+					//test if position is right
+					let aposition = new THREE.Vector3(0,0,0); //needs to be something first
 					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
-					
-					//scene.attach( object );
-					//object.position.x = 0; // for testing
-					//
-					//aposition = object.position;
+
 					trueposition = object.userData.loc;
 					jars.attach( object );
-					//object.position.set(trueposition);
-					//object.position.x = 0;
-					//object.position.y = 0.7;
-					//object.position.set(0, 0.74, 0);
-					//object.position.z = 0;
-					 if ( aposition.distanceTo( trueposition ) < .05) {
-					// 	//scene.attach( object );
+					 if ( aposition.distanceTo( trueposition ) < .02) {
 					 	scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
-					// 	//object.position.set(zeroz);
-					// 	//object.position.set.y = 1.5;
 					 }
-					//jars.attach( object );
-					
-					
+									
 					controller.userData.selected = undefined;
 
 				}
-
 
 			}
 
@@ -1162,19 +1025,15 @@
 
 				raycaster.ray.origin.setFromMatrixPosition( controller.matrixWorld );
 				raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
-//need to text if jar or torus- or select different
 				return raycaster.intersectObjects( jars.children, false );
 
 			}
 
 			function getIntersections2( controller ) {
-
-			tempMatrix.identity().extractRotation( controller.matrixWorld );
-
-			raycaster.ray.origin.setFromMatrixPosition( controller.matrixWorld );
-			raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
-//need to text if jar or torus- or select different
-			return raycaster.intersectObjects( torus.children, false );
+				tempMatrix.identity().extractRotation( controller.matrixWorld );
+				raycaster.ray.origin.setFromMatrixPosition( controller.matrixWorld );
+				raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
+				return raycaster.intersectObjects( torus.children, false );
 
 			}			
 
