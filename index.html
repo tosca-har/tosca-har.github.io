@@ -44,7 +44,7 @@
 			const tempMatrix = new THREE.Matrix4();
 
 			let controls, moveable, unmovable, group;
-
+			let tinI1PPL, tinI1XPL;
 			let pngPlanes, bandaPlanes, timorPlanes, caroPlanes, guaPlanes, tinPlanes, tauPlanes, reefPlanes, bukaPlanes, pauPlanes;
 			let aluPlanes, malaPlanes, maloPlanes, teoPlanes, lizPlanes, nissPlanes, manusPlanes ;
 			init();
@@ -57,7 +57,10 @@
 
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0x000000 );
-
+				moveable = new THREE.Group();
+				scene.add( moveable);
+				unmoveable = new THREE.Group();
+				scene.add( unmoveable);
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
 				camera.position.set( 0, 1.6, 3 );
 
@@ -65,7 +68,7 @@
 				controls.target.set( 0, 1.6, 0 );
 				controls.update();
 
-
+				const loader = new GLTFLoader();
 				const textureLoader = new THREE.TextureLoader()
 				//map floor
 				const mapTexture2 = textureLoader.load('textures/pacificS.png'); //from google maps
@@ -79,23 +82,51 @@
 
 				function onLoad( gltf ) {
 					const model = gltf.scene;					
+					const tinI1 = model.children[0];
+					tinI1.position.set( 1.4, 1.9, -1.4); //1a
+					tinI1.rotation.y = - Math.PI / 4;
+					unmovable.add(tinI1);	
+				}
+				loader.load( 'models/wd_2_14_frame.glb', onLoad, undefined, function ( error ) {
+					console.error( error );
+				} );
+				function onLoadtinI1PPL( gltf ) {
+					const model = gltf.scene;					
 					//const x = Math.random() * 2 - 1;
 					//const y = 0.001;
 					//const z = Math.random() * 2 - 1;
 					//const rx = Math.random() * 2 * Math.PI;
 					//const ry = Math.random() * 2 * Math.PI;
 					//const rz = Math.random() * 2 * Math.PI;
-					const tinI1 = model.children[0];
-					tinI1.position.set( 1.4, 1.9, -1.4); //1a
-					tinI1.rotation.y = - Math.PI / 4;
+					tinI1PPL = model.children[0];
+					tinI1PPL.position.set( 1.4, 1.9, -1.4); //1a
+					tinI1PPL.rotation.y = - Math.PI / 4;
 					//piece.position.set( x, y, z );
 					//piece.rotation.set( rx, ry, rz );
-					unmovable.add(tinI1);	
+					movable.add(tinI1PPL);	
 				}
-				loader.load( 'models/wd_2_14_frame.glb', onLoad, undefined, function ( error ) {
+				loader.load( 'models/wd_2_14_ppl.glb',onLoadtinI1PPL, undefined, function ( error ) {
 					console.error( error );
 				} );
-				
+
+				function onLoadtinI1XPL( gltf ) {
+					const model = gltf.scene;					
+					//const x = Math.random() * 2 - 1;
+					//const y = 0.001;
+					//const z = Math.random() * 2 - 1;
+					//const rx = Math.random() * 2 * Math.PI;
+					//const ry = Math.random() * 2 * Math.PI;
+					//const rz = Math.random() * 2 * Math.PI;
+					tinI1XPL = model.children[0];
+					tinI1XPL.position.set( 1.4, 1.9, -1.4); //1a
+					tinI1XPL.rotation.y = - Math.PI / 4;
+					//piece.position.set( x, y, z );
+					//piece.rotation.set( rx, ry, rz );
+					movable.add(tinI1XPL);	
+				}
+				loader.load( 'models/wd_2_14_xpl.glb',onLoadtinI1XPL, undefined, function ( error ) {
+					console.error( error );
+				} );
 				/* const bandaI1Tex = textureLoader.load('textures/WD_17_12.jpg'); //
 				const timorI1Tex = textureLoader.load('textures/WD_86_2.jpg'); //
 				const timorI2Tex = textureLoader.load('textures/WD_86_6.jpg'); //
@@ -260,8 +291,6 @@
 				light.position.set( 0, 6, 0 );
 				scene.add( light );
 
-				moveable = new THREE.Group();
-				scene.add( moveable);
 
 				group = new THREE.Group();
 				scene.add( group);			
