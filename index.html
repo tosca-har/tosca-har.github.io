@@ -98,8 +98,7 @@
 					tinI1PPL = model.children[0];
 					tinI1PPL.rotation.x =  Math.PI / 2;
 					tinI1PPL.position.set(0, 0.1, 0.6); //1a
-					const aloc = new THREE.Vector3(1.4, 2.2, -1.4);
-					tinI1PPL.userData.loc = aloc;
+					tinI1PPL.userData.loc = new THREE.Vector3(1.4, 2.2, -1.4);
 					moveable.add(tinI1PPL);	
 				}
 				loader.load( 'models/wd_2_14_ppl.glb',onLoadtinI1PPL, undefined, function ( error ) {
@@ -111,8 +110,7 @@
 					tinI1XPL = model.children[0];
 					tinI1XPL.rotation.x =  Math.PI / 2;
 					tinI1XPL.position.set( 0, 0.1, -0.6 ); //1a		
-					const aloc = new THREE.Vector3(1.4, 1.62, -1.4);
-					tinIXPPL.userData.loc = aloc;			
+					tinIXPPL.userData.loc = new THREE.Vector3(1.4, 1.62, -1.4);			
 					moveable.add(tinI1XPL);	
 				}
 				loader.load( 'models/wd_2_14_xpl.glb',onLoadtinI1XPL, undefined, function ( error ) {
