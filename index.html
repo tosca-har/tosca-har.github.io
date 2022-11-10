@@ -60,7 +60,7 @@
 				moveable = new THREE.Group();
 				scene.add( moveable);
 				unmoveable = new THREE.Group();
-				scene.add( unmoveable);
+				scene.add(unmoveable);
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
 				camera.position.set( 0, 1.6, 3 );
 
@@ -109,9 +109,9 @@
 					//piece.rotation.set( rx, ry, rz );
 					moveable.add(tinI1PPL);	
 				}
-				loader.load( 'models/wd_2_14_ppl.glb',onLoadtinI1PPL, undefined, function ( error ) {
-					console.error( error );
-				} );
+				//loader.load( 'models/wd_2_14_ppl.glb',onLoadtinI1PPL, undefined, function ( error ) {
+				//	console.error( error );
+				//} );
 
 				function onLoadtinI1XPL( gltf ) {
 					const model = gltf.scene;					
@@ -125,9 +125,9 @@
 					//piece.rotation.set( rx, ry, rz );
 					moveable.add(tinI1XPL);	
 				}
-				loader.load( 'models/wd_2_14_xpl.glb',onLoadtinI1XPL, undefined, function ( error ) {
-					console.error( error );
-				} );
+				//loader.load( 'models/wd_2_14_xpl.glb',onLoadtinI1XPL, undefined, function ( error ) {
+				//	console.error( error );
+				//} );
 				/* const bandaI1Tex = textureLoader.load('textures/WD_17_12.jpg'); //
 				const timorI1Tex = textureLoader.load('textures/WD_86_2.jpg'); //
 				const timorI2Tex = textureLoader.load('textures/WD_86_6.jpg'); //
