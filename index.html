@@ -502,11 +502,11 @@
 					let aposition = new THREE.Vector3(0,0,0); //needs to be something first
 					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
 
-					//trueposition = object.userData.loc;
+					trueposition = object.userData.loc;
 					moveable.attach( object );
-	 				//if ( aposition.distanceTo( trueposition ) < .02) {
-					// 	scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
-	 				//}
+	 				if ( aposition.distanceTo( trueposition ) < .02) {
+					 	scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
+	 				}
 					
 					controller.userData.selected = undefined;
 
