@@ -87,7 +87,7 @@
 					const model = gltf.scene;					
 					const tinI1 = model.children[0];
 					tinI1.position.set( 1.4, 1.9, -1.4 ); //1a
-					tinI1.rotation.y =  Math.PI * 5 / 4;
+					tinI1.rotation.y =  - Math.PI * 1 / 4;
 					unmoveable.add(tinI1);	
 				}
 				loader.load( 'models/wd_2_14_frame.glb', onLoad, undefined, function ( error ) {
@@ -96,7 +96,7 @@
 				function onLoadtinI1PPL( gltf ) {
 					const model = gltf.scene;					
 					tinI1PPL = model.children[0];
-					tinI1PPL.rotation.z =  Math.PI / 2;
+					tinI1PPL.rotation.y =  Math.PI / 2;
 					tinI1PPL.position.set(0, 0.1, 0.3); //1a
 					const aloc = new THREE.Vector3(1.4, 2.2, -1.4);
 					tinI1PPL.userData.loc = aloc;
@@ -109,7 +109,7 @@
 				function onLoadtinI1XPL( gltf ) {
 					const model = gltf.scene;					
 					tinI1XPL = model.children[0];
-					tinI1XPL.rotation.z =  Math.PI / 2;
+					tinI1XPL.rotation.y =  Math.PI / 2;
 					tinI1XPL.position.set( 0, 0.1, -0.3 ); //1a		
 					const aloc = new THREE.Vector3(1.4, 1.62, -1.4);
 					tinIXPPL.userData.loc = aloc;			
