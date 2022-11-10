@@ -47,7 +47,7 @@
 			let tinI1PPL, tinI1XPL;
 			let pngPlanes, bandaPlanes, timorPlanes, caroPlanes, guaPlanes, tinPlanes, tauPlanes, reefPlanes, bukaPlanes, pauPlanes;
 			let aluPlanes, malaPlanes, maloPlanes, teoPlanes, lizPlanes, nissPlanes, manusPlanes ;
-			
+			//https://soundspunos.com/
 			init();
 			animate();
 
@@ -508,6 +508,7 @@
 						scene.attach( object );
 						object.position.copy(trueposition);
 						object.rotation.set =  (0, - Math.PI * 1 / 4, 0);
+						object.updateMatrix();
 
 	 				}
 					else { moveable.attach( object ) }
