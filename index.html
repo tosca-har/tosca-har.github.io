@@ -504,6 +504,7 @@
 					//moveable.attach( object );
 	 				if ( aposition.distanceTo( trueposition ) < .05) {
 					 	scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
+						 moveable.attach( object );
 						object.position.copy(trueposition);
 						object.rotation.set =  (0, - Math.PI * 1 / 4, 0);
 						scene.attach( object );
