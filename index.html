@@ -81,10 +81,11 @@
 				scene.add( theMap);
 
 				//const startPos = [0,0.1,0.3, 0,0.1,-0.3 ]
-				let startpos_1 = new THREE.Vector3(0, 0.1, 0.3);
-				let startpos_2 = new THREE.Vector3(0, 0.1, -0.3)
+				//let startpos1 = new THREE.Vector3(0, 0.1, 0.3);
+				//let startpos2 = new THREE.Vector3(0, 0.1, -0.3);
 				//tinI1
 				let tinI1pos = new THREE.Vector3(1.4, 1.9, -1.4);
+
 				function onLoad( gltf ) {
 					const model = gltf.scene;					
 					const tinI1 = model.children[0];
@@ -101,7 +102,7 @@
 					//const ry = Math.random() * 2 * Math.PI;
 					//const rz = Math.random() * 2 * Math.PI;
 					tinI1PPL = model.children[0];
-				//	tinI1PPL.position.set( startpos_1); //1a
+				//	tinI1PPL.position.set( startpos1); //1a
 					//tinI1PPL.rotation.y =  Math.PI * 5 / 4;
 
 					//piece.rotation.set( rx, ry, rz );
@@ -117,7 +118,7 @@
 					//const ry = Math.random() * 2 * Math.PI;
 					//const rz = Math.random() * 2 * Math.PI;
 					tinI1XPL = model.children[0];
-					//tinI1XPL.position.set( startpos_2 ); //1a
+					//tinI1XPL.position.set( startpos2 ); //1a
 					//tinI1XPL.rotation.y =  Math.PI * 5 / 4;
 
 					//piece.rotation.set( rx, ry, rz );
