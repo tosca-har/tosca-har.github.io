@@ -501,11 +501,12 @@
 					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
 
 					trueposition = object.userData.loc;
-					moveable.attach( object );
-	 				if ( aposition.distanceTo( trueposition ) < .02) {
+					//moveable.attach( object );
+	 				if ( aposition.distanceTo( trueposition ) < .1) {
 					 	scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
+						scene.attach( object );
 	 				}
-					
+					else { moveable.attach( object ) }
 					controller.userData.selected = undefined;
 
 				}
