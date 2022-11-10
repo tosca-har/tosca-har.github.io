@@ -90,7 +90,7 @@
 				function onLoad( gltf ) {
 					const model = gltf.scene;					
 					const tinI1 = model.children[0];
-					tinI1.position.set(1.4, 1.9, -1.4); //1a
+					tinI1.position.set(tinI1pos); //1a
 					tinI1.rotation.y =  Math.PI * 5 / 4;
 					unmoveable.add(tinI1);	
 				}
