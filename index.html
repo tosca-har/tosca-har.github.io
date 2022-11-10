@@ -96,7 +96,7 @@
 				function onLoadtinI1PPL( gltf ) {
 					const model = gltf.scene;					
 					tinI1PPL = model.children[0];
-					tinI1PPL.rotation.x = - Math.PI / 2;
+					tinI1PPL.rotation.z = - Math.PI / 2;
 					tinI1PPL.position.set(0, 0.1, 0.3); //1a
 					moveable.add(tinI1PPL);	
 				}
@@ -107,8 +107,8 @@
 				function onLoadtinI1XPL( gltf ) {
 					const model = gltf.scene;					
 					tinI1XPL = model.children[0];
-					tinI1XPL.position.set( 0, 0.1, -0.3 ); //1a
-					tinI1PPL.rotation.x = - Math.PI / 2;
+					tinI1XPL.rotation.z = - Math.PI / 2;
+					tinI1XPL.position.set( 0, 0.1, -0.3 ); //1a					
 					moveable.add(tinI1XPL);	
 				}
 				loader.load( 'models/wd_2_14_xpl.glb',onLoadtinI1XPL, undefined, function ( error ) {
