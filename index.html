@@ -991,7 +991,7 @@
 					trueposition = object.userData.loc;
 					
 					moveable.attach( object );
-	 				if ( aposition.distanceTo( trueposition ) < .07) {
+	 				if ( aposition.distanceTo( trueposition ) < .10) {
 					 	scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
 						// moveable.attach( object );
 						object.position.set(trueposition.x, trueposition.y, trueposition.z);
