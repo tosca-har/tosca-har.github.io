@@ -45,7 +45,7 @@
 
 			let controls, moveable, unmoveable, group, trueposition;
 			let tinI1PPL, tinI1XPL, guaI2PPL, guaI2XPL, guaI4PPL, guaI4XPL, caroI2PPL, caroI2XPL, caroI1PPL, caroI1XPL, guaI3PPL, guaI3XPL;
-			//let ;
+			let wanI1PPL, wanI1XPL;
 
 			//https://soundspunos.com/
 			init();
@@ -302,13 +302,47 @@
 					console.error( error );
 				} );
 
+				//wd17_1
+				function onLoadwanI1( gltf ) {
+					const model = gltf.scene;					
+					const wanI1 = model.children[0];
+					wanI1.position.set( -1.9, 1.9, 0.5); 
+					wanI1.rotation.y = - Math.PI * 1.42;
+					unmoveable.add(wanI1);	
+				}
+				loader.load( 'models/wd_17_1_frame.glb', onLoadwanI1, undefined, function ( error ) {
+					console.error( error );
+				} );
+				function onLoadwanI1PPL( gltf ) {
+					const model = gltf.scene;					
+					wanI1PPL = model.children[0];
+					wanI1PPL.rotation.x =  Math.PI / 2;
+					wanI1PPL.position.set(0, 0.1, 1.5); 
+					wanI1PPL.userData.loc = new THREE.Vector3(-1.9, 2.2, 0.5);
+					wanI1PPL.userData.angle = - Math.PI * 1.42;
+					moveable.add(wanI1PPL);	
+				}
+				loader.load( 'models/wd_17_1_ppl.glb',onLoadwanI1PPL, undefined, function ( error ) {
+					console.error( error );
+				} );
 
+				function onLoadwanI1XPL( gltf ) {
+					const model = gltf.scene;					
+					wanI1XPL = model.children[0];
+					wanI1XPL.rotation.x =  Math.PI / 2;
+					wanI1XPL.position.set( 0, 0.1, -0.9 ); //	
+					wanI1XPL.userData.loc = new THREE.Vector3( -1.9, 1.62, 0.5);	
+					wanI1XPL.userData.angle = - Math.PI * 1.42;
+					moveable.add(wanI1XPL);	
+				}
+				loader.load( 'models/wd_17_1_xpl.glb',onLoadwanI1XPL, undefined, function ( error ) {
+					console.error( error );
+				} );
 
 				/* const bandaI1Tex = textureLoader.load('textures/WD_17_12.jpg'); //
 				const timorI1Tex = textureLoader.load('textures/WD_86_2.jpg'); //
 				const timorI2Tex = textureLoader.load('textures/WD_86_6.jpg'); //
 				const timorI3Tex = textureLoader.load('textures/WD_86_17.jpg'); //
-				const wangilTex = textureLoader.load('textures/WD_17_1.jpg'); //
 				const vanI1Tex = textureLoader.load('textures/WD_49_22.jpg'); //
 				const vanI2Tex = textureLoader.load('textures/WD_51_6.jpg'); //
 				const vanI3Tex = textureLoader.load('textures/WD_45_12.jpg'); //
