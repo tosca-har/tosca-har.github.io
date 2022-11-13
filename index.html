@@ -44,7 +44,7 @@
 			const tempMatrix = new THREE.Matrix4();
 
 			let controls, moveable, unmoveable, group, trueposition;
-			let tinI1PPL, tinI1XPL, guaI2PPL, guaI2XPL;
+			let tinI1PPL, tinI1XPL, guaI2PPL, guaI2XPL, guaI4PPL, guaI4XPL, caroI2PPL, caroI2XPL;
 
 			//https://soundspunos.com/
 			init();
@@ -154,6 +154,80 @@
 				loader.load( 'models/wd_7_24_xpl.glb',onLoadGuaI2XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
+
+				//wd8_12
+				function onLoadGuaI4( gltf ) {
+					const model = gltf.scene;					
+					const guaI4 = model.children[0];
+					guaI4.position.set( 1, 0.7, -1.8); //1
+					guaI4.rotation.y = - Math.PI / 6;
+					unmoveable.add(guaI4);	
+				}
+				loader.load( 'models/wd_8_12_frame.glb', onLoadGuaI4, undefined, function ( error ) {
+					console.error( error );
+				} );
+				function onLoadGuaI4PPL( gltf ) {
+					const model = gltf.scene;					
+					guaI4PPL = model.children[0];
+					guaI4PPL.rotation.x =  Math.PI / 2;
+					guaI4PPL.position.set(0.5, 0.1, 0.3); 
+					guaI4PPL.userData.loc = new THREE.Vector3( 1, 1.0, -1.8);
+					guaI4PPL.userData.angle =  - Math.PI / 6
+					moveable.add(guaI4PPL);	
+				}
+				loader.load( 'models/wd_8_12_ppl.glb',onLoadGuaI4PPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				function onLoadGuaI4XPL( gltf ) {
+					const model = gltf.scene;					
+					guaI4XPL = model.children[0];
+					guaI4XPL.rotation.x =  Math.PI / 2;
+					guaI4XPL.position.set( 1, 0.1, 0.6 ); //	
+					guaI4XPL.userData.loc = new THREE.Vector3( 1, 0.42, -1.8);	
+					guaI4XPL.userData.angle =  - Math.PI / 6		
+					moveable.add(guaI4XPL);	
+				}
+				loader.load( 'models/wd_8_12_xpl.glb',onLoadGuaI4XPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				//wd10_10
+				function onLoadcaroI2( gltf ) {
+					const model = gltf.scene;					
+					const caroI2 = model.children[0];
+					caroI2.position.set( -0.5, 1.9, -2.0); //11a
+					caroI2.rotation.y = - Math.PI * 1.92;
+					unmoveable.add(caroI2);	
+				}
+				loader.load( 'models/wd_10_10_frame.glb', onLoadcaroI2, undefined, function ( error ) {
+					console.error( error );
+				} );
+				function onLoadcaroI2PPL( gltf ) {
+					const model = gltf.scene;					
+					caroI2PPL = model.children[0];
+					caroI2PPL.rotation.x =  Math.PI / 2;
+					caroI2PPL.position.set(1.0, 0.1, -0.9); 
+					caroI2PPL.userData.loc = new THREE.Vector3(-0.5, 2.2, -2.0);
+					caroI2PPL.userData.angle =  - Math.PI * 1.92;
+					moveable.add(caroI2PPL);	
+				}
+				loader.load( 'models/wd_10_10_ppl.glb',onLoadcaroI2PPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				function onLoadcaroI2XPL( gltf ) {
+					const model = gltf.scene;					
+					caroI2XPL = model.children[0];
+					caroI2XPL.rotation.x =  Math.PI / 2;
+					caroI2XPL.position.set( 0, 0.1, -0.3 ); //	
+					caroI2XPL.userData.loc = new THREE.Vector3( -0.5, 1.62, -2.0);	
+					caroI2XPL.userData.angle = - Math.PI * 1.92;	
+					moveable.add(caroI2XPL);	
+				}
+				loader.load( 'models/wd_10_10_xpl.glb',onLoadcaroI2XPL, undefined, function ( error ) {
+					console.error( error );
+				} );
 				/* const bandaI1Tex = textureLoader.load('textures/WD_17_12.jpg'); //
 				const timorI1Tex = textureLoader.load('textures/WD_86_2.jpg'); //
 				const timorI2Tex = textureLoader.load('textures/WD_86_6.jpg'); //
@@ -173,9 +247,9 @@
 				const pngI1Tex = textureLoader.load('textures/WD_28_16.jpg'); //
 				const pngI2Tex = textureLoader.load('textures/WD_28_4.jpg'); //
 				const carI1Tex = textureLoader.load('textures/WD_10_14.jpg'); //
-				const carI2Tex = textureLoader.load('textures/WD_10_10.jpg'); //
+				
 				const marI3Tex = textureLoader.load('textures/WD_15_23.jpg'); //
-				const marI4Tex = textureLoader.load('textures/WD_8_12.jpg'); // */
+				 // */
 
 //petroplanes
 				// const petroGeometry = new THREE.PlaneGeometry( 0.5, 1 );
@@ -215,11 +289,7 @@
 				// const guaI3 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: marI3Tex }));
 				// guaI3.position.set( 0.5, 1.9, -2.0); //12a
 				// guaI3.rotation.y = - Math.PI / 12;
-				// guaPlanes.add( guaI3 );
-				// const guaI4 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: marI4Tex }));
-				// guaI4.position.set( 1, 0.7, -1.8); //1
-				// guaI4.rotation.y = - Math.PI / 6;
-				// guaPlanes.add( guaI4 );
+				
 				
 				// tauPlanes = new THREE.Group();
 				// scene.add( tauPlanes);
