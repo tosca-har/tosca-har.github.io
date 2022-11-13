@@ -45,7 +45,7 @@
 
 			let controls, moveable, unmoveable, group, trueposition;
 			let tinI1PPL, tinI1XPL, guaI2PPL, guaI2XPL, guaI4PPL, guaI4XPL, caroI2PPL, caroI2XPL, caroI1PPL, caroI1XPL, guaI3PPL, guaI3XPL;
-			let wanI1PPL, wanI1XPL, bandaI1PPL, bandaI1XPL;
+			let wanI1PPL, wanI1XPL, bandaI1PPL, bandaI1XPL, pngI2PPL, pngI2XPL, pngI1PPL, pngI1XPL, nissI1PPL, nissI1XPL;
 
 			//https://soundspunos.com/
 			init();
@@ -374,6 +374,115 @@
 				loader.load( 'models/wd_17_12_xpl.glb',onLoadbandaI1XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
+				//wd28_4
+				function onLoadpngI2( gltf ) {
+					const model = gltf.scene;					
+					const pngI2 = model.children[0];
+					pngI2.position.set( -1.8, 0.7, 1.0); //8
+					pngI2.rotation.y = - Math.PI * 4 / 3;
+					unmoveable.add(pngI2);	
+				}
+				loader.load( 'models/wd_28_4_frame.glb', onLoadpngI2, undefined, function ( error ) {
+					console.error( error );
+				} );
+				function onLoadpngI2PPL( gltf ) {
+					const model = gltf.scene;					
+					pngI2PPL = model.children[0];
+					pngI2PPL.rotation.x =  Math.PI / 2;
+					//pngI2PPL.position.set(1, 0.1, -0.3); 
+					pngI2PPL.userData.loc = new THREE.Vector3( -1.8, 1.0, 1.0);
+					pngI2PPL.userData.angle = - Math.PI * 4 / 3;
+					moveable.add(pngI2PPL);	
+				}
+				loader.load( 'models/wd_28_4_ppl.glb',onLoadpngI2PPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				function onLoadpngI2XPL( gltf ) {
+					const model = gltf.scene;					
+					pngI2XPL = model.children[0];
+					pngI2XPL.rotation.x =  Math.PI / 2;
+					//pngI2XPL.position.set( -1.0, 0.1, 0.3 ); //	
+					pngI2XPL.userData.loc = new THREE.Vector3( -1.8, 0.42, 1.0);	
+					pngI2XPL.userData.angle = - Math.PI * 4 / 3;
+					moveable.add(pngI2XPL);	
+				}
+				loader.load( 'models/wd_28_4_xpl.glb',onLoadpngI2XPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+				//wd28_16
+				function onLoadpngI1( gltf ) {
+					const model = gltf.scene;					
+					const pngI1 = model.children[0];
+					pngI1.position.set( -1.4, 1.9, 1.4); 
+					pngI1.rotation.y = - Math.PI * 1.25;
+					unmoveable.add(pngI1);	
+				}
+				loader.load( 'models/wd_28_16_frame.glb', onLoadpngI1, undefined, function ( error ) {
+					console.error( error );
+				} );
+				function onLoadpngI1PPL( gltf ) {
+					const model = gltf.scene;					
+					pngI1PPL = model.children[0];
+					pngI1PPL.rotation.x =  Math.PI / 2;
+					//pngI1PPL.position.set(1, 0.1, -0.3); 
+					pngI1PPL.userData.loc = new THREE.Vector3(-1.4, 2.2, 1.4);
+					pngI1PPL.userData.angle = - Math.PI * 1.25;
+					moveable.add(pngI1PPL);	
+				}
+				loader.load( 'models/wd_28_16_ppl.glb',onLoadpngI1PPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				function onLoadpngI1XPL( gltf ) {
+					const model = gltf.scene;					
+					pngI1XPL = model.children[0];
+					pngI1XPL.rotation.x =  Math.PI / 2;
+					//pngI1XPL.position.set( -1.0, 0.1, 0.3 ); //	
+					pngI1XPL.userData.loc = new THREE.Vector3( -1.4, 1.62, 1.4);	
+					pngI1XPL.userData.angle = - Math.PI * 1.25;
+					moveable.add(pngI1XPL);	
+				}
+				loader.load( 'models/wd_28_16_xpl.glb',onLoadpngI1XPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+				//wd32_24
+				function onLoadnissI1( gltf ) {
+					const model = gltf.scene;					
+					const nissI1 = model.children[0];
+					nissI1.position.set( 0, 0.7, 2.2); //6
+					nissI1.rotation.y = - Math.PI;
+					unmoveable.add(nissI1);	
+				}
+				loader.load( 'models/wd_32_24_frame.glb', onLoadnissI1, undefined, function ( error ) {
+					console.error( error );
+				} );
+				function onLoadnissI1PPL( gltf ) {
+					const model = gltf.scene;					
+					nissI1PPL = model.children[0];
+					nissI1PPL.rotation.x =  Math.PI / 2;
+					//nissI1PPLPPL.position.set(1, 0.1, -0.3); 
+					nissI1PPL.userData.loc = new THREE.Vector3(0, 1.0, 2.2);
+					nissI1PPL.userData.angle = - Math.PI;
+					moveable.add(nissI1PPL);	
+				}
+				loader.load( 'models/wd_32_24_ppl.glb',onLoadnissI1PPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				function onLoadnissI1XPL( gltf ) {
+					const model = gltf.scene;					
+					nissI1XPL = model.children[0];
+					nissI1XPL.rotation.x =  Math.PI / 2;
+					//pngI1XPL.position.set( -1.0, 0.1, 0.3 ); //	
+					nissI1XPL.userData.loc = new THREE.Vector3( 0, 0.46, 2.2);	
+					nissI1XPL.userData.angle = - Math.PI;
+					moveable.add(pnissI1XPL);	
+				}
+				loader.load( 'models/wd_32_24_xpl.glb',onLoadnissI1XPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
 
 				/* 
 				const timorI1Tex = textureLoader.load('textures/WD_86_2.jpg'); //
@@ -382,7 +491,7 @@
 				const vanI1Tex = textureLoader.load('textures/WD_49_22.jpg'); //
 				const vanI2Tex = textureLoader.load('textures/WD_51_6.jpg'); //
 				const vanI3Tex = textureLoader.load('textures/WD_45_12.jpg'); //
-				const nisI1Tex = textureLoader.load('textures/WD_32_24.jpg'); //
+
 				const nisI2Tex = textureLoader.load('textures/WD_38_14.jpg'); //
 				const bougI1Tex = textureLoader.load('textures/WD_34_19.jpg'); //
 				const bougI2Tex = textureLoader.load('textures/WD_101_3.jpg'); //
@@ -390,8 +499,8 @@
 				const solI1Tex = textureLoader.load('textures/WD_84_1.jpg'); //
 				const solI2Tex = textureLoader.load('textures/WD_105_1.jpg'); //
 				const solI3Tex = textureLoader.load('textures/WD_103_13.jpg'); //
-				const pngI1Tex = textureLoader.load('textures/WD_28_16.jpg'); //
-				const pngI2Tex = textureLoader.load('textures/WD_28_4.jpg'); //
+				
+				
 			
 				 // */
 
@@ -430,10 +539,7 @@
 				// guaPlanes = new THREE.Group();
 				// scene.add( guaPlanes);
 
-				// const guaI3 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: marI3Tex }));
-				// guaI3.position.set( 0.5, 1.9, -2.0); //12a
-				// guaI3.rotation.y = - Math.PI / 12;
-				
+	
 				
 				// tauPlanes = new THREE.Group();
 				// scene.add( tauPlanes);
