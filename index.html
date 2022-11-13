@@ -44,7 +44,8 @@
 			const tempMatrix = new THREE.Matrix4();
 
 			let controls, moveable, unmoveable, group, trueposition;
-			let tinI1PPL, tinI1XPL, guaI2PPL, guaI2XPL, guaI4PPL, guaI4XPL, caroI2PPL, caroI2XPL;
+			let tinI1PPL, tinI1XPL, guaI2PPL, guaI2XPL, guaI4PPL, guaI4XPL, caroI2PPL, caroI2XPL, caroI1PPL, caroI1XPL, guaI3PPL, guaI3XPL;
+			//let ;
 
 			//https://soundspunos.com/
 			init();
@@ -228,6 +229,81 @@
 				loader.load( 'models/wd_10_10_xpl.glb',onLoadcaroI2XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
+				//wd10_14
+				function onLoadcaroI1( gltf ) {
+					const model = gltf.scene;					
+					const caroI1 = model.children[0];
+					caroI1.position.set( -1.0, 0.7, -1.8); //11
+					caroI1.rotation.y = - Math.PI * 11/ 6;
+					unmoveable.add(caroI1);	
+				}
+				loader.load( 'models/wd_10_14_frame.glb', onLoadcaroI1, undefined, function ( error ) {
+					console.error( error );
+				} );
+				function onLoadcaroI1PPL( gltf ) {
+					const model = gltf.scene;					
+					caroI1PPL = model.children[0];
+					caroI1PPL.rotation.x =  Math.PI / 2;
+					caroI1PPL.position.set(0, 0.1, 0.9); 
+					caroI1PPL.userData.loc = new THREE.Vector3( -1.0, 1.0, -1.8);
+					caroI1PPL.userData.angle = - Math.PI * 11/ 6;
+					moveable.add(caroI1PPL);	
+				}
+				loader.load( 'models/wd_10_14_ppl.glb',onLoadcaroI1PPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				function onLoadcaroI1XPL( gltf ) {
+					const model = gltf.scene;					
+					caroI1XPL = model.children[0];
+					caroI1XPL.rotation.x =  Math.PI / 2;
+					caroI1XPL.position.set( 0.5, 0.1, -1.5 ); //	
+					caroI1XPL.userData.loc = new THREE.Vector3(  -1.0, 0.42, -1.8);	
+					caroI1XPL.userData.angle = - Math.PI * 11/ 6;	
+					moveable.add(caroI1XPL);	
+				}
+				loader.load( 'models/wd_10_14_xpl.glb',onLoadcaroI1XPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+				//wd15_23
+				function onLoadguaI3( gltf ) {
+					const model = gltf.scene;					
+					const guaI3 = model.children[0];
+					guaI3.position.set( 0.5, 1.9, -2.0); //12a
+					guaI3.rotation.y = - Math.PI / 12;
+					unmoveable.add(guaI3);	
+				}
+				loader.load( 'models/wd_15_23_frame.glb', onLoadguaI3, undefined, function ( error ) {
+					console.error( error );
+				} );
+				function onLoadguaI3PPL( gltf ) {
+					const model = gltf.scene;					
+					guaI3PPL = model.children[0];
+					guaI3PPL.rotation.x =  Math.PI / 2;
+					guaI3PPL.position.set(-0.5, 0.1, 1.2); 
+					guaI3PPL.userData.loc = new THREE.Vector3(0.5, 2.2, -2.0);
+					guaI3PPL.userData.angle = - Math.PI / 12;
+					moveable.add(guaI3PPL);	
+				}
+				loader.load( 'models/wd_15_23_ppl.glb',onLoadguaI3PPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				function onLoadcguaI3XPL( gltf ) {
+					const model = gltf.scene;					
+					guaI3XPL = model.children[0];
+					guaI3XPL.rotation.x =  Math.PI / 2;
+					guaI3XPL.position.set( -1.0, 0.1, -0.9 ); //	
+					guaI3XPL.userData.loc = new THREE.Vector3(  0.5, 1.62, -2.0);	
+					guaI3XPL.userData.angle = - Math.PI / 12;	
+					moveable.add(guaI3XPL);	
+				}
+				loader.load( 'models/wd_15_23_xpl.glb',onLoadguaI3XPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+
+
 				/* const bandaI1Tex = textureLoader.load('textures/WD_17_12.jpg'); //
 				const timorI1Tex = textureLoader.load('textures/WD_86_2.jpg'); //
 				const timorI2Tex = textureLoader.load('textures/WD_86_6.jpg'); //
@@ -246,9 +322,7 @@
 				const solI3Tex = textureLoader.load('textures/WD_103_13.jpg'); //
 				const pngI1Tex = textureLoader.load('textures/WD_28_16.jpg'); //
 				const pngI2Tex = textureLoader.load('textures/WD_28_4.jpg'); //
-				const carI1Tex = textureLoader.load('textures/WD_10_14.jpg'); //
-				
-				const marI3Tex = textureLoader.load('textures/WD_15_23.jpg'); //
+			
 				 // */
 
 //petroplanes
