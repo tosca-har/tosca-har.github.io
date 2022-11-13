@@ -44,9 +44,8 @@
 			const tempMatrix = new THREE.Matrix4();
 
 			let controls, moveable, unmoveable, group, trueposition;
-			let tinI1PPL, tinI1XPL;
-			let pngPlanes, bandaPlanes, timorPlanes, caroPlanes, guaPlanes, tinPlanes, tauPlanes, reefPlanes, bukaPlanes, pauPlanes;
-			let aluPlanes, malaPlanes, maloPlanes, teoPlanes, lizPlanes, nissPlanes, manusPlanes ;
+			let tinI1PPL, tinI1XPL, guaI2PPL, guaI2XPL;
+
 			//https://soundspunos.com/
 			init();
 			animate();
@@ -82,7 +81,7 @@
 				scene.add( theMap);
 
 								
-
+//wd_2_14
 				function onLoad( gltf ) {
 					const model = gltf.scene;					
 					const tinI1 = model.children[0];
@@ -97,7 +96,7 @@
 					const model = gltf.scene;					
 					tinI1PPL = model.children[0];
 					tinI1PPL.rotation.x =  Math.PI / 2;
-					tinI1PPL.position.set(0, 0.1, 0.6); //1a
+					tinI1PPL.position.set(0.5, 0.1, 1.2); //1a
 					tinI1PPL.userData.loc = new THREE.Vector3(1.4, 2.2, -1.4);
 					moveable.add(tinI1PPL);	
 				}
@@ -109,11 +108,46 @@
 					const model = gltf.scene;					
 					tinI1XPL = model.children[0];
 					tinI1XPL.rotation.x =  Math.PI / 2;
-					tinI1XPL.position.set( 0, 0.1, -0.6 ); //1a		
+					tinI1XPL.position.set( -1.0, 0.1, -0.3 ); //1a		
 					tinI1XPL.userData.loc = new THREE.Vector3(1.4, 1.62, -1.4);			
 					moveable.add(tinI1XPL);	
 				}
 				loader.load( 'models/wd_2_14_xpl.glb',onLoadtinI1XPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				//wd7_24 
+
+				function onLoadGuaI2( gltf ) {
+					const model = gltf.scene;					
+					const guaI2 = model.children[0];
+					guaI2.position.set( 0, 0.7, -2.2) //12
+					unmoveable.add(guaI2);	
+				}
+				loader.load( 'models/wd_7_24_frame.glb', onLoadGuaI2, undefined, function ( error ) {
+					console.error( error );
+				} );
+				function onLoadGuaI2PPL( gltf ) {
+					const model = gltf.scene;					
+					guaI2PPL = model.children[0];
+					guaI2PPL.rotation.x =  Math.PI / 2;
+					guaI2PPL.position.set(0.5, 0.1, -0.9); 
+					guaI2PPL.userData.loc = new THREE.Vector3(0, 1.0, -2.2);
+					moveable.add(guaI2PPL);	
+				}
+				loader.load( 'models/wd_7_24_ppl.glb',onLoadGuaI2PPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				function onLoadGuaI2XPL( gltf ) {
+					const model = gltf.scene;					
+					guaI2XPL = model.children[0];
+					guaI2XPL.rotation.x =  Math.PI / 2;
+					guaI2XPL.position.set( 0, 0.1, -1.5 ); //	
+					guaI2XPL.userData.loc = new THREE.Vector3(0, 0.42, -2.2);			
+					moveable.add(guaI2XPL);	
+				}
+				loader.load( 'models/wd_7_24_xpl.glb',onLoadGuaI2XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 				/* const bandaI1Tex = textureLoader.load('textures/WD_17_12.jpg'); //
@@ -175,9 +209,7 @@
 				// caroPlanes.add( caroI2 );
 				// guaPlanes = new THREE.Group();
 				// scene.add( guaPlanes);
-				// const guaI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: marI2Tex }));
-				// guaI2.position.set( 0, 0.7, -2.2); //12
-				// guaPlanes.add( guaI2 );
+
 				// const guaI3 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: marI3Tex }));
 				// guaI3.position.set( 0.5, 1.9, -2.0); //12a
 				// guaI3.rotation.y = - Math.PI / 12;
@@ -186,12 +218,7 @@
 				// guaI4.position.set( 1, 0.7, -1.8); //1
 				// guaI4.rotation.y = - Math.PI / 6;
 				// guaPlanes.add( guaI4 );
-				// tinPlanes = new THREE.Group();
-				// scene.add( tinPlanes);
-				// const tinI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: marI1Tex }));
-				// tinI1.position.set( 1.4, 1.9, -1.4); //1a
-				// tinI1.rotation.y = - Math.PI / 4;
-				// tinPlanes.add( tinI1 );
+				
 				// tauPlanes = new THREE.Group();
 				// scene.add( tauPlanes);
 				// const tauI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: solI2Tex }));
@@ -501,10 +528,10 @@
 					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
 
 					trueposition = object.userData.loc;
-					//moveable.attach( object );
+					moveable.attach( object );
 	 				if ( aposition.distanceTo( trueposition ) < .07) {
 					 	scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
-						 moveable.attach( object );
+						// moveable.attach( object );
 						object.position.set(trueposition.x, trueposition.y, trueposition.z);
 						object.rotation.set(0, - Math.PI * 1 / 4, 0);
 						unmoveable.attach( object );
@@ -512,7 +539,7 @@
 						//object.updateMatrix();
 
 	 				}
-					else { moveable.attach( object ) }
+					//else { moveable.attach( object ) }
 					controller.userData.selected = undefined;
 
 				}
