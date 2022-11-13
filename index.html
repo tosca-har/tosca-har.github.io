@@ -45,7 +45,7 @@
 
 			let controls, moveable, unmoveable, group, trueposition;
 			let tinI1PPL, tinI1XPL, guaI2PPL, guaI2XPL, guaI4PPL, guaI4XPL, caroI2PPL, caroI2XPL, caroI1PPL, caroI1XPL, guaI3PPL, guaI3XPL;
-			let wanI1PPL, wanI1XPL;
+			let wanI1PPL, wanI1XPL, bandaI1PPL, bandaI1XPL;
 
 			//https://soundspunos.com/
 			init();
@@ -338,8 +338,44 @@
 				loader.load( 'models/wd_17_1_xpl.glb',onLoadwanI1XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
+				//wd17_12
+				function onLoadbandaI1( gltf ) {
+					const model = gltf.scene;					
+					const bandaI1 = model.children[0];
+					bandaI1.position.set( -2.0, 0.7, 0); //9
+					bandaI1.rotation.y = - Math.PI * 3/ 2;
+					unmoveable.add(bandaI1);	
+				}
+				loader.load( 'models/wd_17_12_frame.glb', onLoadbandaI1, undefined, function ( error ) {
+					console.error( error );
+				} );
+				function onLoadbandaI1PPL( gltf ) {
+					const model = gltf.scene;					
+					bandaI1PPL = model.children[0];
+					bandaI1PPL.rotation.x =  Math.PI / 2;
+					bandaI1PPL.position.set(1, 0.1, -0.3); 
+					bandaI1PPL.userData.loc = new THREE.Vector3( -2.0, 1.0, 0);
+					bandaI1PPL.userData.angle = - Math.PI * 3/ 2;
+					moveable.add(bandaI1PPL);	
+				}
+				loader.load( 'models/wd_17_12_ppl.glb',onLoadbandaI1PPL, undefined, function ( error ) {
+					console.error( error );
+				} );
 
-				/* const bandaI1Tex = textureLoader.load('textures/WD_17_12.jpg'); //
+				function onLoadbandaI1XPL( gltf ) {
+					const model = gltf.scene;					
+					bandaI1XPL = model.children[0];
+					bandaI1XPL.rotation.x =  Math.PI / 2;
+					bandaI1XPL.position.set( -1.0, 0.1, 0.3 ); //	
+					bandaI1XPL.userData.loc = new THREE.Vector3(  -2.0, 0.42, 0);	
+					bandaI1XPL.userData.angle = - Math.PI * 3/ 2;
+					moveable.add(bandaI1XPL);	
+				}
+				loader.load( 'models/wd_17_12_xpl.glb',onLoadbandaI1XPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				/* 
 				const timorI1Tex = textureLoader.load('textures/WD_86_2.jpg'); //
 				const timorI2Tex = textureLoader.load('textures/WD_86_6.jpg'); //
 				const timorI3Tex = textureLoader.load('textures/WD_86_17.jpg'); //
