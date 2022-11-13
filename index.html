@@ -98,6 +98,7 @@
 					tinI1PPL.rotation.x =  Math.PI / 2;
 					tinI1PPL.position.set(0.5, 0.1, 1.2); //1a
 					tinI1PPL.userData.loc = new THREE.Vector3(1.4, 2.2, -1.4);
+					tinI1PPL.userData.angle =  - Math.PI * 1 / 4
 					moveable.add(tinI1PPL);	
 				}
 				loader.load( 'models/wd_2_14_ppl.glb',onLoadtinI1PPL, undefined, function ( error ) {
@@ -109,7 +110,8 @@
 					tinI1XPL = model.children[0];
 					tinI1XPL.rotation.x =  Math.PI / 2;
 					tinI1XPL.position.set( -1.0, 0.1, -0.3 ); //1a		
-					tinI1XPL.userData.loc = new THREE.Vector3(1.4, 1.62, -1.4);			
+					tinI1XPL.userData.loc = new THREE.Vector3(1.4, 1.62, -1.4);	
+					tinI1XPL.userData.angle =  - Math.PI * 1 / 4		
 					moveable.add(tinI1XPL);	
 				}
 				loader.load( 'models/wd_2_14_xpl.glb',onLoadtinI1XPL, undefined, function ( error ) {
@@ -133,6 +135,7 @@
 					guaI2PPL.rotation.x =  Math.PI / 2;
 					guaI2PPL.position.set(0.5, 0.1, -0.9); 
 					guaI2PPL.userData.loc = new THREE.Vector3(0, 1.0, -2.2);
+					guaI2PPL.userData.angle =  0
 					moveable.add(guaI2PPL);	
 				}
 				loader.load( 'models/wd_7_24_ppl.glb',onLoadGuaI2PPL, undefined, function ( error ) {
@@ -144,7 +147,8 @@
 					guaI2XPL = model.children[0];
 					guaI2XPL.rotation.x =  Math.PI / 2;
 					guaI2XPL.position.set( 0, 0.1, -1.5 ); //	
-					guaI2XPL.userData.loc = new THREE.Vector3(0, 0.42, -2.2);			
+					guaI2XPL.userData.loc = new THREE.Vector3(0, 0.42, -2.2);	
+					guaI2XPL.userData.angle =  0		
 					moveable.add(guaI2XPL);	
 				}
 				loader.load( 'models/wd_7_24_xpl.glb',onLoadGuaI2XPL, undefined, function ( error ) {
@@ -170,8 +174,6 @@
 				const pngI2Tex = textureLoader.load('textures/WD_28_4.jpg'); //
 				const carI1Tex = textureLoader.load('textures/WD_10_14.jpg'); //
 				const carI2Tex = textureLoader.load('textures/WD_10_10.jpg'); //
-				const marI1Tex = textureLoader.load('textures/WD_2_14.jpg'); //
-				const marI2Tex = textureLoader.load('textures/WD_7_24.jpg'); //
 				const marI3Tex = textureLoader.load('textures/WD_15_23.jpg'); //
 				const marI4Tex = textureLoader.load('textures/WD_8_12.jpg'); // */
 
@@ -528,12 +530,13 @@
 					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
 
 					trueposition = object.userData.loc;
+					
 					moveable.attach( object );
 	 				if ( aposition.distanceTo( trueposition ) < .07) {
 					 	scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
 						// moveable.attach( object );
 						object.position.set(trueposition.x, trueposition.y, trueposition.z);
-						object.rotation.set(0, - Math.PI * 1 / 4, 0);
+						object.rotation.set(0, object.userData.angle, 0);
 						unmoveable.attach( object );
 
 						//object.updateMatrix();
