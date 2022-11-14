@@ -47,7 +47,7 @@
 			let tinI1PPL, tinI1XPL, guaI2PPL, guaI2XPL, guaI4PPL, guaI4XPL, caroI2PPL, caroI2XPL, caroI1PPL, caroI1XPL, guaI3PPL, guaI3XPL;
 			let wanI1PPL, wanI1XPL, bandaI1PPL, bandaI1XPL, pngI2PPL, pngI2XPL, pngI1PPL, pngI1XPL, nissI1PPL, nissI1XPL;
 			let pauI1PPL, pauI1XPL, nissI2PPL, nissI2XPL, manusI1PPL, manusI1XPL, malaI1PPL, malaI1XPL, teoI1PPL, teoI1XPL;
-			let maloI1PPL, maloI1XPL;
+			let maloI1PPL, maloI1XPL, reefI1PPL, reefI1XPL;
 			//https://soundspunos.com/
 			init();
 			animate();
@@ -702,40 +702,40 @@
 					console.error( error );
 				} );
 
-				//wd51_6
-				function onLoadmaloI1( gltf ) {
+				//wd84_1
+				function onLoadreefI1( gltf ) {
 					const model = gltf.scene;					
-					const maloI1 = model.children[0];
-					maloI1.position.set( 1.0, 0.7, 1.8); //5
-					maloI1.rotation.y = - Math.PI * 5 / 6;
-					unmoveable.add(maloI1);	
+					const reefI1 = model.children[0];
+					reefI1.position.set( 1.9, 1.9, -0.5); 
+					reefI1.rotation.y = - Math.PI / 2.4;
+					unmoveable.add(reefI1);	
 				}
-				loader.load( 'models/wd_51_6_frame.glb', onLoadmaloI1, undefined, function ( error ) {
+				loader.load( 'models/wd_84_1_frame.glb', onLoadreefI1, undefined, function ( error ) {
 					console.error( error );
 				} );
-				function onLoadmaloI1PPL( gltf ) {
+				function onLoadreefI1PPL( gltf ) {
 					const model = gltf.scene;					
-					maloI1PPL = model.children[0];
-					maloI1PPL.rotation.x = - Math.PI / 2;
-					maloI1PPL.position.set(-1.0, 0.1, -1.2); 
-					maloI1PPL.userData.loc = new THREE.Vector3(1.0, 1.0, 1.8);
-					maloI1PPL.userData.angle = - Math.PI * 5 / 6;
-					moveable.add(maloI1PPL);	
+					reefI1PPL = model.children[0];
+					reefI1PPL.rotation.x = - Math.PI / 2;
+					reefI1PPL.position.set(0, 0.1, -1.2); 
+					reefI1PPL.userData.loc = new THREE.Vector3(1.9, 2.2, -0.5);
+					reefI1PPL.userData.angle = - Math.PI / 2.4;
+					moveable.add(reefI1PPL);	
 				}
-				loader.load( 'models/wd_51_6_ppl.glb',onLoadmaloI1PPL, undefined, function ( error ) {
+				loader.load( 'models/wd_84_1_ppl.glb',onLoadreefI1PPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
-				function onLoadmaloI1XPL( gltf ) {
+				function onLoadreefI1XPL( gltf ) {
 					const model = gltf.scene;					
-					maloI1XPL = model.children[0];
-					maloI1XPL.rotation.x =  -Math.PI / 2;
-					maloI1XPL.position.set( -0.5, 0.1, -0.9 ); //	
-					maloI1XPL.userData.loc = new THREE.Vector3(1.0, 0.42, 1.8);	
-					maloI1XPL.userData.angle = - Math.PI * 5 / 6;
-					moveable.add(malao1XPL);	
+					reefI1XPL = model.children[0];
+					reefI1XPL.rotation.x =  -Math.PI / 2;
+					reefI1XPL.position.set( 0, 0.1, 0.6 ); //	
+					reefI1XPL.userData.loc = new THREE.Vector3(1.9, 1.62, -0.5);	
+					reefI1XPL.userData.angle = - Math.PI / 2.4;
+					moveable.add(reefI1XPL);	
 				}
-				loader.load( 'models/wd_51_6_xpl.glb',onLoadmaloI1XPL, undefined, function ( error ) {
+				loader.load( 'models/wd_84_1_xpl.glb',onLoadreefI1XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
@@ -745,8 +745,6 @@
 				const timorI3Tex = textureLoader.load('textures/WD_86_17.jpg'); //
 			
 				const bougI2Tex = textureLoader.load('textures/WD_101_3.jpg'); //
-				
-				const solI1Tex = textureLoader.load('textures/WD_84_1.jpg'); //
 				const solI2Tex = textureLoader.load('textures/WD_105_1.jpg'); //
 				const solI3Tex = textureLoader.load('textures/WD_103_13.jpg'); //
 				
