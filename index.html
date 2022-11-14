@@ -878,7 +878,7 @@
 					const model = gltf.scene;					
 					bukI1XPL = model.children[0];
 					bukI1XPL.rotation.x =  -Math.PI / 2;
-					bukI1XPL.position.set( 0.5, 0.1, 0.6 ); //	
+					bukI1XPL.position.set( -0.5, 0.1, 0.6 ); //	
 					bukI1XPL.userData.loc = new THREE.Vector3(2, 0.42, 0);	
 					bukI1XPL.userData.angle = - Math.PI / 2;
 					moveable.add(bukI1XPL);	
@@ -963,126 +963,6 @@
 					console.error( error );
 				} );
 
-
-
-//petroplanes
-				// const petroGeometry = new THREE.PlaneGeometry( 0.5, 1 );
-				// bandaPlanes = new THREE.Group();
-				// scene.add( bandaPlanes);
-				// const bandaI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: bandaI1Tex }));
-				// bandaI1.position.set( -2.0, 0.7, 0); //9
-				// bandaI1.rotation.y = - Math.PI * 3/ 2;
-				// bandaPlanes.add( bandaI1 );
-				// timorPlanes = new THREE.Group();
-				// scene.add( timorPlanes);
-				// const timorI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: timorI1Tex }));
-				// timorI1.position.set( -1.9, 1.9, -.5); //9a
-				// timorI1.rotation.y = - Math.PI * 1.58;
-				// timorPlanes.add( timorI1 );
-				// const timorI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: timorI2Tex }));
-				// timorI2.position.set( -1.8, 0.7, -1.0); //10
-				// timorI2.rotation.y = - Math.PI * 5/3;
-				// timorPlanes.add( timorI2 );
-				// const timorI3 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: timorI3Tex }));
-				// timorI3.position.set( -1.4, 1.9, -1.4); //10a
-				// timorI3.rotation.y = - Math.PI * 1.75;
-				// timorPlanes.add( timorI3 );
-				// caroPlanes = new THREE.Group();
-				// scene.add( caroPlanes);
-				// const caroI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: carI1Tex }));
-				// caroI1.position.set( -1.0, 0.7, -1.8); //11
-				// caroI1.rotation.y = - Math.PI * 11/ 6;
-				// caroPlanes.add( caroI1 );
-				// const caroI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: carI2Tex }));
-				// caroI2.position.set( -0.5, 1.9, -2.0); //11a
-				// caroI2.rotation.y = - Math.PI * 1.92;
-				// caroPlanes.add( caroI2 );
-				// guaPlanes = new THREE.Group();
-				// scene.add( guaPlanes);
-
-	
-				
-				// tauPlanes = new THREE.Group();
-				// scene.add( tauPlanes);
-				// const tauI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: solI2Tex }));
-				// tauI1.position.set( 1.8, 0.7, -1.0); //2
-				// tauI1.rotation.y = - Math.PI / 3;
-				// tauPlanes.add( tauI1 );
-				// reefPlanes = new THREE.Group();
-				// scene.add( reefPlanes);
-				// const reefI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: solI1Tex }));
-				// reefI1.position.set( 1.9, 1.9, -0.5); 
-				// reefI1.rotation.y = - Math.PI / 2.4;
-				// reefPlanes.add( reefI1 ); //2a
-				// bukaPlanes = new THREE.Group();
-				// scene.add( bukaPlanes);
-				// const bukI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: bougI2Tex }));
-				// bukI1.position.set( 2, 0.7, 0); //3
-				// bukI1.rotation.y = - Math.PI / 2;
-				// bukaPlanes.add( bukI1 );
-				// pauPlanes = new THREE.Group();
-				// scene.add( pauPlanes);
-				// const pauI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: bougI1Tex }));
-				// pauI1.position.set( 1.9, 1.9, 0.5); 
-				// pauI1.rotation.y = - Math.PI * 0.58;
-				// pauPlanes.add( pauI1 ); //3a
-				// aluPlanes = new THREE.Group();
-				// scene.add( aluPlanes);
-				// const aluI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: solI3Tex }));
-				// aluI1.position.set( 1.8, 0.7, 1); //4
-				// aluI1.rotation.y = - Math.PI * 2 / 3;
-				// aluPlanes.add( aluI1 );
-				// malaPlanes = new THREE.Group();
-				// scene.add( malaPlanes);
-				// const malaI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: vanI1Tex }));
-				// malaI1.position.set( 1.4, 1.9, 1.4); 
-				// malaI1.rotation.y = - Math.PI * 3 / 4;
-				// malaPlanes.add( malaI1 ); //4a
-				// maloPlanes = new THREE.Group();
-				// scene.add( maloPlanes);
-				// const maloI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: vanI2Tex }));
-				// maloI1.position.set( 1.0, 0.7, 1.8); //5
-				// maloI1.rotation.y = - Math.PI * 5 / 6;
-				// maloPlanes.add( maloI1 );
-				// teoPlanes = new THREE.Group();
-				// scene.add( teoPlanes);
-				// const teoI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: vanI3Tex }));
-				// teoI1.position.set( 0.5, 1.9, 1.9); 
-				// teoI1.rotation.y = - Math.PI * 0.917;
-				// teoPlanes.add( teoI1 ); //5a
-				// nissPlanes = new THREE.Group();
-				// scene.add( nissPlanes);
-				// const nissI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: nisI1Tex }));
-				// nissI1.position.set( 0, 0.7, 2.2); //6
-				// nissI1.rotation.y = - Math.PI;
-				// nissPlanes.add( nissI1 );
-				// const nissI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: nisI2Tex }));
-				// nissI2.position.set( -0.5, 1.9, 1.9); 
-				// nissI2.rotation.y = - Math.PI * 1.08;
-				// nissPlanes.add( nissI2 ); //6a
-				// manusPlanes = new THREE.Group();
-				// scene.add( manusPlanes);
-				// const manusI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: manI1Tex }));
-				// manusI1.position.set( -1.0, 0.7, 1.8); //7
-				// manusI1.rotation.y = - Math.PI * 7 / 6;
-				// manusPlanes.add( manusI1 );
-				// pngPlanes = new THREE.Group();
-				// scene.add( pngPlanes);
-				// const pngI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: pngI1Tex }));
-				// pngI1.position.set( -1.4, 1.9, 1.4); 
-				// pngI1.rotation.y = - Math.PI * 1.25;
-				// pngPlanes.add( pngI1 ); //7a
-				// const pngI2 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: pngI2Tex }));
-				// pngI2.position.set( -1.8, 0.7, 1.0); //8
-				// pngI2.rotation.y = - Math.PI * 4 / 3;
-				// pngPlanes.add( pngI2 );
-				
-				// lizPlanes = new THREE.Group();
-				// scene.add( lizPlanes);
-				// const lizI1 = new THREE.Mesh( petroGeometry, new THREE.MeshBasicMaterial({ map: wangilTex }));
-				// lizI1.position.set( -1.9, 1.9, 0.5); 
-				// lizI1.rotation.y = - Math.PI * 1.42;
-				// lizPlanes.add( lizI1 ); //8a
 			
 				scene.add( new THREE.HemisphereLight( 0x808080, 0x606060 ) );
 
@@ -1241,42 +1121,6 @@
 
 			}
 
-/* 			function onSelectStart( event ) {
-
-				const controller = event.target;
-
-				const intersections = getIntersections( controller );
-
-				if ( intersections.length > 0 ) {
-
-					const intersection = intersections[ 0 ];
-
-					const object = intersection.object;
-					object.material.emissive.r = 1;
-					//controller.attach( object );
-					controller.userData.selected = object;
-
-				}
-
-			}
-
-			function onSelectEnd( event ) {
-
-				const controller = event.target;
-				let groupInt;
-				if ( controller.userData.selected !== undefined ) {
-
-					const object = controller.userData.selected;
-					object.material.emissive.r = 0;
-					//group.attach( object );
-					groupInt = object.userData.planes;
-					groupInt.visible = !groupInt.visible;
-					controller.userData.selected = undefined;
-
-				}
-
-
-			} */
 
 			function onSelectStart( event ) {
 
