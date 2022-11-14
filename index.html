@@ -46,7 +46,8 @@
 			let controls, moveable, unmoveable, group, trueposition;
 			let tinI1PPL, tinI1XPL, guaI2PPL, guaI2XPL, guaI4PPL, guaI4XPL, caroI2PPL, caroI2XPL, caroI1PPL, caroI1XPL, guaI3PPL, guaI3XPL;
 			let wanI1PPL, wanI1XPL, bandaI1PPL, bandaI1XPL, pngI2PPL, pngI2XPL, pngI1PPL, pngI1XPL, nissI1PPL, nissI1XPL;
-			let pauI1PPL, pauI1XPL, nissI2PPL, nissI2XPL, manusI1PPL, manusI1XPL, malaI1PPL, malaI1XPL;
+			let pauI1PPL, pauI1XPL, nissI2PPL, nissI2XPL, manusI1PPL, manusI1XPL, malaI1PPL, malaI1XPL, teoI1PPL, teoI1XPL;
+			let maloI1PPL, maloI1XPL;
 			//https://soundspunos.com/
 			init();
 			animate();
@@ -82,7 +83,7 @@
 				scene.add( theMap);
 
 								
-//wd_2_14
+				//wd_2_14
 				function onLoad( gltf ) {
 					const model = gltf.scene;					
 					const tinI1 = model.children[0];
@@ -96,7 +97,7 @@
 				function onLoadtinI1PPL( gltf ) {
 					const model = gltf.scene;					
 					tinI1PPL = model.children[0];
-					tinI1PPL.rotation.x =  Math.PI / 2;
+					tinI1PPL.rotation.x =  -Math.PI / 2;
 					tinI1PPL.position.set(0.5, 0.1, 1.2); //1a
 					tinI1PPL.userData.loc = new THREE.Vector3(1.4, 2.2, -1.4);
 					tinI1PPL.userData.angle =  - Math.PI * 1 / 4
@@ -109,7 +110,7 @@
 				function onLoadtinI1XPL( gltf ) {
 					const model = gltf.scene;					
 					tinI1XPL = model.children[0];
-					tinI1XPL.rotation.x =  Math.PI / 2;
+					tinI1XPL.rotation.x =  -Math.PI / 2;
 					tinI1XPL.position.set( -1.0, 0.1, -0.3 ); //1a		
 					tinI1XPL.userData.loc = new THREE.Vector3(1.4, 1.62, -1.4);	
 					tinI1XPL.userData.angle =  - Math.PI * 1 / 4		
@@ -133,7 +134,7 @@
 				function onLoadGuaI2PPL( gltf ) {
 					const model = gltf.scene;					
 					guaI2PPL = model.children[0];
-					guaI2PPL.rotation.x =  Math.PI / 2;
+					guaI2PPL.rotation.x =  -Math.PI / 2;
 					guaI2PPL.position.set(0.5, 0.1, -0.9); 
 					guaI2PPL.userData.loc = new THREE.Vector3(0, 1.0, -2.2);
 					guaI2PPL.userData.angle =  0
@@ -146,7 +147,7 @@
 				function onLoadGuaI2XPL( gltf ) {
 					const model = gltf.scene;					
 					guaI2XPL = model.children[0];
-					guaI2XPL.rotation.x =  Math.PI / 2;
+					guaI2XPL.rotation.x =  -Math.PI / 2;
 					guaI2XPL.position.set( 0, 0.1, -1.5 ); //	
 					guaI2XPL.userData.loc = new THREE.Vector3(0, 0.42, -2.2);	
 					guaI2XPL.userData.angle =  0		
@@ -170,7 +171,7 @@
 				function onLoadGuaI4PPL( gltf ) {
 					const model = gltf.scene;					
 					guaI4PPL = model.children[0];
-					guaI4PPL.rotation.x =  Math.PI / 2;
+					guaI4PPL.rotation.x =  -Math.PI / 2;
 					guaI4PPL.position.set(0.5, 0.1, 0.3); 
 					guaI4PPL.userData.loc = new THREE.Vector3( 1, 1.0, -1.8);
 					guaI4PPL.userData.angle =  - Math.PI / 6
@@ -183,7 +184,7 @@
 				function onLoadGuaI4XPL( gltf ) {
 					const model = gltf.scene;					
 					guaI4XPL = model.children[0];
-					guaI4XPL.rotation.x =  Math.PI / 2;
+					guaI4XPL.rotation.x = - Math.PI / 2;
 					guaI4XPL.position.set( 1, 0.1, 0.6 ); //	
 					guaI4XPL.userData.loc = new THREE.Vector3( 1, 0.42, -1.8);	
 					guaI4XPL.userData.angle =  - Math.PI / 6		
@@ -207,7 +208,7 @@
 				function onLoadcaroI2PPL( gltf ) {
 					const model = gltf.scene;					
 					caroI2PPL = model.children[0];
-					caroI2PPL.rotation.x =  Math.PI / 2;
+					caroI2PPL.rotation.x =  -Math.PI / 2;
 					caroI2PPL.position.set(1.0, 0.1, -0.9); 
 					caroI2PPL.userData.loc = new THREE.Vector3(-0.5, 2.2, -2.0);
 					caroI2PPL.userData.angle =  - Math.PI * 1.92;
@@ -220,7 +221,7 @@
 				function onLoadcaroI2XPL( gltf ) {
 					const model = gltf.scene;					
 					caroI2XPL = model.children[0];
-					caroI2XPL.rotation.x =  Math.PI / 2;
+					caroI2XPL.rotation.x =  -Math.PI / 2;
 					caroI2XPL.position.set( 0, 0.1, -0.3 ); //	
 					caroI2XPL.userData.loc = new THREE.Vector3( -0.5, 1.62, -2.0);	
 					caroI2XPL.userData.angle = - Math.PI * 1.92;	
@@ -243,7 +244,7 @@
 				function onLoadcaroI1PPL( gltf ) {
 					const model = gltf.scene;					
 					caroI1PPL = model.children[0];
-					caroI1PPL.rotation.x =  Math.PI / 2;
+					caroI1PPL.rotation.x =  -Math.PI / 2;
 					caroI1PPL.position.set(0, 0.1, 0.9); 
 					caroI1PPL.userData.loc = new THREE.Vector3( -1.0, 1.0, -1.8);
 					caroI1PPL.userData.angle = - Math.PI * 11/ 6;
@@ -256,7 +257,7 @@
 				function onLoadcaroI1XPL( gltf ) {
 					const model = gltf.scene;					
 					caroI1XPL = model.children[0];
-					caroI1XPL.rotation.x =  Math.PI / 2;
+					caroI1XPL.rotation.x =  -Math.PI / 2;
 					caroI1XPL.position.set( 0.5, 0.1, -1.5 ); //	
 					caroI1XPL.userData.loc = new THREE.Vector3(  -1.0, 0.42, -1.8);	
 					caroI1XPL.userData.angle = - Math.PI * 11/ 6;	
@@ -279,7 +280,7 @@
 				function onLoadguaI3PPL( gltf ) {
 					const model = gltf.scene;					
 					guaI3PPL = model.children[0];
-					guaI3PPL.rotation.x =  Math.PI / 2;
+					guaI3PPL.rotation.x =  -Math.PI / 2;
 					guaI3PPL.position.set(-0.5, 0.1, 1.2); 
 					guaI3PPL.userData.loc = new THREE.Vector3(0.5, 2.2, -2.0);
 					guaI3PPL.userData.angle = - Math.PI / 12;
@@ -292,7 +293,7 @@
 				function onLoadguaI3XPL( gltf ) {
 					const model = gltf.scene;					
 					guaI3XPL = model.children[0];
-					guaI3XPL.rotation.x =  Math.PI / 2;
+					guaI3XPL.rotation.x =  -Math.PI / 2;
 					guaI3XPL.position.set( -1.0, 0.1, -0.9 ); //	
 					guaI3XPL.userData.loc = new THREE.Vector3(  0.5, 1.62, -2.0);	
 					guaI3XPL.userData.angle = - Math.PI / 12;	
@@ -316,7 +317,7 @@
 				function onLoadwanI1PPL( gltf ) {
 					const model = gltf.scene;					
 					wanI1PPL = model.children[0];
-					wanI1PPL.rotation.x =  Math.PI / 2;
+					wanI1PPL.rotation.x =  -Math.PI / 2;
 					wanI1PPL.position.set(0, 0.1, 1.5); 
 					wanI1PPL.userData.loc = new THREE.Vector3(-1.9, 2.2, 0.5);
 					wanI1PPL.userData.angle = - Math.PI * 1.42;
@@ -329,7 +330,7 @@
 				function onLoadwanI1XPL( gltf ) {
 					const model = gltf.scene;					
 					wanI1XPL = model.children[0];
-					wanI1XPL.rotation.x =  Math.PI / 2;
+					wanI1XPL.rotation.x =  -Math.PI / 2;
 					wanI1XPL.position.set( 0, 0.1, -0.9 ); //	
 					wanI1XPL.userData.loc = new THREE.Vector3( -1.9, 1.62, 0.5);	
 					wanI1XPL.userData.angle = - Math.PI * 1.42;
@@ -352,7 +353,7 @@
 				function onLoadbandaI1PPL( gltf ) {
 					const model = gltf.scene;					
 					bandaI1PPL = model.children[0];
-					bandaI1PPL.rotation.x =  Math.PI / 2;
+					bandaI1PPL.rotation.x =  -Math.PI / 2;
 					bandaI1PPL.position.set(1, 0.1, -0.3); 
 					bandaI1PPL.userData.loc = new THREE.Vector3( -2.0, 1.0, 0);
 					bandaI1PPL.userData.angle = - Math.PI * 3/ 2;
@@ -365,7 +366,7 @@
 				function onLoadbandaI1XPL( gltf ) {
 					const model = gltf.scene;					
 					bandaI1XPL = model.children[0];
-					bandaI1XPL.rotation.x =  Math.PI / 2;
+					bandaI1XPL.rotation.x =  -Math.PI / 2;
 					bandaI1XPL.position.set( -1.0, 0.1, 0.3 ); //	
 					bandaI1XPL.userData.loc = new THREE.Vector3(  -2.0, 0.42, 0);	
 					bandaI1XPL.userData.angle = - Math.PI * 3/ 2;
@@ -388,7 +389,7 @@
 				function onLoadpngI2PPL( gltf ) {
 					const model = gltf.scene;					
 					pngI2PPL = model.children[0];
-					pngI2PPL.rotation.x =  Math.PI / 2;
+					pngI2PPL.rotation.x =  -Math.PI / 2;
 					pngI2PPL.position.set(0.5, 0.1, 0.6); 
 					pngI2PPL.userData.loc = new THREE.Vector3( -1.8, 1.0, 1.0);
 					pngI2PPL.userData.angle = - Math.PI * 4 / 3;
@@ -401,7 +402,7 @@
 				function onLoadpngI2XPL( gltf ) {
 					const model = gltf.scene;					
 					pngI2XPL = model.children[0];
-					pngI2XPL.rotation.x =  Math.PI / 2;
+					pngI2XPL.rotation.x =  -Math.PI / 2;
 					pngI2XPL.position.set( 1.0, 0.1, 1.2 ); //	
 					pngI2XPL.userData.loc = new THREE.Vector3( -1.8, 0.42, 1.0);	
 					pngI2XPL.userData.angle = - Math.PI * 4 / 3;
@@ -424,7 +425,7 @@
 				function onLoadpngI1PPL( gltf ) {
 					const model = gltf.scene;					
 					pngI1PPL = model.children[0];
-					pngI1PPL.rotation.x =  Math.PI / 2;
+					pngI1PPL.rotation.x =  -Math.PI / 2;
 					pngI1PPL.position.set(1, 0.1, 0.9); 
 					pngI1PPL.userData.loc = new THREE.Vector3(-1.4, 2.2, 1.4);
 					pngI1PPL.userData.angle = - Math.PI * 1.25;
@@ -437,7 +438,7 @@
 				function onLoadpngI1XPL( gltf ) {
 					const model = gltf.scene;					
 					pngI1XPL = model.children[0];
-					pngI1XPL.rotation.x =  Math.PI / 2;
+					pngI1XPL.rotation.x-Math.PI / 2;
 					pngI1XPL.position.set( 0, 0.1, -1.8 ); //	
 					pngI1XPL.userData.loc = new THREE.Vector3( -1.4, 1.62, 1.4);	
 					pngI1XPL.userData.angle = - Math.PI * 1.25;
@@ -460,7 +461,7 @@
 				function onLoadnissI1PPL( gltf ) {
 					const model = gltf.scene;					
 					nissI1PPL = model.children[0];
-					nissI1PPL.rotation.x =  Math.PI / 2;
+					nissI1PPL.rotation.x = - Math.PI / 2;
 					nissI1PPL.position.set(0, 0.1, 0.3); 
 					nissI1PPL.userData.loc = new THREE.Vector3(0, 1.0, 2.2);
 					nissI1PPL.userData.angle = - Math.PI;
@@ -473,7 +474,7 @@
 				function onLoadnissI1XPL( gltf ) {
 					const model = gltf.scene;					
 					nissI1XPL = model.children[0];
-					nissI1XPL.rotation.x =  Math.PI / 2;
+					nissI1XPL.rotation.x =  -Math.PI / 2;
 					nissI1XPL.position.set( -0.5, 0.1, -1.2 ); //	
 					nissI1XPL.userData.loc = new THREE.Vector3( 0, 0.42, 2.2);	
 					nissI1XPL.userData.angle = - Math.PI;
@@ -496,7 +497,7 @@
 				function onLoadpauI1PPL( gltf ) {
 					const model = gltf.scene;					
 					pauI1PPL = model.children[0];
-					pauI1PPL.rotation.x =  Math.PI / 2;
+					pauI1PPL.rotation.x =  -Math.PI / 2;
 					pauI1PPL.position.set(-1.0, 0.1, 0.9); 
 					pauI1PPL.userData.loc = new THREE.Vector3(1.9, 2.2, 0.5);
 					pauI1PPL.userData.angle = - Math.PI * 0.58;
@@ -509,7 +510,7 @@
 				function onLoadpauI1XPL( gltf ) {
 					const model = gltf.scene;					
 					pauI1XPL = model.children[0];
-					pauI1XPL.rotation.x =  Math.PI / 2;
+					pauI1XPL.rotation.x =  -Math.PI / 2;
 					pauI1XPL.position.set( -0.5, 0.1, -0.6 ); //	
 					pauI1XPL.userData.loc = new THREE.Vector3( 1.9, 1.62, 0.5);	
 					pauI1XPL.userData.angle = - Math.PI * 0.58;
@@ -532,7 +533,7 @@
 				function onLoadnissI2PPL( gltf ) {
 					const model = gltf.scene;					
 					nissI2PPL = model.children[0];
-					nissI2PPL.rotation.x =  Math.PI / 2;
+					nissI2PPL.rotation.x =  -Math.PI / 2;
 					nissI2PPL.position.set(-0.5, 0.1, -1.5); 
 					nissI2PPL.userData.loc = new THREE.Vector3(-0.5, 2.2, 1.9);
 					nissI2PPL.userData.angle = - Math.PI * 1.08;
@@ -545,7 +546,7 @@
 				function onLoadnissI2XPL( gltf ) {
 					const model = gltf.scene;					
 					nissI2XPL = model.children[0];
-					nissI2XPL.rotation.x =  Math.PI / 2;
+					nissI2XPL.rotation.x =  -Math.PI / 2;
 					nissI2XPL.position.set( 0, 0.1, 1.2 ); //	
 					nissI2XPL.userData.loc = new THREE.Vector3( -0.5, 1.62, 1.9);	
 					nissI2XPL.userData.angle = - Math.PI * 1.08;
@@ -568,7 +569,7 @@
 				function onLoadmanusI1PPL( gltf ) {
 					const model = gltf.scene;					
 					manusI1PPL = model.children[0];
-					manusI1PPL.rotation.x =  Math.PI / 2;
+					manusI1PPL.rotation.x =  -Math.PI / 2;
 					manusI1PPL.position.set(1, 0.1, 0.3); 
 					manusI1PPL.userData.loc = new THREE.Vector3(-1.0, 1.0, 1.8);
 					manusI1PPL.userData.angle = - Math.PI * 7 / 6;
@@ -581,7 +582,7 @@
 				function onLoadmanusI1XPL( gltf ) {
 					const model = gltf.scene;					
 					manusI1XPL = model.children[0];
-					manusI1XPL.rotation.x =  Math.PI / 2;
+					manusI1XPL.rotation.x =  -Math.PI / 2;
 					manusI1XPL.position.set( 0.5, 0.1, -0.6 ); //	
 					manusI1XPL.userData.loc = new THREE.Vector3( -1.0, 0.42, 1.8);	
 					manusI1XPL.userData.angle = - Math.PI * 7 / 6;
@@ -591,6 +592,43 @@
 					console.error( error );
 				} );
 				//wd45_12
+				function onLoadteoI1( gltf ) {
+					const model = gltf.scene;					
+					const teoI1 = model.children[0];
+					teoI1.position.set( 0.5, 1.9, 1.9); 
+					teoI1.rotation.y = - Math.PI * 0.917;
+					unmoveable.add(teoI1);	
+				}
+				loader.load( 'models/wd_45_12_frame.glb', onLoadteoI1, undefined, function ( error ) {
+					console.error( error );
+				} );
+				function onLoadteoI1PPL( gltf ) {
+					const model = gltf.scene;					
+					teoI1PPL = model.children[0];
+					teoI1PPL.rotation.x = - Math.PI / 2;
+					teoI1PPL.position.set(-0.5, 0.1, -0.3); 
+					teoI1PPL.userData.loc = new THREE.Vector3(0.5, 2.2, 1.9);
+					teoI1PPL.userData.angle = - Math.PI * 0.917;
+					moveable.add(teoI1PPL);	
+				}
+				loader.load( 'models/wd_45_12_ppl.glb',onLoadteoI1PPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				function onLoadteoI1XPL( gltf ) {
+					const model = gltf.scene;					
+					teoI1XPL = model.children[0];
+					teoI1XPL.rotation.x =  -Math.PI / 2;
+					teoI1XPL.position.set( 0, 0.1, 1.8 ); //	
+					teoI1XPL.userData.loc = new THREE.Vector3(0.5, 1.62, 1.9);	
+					teoI1XPL.userData.angle = - Math.PI * 0.917;
+					moveable.add(teoI1XPL);	
+				}
+				loader.load( 'models/wd_45_12_xpl.glb',onLoadteoI1XPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				//wd49_22
 				function onLoadmalaI1( gltf ) {
 					const model = gltf.scene;					
 					const malaI1 = model.children[0];
@@ -598,40 +636,113 @@
 					malaI1.rotation.y = - Math.PI * 3 / 4;
 					unmoveable.add(malaI1);	
 				}
-				loader.load( 'models/wd_45_12_frame.glb', onLoadmalaI1, undefined, function ( error ) {
+				loader.load( 'models/wd_49_22_frame.glb', onLoadmalaI1, undefined, function ( error ) {
 					console.error( error );
 				} );
 				function onLoadmalaI1PPL( gltf ) {
 					const model = gltf.scene;					
 					malaI1PPL = model.children[0];
-					malaI1PPL.rotation.x =  Math.PI / 2;
-					malaI1PPL.position.set(-0.5, 0.1, -0.3); 
+					malaI1PPL.rotation.x = - Math.PI / 2;
+					malaI1PPL.position.set(1.0, 0.1, -0.6); 
 					malaI1PPL.userData.loc = new THREE.Vector3(1.4, 2.2, 1.4);
 					malaI1PPL.userData.angle = - Math.PI * 3 / 4;
 					moveable.add(malaI1PPL);	
 				}
-				loader.load( 'models/wd_45_12_ppl.glb',onLoadmalaI1PPL, undefined, function ( error ) {
+				loader.load( 'models/wd_49_22_ppl.glb',onLoadmalaI1PPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
 				function onLoadmalaI1XPL( gltf ) {
 					const model = gltf.scene;					
 					malaI1XPL = model.children[0];
-					malaI1XPL.rotation.x =  Math.PI / 2;
-					malaI1XPL.position.set( 0, 0.1, 1.8 ); //	
+					malaI1XPL.rotation.x =  -Math.PI / 2;
+					malaI1XPL.position.set( -1.0, 0.1, 0.6 ); //	
 					malaI1XPL.userData.loc = new THREE.Vector3(1.4, 1.62, 1.4);	
 					malaI1XPL.userData.angle = - Math.PI * 3 / 4;
 					moveable.add(malaI1XPL);	
 				}
-				loader.load( 'models/wd_45_12_xpl.glb',onLoadmalaI1XPL, undefined, function ( error ) {
+				loader.load( 'models/wd_49_22_xpl.glb',onLoadmalaI1XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
+
+				//wd51_6
+				function onLoadmaloI1( gltf ) {
+					const model = gltf.scene;					
+					const maloI1 = model.children[0];
+					maloI1.position.set( 1.0, 0.7, 1.8); //5
+					maloI1.rotation.y = - Math.PI * 5 / 6;
+					unmoveable.add(maloI1);	
+				}
+				loader.load( 'models/wd_51_6_frame.glb', onLoadmaloI1, undefined, function ( error ) {
+					console.error( error );
+				} );
+				function onLoadmaloI1PPL( gltf ) {
+					const model = gltf.scene;					
+					maloI1PPL = model.children[0];
+					maloI1PPL.rotation.x = - Math.PI / 2;
+					maloI1PPL.position.set(-1.0, 0.1, -1.2); 
+					maloI1PPL.userData.loc = new THREE.Vector3(1.0, 1.0, 1.8);
+					maloI1PPL.userData.angle = - Math.PI * 5 / 6;
+					moveable.add(maloI1PPL);	
+				}
+				loader.load( 'models/wd_51_6_ppl.glb',onLoadmaloI1PPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				function onLoadmaloI1XPL( gltf ) {
+					const model = gltf.scene;					
+					maloI1XPL = model.children[0];
+					maloI1XPL.rotation.x =  -Math.PI / 2;
+					maloI1XPL.position.set( -0.5, 0.1, -0.9 ); //	
+					maloI1XPL.userData.loc = new THREE.Vector3(1.0, 0.42, 1.8);	
+					maloI1XPL.userData.angle = - Math.PI * 5 / 6;
+					moveable.add(malao1XPL);	
+				}
+				loader.load( 'models/wd_51_6_xpl.glb',onLoadmaloI1XPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				//wd51_6
+				function onLoadmaloI1( gltf ) {
+					const model = gltf.scene;					
+					const maloI1 = model.children[0];
+					maloI1.position.set( 1.0, 0.7, 1.8); //5
+					maloI1.rotation.y = - Math.PI * 5 / 6;
+					unmoveable.add(maloI1);	
+				}
+				loader.load( 'models/wd_51_6_frame.glb', onLoadmaloI1, undefined, function ( error ) {
+					console.error( error );
+				} );
+				function onLoadmaloI1PPL( gltf ) {
+					const model = gltf.scene;					
+					maloI1PPL = model.children[0];
+					maloI1PPL.rotation.x = - Math.PI / 2;
+					maloI1PPL.position.set(-1.0, 0.1, -1.2); 
+					maloI1PPL.userData.loc = new THREE.Vector3(1.0, 1.0, 1.8);
+					maloI1PPL.userData.angle = - Math.PI * 5 / 6;
+					moveable.add(maloI1PPL);	
+				}
+				loader.load( 'models/wd_51_6_ppl.glb',onLoadmaloI1PPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
+				function onLoadmaloI1XPL( gltf ) {
+					const model = gltf.scene;					
+					maloI1XPL = model.children[0];
+					maloI1XPL.rotation.x =  -Math.PI / 2;
+					maloI1XPL.position.set( -0.5, 0.1, -0.9 ); //	
+					maloI1XPL.userData.loc = new THREE.Vector3(1.0, 0.42, 1.8);	
+					maloI1XPL.userData.angle = - Math.PI * 5 / 6;
+					moveable.add(malao1XPL);	
+				}
+				loader.load( 'models/wd_51_6_xpl.glb',onLoadmaloI1XPL, undefined, function ( error ) {
+					console.error( error );
+				} );
+
 				/* 
 				const timorI1Tex = textureLoader.load('textures/WD_86_2.jpg'); //
 				const timorI2Tex = textureLoader.load('textures/WD_86_6.jpg'); //
 				const timorI3Tex = textureLoader.load('textures/WD_86_17.jpg'); //
-				const vanI1Tex = textureLoader.load('textures/WD_49_22.jpg'); //
-				const vanI2Tex = textureLoader.load('textures/WD_51_6.jpg'); //
 			
 				const bougI2Tex = textureLoader.load('textures/WD_101_3.jpg'); //
 				
