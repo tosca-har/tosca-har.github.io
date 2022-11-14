@@ -438,7 +438,7 @@
 				function onLoadpngI1XPL( gltf ) {
 					const model = gltf.scene;					
 					pngI1XPL = model.children[0];
-					pngI1XPL.rotation.x-Math.PI / 2;
+					pngI1XPL.rotation.x = -Math.PI / 2;
 					pngI1XPL.position.set( 0, 0.1, -1.8 ); //	
 					pngI1XPL.userData.loc = new THREE.Vector3( -1.4, 1.62, 1.4);	
 					pngI1XPL.userData.angle = - Math.PI * 1.25;
