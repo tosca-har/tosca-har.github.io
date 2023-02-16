@@ -49,7 +49,7 @@
 			let maloI1PPL, maloI1XPL, reefI1PPL, reefI1XPL, timorI1PPL, timorI1XPL, timorI2PPL, timorI2XPL, timorI3PPL, timorI3XPL;
 			let bukI1PPL, bukI1XPL, aluI1PPL, aluI1XPL, tauI1PPL, tauI1XPL;
 
-			let level1Planes;
+			let level1Planes, level2Planes;
 
 
 
@@ -988,7 +988,12 @@
 				level1.userData.planes = level1Planes;
 				levels.add( level1);
 
-
+				const level2 = new THREE.Mesh( new THREE.BoxGeometry(  0.3, .10, .3  ), new THREE.MeshStandardMaterial( {color: 0x0000ff} ));
+				level2.position.x = -.7;
+				level2.position.y = 0.0; 
+				level2.position.z = 0.085507;
+				level2.userData.planes = level2Planes;
+				levels.add( level2);
 
 				const aluSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ));
 				aluSite.position.x = -0.03674;
