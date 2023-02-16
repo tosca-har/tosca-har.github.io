@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Virtual Petrography hard</title>
+		<title>Virtual Petrography hard ver2</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<link type="text/css" rel="stylesheet" href="main.css">
@@ -49,6 +49,11 @@
 			let pauI1PPL, pauI1XPL, nissI2PPL, nissI2XPL, manusI1PPL, manusI1XPL, malaI1PPL, malaI1XPL, teoI1PPL, teoI1XPL;
 			let maloI1PPL, maloI1XPL, reefI1PPL, reefI1XPL, timorI1PPL, timorI1XPL, timorI2PPL, timorI2XPL, timorI3PPL, timorI3XPL;
 			let bukI1PPL, bukI1XPL, aluI1PPL, aluI1XPL, tauI1PPL, tauI1XPL;
+
+			let level1Planes;
+
+
+
 			//https://soundspunos.com/
 			init();
 			animate();
@@ -973,9 +978,19 @@
 
 
 				group = new THREE.Group();
-				scene.add( group);			
+				scene.add( group);	
+				levels = new THREE.Group();
+				scene.add( levels);			
 
-		
+				const level1 = new THREE.Mesh( new THREE.BoxGeometry(  0.3, .10, .3  ), new THREE.MeshStandardMaterial( {color: 0x0000ff} ));
+				level1.position.x = -.7;
+				level1.position.y = 0.0; 
+				level1.position.z = 0.085507;
+				level1.userData.planes = level1Planes;
+				levels.add( level1);
+
+
+
 				const aluSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ));
 				aluSite.position.x = -0.03674;
 				aluSite.position.y = 0.01; 
