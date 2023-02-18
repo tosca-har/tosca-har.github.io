@@ -49,7 +49,7 @@
 			let maloI1PPL, maloI1XPL, reefI1PPL, reefI1XPL, timorI1PPL, timorI1XPL, timorI2PPL, timorI2XPL, timorI3PPL, timorI3XPL;
 			let bukI1PPL, bukI1XPL, aluI1PPL, aluI1XPL, tauI1PPL, tauI1XPL;
 
-			let level1Planes, level2Planes;
+			let level1Planes, level2Planes, level3Planes, level4Planes;
 
 
 
@@ -88,7 +88,7 @@
 				scene.add( theMap);
 
 								
-				//wd_2_14
+				//wd_52_1
 				function onLoad( gltf ) {
 					const model = gltf.scene;					
 					const tinI1 = model.children[0];
@@ -96,7 +96,7 @@
 					tinI1.rotation.y =  - Math.PI * 1 / 4;
 					unmoveable.add(tinI1);	
 				}
-				loader.load( 'models/wd_2_14_frame.glb', onLoad, undefined, function ( error ) {
+				loader.load( 'models/wd_52_1_frame.glb', onLoad, undefined, function ( error ) {
 					console.error( error );
 				} );
 				function onLoadtinI1PPL( gltf ) {
@@ -108,7 +108,7 @@
 					tinI1PPL.userData.angle =  - Math.PI * 1 / 4
 					moveable.add(tinI1PPL);	
 				}
-				loader.load( 'models/wd_2_14_ppl.glb',onLoadtinI1PPL, undefined, function ( error ) {
+				loader.load( 'models/wd_52_1_ppl.glb',onLoadtinI1PPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
@@ -121,11 +121,11 @@
 					tinI1XPL.userData.angle =  - Math.PI * 1 / 4		
 					moveable.add(tinI1XPL);	
 				}
-				loader.load( 'models/wd_2_14_xpl.glb',onLoadtinI1XPL, undefined, function ( error ) {
+				loader.load( 'models/wd_52_1_xpl.glb',onLoadtinI1XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
-				//wd7_24 
+				//wd12_19 
 
 				function onLoadGuaI2( gltf ) {
 					const model = gltf.scene;					
@@ -133,7 +133,7 @@
 					guaI2.position.set( 0, 0.7, -2.2) //12
 					unmoveable.add(guaI2);	
 				}
-				loader.load( 'models/wd_7_24_frame.glb', onLoadGuaI2, undefined, function ( error ) {
+				loader.load( 'models/wd_12_19_frame.glb', onLoadGuaI2, undefined, function ( error ) {
 					console.error( error );
 				} );
 				function onLoadGuaI2PPL( gltf ) {
@@ -145,7 +145,7 @@
 					guaI2PPL.userData.angle =  0
 					moveable.add(guaI2PPL);	
 				}
-				loader.load( 'models/wd_7_24_ppl.glb',onLoadGuaI2PPL, undefined, function ( error ) {
+				loader.load( 'models/wd_12_19_ppl.glb',onLoadGuaI2PPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
@@ -158,11 +158,11 @@
 					guaI2XPL.userData.angle =  0		
 					moveable.add(guaI2XPL);	
 				}
-				loader.load( 'models/wd_7_24_xpl.glb',onLoadGuaI2XPL, undefined, function ( error ) {
+				loader.load( 'models/wd_12_19_xpl.glb',onLoadGuaI2XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
-				//wd8_12
+				//wd35_1
 				function onLoadGuaI4( gltf ) {
 					const model = gltf.scene;					
 					const guaI4 = model.children[0];
@@ -170,7 +170,7 @@
 					guaI4.rotation.y = - Math.PI / 6;
 					unmoveable.add(guaI4);	
 				}
-				loader.load( 'models/wd_8_12_frame.glb', onLoadGuaI4, undefined, function ( error ) {
+				loader.load( 'models/wd_35_1_frame.glb', onLoadGuaI4, undefined, function ( error ) {
 					console.error( error );
 				} );
 				function onLoadGuaI4PPL( gltf ) {
@@ -182,7 +182,7 @@
 					guaI4PPL.userData.angle =  - Math.PI / 6
 					moveable.add(guaI4PPL);	
 				}
-				loader.load( 'models/wd_8_12_ppl.glb',onLoadGuaI4PPL, undefined, function ( error ) {
+				loader.load( 'models/wd_35_1_ppl.glb',onLoadGuaI4PPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
@@ -195,7 +195,7 @@
 					guaI4XPL.userData.angle =  - Math.PI / 6		
 					moveable.add(guaI4XPL);	
 				}
-				loader.load( 'models/wd_8_12_xpl.glb',onLoadGuaI4XPL, undefined, function ( error ) {
+				loader.load( 'models/wd_35_1_xpl.glb',onLoadGuaI4XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
@@ -308,7 +308,7 @@
 					console.error( error );
 				} );
 
-				//wd17_1
+				//wd18_2
 				function onLoadwanI1( gltf ) {
 					const model = gltf.scene;					
 					const wanI1 = model.children[0];
@@ -316,7 +316,7 @@
 					wanI1.rotation.y = - Math.PI * 1.42;
 					unmoveable.add(wanI1);	
 				}
-				loader.load( 'models/wd_17_1_frame.glb', onLoadwanI1, undefined, function ( error ) {
+				loader.load( 'models/wd_18_2_frame.glb', onLoadwanI1, undefined, function ( error ) {
 					console.error( error );
 				} );
 				function onLoadwanI1PPL( gltf ) {
@@ -328,7 +328,7 @@
 					wanI1PPL.userData.angle = - Math.PI * 1.42;
 					moveable.add(wanI1PPL);	
 				}
-				loader.load( 'models/wd_17_1_ppl.glb',onLoadwanI1PPL, undefined, function ( error ) {
+				loader.load( 'models/wd_18_2_ppl.glb',onLoadwanI1PPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
@@ -341,10 +341,10 @@
 					wanI1XPL.userData.angle = - Math.PI * 1.42;
 					moveable.add(wanI1XPL);	
 				}
-				loader.load( 'models/wd_17_1_xpl.glb',onLoadwanI1XPL, undefined, function ( error ) {
+				loader.load( 'models/wd_18_2_xpl.glb',onLoadwanI1XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
-				//wd17_12
+				//wd20_5
 				function onLoadbandaI1( gltf ) {
 					const model = gltf.scene;					
 					const bandaI1 = model.children[0];
@@ -352,7 +352,7 @@
 					bandaI1.rotation.y = - Math.PI * 3/ 2;
 					unmoveable.add(bandaI1);	
 				}
-				loader.load( 'models/wd_17_12_frame.glb', onLoadbandaI1, undefined, function ( error ) {
+				loader.load( 'models/wd_20_5_frame.glb', onLoadbandaI1, undefined, function ( error ) {
 					console.error( error );
 				} );
 				function onLoadbandaI1PPL( gltf ) {
@@ -364,7 +364,7 @@
 					bandaI1PPL.userData.angle = - Math.PI * 3/ 2;
 					moveable.add(bandaI1PPL);	
 				}
-				loader.load( 'models/wd_17_12_ppl.glb',onLoadbandaI1PPL, undefined, function ( error ) {
+				loader.load( 'models/wd_20_5_ppl.glb',onLoadbandaI1PPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
@@ -377,10 +377,10 @@
 					bandaI1XPL.userData.angle = - Math.PI * 3/ 2;
 					moveable.add(bandaI1XPL);	
 				}
-				loader.load( 'models/wd_17_12_xpl.glb',onLoadbandaI1XPL, undefined, function ( error ) {
+				loader.load( 'models/wd_20_5_xpl.glb',onLoadbandaI1XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
-				//wd28_4
+				//wd18_10
 				function onLoadpngI2( gltf ) {
 					const model = gltf.scene;					
 					const pngI2 = model.children[0];
@@ -388,7 +388,7 @@
 					pngI2.rotation.y = - Math.PI * 4 / 3;
 					unmoveable.add(pngI2);	
 				}
-				loader.load( 'models/wd_28_4_frame.glb', onLoadpngI2, undefined, function ( error ) {
+				loader.load( 'models/wd_18_10_frame.glb', onLoadpngI2, undefined, function ( error ) {
 					console.error( error );
 				} );
 				function onLoadpngI2PPL( gltf ) {
@@ -400,7 +400,7 @@
 					pngI2PPL.userData.angle = - Math.PI * 4 / 3;
 					moveable.add(pngI2PPL);	
 				}
-				loader.load( 'models/wd_28_4_ppl.glb',onLoadpngI2PPL, undefined, function ( error ) {
+				loader.load( 'models/wd_18_10_ppl.glb',onLoadpngI2PPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
@@ -413,10 +413,10 @@
 					pngI2XPL.userData.angle = - Math.PI * 4 / 3;
 					moveable.add(pngI2XPL);	
 				}
-				loader.load( 'models/wd_28_4_xpl.glb',onLoadpngI2XPL, undefined, function ( error ) {
+				loader.load( 'models/wd_18_10_xpl.glb',onLoadpngI2XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
-				//wd28_16
+				//wd28_23
 				function onLoadpngI1( gltf ) {
 					const model = gltf.scene;					
 					const pngI1 = model.children[0];
@@ -424,7 +424,7 @@
 					pngI1.rotation.y = - Math.PI * 1.25;
 					unmoveable.add(pngI1);	
 				}
-				loader.load( 'models/wd_28_16_frame.glb', onLoadpngI1, undefined, function ( error ) {
+				loader.load( 'models/wd_28_23_frame.glb', onLoadpngI1, undefined, function ( error ) {
 					console.error( error );
 				} );
 				function onLoadpngI1PPL( gltf ) {
@@ -436,7 +436,7 @@
 					pngI1PPL.userData.angle = - Math.PI * 1.25;
 					moveable.add(pngI1PPL);	
 				}
-				loader.load( 'models/wd_28_16_ppl.glb',onLoadpngI1PPL, undefined, function ( error ) {
+				loader.load( 'models/wd_28_23_ppl.glb',onLoadpngI1PPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
@@ -449,7 +449,7 @@
 					pngI1XPL.userData.angle = - Math.PI * 1.25;
 					moveable.add(pngI1XPL);	
 				}
-				loader.load( 'models/wd_28_16_xpl.glb',onLoadpngI1XPL, undefined, function ( error ) {
+				loader.load( 'models/wd_28_23_xpl.glb',onLoadpngI1XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 				//wd32_24
@@ -524,7 +524,7 @@
 				loader.load( 'models/wd_34_19_xpl.glb',onLoadpauI1XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
-				//wd38_14
+				//to wd46_4
 				function onLoadnissI2( gltf ) {
 					const model = gltf.scene;					
 					const nissI2 = model.children[0];
@@ -532,7 +532,7 @@
 					nissI2.rotation.y = - Math.PI * 1.08;
 					unmoveable.add(nissI2);	
 				}
-				loader.load( 'models/wd_38_14_frame.glb', onLoadnissI2, undefined, function ( error ) {
+				loader.load( 'models/wd_46_4_frame.glb', onLoadnissI2, undefined, function ( error ) {
 					console.error( error );
 				} );
 				function onLoadnissI2PPL( gltf ) {
@@ -544,7 +544,7 @@
 					nissI2PPL.userData.angle = - Math.PI * 1.08;
 					moveable.add(nissI2PPL);	
 				}
-				loader.load( 'models/wd_38_14_ppl.glb',onLoadnissI2PPL, undefined, function ( error ) {
+				loader.load( 'models/wd_46_4_ppl.glb',onLoadnissI2PPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
@@ -557,10 +557,10 @@
 					nissI2XPL.userData.angle = - Math.PI * 1.08;
 					moveable.add(nissI2XPL);	
 				}
-				loader.load( 'models/wd_38_14_xpl.glb',onLoadnissI2XPL, undefined, function ( error ) {
+				loader.load( 'models/wd_46_4_xpl.glb',onLoadnissI2XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
-				//wd41_4
+				//to wd48_7
 				function onLoadmanusI1( gltf ) {
 					const model = gltf.scene;					
 					const manusI1 = model.children[0];
@@ -568,7 +568,7 @@
 					manusI1.rotation.y = - Math.PI * 7 / 6;
 					unmoveable.add(manusI1);	
 				}
-				loader.load( 'models/wd_41_4_frame.glb', onLoadmanusI1, undefined, function ( error ) {
+				loader.load( 'models/wd_48_7_frame.glb', onLoadmanusI1, undefined, function ( error ) {
 					console.error( error );
 				} );
 				function onLoadmanusI1PPL( gltf ) {
@@ -580,7 +580,7 @@
 					manusI1PPL.userData.angle = - Math.PI * 7 / 6;
 					moveable.add(manusI1PPL);	
 				}
-				loader.load( 'models/wd_41_4_ppl.glb',onLoadmanusI1PPL, undefined, function ( error ) {
+				loader.load( 'models/wd_48_7_ppl.glb',onLoadmanusI1PPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
@@ -593,7 +593,7 @@
 					manusI1XPL.userData.angle = - Math.PI * 7 / 6;
 					moveable.add(manusI1XPL);	
 				}
-				loader.load( 'models/wd_41_4_xpl.glb',onLoadmanusI1XPL, undefined, function ( error ) {
+				loader.load( 'models/wd_48_7_xpl.glb',onLoadmanusI1XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 				//wd45_12
@@ -817,7 +817,7 @@
 				loader.load( 'models/wd_86_6_xpl.glb',onLoadtimorI2XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
-				//wd86_17
+				//to wd9_1
 				function onLoadtimorI3( gltf ) {
 					const model = gltf.scene;					
 					const timorI3 = model.children[0];
@@ -825,7 +825,7 @@
 					timorI3.rotation.y = - Math.PI * 1.75;
 					unmoveable.add(timorI3);	
 				}
-				loader.load( 'models/wd_86_17_frame.glb', onLoadtimorI3, undefined, function ( error ) {
+				loader.load( 'models/wd_9_1_frame.glb', onLoadtimorI3, undefined, function ( error ) {
 					console.error( error );
 				} );
 				function onLoadtimorI3PPL( gltf ) {
@@ -837,7 +837,7 @@
 					timorI3PPL.userData.angle = - Math.PI * 1.75;
 					moveable.add(timorI3PPL);	
 				}
-				loader.load( 'models/wd_86_17_ppl.glb',onLoadtimorI3PPL, undefined, function ( error ) {
+				loader.load( 'models/wd_9_1_ppl.glb',onLoadtimorI3PPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
@@ -850,7 +850,7 @@
 					timorI3XPL.userData.angle = - Math.PI * 1.75;
 					moveable.add(timorI3XPL);	
 				}
-				loader.load( 'models/wd_86_17_xpl.glb',onLoadtimorI3XPL, undefined, function ( error ) {
+				loader.load( 'models/wd_9_1_xpl.glb',onLoadtimorI3XPL, undefined, function ( error ) {
 					console.error( error );
 				} );
 
