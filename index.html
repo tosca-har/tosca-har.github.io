@@ -987,6 +987,7 @@
 				level1.position.y = 0.0; 
 				level1.position.z = 0.0;
 				level1.userData.planes = level1Planes;
+				level1.userData.active = true;
 				levels.add( level1);
 
 				const level2 = new THREE.Mesh( new THREE.BoxGeometry(  0.2, .30, .1  ), new THREE.MeshStandardMaterial( {color: 0x0000ff} ));
@@ -994,6 +995,7 @@
 				level2.position.y = 0.0; 
 				level2.position.z = 0.0;
 				level2.userData.planes = level2Planes;
+				level2.userData.active = true;
 				levels.add( level2);
 
 				const level3 = new THREE.Mesh( new THREE.BoxGeometry(  0.2, .30, .1  ), new THREE.MeshStandardMaterial( {color: 0x0000ff} ));
@@ -1001,6 +1003,7 @@
 				level3.position.y = 0.0; 
 				level3.position.z = 0.0;
 				level3.userData.planes = level3Planes;
+				level3.userData.active = true;
 				levels.add( level3);
 
 				const level4 = new THREE.Mesh( new THREE.BoxGeometry(  0.2, .30, .1  ), new THREE.MeshStandardMaterial( {color: 0x0000ff} ));
@@ -1008,6 +1011,7 @@
 				level4.position.y = 0.0; 
 				level4.position.z = 0.0;
 				level4.userData.planes = level4Planes;
+				level4.userData.active = true;
 				levels.add( level4);
 
 				const aluSite = new THREE.Mesh( new THREE.ConeGeometry(  0.02, .10, 15  ), new THREE.MeshStandardMaterial( {color: 0xff0000} ));
@@ -1251,7 +1255,14 @@
 			if ( controller.userData.selected !== undefined ) {
 
 				const object = controller.userData.selected;
-				object.material.emissive.r = 0;				
+				object.material.emissive.r = 0;	
+				object.userData.active = !object.userData.active;
+				
+				if(object.userData.active){
+					object.position.y =  0;
+				} else {
+					object.position.y =  0.1;
+				}
 				//
 	
 					//groupInt = object.userData.planes;
