@@ -40,6 +40,7 @@
 			let raycaster;
 
 			const intersected = [];
+			const intersected2 = [];
 			const tempMatrix = new THREE.Matrix4();
 
 			let controls, moveable, unmoveable, group, trueposition, levels;
@@ -1112,8 +1113,8 @@
 				scene.add( controller1 );
 
 				controller2 = renderer.xr.getController( 1 );
-				controller2.addEventListener( 'selectstart', onSelectStart );
-				controller2.addEventListener( 'selectend', onSelectEnd );
+				controller2.addEventListener( 'selectstart', onSelectStart2 );
+				controller2.addEventListener( 'selectend', onSelectEnd2 );
 				scene.add( controller2 );
 
 				const controllerModelFactory = new XRControllerModelFactory();
@@ -1136,11 +1137,9 @@
 
 				controller1.add( line.clone() );
 				controller2.add( line.clone() );
-
 				raycaster = new THREE.Raycaster();
 
 				//
-
 				window.addEventListener( 'resize', onWindowResize );
 
 			}
@@ -1158,7 +1157,6 @@
 			function onSelectStart( event ) {
 
 				const controller = event.target;
-
 				const intersections = getIntersections( controller );
 
 				if ( intersections.length > 0 ) {
@@ -1166,8 +1164,9 @@
 					const intersection = intersections[ 0 ];
 
 					const object = intersection.object;
-					//object.material.emissive.b = 1;
 					object.material.emissive.b = 0;
+					object.scale.set( 3, 3, 3 );
+					
 					controller.attach( object );
 
 					controller.userData.selected = object;
@@ -1183,7 +1182,8 @@
 				if ( controller.userData.selected !== undefined ) {
 
 					const object = controller.userData.selected;
-					object.material.emissive.b = 0;				
+					object.material.emissive.b = 0;	
+					object.scale.set( 1, 1, 1 );			
 					//test if position is right
 					let aposition = new THREE.Vector3(0,0,0); //needs to be something first
 					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
@@ -1225,8 +1225,8 @@
 				if ( intersections.length > 0 ) {
 					const intersection = intersections[ 0 ];
 					const object = intersection.object;
-					//object.material.emissive.b = 1; // do this when object is intersected
-					object.scale.set( 2, 2, 2 );
+					object.material.emissive.b = 1; // do this when object is intersected
+					//object.scale.set( 2, 2, 2 );
 					intersected.push( object );
 					line.scale.z = intersection.distance;
 				} else {
@@ -1235,16 +1235,106 @@
 
 			}
 
-			function cleanIntersected() {
 
-				while ( intersected.length ) {
-					const object = intersected.pop();
-					//object.material.emissive.b = 0;
-					object.scale.set( 1, 1, 1 );
+
+			function onSelectStart2( event ) {
+
+				const controller = event.target;
+				const intersections = getIntersections2( controller );
+
+				if ( intersections.length > 0 ) {
+
+					const intersection = intersections[ 0 ];
+
+					const object = intersection.object;
+					//object.material.emissive.b = 1;
+					object.material.emissive.b = 0;
+					controller.attach( object );
+
+					controller.userData.selected = object;
+
+				}
+
+				}	
+
+			function onSelectEnd2( event ) {
+
+			const controller = event.target;
+
+			if ( controller.userData.selected !== undefined ) {
+
+				const object = controller.userData.selected;
+				object.material.emissive.b = 0;				
+				//test if position is right
+				let aposition = new THREE.Vector3(0,0,0); //needs to be something first
+				object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
+
+				trueposition = object.userData.loc;
+				
+				moveable.attach( object );
+				if ( aposition.distanceTo( trueposition ) < .10) {
+					scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
+					// moveable.attach( object );
+					object.position.set(trueposition.x, trueposition.y, trueposition.z);
+					object.rotation.set(0, object.userData.angle, 0);
+					unmoveable.attach( object );
+
+					//object.updateMatrix();
+
+				}
+				//else { moveable.attach( object ) }
+				controller.userData.selected = undefined;
+
+			}
+
+			}
+
+
+			function getIntersections2( controller ) {
+				tempMatrix.identity().extractRotation( controller.matrixWorld );
+				raycaster.ray.origin.setFromMatrixPosition( controller.matrixWorld );
+				raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
+				return raycaster.intersectObjects( moveable.children, false );
+			}
+
+			function intersectObjects2( controller ) {
+			// Do not highlight when already selected
+				if ( controller.userData.selected !== undefined ) return;
+				const line = controller.getObjectByName( 'line' );
+				const intersections = getIntersections2( controller );
+
+				if ( intersections.length > 0 ) {
+					const intersection = intersections[ 0 ];
+					const object = intersection.object;
+					//object.material.emissive.b = 1; // do this when object is intersected
+					
+					intersected2.push( object );
+					line.scale.z = intersection.distance;
+				} else {
+					line.scale.z = 5;
 				}
 
 			}
 
+
+			function cleanIntersected() {
+
+				while ( intersected.length ) {
+					const object = intersected.pop();
+					object.material.emissive.b = 0;
+					//object.scale.set( 1, 1, 1 );
+				}
+
+			}
+			function cleanIntersected2() {
+
+				while ( intersected2.length ) {
+
+					const object = intersected2.pop();
+					object.material.emissive.r = 0;
+
+				}
+			}
 			//
 
 			function animate() {
@@ -1256,9 +1346,9 @@
 			function render() {
 
 				cleanIntersected();
-
+				cleanIntersected2();
 				intersectObjects( controller1 );
-				intersectObjects( controller2 );
+				intersectObjects2( controller2 );
 
 				renderer.render( scene, camera );
 
