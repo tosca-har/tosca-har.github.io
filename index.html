@@ -50,7 +50,10 @@
 			let maloI1PPL, maloI1XPL, reefI1PPL, reefI1XPL, timorI1PPL, timorI1XPL, timorI2PPL, timorI2XPL, timorI3PPL, timorI3XPL;
 			let bukI1PPL, bukI1XPL, aluI1PPL, aluI1XPL, tauI1PPL, tauI1XPL;
 
-			let level1Planes, level2Planes, level3Planes, level4Planes;
+			const level1Planes = [];
+			const level2Planes = [];
+			const level3Planes = [];
+			const level4Planes = [];
 
 
 
@@ -986,8 +989,8 @@
 				level1.position.x = -.7;
 				level1.position.y = 0.0; 
 				level1.position.z = 0.0;
-				//level1Planes = timorI1PPL;
-				//level1.userData.planes = timorI1PPL;
+				
+				level1.userData.planes = level1Planes;
 				level1.userData.active = true;
 				levels.add( level1);
 
