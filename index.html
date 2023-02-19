@@ -49,6 +49,14 @@
 			let pauI1PPL, pauI1XPL, nissI2PPL, nissI2XPL, manusI1PPL, manusI1XPL, malaI1PPL, malaI1XPL, teoI1PPL, teoI1XPL;
 			let maloI1PPL, maloI1XPL, reefI1PPL, reefI1XPL, timorI1PPL, timorI1XPL, timorI2PPL, timorI2XPL, timorI3PPL, timorI3XPL;
 			let bukI1PPL, bukI1XPL, aluI1PPL, aluI1XPL, tauI1PPL, tauI1XPL;
+			let guaI4, pauI1, timorI1, timorI2, aluI1, tauI1;
+			let caroI1, bandaI1, teoI1, malaI1, reefI1, bukI1;
+			let tinI1, guaI2, guaI3, pngI1, manusI1, maloI1 ;
+			let caroI2, pngI2, nissI1, wanI1, nissI2, timorI3 ;
+
+
+
+
 
 			const level1Planes = [];
 			const level2Planes = [];
@@ -95,7 +103,7 @@
 				//wd_52_1
 				function onLoad( gltf ) {
 					const model = gltf.scene;					
-					const tinI1 = model.children[0];
+					tinI1 = model.children[0];
 					tinI1.position.set( 1.4, 1.9, -1.4 ); //1a
 					tinI1.rotation.y =  - Math.PI * 1 / 4;
 					unmoveable.add(tinI1);	
@@ -133,7 +141,7 @@
 
 				function onLoadGuaI2( gltf ) {
 					const model = gltf.scene;					
-					const guaI2 = model.children[0];
+					guaI2 = model.children[0];
 					guaI2.position.set( 0, 0.7, -2.2) //12
 					unmoveable.add(guaI2);	
 				}
@@ -169,7 +177,7 @@
 				//wd35_1
 				function onLoadGuaI4( gltf ) {
 					const model = gltf.scene;					
-					const guaI4 = model.children[0];
+					guaI4 = model.children[0];
 					guaI4.position.set( 1, 0.7, -1.8); //1
 					guaI4.rotation.y = - Math.PI / 6;
 					unmoveable.add(guaI4);	
@@ -206,7 +214,7 @@
 				//wd10_10
 				function onLoadcaroI2( gltf ) {
 					const model = gltf.scene;					
-					const caroI2 = model.children[0];
+					caroI2 = model.children[0];
 					caroI2.position.set( -0.5, 1.9, -2.0); //11a
 					caroI2.rotation.y = - Math.PI * 1.92;
 					unmoveable.add(caroI2);	
@@ -242,7 +250,7 @@
 				//wd10_14
 				function onLoadcaroI1( gltf ) {
 					const model = gltf.scene;					
-					const caroI1 = model.children[0];
+					caroI1 = model.children[0];
 					caroI1.position.set( -1.0, 0.7, -1.8); //11
 					caroI1.rotation.y = - Math.PI * 11/ 6;
 					unmoveable.add(caroI1);	
@@ -278,7 +286,7 @@
 				//wd15_23
 				function onLoadguaI3( gltf ) {
 					const model = gltf.scene;					
-					const guaI3 = model.children[0];
+					guaI3 = model.children[0];
 					guaI3.position.set( 0.5, 1.9, -2.0); //12a
 					guaI3.rotation.y = - Math.PI / 12;
 					unmoveable.add(guaI3);	
@@ -315,7 +323,7 @@
 				//wd18_2
 				function onLoadwanI1( gltf ) {
 					const model = gltf.scene;					
-					const wanI1 = model.children[0];
+					wanI1 = model.children[0];
 					wanI1.position.set( -1.9, 1.9, 0.5); 
 					wanI1.rotation.y = - Math.PI * 1.42;
 					unmoveable.add(wanI1);	
@@ -351,7 +359,7 @@
 				//wd20_5
 				function onLoadbandaI1( gltf ) {
 					const model = gltf.scene;					
-					const bandaI1 = model.children[0];
+					bandaI1 = model.children[0];
 					bandaI1.position.set( -2.0, 0.7, 0); //9
 					bandaI1.rotation.y = - Math.PI * 3/ 2;
 					unmoveable.add(bandaI1);	
@@ -387,7 +395,7 @@
 				//wd18_10
 				function onLoadpngI2( gltf ) {
 					const model = gltf.scene;					
-					const pngI2 = model.children[0];
+					pngI2 = model.children[0];
 					pngI2.position.set( -1.8, 0.7, 1.0); //8
 					pngI2.rotation.y = - Math.PI * 4 / 3;
 					unmoveable.add(pngI2);	
@@ -423,7 +431,7 @@
 				//wd28_23
 				function onLoadpngI1( gltf ) {
 					const model = gltf.scene;					
-					const pngI1 = model.children[0];
+					pngI1 = model.children[0];
 					pngI1.position.set( -1.4, 1.9, 1.4); 
 					pngI1.rotation.y = - Math.PI * 1.25;
 					unmoveable.add(pngI1);	
@@ -459,7 +467,7 @@
 				//wd32_24
 				function onLoadnissI1( gltf ) {
 					const model = gltf.scene;					
-					const nissI1 = model.children[0];
+					nissI1 = model.children[0];
 					nissI1.position.set( 0, 0.7, 2.2); //6
 					nissI1.rotation.y = - Math.PI;
 					unmoveable.add(nissI1);	
@@ -495,7 +503,7 @@
 				//wd34_19
 				function onLoadpauI1( gltf ) {
 					const model = gltf.scene;					
-					const pauI1 = model.children[0];
+					pauI1 = model.children[0];
 					pauI1.position.set( 1.9, 1.9, 0.5); 
 					pauI1.rotation.y = - Math.PI * 0.58;
 					unmoveable.add(pauI1);	
@@ -531,7 +539,7 @@
 				//to wd46_4
 				function onLoadnissI2( gltf ) {
 					const model = gltf.scene;					
-					const nissI2 = model.children[0];
+					nissI2 = model.children[0];
 					nissI2.position.set( -0.5, 1.9, 1.9); 
 					nissI2.rotation.y = - Math.PI * 1.08;
 					unmoveable.add(nissI2);	
@@ -567,7 +575,7 @@
 				//to wd48_7
 				function onLoadmanusI1( gltf ) {
 					const model = gltf.scene;					
-					const manusI1 = model.children[0];
+					manusI1 = model.children[0];
 					manusI1.position.set( -1.0, 0.7, 1.8); //7
 					manusI1.rotation.y = - Math.PI * 7 / 6;
 					unmoveable.add(manusI1);	
@@ -603,7 +611,7 @@
 				//wd45_12
 				function onLoadteoI1( gltf ) {
 					const model = gltf.scene;					
-					const teoI1 = model.children[0];
+					teoI1 = model.children[0];
 					teoI1.position.set( 0.5, 1.9, 1.9); 
 					teoI1.rotation.y = - Math.PI * 0.917;
 					unmoveable.add(teoI1);	
@@ -640,7 +648,7 @@
 				//wd49_22
 				function onLoadmalaI1( gltf ) {
 					const model = gltf.scene;					
-					const malaI1 = model.children[0];
+					malaI1 = model.children[0];
 					malaI1.position.set( 1.4, 1.9, 1.4); 
 					malaI1.rotation.y = - Math.PI * 3 / 4;
 					unmoveable.add(malaI1);	
@@ -677,7 +685,7 @@
 				//wd44_7
 				function onLoadmaloI1( gltf ) {
 					const model = gltf.scene;					
-					const maloI1 = model.children[0];
+					maloI1 = model.children[0];
 					maloI1.position.set( 1.0, 0.7, 1.8); //5
 					maloI1.rotation.y = - Math.PI * 5 / 6;
 					unmoveable.add(maloI1);	
@@ -714,7 +722,7 @@
 				//wd84_1
 				function onLoadreefI1( gltf ) {
 					const model = gltf.scene;					
-					const reefI1 = model.children[0];
+					reefI1 = model.children[0];
 					reefI1.position.set( 1.9, 1.9, -0.5); 
 					reefI1.rotation.y = - Math.PI / 2.4;
 					unmoveable.add(reefI1);	
@@ -751,7 +759,7 @@
 				//wd86_2
 				function onLoadtimorI1( gltf ) {
 					const model = gltf.scene;					
-					const timorI1 = model.children[0];
+					timorI1 = model.children[0];
 					timorI1.position.set( -1.9, 1.9, -.5); //9a
 					timorI1.rotation.y = - Math.PI * 1.58;
 					unmoveable.add(timorI1);	
@@ -788,7 +796,7 @@
 				//wd86_6
 				function onLoadtimorI2( gltf ) {
 					const model = gltf.scene;					
-					const timorI2 = model.children[0];
+					timorI2 = model.children[0];
 					timorI2.position.set( -1.8, 0.7, -1.0); //10
 					timorI2.rotation.y = - Math.PI * 5/3;
 					unmoveable.add(timorI2);	
@@ -824,7 +832,7 @@
 				//to wd9_1
 				function onLoadtimorI3( gltf ) {
 					const model = gltf.scene;					
-					const timorI3 = model.children[0];
+					timorI3 = model.children[0];
 					timorI3.position.set( -1.4, 1.9, -1.4); //10a
 					timorI3.rotation.y = - Math.PI * 1.75;
 					unmoveable.add(timorI3);	
@@ -861,7 +869,7 @@
 				//wd101_3
 				function onLoadbukI1( gltf ) {
 					const model = gltf.scene;					
-					const bukI1 = model.children[0];
+					bukI1 = model.children[0];
 					bukI1.position.set( 2, 0.7, 0); //3
 					bukI1.rotation.y = - Math.PI / 2;
 					unmoveable.add(bukI1);	
@@ -899,7 +907,7 @@
 				//wd103_13
 				function onLoadaluI1( gltf ) {
 					const model = gltf.scene;					
-					const aluI1 = model.children[0];
+					aluI1 = model.children[0];
 					aluI1.position.set( 1.8, 0.7, 1); //4
 					aluI1.rotation.y = - Math.PI * 2 / 3;
 					unmoveable.add(aluI1);	
@@ -937,7 +945,7 @@
 				//wd105_1
 				function onLoadtauI1( gltf ) {
 					const model = gltf.scene;					
-					const tauI1 = model.children[0];
+					tauI1 = model.children[0];
 					tauI1.position.set( 1.8, 0.7, -1.0); //2
 					tauI1.rotation.y = - Math.PI / 3;
 					unmoveable.add(tauI1);	
