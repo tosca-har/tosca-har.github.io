@@ -1252,16 +1252,16 @@
 			function onSelectEnd2( event ) {
 
 			const controller = event.target;
-
+			let planesInt;
 			if ( controller.userData.selected !== undefined ) {
 
 				const object = controller.userData.selected;
 				object.material.emissive.r = 0;	
 				object.userData.active = !object.userData.active;
 				
-				let planesInt = object.userData.planes;
+				planesInt = object.userData.planes;
 				//for (const planesInt of planesInts){
-					planesInt.visible = !planesInt.visible;
+					//planesInt.visible = !planesInt.visible;
 				//}
 
 				if (object.userData.active) {
