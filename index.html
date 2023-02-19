@@ -1240,7 +1240,7 @@
 					const object = intersection.object;
 					
 					object.material.emissive.r = 0;
-					controller.attach( object );
+					//controller.attach( object );
 
 					controller.userData.selected = object;
 
@@ -1258,7 +1258,7 @@
 				object.material.emissive.r = 0;	
 				object.userData.active = !object.userData.active;
 				
-				if(object.userData.active){
+				if (object.userData.active) {
 					object.position.y =  0;
 				} else {
 					object.position.y =  0.1;
