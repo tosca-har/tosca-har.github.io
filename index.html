@@ -1091,10 +1091,6 @@
 				group.add( nissanSite );
 			
 
-
-
-
-
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
@@ -1108,13 +1104,13 @@
 				// controllers
 
 				controller1 = renderer.xr.getController( 0 );
-				controller1.addEventListener( 'selectstart', onSelectStart );
-				controller1.addEventListener( 'selectend', onSelectEnd );
+				controller1.addEventListener( 'selectstart', onSelectStart2 );
+				controller1.addEventListener( 'selectend', onSelectEnd2 );
 				scene.add( controller1 );
 
 				controller2 = renderer.xr.getController( 1 );
-				controller2.addEventListener( 'selectstart', onSelectStart2 );
-				controller2.addEventListener( 'selectend', onSelectEnd2 );
+				controller2.addEventListener( 'selectstart', onSelectStart );
+				controller2.addEventListener( 'selectend', onSelectEnd );
 				scene.add( controller2 );
 
 				const controllerModelFactory = new XRControllerModelFactory();
@@ -1130,7 +1126,6 @@
 				//
 
 				const geometry = new THREE.BufferGeometry().setFromPoints( [ new THREE.Vector3( 0, 0, 0 ), new THREE.Vector3( 0, 0, - 1 ) ] );
-
 				const line = new THREE.Line( geometry );
 				line.name = 'line';
 				line.scale.z = 5;
@@ -1138,19 +1133,14 @@
 				controller1.add( line.clone() );
 				controller2.add( line.clone() );
 				raycaster = new THREE.Raycaster();
-
 				//
 				window.addEventListener( 'resize', onWindowResize );
-
 			}
 
 			function onWindowResize() {
-
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
-
 				renderer.setSize( window.innerWidth, window.innerHeight );
-
 			}
 
 
@@ -1197,9 +1187,6 @@
 						object.position.set(trueposition.x, trueposition.y, trueposition.z);
 						object.rotation.set(0, object.userData.angle, 0);
 						unmoveable.attach( object );
-
-						//object.updateMatrix();
-
 	 				}
 					//else { moveable.attach( object ) }
 					controller.userData.selected = undefined;
@@ -1247,8 +1234,8 @@
 					const intersection = intersections[ 0 ];
 
 					const object = intersection.object;
-					//object.material.emissive.b = 1;
-					object.material.emissive.b = 0;
+					
+					object.material.emissive.r = 0;
 					controller.attach( object );
 
 					controller.userData.selected = object;
@@ -1264,25 +1251,12 @@
 			if ( controller.userData.selected !== undefined ) {
 
 				const object = controller.userData.selected;
-				object.material.emissive.b = 0;				
-				//test if position is right
-				let aposition = new THREE.Vector3(0,0,0); //needs to be something first
-				object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
-
-				trueposition = object.userData.loc;
-				
-				moveable.attach( object );
-				if ( aposition.distanceTo( trueposition ) < .10) {
-					scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
-					// moveable.attach( object );
-					object.position.set(trueposition.x, trueposition.y, trueposition.z);
-					object.rotation.set(0, object.userData.angle, 0);
-					unmoveable.attach( object );
-
-					//object.updateMatrix();
-
-				}
-				//else { moveable.attach( object ) }
+				object.material.emissive.r = 0;				
+				//
+	
+					//groupInt = object.userData.planes;
+					
+					//groupInt.visible = !groupInt.visible;
 				controller.userData.selected = undefined;
 
 			}
@@ -1294,7 +1268,7 @@
 				tempMatrix.identity().extractRotation( controller.matrixWorld );
 				raycaster.ray.origin.setFromMatrixPosition( controller.matrixWorld );
 				raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
-				return raycaster.intersectObjects( moveable.children, false );
+				return raycaster.intersectObjects( levels.children, false );
 			}
 
 			function intersectObjects2( controller ) {
@@ -1306,8 +1280,7 @@
 				if ( intersections.length > 0 ) {
 					const intersection = intersections[ 0 ];
 					const object = intersection.object;
-					//object.material.emissive.b = 1; // do this when object is intersected
-					
+					object.material.emissive.r = 1; // do this when object is intersected		
 					intersected2.push( object );
 					line.scale.z = intersection.distance;
 				} else {
@@ -1329,7 +1302,6 @@
 			function cleanIntersected2() {
 
 				while ( intersected2.length ) {
-
 					const object = intersected2.pop();
 					object.material.emissive.r = 0;
 
@@ -1347,8 +1319,8 @@
 
 				cleanIntersected();
 				cleanIntersected2();
-				intersectObjects( controller1 );
-				intersectObjects2( controller2 );
+				intersectObjects2( controller1 );
+				intersectObjects( controller2 );
 
 				renderer.render( scene, camera );
 
