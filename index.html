@@ -1210,39 +1210,27 @@
 
 
 			function getIntersections( controller ) {
-
 				tempMatrix.identity().extractRotation( controller.matrixWorld );
-
 				raycaster.ray.origin.setFromMatrixPosition( controller.matrixWorld );
 				raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
-
 				return raycaster.intersectObjects( moveable.children, false );
-
 			}
 
 			function intersectObjects( controller ) {
-
 				// Do not highlight when already selected
-
 				if ( controller.userData.selected !== undefined ) return;
-
 				const line = controller.getObjectByName( 'line' );
 				const intersections = getIntersections( controller );
 
 				if ( intersections.length > 0 ) {
-
 					const intersection = intersections[ 0 ];
-
 					const object = intersection.object;
-					object.material.emissive.b = 1;
+					//object.material.emissive.b = 1; // do this when object is intersected
+					object.scale.set( 2, 2, 2 );
 					intersected.push( object );
-
 					line.scale.z = intersection.distance;
-
 				} else {
-
 					line.scale.z = 5;
-
 				}
 
 			}
@@ -1250,10 +1238,9 @@
 			function cleanIntersected() {
 
 				while ( intersected.length ) {
-
 					const object = intersected.pop();
-					object.material.emissive.b = 0;
-
+					//object.material.emissive.b = 0;
+					object.scale.set( 1, 1, 1 );
 				}
 
 			}
