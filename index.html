@@ -54,16 +54,10 @@
 			let tinI1, guaI2, guaI3, pngI1, manusI1, maloI1;
 			let caroI2, pngI2, nissI1, wanI1, nissI2, timorI3;
 
-
-
-
-
 			const level1Planes = [];
 			const level2Planes = [];
 			const level3Planes = [];
 			const level4Planes = [];
-
-
 
 			//https://soundspunos.com/
 			init();
@@ -120,6 +114,7 @@
 					tinI1PPL.userData.loc = new THREE.Vector3(1.4, 2.2, -1.4);
 					tinI1PPL.userData.angle =  - Math.PI * 1 / 4
 					moveable.add(tinI1PPL);	
+					level3Planes.push(tinI1PPL);
 				}
 				loader.load( 'models/wd_52_1_ppl.glb',onLoadtinI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -133,6 +128,7 @@
 					tinI1XPL.userData.loc = new THREE.Vector3(1.4, 1.62, -1.4);	
 					tinI1XPL.userData.angle =  - Math.PI * 1 / 4		
 					moveable.add(tinI1XPL);	
+					level3Planes.push(tinI1XPL);
 				}
 				loader.load( 'models/wd_52_1_xpl.glb',onLoadtinI1XPL, undefined, function ( error ) {
 					console.error( error );
@@ -158,6 +154,7 @@
 					guaI2PPL.userData.loc = new THREE.Vector3(0, 1.0, -2.2);
 					guaI2PPL.userData.angle =  0
 					moveable.add(guaI2PPL);	
+					level3Planes.push(guaI2PPL);
 				}
 				loader.load( 'models/wd_12_19_ppl.glb',onLoadGuaI2PPL, undefined, function ( error ) {
 					console.error( error );
@@ -171,6 +168,7 @@
 					guaI2XPL.userData.loc = new THREE.Vector3(0, 0.42, -2.2);	
 					guaI2XPL.userData.angle =  0		
 					moveable.add(guaI2XPL);	
+					level3Planes.push(guaI2XPL);
 				}
 				loader.load( 'models/wd_12_19_xpl.glb',onLoadGuaI2XPL, undefined, function ( error ) {
 					console.error( error );
@@ -184,6 +182,7 @@
 					guaI4.rotation.y = - Math.PI / 6;
 					unmoveable.add(guaI4);	
 					level1Planes.push(guaI4);
+
 				}
 				loader.load( 'models/wd_35_1_frame.glb', onLoadGuaI4, undefined, function ( error ) {
 					console.error( error );
@@ -196,6 +195,7 @@
 					guaI4PPL.userData.loc = new THREE.Vector3( 1, 1.0, -1.8);
 					guaI4PPL.userData.angle =  - Math.PI / 6
 					moveable.add(guaI4PPL);	
+					level1Planes.push(guaI4PPL);
 				}
 				loader.load( 'models/wd_35_1_ppl.glb',onLoadGuaI4PPL, undefined, function ( error ) {
 					console.error( error );
@@ -209,6 +209,7 @@
 					guaI4XPL.userData.loc = new THREE.Vector3( 1, 0.42, -1.8);	
 					guaI4XPL.userData.angle =  - Math.PI / 6		
 					moveable.add(guaI4XPL);	
+					level1Planes.push(guaI4XPL);
 				}
 				loader.load( 'models/wd_35_1_xpl.glb',onLoadGuaI4XPL, undefined, function ( error ) {
 					console.error( error );
@@ -222,6 +223,7 @@
 					caroI2.rotation.y = - Math.PI * 1.92;
 					unmoveable.add(caroI2);	
 					level4Planes.push(caroI2);
+					
 				}
 				loader.load( 'models/wd_10_10_frame.glb', onLoadcaroI2, undefined, function ( error ) {
 					console.error( error );
@@ -233,7 +235,8 @@
 					caroI2PPL.position.set(1.0, 0.1, -0.9); 
 					caroI2PPL.userData.loc = new THREE.Vector3(-0.5, 2.2, -2.0);
 					caroI2PPL.userData.angle =  - Math.PI * 1.92;
-					moveable.add(caroI2PPL);	
+					moveable.add(caroI2PPL);
+					level4Planes.push(caroI2PPL);	
 				}
 				loader.load( 'models/wd_10_10_ppl.glb',onLoadcaroI2PPL, undefined, function ( error ) {
 					console.error( error );
@@ -246,7 +249,8 @@
 					caroI2XPL.position.set( 0, 0.1, -0.3 ); //	
 					caroI2XPL.userData.loc = new THREE.Vector3( -0.5, 1.62, -2.0);	
 					caroI2XPL.userData.angle = - Math.PI * 1.92;	
-					moveable.add(caroI2XPL);	
+					moveable.add(caroI2XPL);
+					level4Planes.push(caroI2XPL);	
 				}
 				loader.load( 'models/wd_10_10_xpl.glb',onLoadcaroI2XPL, undefined, function ( error ) {
 					console.error( error );
@@ -270,7 +274,8 @@
 					caroI1PPL.position.set(0, 0.1, 0.9); 
 					caroI1PPL.userData.loc = new THREE.Vector3( -1.0, 1.0, -1.8);
 					caroI1PPL.userData.angle = - Math.PI * 11/ 6;
-					moveable.add(caroI1PPL);	
+					moveable.add(caroI1PPL);
+					level2Planes.push(caroI1PPL);	
 				}
 				loader.load( 'models/wd_10_14_ppl.glb',onLoadcaroI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -283,7 +288,8 @@
 					caroI1XPL.position.set( 0.5, 0.1, -1.5 ); //	
 					caroI1XPL.userData.loc = new THREE.Vector3(  -1.0, 0.42, -1.8);	
 					caroI1XPL.userData.angle = - Math.PI * 11/ 6;	
-					moveable.add(caroI1XPL);	
+					moveable.add(caroI1XPL);
+					level2Planes.push(caroI1XPL);	
 				}
 				loader.load( 'models/wd_10_14_xpl.glb',onLoadcaroI1XPL, undefined, function ( error ) {
 					console.error( error );
@@ -294,7 +300,8 @@
 					guaI3 = model.children[0];
 					guaI3.position.set( 0.5, 1.9, -2.0); //12a
 					guaI3.rotation.y = - Math.PI / 12;
-					unmoveable.add(guaI3);	
+					unmoveable.add(guaI3);
+					level3Planes.push(guaI3);	
 				}
 				loader.load( 'models/wd_15_23_frame.glb', onLoadguaI3, undefined, function ( error ) {
 					console.error( error );
@@ -307,6 +314,7 @@
 					guaI3PPL.userData.loc = new THREE.Vector3(0.5, 2.2, -2.0);
 					guaI3PPL.userData.angle = - Math.PI / 12;
 					moveable.add(guaI3PPL);	
+					level3Planes.push(guaI3PPL);	
 				}
 				loader.load( 'models/wd_15_23_ppl.glb',onLoadguaI3PPL, undefined, function ( error ) {
 					console.error( error );
@@ -320,6 +328,7 @@
 					guaI3XPL.userData.loc = new THREE.Vector3(  0.5, 1.62, -2.0);	
 					guaI3XPL.userData.angle = - Math.PI / 12;	
 					moveable.add(guaI3XPL);	
+					level3Planes.push(guaI3XPL);	
 				}
 				loader.load( 'models/wd_15_23_xpl.glb',onLoadguaI3XPL, undefined, function ( error ) {
 					console.error( error );
@@ -331,7 +340,8 @@
 					wanI1 = model.children[0];
 					wanI1.position.set( -1.9, 1.9, 0.5); 
 					wanI1.rotation.y = - Math.PI * 1.42;
-					unmoveable.add(wanI1);	
+					unmoveable.add(wanI1);
+					level4Planes.push(wanI1);		
 				}
 				loader.load( 'models/wd_18_2_frame.glb', onLoadwanI1, undefined, function ( error ) {
 					console.error( error );
@@ -344,6 +354,7 @@
 					wanI1PPL.userData.loc = new THREE.Vector3(-1.9, 2.2, 0.5);
 					wanI1PPL.userData.angle = - Math.PI * 1.42;
 					moveable.add(wanI1PPL);	
+					level4Planes.push(wanI1PPL);
 				}
 				loader.load( 'models/wd_18_2_ppl.glb',onLoadwanI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -357,6 +368,7 @@
 					wanI1XPL.userData.loc = new THREE.Vector3( -1.9, 1.62, 0.5);	
 					wanI1XPL.userData.angle = - Math.PI * 1.42;
 					moveable.add(wanI1XPL);	
+					level4Planes.push(wanI1XPL);
 				}
 				loader.load( 'models/wd_18_2_xpl.glb',onLoadwanI1XPL, undefined, function ( error ) {
 					console.error( error );
@@ -367,7 +379,8 @@
 					bandaI1 = model.children[0];
 					bandaI1.position.set( -2.0, 0.7, 0); //9
 					bandaI1.rotation.y = - Math.PI * 3/ 2;
-					unmoveable.add(bandaI1);	
+					unmoveable.add(bandaI1);
+					level2Planes.push(bandaI1);	
 				}
 				loader.load( 'models/wd_20_5_frame.glb', onLoadbandaI1, undefined, function ( error ) {
 					console.error( error );
@@ -379,7 +392,8 @@
 					bandaI1PPL.position.set(1, 0.1, -0.3); 
 					bandaI1PPL.userData.loc = new THREE.Vector3( -2.0, 1.0, 0);
 					bandaI1PPL.userData.angle = - Math.PI * 3/ 2;
-					moveable.add(bandaI1PPL);	
+					moveable.add(bandaI1PPL);
+					level2Planes.push(bandaI1PPL);		
 				}
 				loader.load( 'models/wd_20_5_ppl.glb',onLoadbandaI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -392,7 +406,8 @@
 					bandaI1XPL.position.set( -1.0, 0.1, 0.3 ); //	
 					bandaI1XPL.userData.loc = new THREE.Vector3(  -2.0, 0.42, 0);	
 					bandaI1XPL.userData.angle = - Math.PI * 3/ 2;
-					moveable.add(bandaI1XPL);	
+					moveable.add(bandaI1XPL);
+					level2Planes.push(bandaI1XPL);		
 				}
 				loader.load( 'models/wd_20_5_xpl.glb',onLoadbandaI1XPL, undefined, function ( error ) {
 					console.error( error );
@@ -404,6 +419,7 @@
 					pngI2.position.set( -1.8, 0.7, 1.0); //8
 					pngI2.rotation.y = - Math.PI * 4 / 3;
 					unmoveable.add(pngI2);	
+					level4Planes.push(pngI2);	
 				}
 				loader.load( 'models/wd_18_10_frame.glb', onLoadpngI2, undefined, function ( error ) {
 					console.error( error );
@@ -416,6 +432,7 @@
 					pngI2PPL.userData.loc = new THREE.Vector3( -1.8, 1.0, 1.0);
 					pngI2PPL.userData.angle = - Math.PI * 4 / 3;
 					moveable.add(pngI2PPL);	
+					level4Planes.push(pngI2PPL);	
 				}
 				loader.load( 'models/wd_18_10_ppl.glb',onLoadpngI2PPL, undefined, function ( error ) {
 					console.error( error );
@@ -429,6 +446,7 @@
 					pngI2XPL.userData.loc = new THREE.Vector3( -1.8, 0.42, 1.0);	
 					pngI2XPL.userData.angle = - Math.PI * 4 / 3;
 					moveable.add(pngI2XPL);	
+					level4Planes.push(pngI2XPL);	
 				}
 				loader.load( 'models/wd_18_10_xpl.glb',onLoadpngI2XPL, undefined, function ( error ) {
 					console.error( error );
@@ -440,6 +458,7 @@
 					pngI1.position.set( -1.4, 1.9, 1.4); 
 					pngI1.rotation.y = - Math.PI * 1.25;
 					unmoveable.add(pngI1);	
+					level3Planes.push(pngI1);	
 				}
 				loader.load( 'models/wd_28_23_frame.glb', onLoadpngI1, undefined, function ( error ) {
 					console.error( error );
@@ -452,6 +471,7 @@
 					pngI1PPL.userData.loc = new THREE.Vector3(-1.4, 2.2, 1.4);
 					pngI1PPL.userData.angle = - Math.PI * 1.25;
 					moveable.add(pngI1PPL);	
+					level3Planes.push(pngI1PPL);	
 				}
 				loader.load( 'models/wd_28_23_ppl.glb',onLoadpngI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -465,6 +485,7 @@
 					pngI1XPL.userData.loc = new THREE.Vector3( -1.4, 1.62, 1.4);	
 					pngI1XPL.userData.angle = - Math.PI * 1.25;
 					moveable.add(pngI1XPL);	
+					level3Planes.push(pngI1XPL);	
 				}
 				loader.load( 'models/wd_28_23_xpl.glb',onLoadpngI1XPL, undefined, function ( error ) {
 					console.error( error );
@@ -476,6 +497,7 @@
 					nissI1.position.set( 0, 0.7, 2.2); //6
 					nissI1.rotation.y = - Math.PI;
 					unmoveable.add(nissI1);	
+					level4Planes.push(nissI1);	
 				}
 				loader.load( 'models/wd_32_24_frame.glb', onLoadnissI1, undefined, function ( error ) {
 					console.error( error );
@@ -487,7 +509,8 @@
 					nissI1PPL.position.set(0, 0.1, 0.3); 
 					nissI1PPL.userData.loc = new THREE.Vector3(0, 1.0, 2.2);
 					nissI1PPL.userData.angle = - Math.PI;
-					moveable.add(nissI1PPL);	
+					moveable.add(nissI1PPL);
+					level4Planes.push(nissI1PPL);	
 				}
 				loader.load( 'models/wd_32_24_ppl.glb',onLoadnissI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -500,7 +523,8 @@
 					nissI1XPL.position.set( -0.5, 0.1, -1.2 ); //	
 					nissI1XPL.userData.loc = new THREE.Vector3( 0, 0.42, 2.2);	
 					nissI1XPL.userData.angle = - Math.PI;
-					moveable.add(nissI1XPL);	
+					moveable.add(nissI1XPL);
+					level4Planes.push(nissI1XPL);	
 				}
 				loader.load( 'models/wd_32_24_xpl.glb',onLoadnissI1XPL, undefined, function ( error ) {
 					console.error( error );
@@ -511,7 +535,8 @@
 					pauI1 = model.children[0];
 					pauI1.position.set( 1.9, 1.9, 0.5); 
 					pauI1.rotation.y = - Math.PI * 0.58;
-					unmoveable.add(pauI1);	
+					unmoveable.add(pauI1);
+					level1Planes.push(pauI1);	
 				}
 				loader.load( 'models/wd_34_19_frame.glb', onLoadpauI1, undefined, function ( error ) {
 					console.error( error );
@@ -524,6 +549,7 @@
 					pauI1PPL.userData.loc = new THREE.Vector3(1.9, 2.2, 0.5);
 					pauI1PPL.userData.angle = - Math.PI * 0.58;
 					moveable.add(pauI1PPL);	
+					level1Planes.push(pauI1PPL);	
 				}
 				loader.load( 'models/wd_34_19_ppl.glb',onLoadpauI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -537,6 +563,7 @@
 					pauI1XPL.userData.loc = new THREE.Vector3( 1.9, 1.62, 0.5);	
 					pauI1XPL.userData.angle = - Math.PI * 0.58;
 					moveable.add(pauI1XPL);	
+					level1Planes.push(pauI1XPL);	
 				}
 				loader.load( 'models/wd_34_19_xpl.glb',onLoadpauI1XPL, undefined, function ( error ) {
 					console.error( error );
@@ -548,6 +575,7 @@
 					nissI2.position.set( -0.5, 1.9, 1.9); 
 					nissI2.rotation.y = - Math.PI * 1.08;
 					unmoveable.add(nissI2);	
+					level4Planes.push(nissI2);	
 				}
 				loader.load( 'models/wd_46_4_frame.glb', onLoadnissI2, undefined, function ( error ) {
 					console.error( error );
@@ -559,7 +587,8 @@
 					nissI2PPL.position.set(-0.5, 0.1, -1.5); 
 					nissI2PPL.userData.loc = new THREE.Vector3(-0.5, 2.2, 1.9);
 					nissI2PPL.userData.angle = - Math.PI * 1.08;
-					moveable.add(nissI2PPL);	
+					moveable.add(nissI2PPL);
+					level4Planes.push(nissI2PPL);		
 				}
 				loader.load( 'models/wd_46_4_ppl.glb',onLoadnissI2PPL, undefined, function ( error ) {
 					console.error( error );
@@ -572,7 +601,8 @@
 					nissI2XPL.position.set( 0, 0.1, 1.2 ); //	
 					nissI2XPL.userData.loc = new THREE.Vector3( -0.5, 1.62, 1.9);	
 					nissI2XPL.userData.angle = - Math.PI * 1.08;
-					moveable.add(nissI2XPL);	
+					moveable.add(nissI2XPL);
+					level4Planes.push(nissI2XPL);		
 				}
 				loader.load( 'models/wd_46_4_xpl.glb',onLoadnissI2XPL, undefined, function ( error ) {
 					console.error( error );
@@ -583,7 +613,8 @@
 					manusI1 = model.children[0];
 					manusI1.position.set( -1.0, 0.7, 1.8); //7
 					manusI1.rotation.y = - Math.PI * 7 / 6;
-					unmoveable.add(manusI1);	
+					unmoveable.add(manusI1);
+					level3Planes.push(manusI1);		
 				}
 				loader.load( 'models/wd_48_7_frame.glb', onLoadmanusI1, undefined, function ( error ) {
 					console.error( error );
@@ -595,7 +626,8 @@
 					manusI1PPL.position.set(1, 0.1, 0.3); 
 					manusI1PPL.userData.loc = new THREE.Vector3(-1.0, 1.0, 1.8);
 					manusI1PPL.userData.angle = - Math.PI * 7 / 6;
-					moveable.add(manusI1PPL);	
+					moveable.add(manusI1PPL);
+					level3Planes.push(manusI1PPL);		
 				}
 				loader.load( 'models/wd_48_7_ppl.glb',onLoadmanusI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -608,7 +640,8 @@
 					manusI1XPL.position.set( 0.5, 0.1, -0.6 ); //	
 					manusI1XPL.userData.loc = new THREE.Vector3( -1.0, 0.42, 1.8);	
 					manusI1XPL.userData.angle = - Math.PI * 7 / 6;
-					moveable.add(manusI1XPL);	
+					moveable.add(manusI1XPL);
+					level3Planes.push(manusI1XPL);		
 				}
 				loader.load( 'models/wd_48_7_xpl.glb',onLoadmanusI1XPL, undefined, function ( error ) {
 					console.error( error );
@@ -619,7 +652,8 @@
 					teoI1 = model.children[0];
 					teoI1.position.set( 0.5, 1.9, 1.9); 
 					teoI1.rotation.y = - Math.PI * 0.917;
-					unmoveable.add(teoI1);	
+					unmoveable.add(teoI1);
+					level2Planes.push(teoI1);		
 				}
 				loader.load( 'models/wd_45_12_frame.glb', onLoadteoI1, undefined, function ( error ) {
 					console.error( error );
@@ -632,6 +666,7 @@
 					teoI1PPL.userData.loc = new THREE.Vector3(0.5, 2.2, 1.9);
 					teoI1PPL.userData.angle = - Math.PI * 0.917;
 					moveable.add(teoI1PPL);	
+					level2Planes.push(teoI1PPL);
 				}
 				loader.load( 'models/wd_45_12_ppl.glb',onLoadteoI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -645,6 +680,7 @@
 					teoI1XPL.userData.loc = new THREE.Vector3(0.5, 1.62, 1.9);	
 					teoI1XPL.userData.angle = - Math.PI * 0.917;
 					moveable.add(teoI1XPL);	
+					level2Planes.push(teoI1XPL);
 				}
 				loader.load( 'models/wd_45_12_xpl.glb',onLoadteoI1XPL, undefined, function ( error ) {
 					console.error( error );
@@ -657,6 +693,7 @@
 					malaI1.position.set( 1.4, 1.9, 1.4); 
 					malaI1.rotation.y = - Math.PI * 3 / 4;
 					unmoveable.add(malaI1);	
+					level2Planes.push(malaI1);
 				}
 				loader.load( 'models/wd_49_22_frame.glb', onLoadmalaI1, undefined, function ( error ) {
 					console.error( error );
@@ -668,7 +705,8 @@
 					malaI1PPL.position.set(1.0, 0.1, -0.6); 
 					malaI1PPL.userData.loc = new THREE.Vector3(1.4, 2.2, 1.4);
 					malaI1PPL.userData.angle = - Math.PI * 3 / 4;
-					moveable.add(malaI1PPL);	
+					moveable.add(malaI1PPL);
+					level2Planes.push(malaI1PPL);	
 				}
 				loader.load( 'models/wd_49_22_ppl.glb',onLoadmalaI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -682,6 +720,7 @@
 					malaI1XPL.userData.loc = new THREE.Vector3(1.4, 1.62, 1.4);	
 					malaI1XPL.userData.angle = - Math.PI * 3 / 4;
 					moveable.add(malaI1XPL);	
+					level2Planes.push(malaI1XPL);
 				}
 				loader.load( 'models/wd_49_22_xpl.glb',onLoadmalaI1XPL, undefined, function ( error ) {
 					console.error( error );
@@ -694,6 +733,7 @@
 					maloI1.position.set( 1.0, 0.7, 1.8); //5
 					maloI1.rotation.y = - Math.PI * 5 / 6;
 					unmoveable.add(maloI1);	
+					level3Planes.push(maloI1);
 				}
 				loader.load( 'models/wd_44_7_frame.glb', onLoadmaloI1, undefined, function ( error ) {
 					console.error( error );
@@ -706,6 +746,7 @@
 					maloI1PPL.userData.loc = new THREE.Vector3(1.0, 1.0, 1.8);
 					maloI1PPL.userData.angle = - Math.PI * 5 / 6;
 					moveable.add(maloI1PPL);	
+					level3Planes.push(maloI1PPL);
 				}
 				loader.load( 'models/wd_44_7_ppl.glb',onLoadmaloI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -718,7 +759,8 @@
 					maloI1XPL.position.set( -0.5, 0.1, -0.9 ); //	
 					maloI1XPL.userData.loc = new THREE.Vector3(1.0, 0.42, 1.8);	
 					maloI1XPL.userData.angle = - Math.PI * 5 / 6;
-					moveable.add(maloI1XPL);	
+					moveable.add(maloI1XPL);
+					level3Planes.push(maloI1XPL);	
 				}
 				loader.load( 'models/wd_44_7_xpl.glb',onLoadmaloI1XPL, undefined, function ( error ) {
 					console.error( error );
@@ -731,6 +773,7 @@
 					reefI1.position.set( 1.9, 1.9, -0.5); 
 					reefI1.rotation.y = - Math.PI / 2.4;
 					unmoveable.add(reefI1);	
+					level2Planes.push(reefI1);
 				}
 				loader.load( 'models/wd_84_1_frame.glb', onLoadreefI1, undefined, function ( error ) {
 					console.error( error );
@@ -742,7 +785,8 @@
 					reefI1PPL.position.set(0, 0.1, -1.2); 
 					reefI1PPL.userData.loc = new THREE.Vector3(1.9, 2.2, -0.5);
 					reefI1PPL.userData.angle = - Math.PI / 2.4;
-					moveable.add(reefI1PPL);	
+					moveable.add(reefI1PPL);
+					level2Planes.push(reefI1PPL);	
 				}
 				loader.load( 'models/wd_84_1_ppl.glb',onLoadreefI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -755,7 +799,8 @@
 					reefI1XPL.position.set( 0, 0.1, 0.6 ); //	
 					reefI1XPL.userData.loc = new THREE.Vector3(1.9, 1.62, -0.5);	
 					reefI1XPL.userData.angle = - Math.PI / 2.4;
-					moveable.add(reefI1XPL);	
+					moveable.add(reefI1XPL);
+					level2Planes.push(reefI1XPL);	
 				}
 				loader.load( 'models/wd_84_1_xpl.glb',onLoadreefI1XPL, undefined, function ( error ) {
 					console.error( error );
@@ -767,7 +812,8 @@
 					timorI1 = model.children[0];
 					timorI1.position.set( -1.9, 1.9, -.5); //9a
 					timorI1.rotation.y = - Math.PI * 1.58;
-					unmoveable.add(timorI1);	
+					unmoveable.add(timorI1);
+					level1Planes.push(timorI1);	
 				}
 				loader.load( 'models/wd_86_2_frame.glb', onLoadtimorI1, undefined, function ( error ) {
 					console.error( error );
@@ -780,6 +826,7 @@
 					timorI1PPL.userData.loc = new THREE.Vector3(-1.9, 2.2, -.5);
 					timorI1PPL.userData.angle = - Math.PI * 1.58;
 					moveable.add(timorI1PPL);	
+					level1Planes.push(timorI1PPL);	
 				}
 				loader.load( 'models/wd_86_2_ppl.glb',onLoadtimorI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -792,7 +839,8 @@
 					timorI1XPL.position.set( -0.5, 0.1, 0.3 ); //	
 					timorI1XPL.userData.loc = new THREE.Vector3(-1.9, 1.62, -.5);	
 					timorI1XPL.userData.angle = - Math.PI * 1.58;
-					moveable.add(timorI1XPL);	
+					moveable.add(timorI1XPL);
+					level1Planes.push(timorI1XPL);		
 				}
 				loader.load( 'models/wd_86_2_xpl.glb',onLoadtimorI1XPL, undefined, function ( error ) {
 					console.error( error );
@@ -804,7 +852,8 @@
 					timorI2 = model.children[0];
 					timorI2.position.set( -1.8, 0.7, -1.0); //10
 					timorI2.rotation.y = - Math.PI * 5/3;
-					unmoveable.add(timorI2);	
+					unmoveable.add(timorI2);
+					level1Planes.push(timorI2);		
 				}
 				loader.load( 'models/wd_86_6_frame.glb', onLoadtimorI2, undefined, function ( error ) {
 					console.error( error );
@@ -817,6 +866,7 @@
 					timorI2PPL.userData.loc = new THREE.Vector3(-1.8, 1.0, -1.0);
 					timorI2PPL.userData.angle = - Math.PI * 5/3;
 					moveable.add(timorI2PPL);	
+					level1Planes.push(timorI2PPL);	
 				}
 				loader.load( 'models/wd_86_6_ppl.glb',onLoadtimorI2PPL, undefined, function ( error ) {
 					console.error( error );
@@ -829,7 +879,8 @@
 					timorI2XPL.position.set( 0, 0.1, -0.6 ); //	
 					timorI2XPL.userData.loc = new THREE.Vector3(-1.8, 0.42, -1.0);	
 					timorI2XPL.userData.angle = - Math.PI * 5/3;
-					moveable.add(timorI2XPL);	
+					moveable.add(timorI2XPL);
+					level1Planes.push(timorI2XPL);		
 				}
 				loader.load( 'models/wd_86_6_xpl.glb',onLoadtimorI2XPL, undefined, function ( error ) {
 					console.error( error );
@@ -840,7 +891,8 @@
 					timorI3 = model.children[0];
 					timorI3.position.set( -1.4, 1.9, -1.4); //10a
 					timorI3.rotation.y = - Math.PI * 1.75;
-					unmoveable.add(timorI3);	
+					unmoveable.add(timorI3);
+					level4Planes.push(timorI3);		
 				}
 				loader.load( 'models/wd_9_1_frame.glb', onLoadtimorI3, undefined, function ( error ) {
 					console.error( error );
@@ -852,7 +904,8 @@
 					timorI3PPL.position.set( 0.5, 0.1, 0.9 ); 
 					timorI3PPL.userData.loc = new THREE.Vector3(-1.4, 2.2, -1.4);
 					timorI3PPL.userData.angle = - Math.PI * 1.75;
-					moveable.add(timorI3PPL);	
+					moveable.add(timorI3PPL);
+					level4Planes.push(timorI3PPL);		
 				}
 				loader.load( 'models/wd_9_1_ppl.glb',onLoadtimorI3PPL, undefined, function ( error ) {
 					console.error( error );
@@ -866,6 +919,7 @@
 					timorI3XPL.userData.loc = new THREE.Vector3(-1.4, 1.62, -1.4);	
 					timorI3XPL.userData.angle = - Math.PI * 1.75;
 					moveable.add(timorI3XPL);	
+					level4Planes.push(timorI3XPL);	
 				}
 				loader.load( 'models/wd_9_1_xpl.glb',onLoadtimorI3XPL, undefined, function ( error ) {
 					console.error( error );
@@ -877,7 +931,8 @@
 					bukI1 = model.children[0];
 					bukI1.position.set( 2, 0.7, 0); //3
 					bukI1.rotation.y = - Math.PI / 2;
-					unmoveable.add(bukI1);	
+					unmoveable.add(bukI1);
+					level2Planes.push(bukI1);		
 				}
 				loader.load( 'models/wd_101_3_frame.glb', onLoadbukI1, undefined, function ( error ) {
 					console.error( error );
@@ -890,6 +945,7 @@
 					bukI1PPL.userData.loc = new THREE.Vector3(2, 1.0, 0);
 					bukI1PPL.userData.angle = - Math.PI / 2;
 					moveable.add(bukI1PPL);	
+					level2Planes.push(bukI1PPL);	
 				}
 				loader.load( 'models/wd_101_3_ppl.glb',onLoadbukI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -903,6 +959,7 @@
 					bukI1XPL.userData.loc = new THREE.Vector3(2, 0.42, 0);	
 					bukI1XPL.userData.angle = - Math.PI / 2;
 					moveable.add(bukI1XPL);	
+					level2Planes.push(bukI1XPL);	
 				}
 				loader.load( 'models/wd_101_3_xpl.glb',onLoadbukI1XPL, undefined, function ( error ) {
 					console.error( error );
@@ -916,6 +973,7 @@
 					aluI1.position.set( 1.8, 0.7, 1); //4
 					aluI1.rotation.y = - Math.PI * 2 / 3;
 					unmoveable.add(aluI1);	
+					level1Planes.push(aluI1);	
 				}
 				loader.load( 'models/wd_103_13_frame.glb', onLoadaluI1, undefined, function ( error ) {
 					console.error( error );
@@ -928,6 +986,7 @@
 					aluI1PPL.userData.loc = new THREE.Vector3(1.8, 1.0, 1);
 					aluI1PPL.userData.angle =  - Math.PI * 2 / 3;
 					moveable.add(aluI1PPL);	
+					level1Planes.push(aluI1PPL);
 				}
 				loader.load( 'models/wd_103_13_ppl.glb',onLoadaluI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -941,6 +1000,7 @@
 					aluI1XPL.userData.loc = new THREE.Vector3(1.8, 0.42, 1);	
 					aluI1XPL.userData.angle =  - Math.PI * 2 / 3;
 					moveable.add(aluI1XPL);	
+					level1Planes.push(aluI1XPL);
 				}
 				loader.load( 'models/wd_103_13_xpl.glb',onLoadaluI1XPL, undefined, function ( error ) {
 					console.error( error );
@@ -953,7 +1013,8 @@
 					tauI1 = model.children[0];
 					tauI1.position.set( 1.8, 0.7, -1.0); //2
 					tauI1.rotation.y = - Math.PI / 3;
-					unmoveable.add(tauI1);	
+					unmoveable.add(tauI1);
+					level1Planes.push(tauI1);	
 				}
 				loader.load( 'models/wd_105_1_frame.glb', onLoadtauI1, undefined, function ( error ) {
 					console.error( error );
@@ -966,6 +1027,7 @@
 					tauI1PPL.userData.loc = new THREE.Vector3(1.8, 1.0, -1.0);
 					tauI1PPL.userData.angle =  - Math.PI / 3;
 					moveable.add(tauI1PPL);	
+					level1Planes.push(tauI1PPL);
 				}
 				loader.load( 'models/wd_105_1_ppl.glb',onLoadtauI1PPL, undefined, function ( error ) {
 					console.error( error );
@@ -979,6 +1041,7 @@
 					tauI1XPL.userData.loc = new THREE.Vector3(1.8, 0.42, -1.0);	
 					tauI1XPL.userData.angle =  - Math.PI / 3;
 					moveable.add(tauI1XPL);	
+					level1Planes.push(tauI1XPL);
 				}
 				loader.load( 'models/wd_105_1_xpl.glb',onLoadtauI1XPL, undefined, function ( error ) {
 					console.error( error );
