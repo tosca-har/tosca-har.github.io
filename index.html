@@ -51,8 +51,8 @@
 			let bukI1PPL, bukI1XPL, aluI1PPL, aluI1XPL, tauI1PPL, tauI1XPL;
 			let guaI4, pauI1, timorI1, timorI2, aluI1, tauI1;
 			let caroI1, bandaI1, teoI1, malaI1, reefI1, bukI1;
-			let tinI1, guaI2, guaI3, pngI1, manusI1, maloI1 ;
-			let caroI2, pngI2, nissI1, wanI1, nissI2, timorI3 ;
+			let tinI1, guaI2, guaI3, pngI1, manusI1, maloI1;
+			let caroI2, pngI2, nissI1, wanI1, nissI2, timorI3;
 
 
 
@@ -107,6 +107,7 @@
 					tinI1.position.set( 1.4, 1.9, -1.4 ); //1a
 					tinI1.rotation.y =  - Math.PI * 1 / 4;
 					unmoveable.add(tinI1);	
+					level3Planes.push(tinI1);
 				}
 				loader.load( 'models/wd_52_1_frame.glb', onLoad, undefined, function ( error ) {
 					console.error( error );
@@ -144,6 +145,7 @@
 					guaI2 = model.children[0];
 					guaI2.position.set( 0, 0.7, -2.2) //12
 					unmoveable.add(guaI2);	
+					level3Planes.push(guaI2);
 				}
 				loader.load( 'models/wd_12_19_frame.glb', onLoadGuaI2, undefined, function ( error ) {
 					console.error( error );
@@ -181,6 +183,7 @@
 					guaI4.position.set( 1, 0.7, -1.8); //1
 					guaI4.rotation.y = - Math.PI / 6;
 					unmoveable.add(guaI4);	
+					level1Planes.push(guaI4);
 				}
 				loader.load( 'models/wd_35_1_frame.glb', onLoadGuaI4, undefined, function ( error ) {
 					console.error( error );
@@ -218,6 +221,7 @@
 					caroI2.position.set( -0.5, 1.9, -2.0); //11a
 					caroI2.rotation.y = - Math.PI * 1.92;
 					unmoveable.add(caroI2);	
+					level4Planes.push(caroI2);
 				}
 				loader.load( 'models/wd_10_10_frame.glb', onLoadcaroI2, undefined, function ( error ) {
 					console.error( error );
@@ -254,6 +258,7 @@
 					caroI1.position.set( -1.0, 0.7, -1.8); //11
 					caroI1.rotation.y = - Math.PI * 11/ 6;
 					unmoveable.add(caroI1);	
+					level2Planes.push(caroI1);
 				}
 				loader.load( 'models/wd_10_14_frame.glb', onLoadcaroI1, undefined, function ( error ) {
 					console.error( error );
@@ -1197,7 +1202,7 @@
 					trueposition = object.userData.loc;
 					
 					moveable.attach( object );
-	 				if ( aposition.distanceTo( trueposition ) < .10) {
+	 				if ( aposition.distanceTo( trueposition ) < .20) {
 					 	scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
 						// moveable.attach( object );
 						object.position.set(trueposition.x, trueposition.y, trueposition.z);
@@ -1263,17 +1268,17 @@
 			function onSelectEnd2( event ) {
 
 			const controller = event.target;
-			let planesInt;
+			let planesInts;
 			if ( controller.userData.selected !== undefined ) {
 
 				const object = controller.userData.selected;
 				object.material.emissive.r = 0;	
 				object.userData.active = !object.userData.active;
 				
-				//planesInt = object.userData.planes;
-				//for (const planesInt of planesInts){
-					//planesInt.visible = !planesInt.visible;
-				//}
+				planesInts = object.userData.planes;
+				for (const planesInt of planesInts){
+					planesInt.visible = !planesInt.visible;
+				}
 
 				if (object.userData.active) {
 					object.position.y =  0;
