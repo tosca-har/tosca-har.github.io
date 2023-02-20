@@ -1276,10 +1276,16 @@
 				object.userData.active = !object.userData.active;
 				
 				planesInts = object.userData.planes;
-				for (const planesInt of planesInts){
-					planesInt.visible = !planesInt.visible;
+				if(object.userData.active) {
+					for (const planesInt of planesInts) {
+						planesInt.visible = true					
+				} } else {
+					for (const planesInt of planesInts) {
+						planesInt.visible = false					
 				}
 
+				}
+	
 				if (object.userData.active) {
 					object.position.y =  0;
 				} else {
