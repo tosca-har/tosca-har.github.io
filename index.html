@@ -93,14 +93,14 @@
 				theMap.position.set( 0, 0, 0); //floor
 				scene.add( theMap);
 
-								
+				const panelscale = 1.3;				
 				//wd_52_1
 				function onLoad( gltf ) {
 					const model = gltf.scene;					
 					tinI1 = model.children[0];
 					tinI1.position.set( 1.4, 1.9, -1.4 ); //1a
 					tinI1.rotation.y =  - Math.PI * 1 / 4;
-					tinI1.scale.set( 1.2, 1.2, 1.2 ); 
+					tinI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(tinI1);	
 					level3Planes.push(tinI1);
 				}
@@ -141,7 +141,7 @@
 					const model = gltf.scene;					
 					guaI2 = model.children[0];
 					guaI2.position.set( 0, 0.7, -2.2) //12
-					guaI2.scale.set( 1.3, 1.3, 1.3 ); 
+					guaI2.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(guaI2);	
 					level3Planes.push(guaI2);
 				}
@@ -182,7 +182,7 @@
 					guaI4 = model.children[0];
 					guaI4.position.set( 1, 0.7, -1.8); //1
 					guaI4.rotation.y = - Math.PI / 6;
-					guaI4.scale.set( 1.1, 1.1, 1.1 ); 
+					guaI4.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(guaI4);	
 					level1Planes.push(guaI4);
 
@@ -224,6 +224,7 @@
 					caroI2 = model.children[0];
 					caroI2.position.set( -0.5, 1.9, -2.0); //11a
 					caroI2.rotation.y = - Math.PI * 1.92;
+					caroI2.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(caroI2);	
 					level4Planes.push(caroI2);
 					
@@ -264,6 +265,7 @@
 					caroI1 = model.children[0];
 					caroI1.position.set( -1.0, 0.7, -1.8); //11
 					caroI1.rotation.y = - Math.PI * 11/ 6;
+					caroI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(caroI1);	
 					level2Planes.push(caroI1);
 				}
@@ -303,6 +305,7 @@
 					guaI3 = model.children[0];
 					guaI3.position.set( 0.5, 1.9, -2.0); //12a
 					guaI3.rotation.y = - Math.PI / 12;
+					guaI3.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(guaI3);
 					level3Planes.push(guaI3);	
 				}
@@ -343,6 +346,7 @@
 					wanI1 = model.children[0];
 					wanI1.position.set( -1.9, 1.9, 0.5); 
 					wanI1.rotation.y = - Math.PI * 1.42;
+					wanI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(wanI1);
 					level4Planes.push(wanI1);		
 				}
@@ -382,6 +386,7 @@
 					bandaI1 = model.children[0];
 					bandaI1.position.set( -2.0, 0.7, 0); //9
 					bandaI1.rotation.y = - Math.PI * 3/ 2;
+					bandaI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(bandaI1);
 					level2Planes.push(bandaI1);	
 				}
@@ -421,6 +426,7 @@
 					pngI2 = model.children[0];
 					pngI2.position.set( -1.8, 0.7, 1.0); //8
 					pngI2.rotation.y = - Math.PI * 4 / 3;
+					pngI2.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(pngI2);	
 					level4Planes.push(pngI2);	
 				}
@@ -460,6 +466,7 @@
 					pngI1 = model.children[0];
 					pngI1.position.set( -1.4, 1.9, 1.4); 
 					pngI1.rotation.y = - Math.PI * 1.25;
+					pngI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(pngI1);	
 					level3Planes.push(pngI1);	
 				}
@@ -499,6 +506,7 @@
 					nissI1 = model.children[0];
 					nissI1.position.set( 0, 0.7, 2.2); //6
 					nissI1.rotation.y = - Math.PI;
+					nissI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(nissI1);	
 					level4Planes.push(nissI1);	
 				}
@@ -538,6 +546,7 @@
 					pauI1 = model.children[0];
 					pauI1.position.set( 1.9, 1.9, 0.5); 
 					pauI1.rotation.y = - Math.PI * 0.58;
+					pauI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(pauI1);
 					level1Planes.push(pauI1);	
 				}
@@ -577,6 +586,7 @@
 					nissI2 = model.children[0];
 					nissI2.position.set( -0.5, 1.9, 1.9); 
 					nissI2.rotation.y = - Math.PI * 1.08;
+					nissI2.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(nissI2);	
 					level4Planes.push(nissI2);	
 				}
@@ -616,6 +626,7 @@
 					manusI1 = model.children[0];
 					manusI1.position.set( -1.0, 0.7, 1.8); //7
 					manusI1.rotation.y = - Math.PI * 7 / 6;
+					manusI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(manusI1);
 					level3Planes.push(manusI1);		
 				}
@@ -655,6 +666,7 @@
 					teoI1 = model.children[0];
 					teoI1.position.set( 0.5, 1.9, 1.9); 
 					teoI1.rotation.y = - Math.PI * 0.917;
+					teoI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(teoI1);
 					level2Planes.push(teoI1);		
 				}
@@ -695,6 +707,7 @@
 					malaI1 = model.children[0];
 					malaI1.position.set( 1.4, 1.9, 1.4); 
 					malaI1.rotation.y = - Math.PI * 3 / 4;
+					malaI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(malaI1);	
 					level2Planes.push(malaI1);
 				}
@@ -735,6 +748,7 @@
 					maloI1 = model.children[0];
 					maloI1.position.set( 1.0, 0.7, 1.8); //5
 					maloI1.rotation.y = - Math.PI * 5 / 6;
+					maloI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(maloI1);	
 					level3Planes.push(maloI1);
 				}
@@ -775,6 +789,7 @@
 					reefI1 = model.children[0];
 					reefI1.position.set( 1.9, 1.9, -0.5); 
 					reefI1.rotation.y = - Math.PI / 2.4;
+					reefI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(reefI1);	
 					level2Planes.push(reefI1);
 				}
@@ -815,6 +830,7 @@
 					timorI1 = model.children[0];
 					timorI1.position.set( -1.9, 1.9, -.5); //9a
 					timorI1.rotation.y = - Math.PI * 1.58;
+					timorI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(timorI1);
 					level1Planes.push(timorI1);	
 				}
@@ -855,6 +871,7 @@
 					timorI2 = model.children[0];
 					timorI2.position.set( -1.8, 0.7, -1.0); //10
 					timorI2.rotation.y = - Math.PI * 5/3;
+					timorI2.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(timorI2);
 					level1Planes.push(timorI2);		
 				}
@@ -894,6 +911,7 @@
 					timorI3 = model.children[0];
 					timorI3.position.set( -1.4, 1.9, -1.4); //10a
 					timorI3.rotation.y = - Math.PI * 1.75;
+					timorI3.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(timorI3);
 					level4Planes.push(timorI3);		
 				}
@@ -934,6 +952,7 @@
 					bukI1 = model.children[0];
 					bukI1.position.set( 2, 0.7, 0); //3
 					bukI1.rotation.y = - Math.PI / 2;
+					bukI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(bukI1);
 					level2Planes.push(bukI1);		
 				}
@@ -975,6 +994,7 @@
 					aluI1 = model.children[0];
 					aluI1.position.set( 1.8, 0.7, 1); //4
 					aluI1.rotation.y = - Math.PI * 2 / 3;
+					aluI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(aluI1);	
 					level1Planes.push(aluI1);	
 				}
@@ -1016,6 +1036,7 @@
 					tauI1 = model.children[0];
 					tauI1.position.set( 1.8, 0.7, -1.0); //2
 					tauI1.rotation.y = - Math.PI / 3;
+					tauI1.scale.set( panelscale, panelscale, panelscale ); 
 					unmoveable.add(tauI1);
 					level1Planes.push(tauI1);	
 				}
@@ -1297,6 +1318,7 @@
 						// moveable.attach( object );
 						object.position.set(trueposition.x, trueposition.y, trueposition.z);
 						object.rotation.set(0, object.userData.angle, 0);
+						object.scale.set( panelscale, panelscale, panelscale );
 						unmoveable.attach( object );
 	 				}
 					//else { moveable.attach( object ) }
