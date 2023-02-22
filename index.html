@@ -100,7 +100,7 @@
 					tinI1 = model.children[0];
 					tinI1.position.set( 1.4, 1.9, -1.4 ); //1a
 					tinI1.rotation.y =  - Math.PI * 1 / 4;
-					tinI1.set( 1.2, 1.2, 1.2 ); 
+					tinI1.scale.set( 1.2, 1.2, 1.2 ); 
 					unmoveable.add(tinI1);	
 					level3Planes.push(tinI1);
 				}
@@ -141,6 +141,7 @@
 					const model = gltf.scene;					
 					guaI2 = model.children[0];
 					guaI2.position.set( 0, 0.7, -2.2) //12
+					guaI2.scale.set( 1.3, 1.3, 1.3 ); 
 					unmoveable.add(guaI2);	
 					level3Planes.push(guaI2);
 				}
@@ -181,6 +182,7 @@
 					guaI4 = model.children[0];
 					guaI4.position.set( 1, 0.7, -1.8); //1
 					guaI4.rotation.y = - Math.PI / 6;
+					guaI4.scale.set( 1.1, 1.1, 1.1 ); 
 					unmoveable.add(guaI4);	
 					level1Planes.push(guaI4);
 
