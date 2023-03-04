@@ -1274,7 +1274,11 @@ function onLoadmanusI1( gltf ) {
 				//
 
 				const geometry = new THREE.BufferGeometry().setFromPoints( [ new THREE.Vector3( 0, 0, 0 ), new THREE.Vector3( 0, 0, - 1 ) ] );
-				const line = new THREE.Line( geometry );
+				const linematerial = new THREE.LineBasicMaterial({
+					 transparent: true,
+   					 opacity: 0.5
+ 				 });
+				const line = new THREE.Line( geometry, linematerial );
 				line.name = 'line';
 				line.scale.z = 5;
 
