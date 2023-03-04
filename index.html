@@ -1303,8 +1303,8 @@ function onLoadmanusI1( gltf ) {
 
 					const object = intersection.object;
 					object.material.emissive.b = 0;
-					object.scale.set( 3, 3, 3 );
-					
+					//object.scale.set( 3, 3, 3 );
+					object.scale.set( 5, 5, 5 );
 					controller.attach( object );
 
 					controller.userData.selected = object;
