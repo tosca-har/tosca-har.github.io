@@ -1235,7 +1235,7 @@
 				const geometry = new THREE.BufferGeometry().setFromPoints( [ new THREE.Vector3( 0, 0, 0 ), new THREE.Vector3( 0, 0, - 1 ) ] );
 				const linematerial = new THREE.LineBasicMaterial({
 					 transparent: true,
-   					 opacity: 0.4
+   					 opacity: 0.3
  				 });
 				const line = new THREE.Line( geometry, linematerial );
 				line.name = 'line';
@@ -1270,10 +1270,6 @@
 					object.scale.set( 5, 5, 5 );
 					controller.attach( object );
 					controller.userData.selected = object;
-					const line = controller.getObjectByName( 'line' );
-					line.opacity = 0;
-
-
 				}
 
 			}
