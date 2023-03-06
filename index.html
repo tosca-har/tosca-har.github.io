@@ -40,10 +40,10 @@
 	
 			let raycaster;
 			let ratio = 2;
+			let desk = 0.8;
 			const intersected = [];
 			const intersected2 = [];
 			const tempMatrix = new THREE.Matrix4();
-			let zeroz = new THREE.Vector3( 0, 0.74 , 0); // table height
 			let controls, jars, torus, selectedPlane, trueposition, unmoveable;
 // can either have 26 galleries that hide and show, or change the texture on one gallery. As changed out of init must be declared here.
 			let gallery, adzeraG, agarabiG, aibomG, aloaloG, bauG, begilamG, collG, demtaG, dimiriG, huonG, ilesalesG;
@@ -101,123 +101,123 @@
 				const triobriandTexture  = textureLoader.load( 'textures/Triobriand.jpg' );
 				
 
-
+				const gheight = desk + 0.27;
 				const gallery2 = new THREE.Mesh(new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: keyTexture }));
-				gallery2.position.set( 0.75, 1.1, -.75); 
+				gallery2.position.set( 0.75, gheight, -.75); 
 				scene.add( gallery2);
 				const gallery3 = new THREE.Mesh(new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: refTexture }));
-				gallery3.position.set( -.75, 1.1, -.75); 
+				gallery3.position.set( -.75, gheight, -.75); 
 				scene.add( gallery3);
 
 
 				gallery = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: introTexture }));
-				gallery.position.set( 0, 1.1, -.75); 
+				gallery.position.set( 0, gheight, -.75); 
 				scene.add( gallery);
 				selectedPlane = gallery;
 
 				adzeraG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: adzeraTexture }));
-				adzeraG.position.set( 0, 1.1, -.75); 
+				adzeraG.position.set( 0, gheight, -.75); 
 				scene.add( adzeraG);
 				adzeraG.visible = false;
 				agarabiG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: agarabiTexture }));
-				agarabiG.position.set( 0, 1.1, -.75); 
+				agarabiG.position.set( 0, gheight, -.75); 
 				scene.add( agarabiG);
 				agarabiG.visible = false;
 
 				bauG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: bauTexture }));
-				bauG.position.set( 0, 1.1, -.75); 
+				bauG.position.set( 0, gheight, -.75); 
 				scene.add( bauG);
 				bauG.visible = false;
 				begilamG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: begilamTexture }));
-				begilamG.position.set( 0, 1.1, -.75); 
+				begilamG.position.set( 0, gheight, -.75); 
 				scene.add( begilamG);
 				begilamG.visible = false;
 				aibomG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: aibomTexture }));
-				aibomG.position.set( 0, 1.1, -.75); 
+				aibomG.position.set( 0, gheight, -.75); 
 				scene.add( aibomG);
 				aibomG.visible = false;
 				kombioG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: kombioTexture }));
-				kombioG.position.set( 0, 1.1, -.75); 
+				kombioG.position.set( 0, gheight, -.75); 
 				scene.add( kombioG);
 				kombioG.visible = false;
 
 				demtaG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: demtaTexture }));
-				demtaG.position.set( 0, 1.1, -.75); 
+				demtaG.position.set( 0, gheight, -.75); 
 				scene.add( demtaG);
 				demtaG.visible = false;
 				collG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: collingwoodTexture }));
-				collG.position.set( 0, 1.1, -.75); 
+				collG.position.set( 0, gheight, -.75); 
 				scene.add( collG);
 				collG.visible = false;
 				aloaloG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: aloaloTexture }));
-				aloaloG.position.set( 0, 1.1, -.75); 
+				aloaloG.position.set( 0, gheight, -.75); 
 				scene.add( aloaloG);
 				aloaloG.visible = false;
 				marikG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: marikTexture }));
-				marikG.position.set( 0, 1.1, -.75); 
+				marikG.position.set( 0, gheight, -.75); 
 				scene.add( marikG);
 				marikG.visible = false;
 
 				louisadeG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: louisadeTexture }));
-				louisadeG.position.set( 0, 1.1, -.75); 
+				louisadeG.position.set( 0, gheight, -.75); 
 				scene.add( louisadeG);
 				louisadeG.visible = false;
 				motoG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: motoTexture }));
-				motoG.position.set( 0, 1.1, -.75); 
+				motoG.position.set( 0, gheight, -.75); 
 				scene.add(motoG);
 				motoG.visible = false;
 				mailuG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: mailuTexture }));
-				mailuG.position.set( 0, 1.1, -.75); 
+				mailuG.position.set( 0, gheight, -.75); 
 				scene.add( mailuG);
 				mailuG.visible = false;
 				waigeoG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: waigeoTexture }));
-				waigeoG.position.set( 0, 1.1, -.75); 
+				waigeoG.position.set( 0, gheight, -.75); 
 				scene.add( waigeoG);
 				waigeoG.visible = false;
 				dimiriG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: dimiriTexture }));
-				dimiriG.position.set( 0, 1.1, -.75); 
+				dimiriG.position.set( 0, gheight, -.75); 
 				scene.add(dimiriG);
 				dimiriG.visible = false;
 				kaiepG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: kaiepTexture }));
-				kaiepG.position.set( 0, 1.1, -.75); 
+				kaiepG.position.set( 0, gheight, -.75); 
 				scene.add(kaiepG);
 				kaiepG.visible = false;
 				tumleoG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: tumleoTexture }));
-				tumleoG.position.set( 0, 1.1, -.75); 
+				tumleoG.position.set( 0, gheight, -.75); 
 				scene.add( tumleoG);
 				tumleoG.visible = false;
 				huonG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: huonTexture }));
-				huonG.position.set( 0, 1.1, -.75); 
+				huonG.position.set( 0, gheight, -.75); 
 				scene.add(  huonG);
 				huonG.visible = false;
 
 				yabobG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: yabobTexture }));
-				yabobG.position.set( 0, 1.1, -.75); 
+				yabobG.position.set( 0, gheight, -.75); 
 				scene.add(yabobG);
 				yabobG.visible = false;
 				malukuG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: malukuTexture }));
-				malukuG.position.set( 0, 1.1, -.75); 
+				malukuG.position.set( 0, gheight, -.75); 
 				scene.add(malukuG);
 				malukuG.visible = false;
 				ilesalesG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: ilesalesTexture }));
-				ilesalesG.position.set( 0, 1.1, -.75); 
+				ilesalesG.position.set( 0, gheight, -.75); 
 				scene.add( ilesalesG);
 				ilesalesG.visible = false;
 				pubineriG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: pubineriTexture }));
-				pubineriG.position.set( 0, 1.1, -.75); 
+				pubineriG.position.set( 0, gheight, -.75); 
 				scene.add(  pubineriG);
 				pubineriG.visible = false;
 
 				manusG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: manusTexture }));
-				manusG.position.set( 0, 1.1, -.75); 
+				manusG.position.set( 0, gheight, -.75); 
 				scene.add(manusG);
 				manusG.visible = false;
 				menoG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: menoTexture }));
-				menoG.position.set( 0, 1.1, -.75); 
+				menoG.position.set( 0, gheight, -.75); 
 				scene.add( menoG);
 				menoG.visible = false;
 				triobriandG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: triobriandTexture }));
-				triobriandG.position.set( 0, 1.1, -.75); 
+				triobriandG.position.set( 0, gheight, -.75); 
 				scene.add( triobriandG);
 				triobriandG.visible = false;
 			
@@ -230,7 +230,7 @@
 				mapTexture.generateMipmaps = true //saves gpu if false
 				const theMap = new THREE.Mesh( mapGeometry, new THREE.MeshBasicMaterial({ map: mapTexture }));
 				theMap.rotation.x = - Math.PI / 2;
-				theMap.position.set( 0, 0.73, 0); //desk
+				theMap.position.set( 0, desk, 0); //desk
 				scene.add( theMap);
 
 
@@ -239,7 +239,7 @@
 				scene.add( new THREE.HemisphereLight( 0xffffbb, 0x080820, 1) ); //sky, ground, intensity 0xffffbb, 0x080820, 1
 				const light = new THREE.DirectionalLight( 0xffffff );
 				//const light = new THREE.AmbientLight( 0x404040, 1 );
-				light.position.set( -1, 6, -2 );
+				light.position.set( 1, 6, 2 );
 				scene.add( light );
 
 
@@ -277,7 +277,7 @@
 					adzeraM.position.set( x, y, z );
 					adzeraM.scale.set( piecescale, piecescale, piecescale);
 					adzeraM.material.color.set(parameters.coilBeatenColor);
-					const aloc = new THREE.Vector3(0.61 * ratio, 0.74, 0.15 * ratio);
+					const aloc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
 					adzeraM.userData.loc = aloc;
 					jars.add( adzeraM);
 					sectionMeshes.push(adzeraM);
@@ -292,7 +292,7 @@
 					agarabiM.position.set( x, y, z );
 					agarabiM.scale.set( piecescale, piecescale, piecescale);
 					agarabiM.material.color.set(parameters.coilBeatenColor);
-					agarabiM.userData.loc = new THREE.Vector3(0.55 * ratio, 0.74, 0.15 * ratio);
+					agarabiM.userData.loc = new THREE.Vector3(0.55 * ratio, desk + 0.01, 0.15 * ratio);
 					jars.add( agarabiM);
 					sectionMeshes.push(agarabiM);
 				}
@@ -306,7 +306,7 @@
 					demtaM.position.set( x, y, z );
 					demtaM.scale.set( piecescale, piecescale, piecescale);
 					demtaM.material.color.set(parameters.materialColor);
-					demtaM.userData.loc = new THREE.Vector3(0.13* ratio, 0.74, -0.16* ratio);
+					demtaM.userData.loc = new THREE.Vector3(0.13* ratio, desk + 0.01, -0.16* ratio);
 					jars.add( demtaM);
 					sectionMeshes.push(demtaM);
 				}
@@ -320,7 +320,7 @@
 					aibomM.position.set( x, y, z );
 					aibomM.scale.set( piecescale, piecescale, piecescale);
 					aibomM.material.color.set(parameters.materialColor);
-					aibomM.userData.loc = new THREE.Vector3(0.36* ratio, 0.74,-0.01* ratio);
+					aibomM.userData.loc = new THREE.Vector3(0.36* ratio, desk + 0.01,-0.01* ratio);
 					jars.add( aibomM);
 					sectionMeshes.push(aibomM);
 				}
@@ -334,7 +334,7 @@
 					mailuM.position.set( x, y, z );
 					mailuM.scale.set( piecescale, piecescale, piecescale);
 					mailuM.material.color.set(parameters.nabColor);
-					mailuM.userData.loc = new THREE.Vector3(0.84* ratio, 0.74, 0.48* ratio);
+					mailuM.userData.loc = new THREE.Vector3(0.84* ratio, desk + 0.01, 0.48* ratio);
 					jars.add( mailuM);
 					sectionMeshes.push(mailuM);
 				}
@@ -348,7 +348,7 @@
 					triobriandM.position.set( x, y, z );
 					triobriandM.scale.set( piecescale, piecescale, piecescale);
 					triobriandM.material.color.set(parameters.amphColor);
-					triobriandM.userData.loc = new THREE.Vector3(1.01* ratio, 0.74, 0.33* ratio);
+					triobriandM.userData.loc = new THREE.Vector3(1.01* ratio, desk + 0.01, 0.33* ratio);
 					jars.add( triobriandM);
 					sectionMeshes.push(triobriandM);
 				}
@@ -362,7 +362,7 @@
 					collingwoodM.position.set( x, y, z );
 					collingwoodM.scale.set( piecescale, piecescale, piecescale);
 					collingwoodM.material.color.set(parameters.wangelaColor);
-					collingwoodM.userData.loc = new THREE.Vector3(0.85* ratio, 0.74, 0.4* ratio);
+					collingwoodM.userData.loc = new THREE.Vector3(0.85* ratio, desk + 0.01, 0.4* ratio);
 					jars.add( collingwoodM);
 					sectionMeshes.push(collingwoodM);
 				}
@@ -376,7 +376,7 @@
 					louisadeM.position.set( x, y, z );
 					louisadeM.scale.set( piecescale, piecescale, piecescale);
 					louisadeM.material.color.set(parameters.ringTopColor);
-					louisadeM.userData.loc = new THREE.Vector3(0.99* ratio, 0.74, 0.59* ratio);
+					louisadeM.userData.loc = new THREE.Vector3(0.99* ratio, desk + 0.01, 0.59* ratio);
 					jars.add( louisadeM);
 					sectionMeshes.push(louisadeM);
 				}
@@ -390,7 +390,7 @@
 					aloaloM.position.set( x, y, z );
 					aloaloM.scale.set( piecescale, piecescale, piecescale);
 					aloaloM.material.color.set(parameters.ringTopColor);
-					aloaloM.userData.loc = new THREE.Vector3(0.9* ratio, 0.74, 0.49* ratio);
+					aloaloM.userData.loc = new THREE.Vector3(0.9* ratio, desk + 0.01, 0.49* ratio);
 					jars.add( aloaloM);
 					sectionMeshes.push(aloaloM);
 				}
@@ -404,7 +404,7 @@
 					marikM.position.set( x, y, z );
 					marikM.scale.set( piecescale, piecescale, piecescale);
 					marikM.material.color.set(parameters.coilColor);
-					marikM.userData.loc = new THREE.Vector3(0.575* ratio, 0.74, 0.079* ratio);
+					marikM.userData.loc = new THREE.Vector3(0.575* ratio, desk + 0.01, 0.079* ratio);
 					jars.add( marikM);
 					sectionMeshes.push(marikM);
 				}
@@ -418,7 +418,7 @@
 					dimiriM.position.set( x, y, z );
 					dimiriM.scale.set( piecescale, piecescale, piecescale);
 					dimiriM.material.color.set(parameters.coilColor);
-					dimiriM.userData.loc = new THREE.Vector3(0.43* ratio, 0.74, 0* ratio);
+					dimiriM.userData.loc = new THREE.Vector3(0.43* ratio, desk + 0.01, 0* ratio);
 					jars.add( dimiriM);
 					sectionMeshes.push(dimiriM);
 				}
@@ -432,7 +432,7 @@
 					begilamM.position.set( x, y, z );
 					begilamM.scale.set( piecescale, piecescale, piecescale);
 					begilamM.material.color.set(parameters.coilColor);
-					begilamM.userData.loc = new THREE.Vector3(0.28* ratio, 0.74, -0.01* ratio);
+					begilamM.userData.loc = new THREE.Vector3(0.28* ratio, desk + 0.01, -0.01* ratio);
 					jars.add( begilamM);
 					sectionMeshes.push(begilamM);
 				}
@@ -446,7 +446,7 @@
 					pubineriM.position.set( x, y, z );
 					pubineriM.scale.set( piecescale, piecescale, piecescale);
 					pubineriM.material.color.set(parameters.coilColor);
-					pubineriM.userData.loc = new THREE.Vector3(0.53* ratio, 0.74, 0.09* ratio);
+					pubineriM.userData.loc = new THREE.Vector3(0.53* ratio, desk + 0.01, 0.09* ratio);
 					jars.add( pubineriM);
 					sectionMeshes.push(pubineriM);
 				}
@@ -460,7 +460,7 @@
 					bauM.position.set( x, y, z );
 					bauM.scale.set( piecescale, piecescale, piecescale);
 					bauM.material.color.set(parameters.coilColor);
-					bauM.userData.loc = new THREE.Vector3(0.535* ratio, 0.74, 0.04* ratio);
+					bauM.userData.loc = new THREE.Vector3(0.535* ratio, desk + 0.01, 0.04* ratio);
 					jars.add( bauM);
 					sectionMeshes.push(bauM);
 				}
@@ -474,7 +474,7 @@
 					kombioM.position.set( x, y, z );
 					kombioM.scale.set( piecescale, piecescale, piecescale);
 					kombioM.material.color.set(parameters.coilColor);
-					kombioM.userData.loc = new THREE.Vector3(0.29* ratio, 0.74, -0.05* ratio);
+					kombioM.userData.loc = new THREE.Vector3(0.29* ratio, desk + 0.01, -0.05* ratio);
 					jars.add( kombioM);
 					sectionMeshes.push(kombioM);
 				}
@@ -488,7 +488,7 @@
 					menoM.position.set( x, y, z );
 					menoM.scale.set( piecescale, piecescale, piecescale);
 					menoM.material.color.set(parameters.coilColor);
-					menoM.userData.loc = new THREE.Vector3(0.33* ratio, 0.74, -0.08* ratio);
+					menoM.userData.loc = new THREE.Vector3(0.33* ratio, desk + 0.01, -0.08* ratio);
 					jars.add( menoM);
 					sectionMeshes.push(menoM);
 				}
@@ -502,7 +502,7 @@
 					yabobM.position.set( x, y, z );
 					yabobM.scale.set( piecescale, piecescale, piecescale);
 					yabobM.material.color.set(parameters.paddleColor);
-					yabobM.userData.loc = new THREE.Vector3(0.572* ratio, 0.74, 0.0396* ratio);
+					yabobM.userData.loc = new THREE.Vector3(0.572* ratio, desk + 0.01, 0.0396* ratio);
 					jars.add( yabobM);
 					sectionMeshes.push(yabobM);
 				}
@@ -515,7 +515,7 @@
 					tumleoM.position.set( x, y, z );
 					tumleoM.scale.set( piecescale, piecescale, piecescale);
 					tumleoM.material.color.set(parameters.paddleColor);
-					tumleoM.userData.loc = new THREE.Vector3(0.27* ratio, 0.74, -0.12* ratio);
+					tumleoM.userData.loc = new THREE.Vector3(0.27* ratio, desk + 0.01, -0.12* ratio);
 					jars.add( tumleoM);
 					sectionMeshes.push(tumleoM);
 				}
@@ -528,7 +528,7 @@
 					kaiepM.position.set( x, y, z );
 					kaiepM.scale.set( piecescale, piecescale, piecescale);
 					kaiepM.material.color.set(parameters.paddleColor);
-					kaiepM.userData.loc = new THREE.Vector3(0.41* ratio, 0.74, -0.07* ratio);
+					kaiepM.userData.loc = new THREE.Vector3(0.41* ratio, desk + 0.01, -0.07* ratio);
 					jars.add( kaiepM);
 					sectionMeshes.push(kaiepM);
 				}
@@ -541,7 +541,7 @@
 					motoM.position.set( x, y, z );
 					motoM.scale.set( piecescale, piecescale, piecescale);
 					motoM.material.color.set(parameters.paddleColor);
-					motoM.userData.loc = new THREE.Vector3(0.71* ratio, 0.74, 0.42* ratio);
+					motoM.userData.loc = new THREE.Vector3(0.71* ratio, desk + 0.01, 0.42* ratio);
 					jars.add( motoM);
 					sectionMeshes.push(motoM);
 				}
@@ -554,7 +554,7 @@
 					huonM.position.set( x, y, z );
 					huonM.scale.set( piecescale, piecescale, piecescale);
 					huonM.material.color.set(parameters.paddleColor);
-					huonM.userData.loc = new THREE.Vector3(0.71* ratio, 0.74, 0.13* ratio);
+					huonM.userData.loc = new THREE.Vector3(0.71* ratio, desk + 0.01, 0.13* ratio);
 					jars.add( huonM);
 					sectionMeshes.push(huonM);
 				}
@@ -567,7 +567,7 @@
 					manusM.position.set( x, y, z );
 					manusM.scale.set( piecescale, piecescale, piecescale);
 					manusM.material.color.set(parameters.paddleColor);
-					manusM.userData.loc = new THREE.Vector3(0.66* ratio, 0.74, -0.2* ratio);
+					manusM.userData.loc = new THREE.Vector3(0.66* ratio, desk + 0.01, -0.2* ratio);
 					jars.add( manusM);
 					sectionMeshes.push(manusM);
 				}
@@ -580,7 +580,7 @@
 					ilesalesM.position.set( x, y, z );
 					ilesalesM.scale.set( piecescale, piecescale, piecescale);
 					ilesalesM.material.color.set(parameters.paddleColor);
-					ilesalesM.userData.loc = new THREE.Vector3(-0.34* ratio, 0.74, 0.11* ratio);
+					ilesalesM.userData.loc = new THREE.Vector3(-0.34* ratio, desk + 0.01, 0.11* ratio);
 					jars.add( ilesalesM);
 					sectionMeshes.push(ilesalesM);
 				}
@@ -594,7 +594,7 @@
 					malukuM.position.set( x, y, z );
 					malukuM.scale.set( piecescale, piecescale, piecescale);
 					malukuM.material.color.set(parameters.paddleAddColor);
-					malukuM.userData.loc = new THREE.Vector3(-0.86* ratio, 0.74, -0.08* ratio);
+					malukuM.userData.loc = new THREE.Vector3(-0.86* ratio, desk + 0.01, -0.08* ratio);
 					jars.add( malukuM);
 					sectionMeshes.push(malukuM);
 				}
@@ -608,7 +608,7 @@
 					waigeoM.position.set( x, y, z );
 					waigeoM.scale.set( piecescale, piecescale, piecescale);
 					waigeoM.material.color.set(parameters.paddleAddColor);
-					waigeoM.userData.loc = new THREE.Vector3(-0.65* ratio, 0.74, -0.35* ratio);
+					waigeoM.userData.loc = new THREE.Vector3(-0.65* ratio, desk + 0.01, -0.35* ratio);
 					jars.add( waigeoM);
 					sectionMeshes.push(waigeoM);
 				}
@@ -700,175 +700,175 @@
 				const sectionTorus = []		
 
 				const agarabiSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20  ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				agarabiSite.position.set(0.55 * ratio, 0.74, 0.15 *ratio);
+				agarabiSite.position.set(0.55 * ratio, desk + 0.01, 0.15 *ratio);
 				agarabiSite.scale.set( piecescale, piecescale, piecescale);
 				agarabiSite.rotation.x = -Math.PI * 1/2;
 				agarabiSite.userData.planes = agarabiG;
 				torus.add( agarabiSite);
 
 				const dimiriSite = new THREE.Mesh( new THREE.TorusGeometry(0.015, 0.007, 20, 20  ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				dimiriSite.position.set(0.43 *ratio, 0.74, 0 *ratio);
+				dimiriSite.position.set(0.43 *ratio, desk + 0.01, 0 *ratio);
 				dimiriSite.scale.set( piecescale, piecescale, piecescale);
 				dimiriSite.rotation.x = -Math.PI * 1/2;
 				dimiriSite.userData.planes = dimiriG;
 				torus.add(dimiriSite);
 
 				const begilamSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				begilamSite.position.set(0.28* ratio, 0.74, -0.01* ratio);
+				begilamSite.position.set(0.28* ratio, desk + 0.01, -0.01* ratio);
 				begilamSite.scale.set( piecescale, piecescale, piecescale);
 				begilamSite.rotation.x = -Math.PI * 1/2;
 				begilamSite.userData.planes = begilamG;
 				torus.add(begilamSite);
 
 				const ilesalesSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				ilesalesSite.position.set(-0.34* ratio, 0.74, 0.11* ratio);
+				ilesalesSite.position.set(-0.34* ratio, desk + 0.01, 0.11* ratio);
 				ilesalesSite.scale.set( piecescale, piecescale, piecescale);
 				ilesalesSite.rotation.x = -Math.PI * 1/2;
 				ilesalesSite.userData.planes = ilesalesG;
 				torus.add( ilesalesSite);
 		
 				const louisadeSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				louisadeSite.position.set(0.99* ratio, 0.74, 0.59* ratio);
+				louisadeSite.position.set(0.99* ratio, desk + 0.01, 0.59* ratio);
 				louisadeSite.scale.set( piecescale, piecescale, piecescale);
 				louisadeSite.rotation.x = -Math.PI * 1/2;
 				louisadeSite.userData.planes = louisadeG;
 				torus.add(louisadeSite);
 
 				const aloaloSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				aloaloSite.position.set(0.9* ratio, 0.74, 0.49* ratio);
+				aloaloSite.position.set(0.9* ratio, desk + 0.01, 0.49* ratio);
 				aloaloSite.scale.set( piecescale, piecescale, piecescale);
 				aloaloSite.rotation.x = -Math.PI * 1/2;
 				aloaloSite.userData.planes = aloaloG;
 				torus.add(aloaloSite);
 
 				const mailuSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				mailuSite.position.set(0.84* ratio, 0.74, 0.48* ratio);
+				mailuSite.position.set(0.84* ratio, desk + 0.01, 0.48* ratio);
 				mailuSite.scale.set( piecescale, piecescale, piecescale);
 				mailuSite.rotation.x = -Math.PI * 1/2;
 				mailuSite.userData.planes = mailuG;
 				torus.add(mailuSite);
 
 				const motoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				motoSite.position.set(0.71* ratio, 0.74, 0.42* ratio);
+				motoSite.position.set(0.71* ratio, desk + 0.01, 0.42* ratio);
 				motoSite.scale.set( piecescale, piecescale, piecescale);
 				motoSite.rotation.x = -Math.PI * 1/2;
 				motoSite.userData.planes = motoG;
 				torus.add( motoSite);
 
 				const collSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				collSite.position.set(0.85* ratio, 0.74, 0.4* ratio);
+				collSite.position.set(0.85* ratio, desk + 0.01, 0.4* ratio);
 				collSite.scale.set( piecescale, piecescale, piecescale);
 				collSite.rotation.x = -Math.PI * 1/2;
 				collSite.userData.planes = collG;
 				torus.add(collSite);
 
 				const triobriandSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				triobriandSite.position.set(1.01* ratio, 0.74, 0.33* ratio);
+				triobriandSite.position.set(1.01* ratio, desk + 0.01, 0.33* ratio);
 				triobriandSite.scale.set( piecescale, piecescale, piecescale);
 				triobriandSite.rotation.x = -Math.PI * 1/2;
 				triobriandSite.userData.planes = triobriandG;
 				torus.add(triobriandSite);
 
 				const adzeraSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				adzeraSite.position.set(0.61* ratio, 0.74, 0.15* ratio);
+				adzeraSite.position.set(0.61* ratio, desk + 0.01, 0.15* ratio);
 				adzeraSite.scale.set( piecescale, piecescale, piecescale);
 				adzeraSite.rotation.x = -Math.PI * 1/2;
 				adzeraSite.userData.planes = adzeraG;
 				torus.add(adzeraSite);
 
 				const huonSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				huonSite.position.set(0.71* ratio, 0.74, 0.13* ratio);
+				huonSite.position.set(0.71* ratio, desk + 0.01, 0.13* ratio);
 				huonSite.scale.set( piecescale, piecescale, piecescale);
 				huonSite.rotation.x = -Math.PI * 1/2;
 				huonSite.userData.planes = huonG;
 				torus.add( huonSite);
 
 				const marikSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				marikSite.position.set(0.575* ratio, 0.74, 0.079* ratio);
+				marikSite.position.set(0.575* ratio, desk + 0.01, 0.079* ratio);
 				marikSite.scale.set( piecescale, piecescale, piecescale);
 				marikSite.rotation.x = -Math.PI * 1/2;
 				marikSite.userData.planes = marikG;
 				torus.add(marikSite);
 
 				const sumeoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				sumeoSite.position.set(0.53* ratio, 0.74, 0.09* ratio);
+				sumeoSite.position.set(0.53* ratio, desk + 0.01, 0.09* ratio);
 				sumeoSite.scale.set( piecescale, piecescale, piecescale);
 				sumeoSite.rotation.x = -Math.PI * 1/2;
 				sumeoSite.userData.planes = pubineriG;
 				torus.add(sumeoSite);
 
 				const yabobSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				yabobSite.position.set(0.572* ratio, 0.74, 0.0396* ratio);
+				yabobSite.position.set(0.572* ratio, desk + 0.01, 0.0396* ratio);
 				yabobSite.scale.set( piecescale, piecescale, piecescale);
 				yabobSite.rotation.x = -Math.PI * 1/2;
 				yabobSite.userData.planes = yabobG;
 				torus.add(yabobSite);
 
 				const bauSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				bauSite.position.set(0.535* ratio, 0.74, 0.04* ratio);
+				bauSite.position.set(0.535* ratio, desk + 0.01, 0.04* ratio);
 				bauSite.scale.set( piecescale, piecescale, piecescale);
 				bauSite.rotation.x = -Math.PI * 1/2;
 				bauSite.userData.planes = bauG;
 				torus.add( bauSite);
 
 				const manusSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				manusSite.position.set(0.66* ratio, 0.74, -0.2* ratio);
+				manusSite.position.set(0.66* ratio, desk + 0.01, -0.2* ratio);
 				manusSite.scale.set( piecescale, piecescale, piecescale);
 				manusSite.rotation.x = -Math.PI * 1/2;
 				manusSite.userData.planes = manusG;
 				torus.add(manusSite);
 				
 				const kaiepSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				kaiepSite.position.set(0.41* ratio, 0.74, -0.07* ratio);
+				kaiepSite.position.set(0.41* ratio, desk + 0.01, -0.07* ratio);
 				kaiepSite.scale.set( piecescale, piecescale, piecescale);
 				kaiepSite.rotation.x = -Math.PI * 1/2;
 				kaiepSite.userData.planes = kaiepG;
 				torus.add(kaiepSite);
 
 				const aibomSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				aibomSite.position.set(0.36* ratio, 0.74,-0.01* ratio);
+				aibomSite.position.set(0.36* ratio, desk + 0.01,-0.01* ratio);
 				aibomSite.scale.set( piecescale, piecescale, piecescale);
 				aibomSite.rotation.x = -Math.PI * 1/2;
 				aibomSite.userData.planes = aibomG;
 				torus.add(aibomSite);
 
 				const kombioSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				kombioSite.position.set(0.29* ratio, 0.74, -0.05* ratio);
+				kombioSite.position.set(0.29* ratio, desk + 0.01, -0.05* ratio);
 				kombioSite.scale.set( piecescale, piecescale, piecescale);
 				kombioSite.rotation.x = -Math.PI * 1/2;
 				kombioSite.userData.planes = kombioG;
 				torus.add( kombioSite);
 
 				const menoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				menoSite.position.set(0.33* ratio, 0.74, -0.08* ratio);
+				menoSite.position.set(0.33* ratio, desk + 0.01, -0.08* ratio);
 				menoSite.scale.set( piecescale, piecescale, piecescale);
 				menoSite.rotation.x = -Math.PI * 1/2;
 				menoSite.userData.planes = menoG;
 				torus.add(menoSite);
 
 				const tumleoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				tumleoSite.position.set(0.27* ratio, 0.74, -0.12* ratio);
+				tumleoSite.position.set(0.27* ratio, desk + 0.01, -0.12* ratio);
 				tumleoSite.scale.set( piecescale, piecescale, piecescale);
 				tumleoSite.rotation.x = -Math.PI * 1/2;
 				tumleoSite.userData.planes = tumleoG;
 				torus.add(tumleoSite);
 
 				const demtaSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				demtaSite.position.set(0.13* ratio, 0.74, -0.16* ratio);
+				demtaSite.position.set(0.13* ratio, desk + 0.01, -0.16* ratio);
 				demtaSite.scale.set( piecescale, piecescale, piecescale);
 				demtaSite.rotation.x = -Math.PI * 1/2;
 				demtaSite.userData.planes = demtaG;
 				torus.add(demtaSite);
 
 				const waigeoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				waigeoSite.position.set(-0.65* ratio, 0.74, -0.35* ratio);
+				waigeoSite.position.set(-0.65* ratio, desk + 0.01, -0.35* ratio);
 				waigeoSite.scale.set( piecescale, piecescale, piecescale);
 				waigeoSite.rotation.x = -Math.PI * 1/2;
 				waigeoSite.userData.planes = waigeoG;
 				torus.add( waigeoSite);
 
 				const malukuSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				malukuSite.position.set(-0.86* ratio, 0.74, -0.08* ratio);
+				malukuSite.position.set(-0.86* ratio, desk + 0.01, -0.08* ratio);
 				malukuSite.scale.set( piecescale, piecescale, piecescale);
 				malukuSite.rotation.x = -Math.PI * 1/2;
 				malukuSite.userData.planes = malukuG;
