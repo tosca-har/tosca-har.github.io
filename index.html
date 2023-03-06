@@ -225,7 +225,7 @@
 
 
 				//the Map
-				const mapGeometry = new THREE.PlaneGeometry( 3.0, 1.5 );
+				const mapGeometry = new THREE.PlaneGeometry( 3.0 * ratio, 1.5 * ratio );
 				const mapTexture = textureLoader.load('textures/png.png'); //from google maps
 				mapTexture.generateMipmaps = true //saves gpu if false
 				const theMap = new THREE.Mesh( mapGeometry, new THREE.MeshBasicMaterial({ map: mapTexture }));
@@ -237,7 +237,8 @@
 				//Lights
 				//scene.add( new THREE.HemisphereLight( 0x808080, 0x606060 ) ); 
 				scene.add( new THREE.HemisphereLight( 0xffffbb, 0x080820, 1) ); //sky, ground, intensity 0xffffbb, 0x080820, 1
-				const light = new THREE.DirectionalLight( 0xffffff );
+				//const light = new THREE.DirectionalLight( 0xffffff );
+				const light = new THREE.AmbientLight( 0x404040, 1 );
 				light.position.set( 0, 6, 0 );
 				scene.add( light );
 
