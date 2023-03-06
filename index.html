@@ -239,7 +239,7 @@
 				scene.add( new THREE.HemisphereLight( 0xffffbb, 0x080820, 1) ); //sky, ground, intensity 0xffffbb, 0x080820, 1
 				const light = new THREE.DirectionalLight( 0xffffff );
 				//const light = new THREE.AmbientLight( 0x404040, 1 );
-				light.position.set( 0, 6, 0 );
+				light.position.set( -1, 6, -2 );
 				scene.add( light );
 
 
@@ -1006,12 +1006,12 @@
 
 					trueposition = object.userData.loc;
 					jars.attach( object );
-					 if ( aposition.distanceTo( trueposition ) < .02 * ratio) {
+					 if ( aposition.distanceTo( trueposition ) < .025 * ratio) {
 					 	scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
 						object.position.set(trueposition.x, trueposition.y, trueposition.z);
 						object.rotation.set(0, 0, 0);
 						//object.scale.set( panelscale, panelscale, panelscale );
-						//unmoveable.attach( object );
+						unmoveable.attach( object );
 					 }
 									
 					controller.userData.selected = undefined;
