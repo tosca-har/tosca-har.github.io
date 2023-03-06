@@ -44,7 +44,7 @@
 			const intersected2 = [];
 			const tempMatrix = new THREE.Matrix4();
 			let zeroz = new THREE.Vector3( 0, 0.74 , 0); // table height
-			let controls, jars, torus, selectedPlane, trueposition;
+			let controls, jars, torus, selectedPlane, trueposition, unmoveable;
 // can either have 26 galleries that hide and show, or change the texture on one gallery. As changed out of init must be declared here.
 			let gallery, adzeraG, agarabiG, aibomG, aloaloG, bauG, begilamG, collG, demtaG, dimiriG, huonG, ilesalesG;
 			let kaiepG, kombioG, louisadeG, mailuG, malukuG, manusG, marikG, menoG, motoG, pubineriG, triobriandG, tumleoG;
@@ -246,6 +246,8 @@
 				// jars
 				jars = new THREE.Group();
 				scene.add( jars );
+				unmoveable = new THREE.Group();
+				scene.add(unmoveable); 
 				const sectionMeshes = []
 				let piecescale = ratio;
 				const loader = new GLTFLoader();
