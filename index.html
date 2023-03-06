@@ -1004,7 +1004,7 @@
 
 					trueposition = object.userData.loc;
 					jars.attach( object );
-					 if ( aposition.distanceTo( trueposition ) < .02) {
+					 if ( aposition.distanceTo( trueposition ) < .02 * ratio) {
 					 	scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
 						object.position.set(trueposition.x, trueposition.y, trueposition.z);
 						object.rotation.set(0, 0, 0);
