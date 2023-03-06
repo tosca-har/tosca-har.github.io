@@ -695,11 +695,7 @@
 				// torus
 				torus = new THREE.Group();
 				scene.add( torus );
-				const sectionTorus = []
-				const torusMaterial = new THREE.MeshBasicMaterial({color: 0x006400});
-				const torusGeometry = new THREE.TorusGeometry( 0.015* ratio, 0.005 * ratio, 20, 20 );
-
-			
+				const sectionTorus = []		
 
 				const agarabiSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20  ), new THREE.MeshStandardMaterial({color: 0x006400}));
 				agarabiSite.position.set(0.55 * ratio, 0.74, 0.15 *ratio);
@@ -716,161 +712,161 @@
 				torus.add(dimiriSite);
 
 				const begilamSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				begilamSite.position.set(0.28, 0.74, -0.01);
+				begilamSite.position.set(0.28* ratio, 0.74, -0.01* ratio);
 				begilamSite.scale.set( piecescale, piecescale, piecescale);
 				begilamSite.rotation.x = -Math.PI * 1/2;
 				begilamSite.userData.planes = begilamG;
 				torus.add(begilamSite);
 
 				const ilesalesSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				ilesalesSite.position.set(-0.34, 0.74, 0.11);
+				ilesalesSite.position.set(-0.34* ratio, 0.74, 0.11* ratio);
 				ilesalesSite.scale.set( piecescale, piecescale, piecescale);
 				ilesalesSite.rotation.x = -Math.PI * 1/2;
 				ilesalesSite.userData.planes = ilesalesG;
 				torus.add( ilesalesSite);
 		
 				const louisadeSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				louisadeSite.position.set(0.99, 0.74, 0.59);
+				louisadeSite.position.set(0.99* ratio, 0.74, 0.59* ratio);
 				louisadeSite.scale.set( piecescale, piecescale, piecescale);
 				louisadeSite.rotation.x = -Math.PI * 1/2;
 				louisadeSite.userData.planes = louisadeG;
 				torus.add(louisadeSite);
 
 				const aloaloSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				aloaloSite.position.set(0.9, 0.74, 0.49);
+				aloaloSite.position.set(0.9* ratio, 0.74, 0.49* ratio);
 				aloaloSite.scale.set( piecescale, piecescale, piecescale);
 				aloaloSite.rotation.x = -Math.PI * 1/2;
 				aloaloSite.userData.planes = aloaloG;
 				torus.add(aloaloSite);
 
 				const mailuSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				mailuSite.position.set(0.84, 0.74, 0.48);
+				mailuSite.position.set(0.84* ratio, 0.74, 0.48* ratio);
 				mailuSite.scale.set( piecescale, piecescale, piecescale);
 				mailuSite.rotation.x = -Math.PI * 1/2;
 				mailuSite.userData.planes = mailuG;
 				torus.add(mailuSite);
 
 				const motoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				motoSite.position.set(0.71, 0.74, 0.42);
+				motoSite.position.set(0.71* ratio, 0.74, 0.42* ratio);
 				motoSite.scale.set( piecescale, piecescale, piecescale);
 				motoSite.rotation.x = -Math.PI * 1/2;
 				motoSite.userData.planes = motoG;
 				torus.add( motoSite);
 
 				const collSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				collSite.position.set(0.85, 0.74, 0.4);
+				collSite.position.set(0.85* ratio, 0.74, 0.4* ratio);
 				collSite.scale.set( piecescale, piecescale, piecescale);
 				collSite.rotation.x = -Math.PI * 1/2;
 				collSite.userData.planes = collG;
 				torus.add(collSite);
 
-				const triobriandSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.005, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				triobriandSite.position.set(1.01, 0.74, 0.33);
+				const triobriandSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				triobriandSite.position.set(1.01* ratio, 0.74, 0.33* ratio);
 				triobriandSite.scale.set( piecescale, piecescale, piecescale);
 				triobriandSite.rotation.x = -Math.PI * 1/2;
 				triobriandSite.userData.planes = triobriandG;
 				torus.add(triobriandSite);
 
 				const adzeraSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				adzeraSite.position.set(0.61, 0.74, 0.15);
+				adzeraSite.position.set(0.61* ratio, 0.74, 0.15* ratio);
 				adzeraSite.scale.set( piecescale, piecescale, piecescale);
 				adzeraSite.rotation.x = -Math.PI * 1/2;
 				adzeraSite.userData.planes = adzeraG;
 				torus.add(adzeraSite);
 
 				const huonSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				huonSite.position.set(0.71, 0.74, 0.13);
+				huonSite.position.set(0.71* ratio, 0.74, 0.13* ratio);
 				huonSite.scale.set( piecescale, piecescale, piecescale);
 				huonSite.rotation.x = -Math.PI * 1/2;
 				huonSite.userData.planes = huonG;
 				torus.add( huonSite);
 
 				const marikSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				marikSite.position.set(0.575, 0.74, 0.079);
+				marikSite.position.set(0.575* ratio, 0.74, 0.079* ratio);
 				marikSite.scale.set( piecescale, piecescale, piecescale);
 				marikSite.rotation.x = -Math.PI * 1/2;
 				marikSite.userData.planes = marikG;
 				torus.add(marikSite);
 
 				const sumeoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				sumeoSite.position.set(0.53, 0.74, 0.09);
+				sumeoSite.position.set(0.53* ratio, 0.74, 0.09* ratio);
 				sumeoSite.scale.set( piecescale, piecescale, piecescale);
 				sumeoSite.rotation.x = -Math.PI * 1/2;
 				sumeoSite.userData.planes = pubineriG;
 				torus.add(sumeoSite);
 
 				const yabobSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				yabobSite.position.set(0.572, 0.74, 0.0396);
+				yabobSite.position.set(0.572* ratio, 0.74, 0.0396* ratio);
 				yabobSite.scale.set( piecescale, piecescale, piecescale);
 				yabobSite.rotation.x = -Math.PI * 1/2;
 				yabobSite.userData.planes = yabobG;
 				torus.add(yabobSite);
 
 				const bauSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				bauSite.position.set(0.535, 0.74, 0.04);
+				bauSite.position.set(0.535* ratio, 0.74, 0.04* ratio);
 				bauSite.scale.set( piecescale, piecescale, piecescale);
 				bauSite.rotation.x = -Math.PI * 1/2;
 				bauSite.userData.planes = bauG;
 				torus.add( bauSite);
 
 				const manusSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				manusSite.position.set(0.66, 0.74, -0.2);
+				manusSite.position.set(0.66* ratio, 0.74, -0.2* ratio);
 				manusSite.scale.set( piecescale, piecescale, piecescale);
 				manusSite.rotation.x = -Math.PI * 1/2;
 				manusSite.userData.planes = manusG;
 				torus.add(manusSite);
 				
 				const kaiepSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				kaiepSite.position.set(0.41, 0.74, -0.07);
+				kaiepSite.position.set(0.41* ratio, 0.74, -0.07* ratio);
 				kaiepSite.scale.set( piecescale, piecescale, piecescale);
 				kaiepSite.rotation.x = -Math.PI * 1/2;
 				kaiepSite.userData.planes = kaiepG;
 				torus.add(kaiepSite);
 
 				const aibomSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				aibomSite.position.set(0.36, 0.74,-0.01);
+				aibomSite.position.set(0.36* ratio, 0.74,-0.01* ratio);
 				aibomSite.scale.set( piecescale, piecescale, piecescale);
 				aibomSite.rotation.x = -Math.PI * 1/2;
 				aibomSite.userData.planes = aibomG;
 				torus.add(aibomSite);
 
 				const kombioSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				kombioSite.position.set(0.29, 0.74, -0.05);
+				kombioSite.position.set(0.29* ratio, 0.74, -0.05* ratio);
 				kombioSite.scale.set( piecescale, piecescale, piecescale);
 				kombioSite.rotation.x = -Math.PI * 1/2;
 				kombioSite.userData.planes = kombioG;
 				torus.add( kombioSite);
 
 				const menoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				menoSite.position.set(0.33, 0.74, -0.08);
+				menoSite.position.set(0.33* ratio, 0.74, -0.08* ratio);
 				menoSite.scale.set( piecescale, piecescale, piecescale);
 				menoSite.rotation.x = -Math.PI * 1/2;
 				menoSite.userData.planes = menoG;
 				torus.add(menoSite);
 
 				const tumleoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				tumleoSite.position.set(0.27, 0.74, -0.12);
+				tumleoSite.position.set(0.27* ratio, 0.74, -0.12* ratio);
 				tumleoSite.scale.set( piecescale, piecescale, piecescale);
 				tumleoSite.rotation.x = -Math.PI * 1/2;
 				tumleoSite.userData.planes = tumleoG;
 				torus.add(tumleoSite);
 
 				const demtaSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				demtaSite.position.set(0.13, 0.74, -0.16);
+				demtaSite.position.set(0.13* ratio, 0.74, -0.16* ratio);
 				demtaSite.scale.set( piecescale, piecescale, piecescale);
 				demtaSite.rotation.x = -Math.PI * 1/2;
 				demtaSite.userData.planes = demtaG;
 				torus.add(demtaSite);
 
 				const waigeoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				waigeoSite.position.set(-0.65, 0.74, -0.35);
+				waigeoSite.position.set(-0.65* ratio, 0.74, -0.35* ratio);
 				waigeoSite.scale.set( piecescale, piecescale, piecescale);
 				waigeoSite.rotation.x = -Math.PI * 1/2;
 				waigeoSite.userData.planes = waigeoG;
 				torus.add( waigeoSite);
 
 				const malukuSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				malukuSite.position.set(-0.86, 0.74, -0.08);
+				malukuSite.position.set(-0.86* ratio, 0.74, -0.08* ratio);
 				malukuSite.scale.set( piecescale, piecescale, piecescale);
 				malukuSite.rotation.x = -Math.PI * 1/2;
 				malukuSite.userData.planes = malukuG;
@@ -1010,6 +1006,10 @@
 					jars.attach( object );
 					 if ( aposition.distanceTo( trueposition ) < .02) {
 					 	scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
+						// object.position.set(trueposition.x, trueposition.y, trueposition.z);
+						//object.rotation.set(0, object.userData.angle, 0);
+						//object.scale.set( panelscale, panelscale, panelscale );
+						//unmoveable.attach( object );
 					 }
 									
 					controller.userData.selected = undefined;
