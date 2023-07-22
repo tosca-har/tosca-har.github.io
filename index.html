@@ -39,14 +39,18 @@
 			let camera, scene, renderer;
 			let controller1, controller2;
 			let controllerGrip1, controllerGrip2;
+			let enableSelection = false;
+			const mouse = new THREE.Vector2(); 
+			const raycaster2 = new THREE.Raycaster(); //mouse raycaster
 	
-			let raycaster;
+			let raycaster; //VR raycaster
 			let ratio = 2;
 			let desk = 0.8;
 			const intersected = [];
 			const intersected2 = [];
 			const tempMatrix = new THREE.Matrix4();
 			let controls, jars, torus, selectedPlane, trueposition, unmoveable;
+			let controlsM; //mouse controls
 // can either have 26 galleries that hide and show, or change the texture on one gallery. As changed out of init must be declared here.
 			let gallery, adzeraG, agarabiG, aibomG, aloaloG, bauG, begilamG, collG, demtaG, dimiriG, huonG, ilesalesG;
 			let kaiepG, kombioG, louisadeG, mailuG, malukuG, manusG, marikG, menoG, motoG, pubineriG, triobriandG, tumleoG;
@@ -889,6 +893,9 @@
 
 				document.body.appendChild( VRButton.createButton( renderer ) );
 
+				//mouse controls
+				controlsM = new DragControls( [ ... jars ], camera, renderer.domElement );
+				controlsM.addEventListener( 'drag', render );
 				// controllers
 
 				controller1 = renderer.xr.getController( 0 );
@@ -923,6 +930,9 @@
 				raycaster = new THREE.Raycaster();
 
 				window.addEventListener( 'resize', onWindowResize );
+				document.addEventListener( 'click', onClick );
+				//window.addEventListener( 'keydown', onKeyDown );
+				//window.addEventListener( 'keyup', onKeyUp );
 			}
 
 
