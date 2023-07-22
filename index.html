@@ -27,32 +27,25 @@
 		<script type="module">
 
 			import * as THREE from 'three';
-			//import { OrbitControls } from './jsm/controls/OrbitControls.js';
+			import { OrbitControls } from './jsm/controls/OrbitControls.js';
 			import { VRButton } from './jsm/webxr/VRButton.js';
 			import { XRControllerModelFactory } from './jsm/webxr/XRControllerModelFactory.js';
 			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 			import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
-			import { DragControls } from './jsm/controls/DragControls.js';
 			//import { GUI } from './jsm/libs/lil-gui.module.min.js';
 			
 			let container;
 			let camera, scene, renderer;
 			let controller1, controller2;
 			let controllerGrip1, controllerGrip2;
-			//let enableSelection = false;
-			//const mouse = new THREE.Vector2(); 
-			//const raycaster2 = new THREE.Raycaster(); //mouse raycaster
 	
-			let raycaster; //VR raycaster
+			let raycaster;
 			let ratio = 2;
 			let desk = 0.8;
 			const intersected = [];
 			const intersected2 = [];
-			const sectionMeshes = [];
-			const objects = [];
 			const tempMatrix = new THREE.Matrix4();
 			let controls, jars, torus, selectedPlane, trueposition, unmoveable;
-			let controlsM; //mouse controls
 // can either have 26 galleries that hide and show, or change the texture on one gallery. As changed out of init must be declared here.
 			let gallery, adzeraG, agarabiG, aibomG, aloaloG, bauG, begilamG, collG, demtaG, dimiriG, huonG, ilesalesG;
 			let kaiepG, kombioG, louisadeG, mailuG, malukuG, manusG, marikG, menoG, motoG, pubineriG, triobriandG, tumleoG;
@@ -73,9 +66,9 @@
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
 				camera.position.set( 0, 1.6, 3 );
 
-				//controls = new OrbitControls( camera, container );
-				//controls.target.set( 0, 1.6, 0 );
-				//controls.update();
+				controls = new OrbitControls( camera, container );
+				controls.target.set( 0, 1.6, 0 );
+				controls.update();
 
 				const textureLoader = new THREE.TextureLoader()
 				// Load information panels  -first one is instructions
@@ -256,7 +249,7 @@
 				scene.add( jars );
 				unmoveable = new THREE.Group();
 				scene.add(unmoveable); 
-				
+				const sectionMeshes = []
 				let piecescale = ratio;
 				const loader = new GLTFLoader();
 				const dracoLoader = new DRACOLoader();
@@ -331,11 +324,6 @@
 					aibomM.userData.loc = new THREE.Vector3(0.36* ratio, desk + 0.01,-0.01* ratio);
 					jars.add( aibomM);
 					sectionMeshes.push(aibomM);
-					aibomM.traverse( function( o ) {
-
-if ( o.isMesh ) objects.push( o );
-
-} );
 				}
 
 				function onLoadMailu( gltf ) {
@@ -900,13 +888,6 @@ if ( o.isMesh ) objects.push( o );
 
 				document.body.appendChild( VRButton.createButton( renderer ) );
 
-				const geometry2 = new THREE.BoxGeometry();
-
-
-				//mouse controls
-				controlsM = new DragControls( [ objects ], camera, renderer.domElement );
-				controlsM.addEventListener( 'drag', render );
-				controlsM.transformGroup = true;
 				// controllers
 
 				controller1 = renderer.xr.getController( 0 );
@@ -941,9 +922,6 @@ if ( o.isMesh ) objects.push( o );
 				raycaster = new THREE.Raycaster();
 
 				window.addEventListener( 'resize', onWindowResize );
-				//document.addEventListener( 'click', onClick );
-				//window.addEventListener( 'keydown', onKeyDown );
-				//window.addEventListener( 'keyup', onKeyUp );
 			}
 
 
@@ -956,7 +934,6 @@ if ( o.isMesh ) objects.push( o );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 
 			}
-
 
 			function onSelectStart2( event ) {
 
