@@ -331,6 +331,11 @@
 					aibomM.userData.loc = new THREE.Vector3(0.36* ratio, desk + 0.01,-0.01* ratio);
 					jars.add( aibomM);
 					sectionMeshes.push(aibomM);
+					object.traverse( function( o ) {
+
+if ( o.isMesh ) objects.push( o );
+
+} );
 				}
 
 				function onLoadMailu( gltf ) {
@@ -896,30 +901,6 @@
 				document.body.appendChild( VRButton.createButton( renderer ) );
 
 				const geometry2 = new THREE.BoxGeometry();
-
-/* for ( let i = 0; i < 20; i ++ ) {
-
-	const object = new THREE.Mesh( geometry2, new THREE.MeshLambertMaterial( { color: Math.random() * 0xffffff } ) );
-
-	object.position.x = Math.random() * 30 - 15;
-	object.position.y = Math.random() * 15 - 7.5;
-	object.position.z = Math.random() * 20 - 10;
-
-	object.rotation.x = Math.random() * 2 * Math.PI;
-	object.rotation.y = Math.random() * 2 * Math.PI;
-	object.rotation.z = Math.random() * 2 * Math.PI;
-
-	object.scale.x = Math.random() * 2 + 1;
-	object.scale.y = Math.random() * 2 + 1;
-	object.scale.z = Math.random() * 2 + 1;
-
-	scene.add( object );
-
-	objects.push( object );
-
-} */
-
-objects.push(aibomM);
 
 
 				//mouse controls
