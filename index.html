@@ -904,7 +904,7 @@ if ( o.isMesh ) objects.push( o );
 
 
 				//mouse controls
-				controlsM = new DragControls( [ ... objects ], camera, renderer.domElement );
+				controlsM = new DragControls( [ objects ], camera, renderer.domElement );
 				controlsM.addEventListener( 'drag', render );
 				// controllers
 
