@@ -48,6 +48,7 @@
 			let desk = 0.8;
 			const intersected = [];
 			const intersected2 = [];
+			const sectionMeshes = []
 			const tempMatrix = new THREE.Matrix4();
 			let controls, jars, torus, selectedPlane, trueposition, unmoveable;
 			let controlsM; //mouse controls
@@ -254,7 +255,7 @@
 				scene.add( jars );
 				unmoveable = new THREE.Group();
 				scene.add(unmoveable); 
-				const sectionMeshes = []
+				
 				let piecescale = ratio;
 				const loader = new GLTFLoader();
 				const dracoLoader = new DRACOLoader();
@@ -894,8 +895,7 @@
 				document.body.appendChild( VRButton.createButton( renderer ) );
 
 				//mouse controls
-				//controlsM = new DragControls( [ ... jars ], camera, renderer.domElement );
-				controlsM = new DragControls( jars, camera, renderer.domElement );
+				controlsM = new DragControls( [ ... sectionMeshes ], camera, renderer.domElement );
 				controlsM.addEventListener( 'drag', render );
 				// controllers
 
