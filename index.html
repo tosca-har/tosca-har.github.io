@@ -40,15 +40,15 @@
 			let controller1, controller2;
 			let controllerGrip1, controllerGrip2;
 			let enableSelection = false;
-			const mouse = new THREE.Vector2(); 
-			const raycaster2 = new THREE.Raycaster(); //mouse raycaster
+			//const mouse = new THREE.Vector2(); 
+			//const raycaster2 = new THREE.Raycaster(); //mouse raycaster
 	
 			let raycaster; //VR raycaster
 			let ratio = 2;
 			let desk = 0.8;
 			const intersected = [];
 			const intersected2 = [];
-			const sectionMeshes = []
+			const sectionMeshes = [];
 			const tempMatrix = new THREE.Matrix4();
 			let controls, jars, torus, selectedPlane, trueposition, unmoveable;
 			let controlsM; //mouse controls
