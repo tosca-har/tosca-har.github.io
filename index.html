@@ -331,7 +331,7 @@
 					aibomM.userData.loc = new THREE.Vector3(0.36* ratio, desk + 0.01,-0.01* ratio);
 					jars.add( aibomM);
 					sectionMeshes.push(aibomM);
-					object.traverse( function( o ) {
+					aibomM.traverse( function( o ) {
 
 if ( o.isMesh ) objects.push( o );
 
