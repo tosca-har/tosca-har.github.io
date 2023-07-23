@@ -28,6 +28,7 @@
 
 			import * as THREE from 'three';
 			import { OrbitControls } from './jsm/controls/OrbitControls.js';
+			import { DragControls } from './jsm/controls/DragControls.js';
 			import { VRButton } from './jsm/webxr/VRButton.js';
 			import { XRControllerModelFactory } from './jsm/webxr/XRControllerModelFactory.js';
 			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
@@ -36,6 +37,7 @@
 			
 			let container;
 			let camera, scene, renderer;
+			let controls, dragControls;
 			let controller1, controller2;
 			let controllerGrip1, controllerGrip2;
 	
@@ -45,7 +47,7 @@
 			const intersected = [];
 			const intersected2 = [];
 			const tempMatrix = new THREE.Matrix4();
-			let controls, jars, torus, selectedPlane, trueposition, unmoveable;
+			let jars, torus, selectedPlane, trueposition, unmoveable;
 // can either have 26 galleries that hide and show, or change the texture on one gallery. As changed out of init must be declared here.
 			let gallery, adzeraG, agarabiG, aibomG, aloaloG, bauG, begilamG, collG, demtaG, dimiriG, huonG, ilesalesG;
 			let kaiepG, kombioG, louisadeG, mailuG, malukuG, manusG, marikG, menoG, motoG, pubineriG, triobriandG, tumleoG;
@@ -69,6 +71,14 @@
 				controls = new OrbitControls( camera, container );
 				controls.target.set( 0, 1.6, 0 );
 				controls.update();
+				dragControls = new DragControls( [ jars ], camera, container );
+    			dragControls.addEventListener('dragstart', function (event) {
+        			controls.enabled = false
+    			})
+    			dragControls.addEventListener('dragend', function (event) {
+        			controls.enabled = true
+    			})
+
 
 				const textureLoader = new THREE.TextureLoader()
 				// Load information panels  -first one is instructions
@@ -942,53 +952,38 @@
 				const intersections = getIntersections2( controller );
 
 				if ( intersections.length > 0 ) {
-
 					const intersection = intersections[ 0 ];
 					const object = intersection.object;
-					//object.material.emissive.b = 1;
 					object.material.emissive.b = 0;
-					//controller.attach( object );
-
 					controller.userData.selected = object;
-
 				}
 
 			}
 
 			function onSelectEnd2( event ) {
-
 				const controller = event.target;
-
 				if ( controller.userData.selected !== undefined ) {
-
 					const object = controller.userData.selected;
 					object.material.emissive.b = 0;
 					selectedPlane.visible = false;
 					selectedPlane = object.userData.planes;
 					selectedPlane.visible = true;
 					controller.userData.selected = undefined;
-
 				}
 
 
 			}
 			function onSelectStart( event ) {
-
 				const controller = event.target;
-
 				const intersections = getIntersections( controller );
 
 				if ( intersections.length > 0 ) {
-
 					const intersection = intersections[ 0 ];
-
 					const object = intersection.object;
 					//object.material.emissive.b = 1;
 					object.material.emissive.b = 0;
 					controller.attach( object );
-
 					controller.userData.selected = object;
-
 				}
 
 			}
@@ -996,15 +991,12 @@
 			function onSelectEnd( event ) {
 
 				const controller = event.target;
-
 				if ( controller.userData.selected !== undefined ) {
-
 					const object = controller.userData.selected;
 					object.material.emissive.b = 0;				
 					//test if position is right
 					let aposition = new THREE.Vector3(0,0,0); //needs to be something first
 					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
-
 					trueposition = object.userData.loc;
 					jars.attach( object );
 					 if ( aposition.distanceTo( trueposition ) < .025 * ratio) {
@@ -1013,12 +1005,9 @@
 						object.rotation.set(0, 0, 0);
 						//object.scale.set( panelscale, panelscale, panelscale );
 						unmoveable.attach( object );
-					 }
-									
+					 }									
 					controller.userData.selected = undefined;
-
 				}
-
 			}
 
 
