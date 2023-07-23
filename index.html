@@ -68,17 +68,6 @@
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10 );
 				camera.position.set( 0, 1.6, 3 );
 
-				controls = new OrbitControls( camera, container );
-				controls.target.set( 0, 1.6, 0 );
-				controls.update();
-				dragControls = new DragControls( [ jars ], camera, renderer.domElement );
-    			dragControls.addEventListener('dragstart', function (event) {
-        			controls.enabled = false
-    			})
-    			dragControls.addEventListener('dragend', function (event) {
-        			controls.enabled = true
-    			})
-
 
 				const textureLoader = new THREE.TextureLoader()
 				// Load information panels  -first one is instructions
@@ -897,6 +886,16 @@
 				container.appendChild( renderer.domElement );
 
 				document.body.appendChild( VRButton.createButton( renderer ) );
+				controls = new OrbitControls( camera, renderer.domElement);
+				controls.target.set( 0, 1.6, 0 );
+				controls.update();
+				dragControls = new DragControls( [ jars ], camera, renderer.domElement );
+    			dragControls.addEventListener('dragstart', function (event) {
+        			controls.enabled = false
+    			})
+    			dragControls.addEventListener('dragend', function (event) {
+        			controls.enabled = true
+    			})
 
 				// controllers
 
