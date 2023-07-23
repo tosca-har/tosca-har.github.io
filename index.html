@@ -71,7 +71,7 @@
 				controls = new OrbitControls( camera, container );
 				controls.target.set( 0, 1.6, 0 );
 				controls.update();
-				dragControls = new DragControls( [ jars ], camera, container );
+				dragControls = new DragControls( [ jars ], camera, renderer.domElement );
     			dragControls.addEventListener('dragstart', function (event) {
         			controls.enabled = false
     			})
