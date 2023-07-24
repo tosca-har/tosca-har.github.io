@@ -895,6 +895,9 @@
     			})
     			dragControls.addEventListener('dragend', function (event) {
         			controls.enabled = true
+					let object = event.object;
+        console.log(object.position)
+        console.log(object)
     			})
 
 				// controllers
