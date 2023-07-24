@@ -896,21 +896,20 @@
     			dragControls.addEventListener('dragend', function (event) {
         			controls.enabled = true
 					let object = event.object;
-        console.log(object.position)
+
         console.log(object.userData.loc)
-					let aposition = new THREE.Vector3(0,0,0); //needs to be something first
-					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
+					let aposition = object.position; //needs to be something first
+					//object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
 					console.log(aposition)					
 					trueposition = object.userData.loc;
 					// jars.attach( object );
 					console.log(aposition.distanceTo( trueposition ))
-					//  if ( aposition.distanceTo( trueposition ) < .025 * ratio) {
-					//  	scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
-					// 	object.position.set(trueposition.x, trueposition.y, trueposition.z);
-					// 	object.rotation.set(0, 0, 0);
-					// 	//object.scale.set( panelscale, panelscale, panelscale );
+					if ( aposition.distanceTo( trueposition ) < .025 * ratio) {
+					scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
+					object.position.set(trueposition.x, trueposition.y, trueposition.z);
+					object.rotation.set(0, 0, 0);
 					// 	unmoveable.attach( object );
-					// }		
+					 }		
     			})
 
 				// controllers
