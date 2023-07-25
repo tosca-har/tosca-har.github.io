@@ -963,9 +963,8 @@
 				if(intersects.length > 0){
 					const found = intersects[ 0 ].object;
 					selectedPlane.visible = false;
-					//selectedPlane = found.userData.planes;
-					//selectedPlane.visible = true;
-					console.log(found.userData.planes)
+					selectedPlane = found.userData.planes;
+					selectedPlane.visible = true;
 				}
 			}
 
