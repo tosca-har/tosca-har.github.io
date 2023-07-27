@@ -299,6 +299,77 @@
 				}
 
 // really should change so scale or colour accepted as argument if pos
+				
+				function onLoadLumi( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					lumiM = model.children[0];
+					lumiM.position.set( x, y, z );
+					lumiM.scale.set( piecescale, piecescale, piecescale);
+					lumiM.material.color.set(parameters.coilColor);
+					lumiM.userData.loc = new THREE.Vector3(0.25* ratio, desk + 0.01, -0.08* ratio);
+					jars.add(lumiM);
+					sectionMeshes.push(lumiM);
+				}
+
+				function onLoadBoikin( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					boikinM = model.children[0];
+					boikinM.position.set( x, y, z );
+					boikinM.scale.set( piecescale, piecescale, piecescale);
+					boikinM.material.color.set(parameters.coilColor);
+					boikinM.userData.loc = new THREE.Vector3(0.37* ratio, desk + 0.01, -0.08* ratio);
+					jars.add(boikinM);
+					sectionMeshes.push(boikinM);
+				}
+
+					function onLoadAbelam( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					abelamM = model.children[0];
+					abelamM.position.set( x, y, z );
+					abelamM.scale.set( piecescale, piecescale, piecescale);
+					abelamM.material.color.set(parameters.coilColor);
+					abelamM.userData.loc = new THREE.Vector3(0.33* ratio, desk + 0.01, -0.06* ratio);
+					jars.add(abelamM);
+					sectionMeshes.push(abelamM);
+				}
+
+					function onLoadGuhu( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					guhuM = model.children[0];
+					guhuM.position.set( x, y, z );
+					guhuM.scale.set( piecescale, piecescale, piecescale);
+					guhuM.material.color.set(parameters.coilColor);
+					guhuM.userData.loc = new THREE.Vector3(0.65* ratio, desk + 0.01, 0.23* ratio);
+					jars.add(guhuM);
+					sectionMeshes.push(guhuM);
+				}
+
+					function onLoadBiwaria( gltf ) {
+					const model = gltf.scene;					
+					const x = Math.random() - 1;
+					const y = 1.2;
+					const z = Math.random() * 0.5 - 0.3 ;
+					biwariaM = model.children[0];
+					biwariaM.position.set( x, y, z );
+					biwariaM.scale.set( piecescale, piecescale, piecescale);
+					biwariaM.material.color.set(parameters.coilBeatenColor);
+					biwariaM.userData.loc = new THREE.Vector3(0.76 * ratio, desk + 0.01, 0.34 * ratio);
+					jars.add( biwariaM);
+					sectionMeshes.push(biwariaM);
+				}
+
 				function onLoadAdzera( gltf ) {
 					const model = gltf.scene;					
 					const x = Math.random() - 1;
@@ -510,20 +581,6 @@
 					sectionMeshes.push(kombioM);
 				}
 
-				/* function onLoadMeno( gltf ) {
-					const model = gltf.scene;					
-					const x = Math.random() - 1;
-					const y = 1.2;
-					const z = Math.random() * 0.5 - 0.3 ;
-					menoM = model.children[0];
-					menoM.position.set( x, y, z );
-					menoM.scale.set( piecescale, piecescale, piecescale);
-					menoM.material.color.set(parameters.coilColor);
-					menoM.userData.loc = new THREE.Vector3(0.33* ratio, desk + 0.01, -0.08* ratio);
-					jars.add( menoM);
-					sectionMeshes.push(menoM);
-				} */
-
 				function onLoadYabob( gltf ) {
 					const model = gltf.scene;					
 					const x = Math.random() - 0.2;
@@ -646,8 +703,21 @@
 
 
 
-
-
+				loader.load( 'models/gltf/lumi.glb', onLoadLumi, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/guhu.glb', onLoadGuhu, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/binadean.glb', onLoadBiwaria, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/boiken.glb', onLoadBoikin, undefined, function ( error ) {
+					console.error( error );
+				} );
+				loader.load( 'models/gltf/kwimbu.glb', onLoadAbelam, undefined, function ( error ) {
+					console.error( error );
+				} );
 				loader.load( 'models/gltf/maluku.glb', onLoadMaluku, undefined, function ( error ) {
 					console.error( error );
 				} );
@@ -703,9 +773,6 @@
 				loader.load( 'models/gltf/marik.glb', onLoadMarik, undefined, function ( error ) {
 					console.error( error );
 				} );
-/* 				loader.load( 'models/gltf/meno.glb', onLoadMeno, undefined, function ( error ) {
-					console.error( error );
-				} ); */
 				loader.load( 'models/gltf/moto.glb', onLoadMoto, undefined, function ( error ) {
 					console.error( error );
 				} );
