@@ -45,7 +45,7 @@
 			let raycasterM, pointer; // for mouse controls
 			let ratio = 2;
 			let desk = 0.8; // desk height
-			let psize = 0.5; // panel dimensions
+			let psize = 1.0; // panel dimensions
 			const intersected = [];
 			const intersected2 = [];
 			const tempMatrix = new THREE.Matrix4(); //for VR controllers
@@ -109,12 +109,12 @@
 				const biawariaTexture = textureLoader.load( 'textures/Biawaria.jpg' );
 				const abelamTexture = textureLoader.load( 'textures/Abelam.jpg' );
 
-				const gheight = desk + 0.3;
+				const gheight = desk + 0.55;
 				const gallery2 = new THREE.Mesh(new THREE.PlaneGeometry( psize, psize ), new THREE.MeshBasicMaterial({ map: keyTexture }));
-				gallery2.position.set( 0.75, gheight, -.75); 
+				gallery2.position.set( 1.25, gheight, -.75); 
 				scene.add( gallery2);
 				const gallery3 = new THREE.Mesh(new THREE.PlaneGeometry(psize, psize  ), new THREE.MeshBasicMaterial({ map: refTexture }));
-				gallery3.position.set( -.75, gheight, -.75); 
+				gallery3.position.set( -1.25, gheight, -.75); 
 				scene.add( gallery3);
 
 
