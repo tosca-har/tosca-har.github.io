@@ -44,19 +44,23 @@
 			let raycaster; // for VR controls
 			let raycasterM, pointer; // for mouse controls
 			let ratio = 2;
-			let desk = 0.8;
+			let desk = 0.8; // desk height
+			let psize = 0.5; // panel dimensions
 			const intersected = [];
 			const intersected2 = [];
-			const tempMatrix = new THREE.Matrix4();
+			const tempMatrix = new THREE.Matrix4(); //for VR controllers
 			let jars, torus, selectedPlane, trueposition, unmoveable;
-// can either have 26 galleries that hide and show, or change the texture on one gallery. As changed out of init must be declared here.
+			//panels
 			let gallery, adzeraG, agarabiG, aibomG, aloaloG, bauG, begilamG, collG, demtaG, dimiriG, huonG, ilesalesG;
 			let kaiepG, kombioG, louisadeG, mailuG, malukuG, manusG, marikG, menoG, motoG, pubineriG, triobriandG, tumleoG;
-			let waigeoG, yabobG;
+			let waigeoG, yabobG, lumiG, boikinG, abelamG, biwariaG, guhuG;
+			//models
 			let agarabiM, adzeraM, collingwoodM, triobriandM, aibomM, demtaM, mailuM, bauM, pubineriM, marikM, yabobM, waigeoM;
 			let aloaloM, louisadeM, dimiriM, begilamM, kombioM, menoM, tumleoM, ilesalesM, malukuM, kaiepM, manusM, motoM, huonM;
-			init();
-			animate();
+			let lumiM, boikinM, abelamM, biwariaM, guhuM;
+
+			init(); //sets the scene
+			animate(); //listens for controller interactions
 
 			function init() {
 
@@ -98,126 +102,152 @@
 				const ilesalesTexture = textureLoader.load( 'textures/IleSales.jpg' );
 				const malukuTexture = textureLoader.load( 'textures/Maluku.jpg' );
 				const manusTexture = textureLoader.load( 'textures/Manus.jpg' );
-				//const menoTexture = textureLoader.load( 'textures/Meno.jpg' );
 				const triobriandTexture  = textureLoader.load( 'textures/Triobriand.jpg' );
-				
+				const lumiTexture = textureLoader.load( 'textures/Lumi.jpg' );
+				const guhuTexture = textureLoader.load( 'textures/guhu.jpg' );
+				const boikinTexture = textureLoader.load( 'textures/Boikin.jpg' );
+				const biawariaTexture = textureLoader.load( 'textures/Biawaria.jpg' );
+				const abelamTexture = textureLoader.load( 'textures/Abelam.jpg' );
 
 				const gheight = desk + 0.3;
-				const gallery2 = new THREE.Mesh(new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: keyTexture }));
+				const gallery2 = new THREE.Mesh(new THREE.PlaneGeometry( psize, psize ), new THREE.MeshBasicMaterial({ map: keyTexture }));
 				gallery2.position.set( 0.75, gheight, -.75); 
 				scene.add( gallery2);
-				const gallery3 = new THREE.Mesh(new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: refTexture }));
+				const gallery3 = new THREE.Mesh(new THREE.PlaneGeometry(psize, psize  ), new THREE.MeshBasicMaterial({ map: refTexture }));
 				gallery3.position.set( -.75, gheight, -.75); 
 				scene.add( gallery3);
 
 
-				gallery = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: introTexture }));
+				gallery = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: introTexture }));
 				gallery.position.set( 0, gheight, -.75); 
 				scene.add( gallery);
 				selectedPlane = gallery;
 
-				adzeraG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: adzeraTexture }));
+				lumiG = new THREE.Mesh( new THREE.PlaneGeometry(psize, psize  ), new THREE.MeshBasicMaterial({ map: lumiTexture }));
+				lumiG.position.set( 0, gheight, -.75); 
+				scene.add( lumiG);
+				lumiG.visible = false;
+
+				guhuG = new THREE.Mesh( new THREE.PlaneGeometry(psize, psize  ), new THREE.MeshBasicMaterial({ map: guhuTexture }));
+				guhuG.position.set( 0, gheight, -.75); 
+				scene.add( guhuG);
+				guhuG.visible = false;
+
+				biwariaG = new THREE.Mesh( new THREE.PlaneGeometry(psize, psize  ), new THREE.MeshBasicMaterial({ map: biawariaTexture }));
+				biwariaG.position.set( 0, gheight, -.75); 
+				scene.add( biwariaG);
+				biwariaG.visible = false;
+
+				abelamG = new THREE.Mesh( new THREE.PlaneGeometry(psize, psize  ), new THREE.MeshBasicMaterial({ map: abelamTexture }));
+				abelamG.position.set( 0, gheight, -.75); 
+				scene.add( abelamG);
+				abelamG.visible = false;
+
+				boikinG = new THREE.Mesh( new THREE.PlaneGeometry(psize, psize  ), new THREE.MeshBasicMaterial({ map: boikinTexture }));
+				boikinG.position.set( 0, gheight, -.75); 
+				scene.add( boikinG);
+				boikinG.visible = false;
+
+				adzeraG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: adzeraTexture }));
 				adzeraG.position.set( 0, gheight, -.75); 
 				scene.add( adzeraG);
 				adzeraG.visible = false;
-				agarabiG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: agarabiTexture }));
+
+				agarabiG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: agarabiTexture }));
 				agarabiG.position.set( 0, gheight, -.75); 
 				scene.add( agarabiG);
 				agarabiG.visible = false;
 
-				bauG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: bauTexture }));
+				bauG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: bauTexture }));
 				bauG.position.set( 0, gheight, -.75); 
 				scene.add( bauG);
 				bauG.visible = false;
-				begilamG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: begilamTexture }));
+				begilamG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: begilamTexture }));
 				begilamG.position.set( 0, gheight, -.75); 
 				scene.add( begilamG);
 				begilamG.visible = false;
-				aibomG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: aibomTexture }));
+				aibomG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: aibomTexture }));
 				aibomG.position.set( 0, gheight, -.75); 
 				scene.add( aibomG);
 				aibomG.visible = false;
-				kombioG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: kombioTexture }));
+				kombioG = new THREE.Mesh( new THREE.PlaneGeometry(psize, psize  ), new THREE.MeshBasicMaterial({ map: kombioTexture }));
 				kombioG.position.set( 0, gheight, -.75); 
 				scene.add( kombioG);
 				kombioG.visible = false;
 
-				demtaG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: demtaTexture }));
+				demtaG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: demtaTexture }));
 				demtaG.position.set( 0, gheight, -.75); 
 				scene.add( demtaG);
 				demtaG.visible = false;
-				collG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: collingwoodTexture }));
+				collG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: collingwoodTexture }));
 				collG.position.set( 0, gheight, -.75); 
 				scene.add( collG);
 				collG.visible = false;
-				aloaloG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: aloaloTexture }));
+				aloaloG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: aloaloTexture }));
 				aloaloG.position.set( 0, gheight, -.75); 
 				scene.add( aloaloG);
 				aloaloG.visible = false;
-				marikG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: marikTexture }));
+				marikG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: marikTexture }));
 				marikG.position.set( 0, gheight, -.75); 
 				scene.add( marikG);
 				marikG.visible = false;
 
-				louisadeG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: louisadeTexture }));
+				louisadeG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: louisadeTexture }));
 				louisadeG.position.set( 0, gheight, -.75); 
 				scene.add( louisadeG);
 				louisadeG.visible = false;
-				motoG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: motoTexture }));
+				motoG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: motoTexture }));
 				motoG.position.set( 0, gheight, -.75); 
 				scene.add(motoG);
 				motoG.visible = false;
-				mailuG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: mailuTexture }));
+				mailuG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: mailuTexture }));
 				mailuG.position.set( 0, gheight, -.75); 
 				scene.add( mailuG);
 				mailuG.visible = false;
-				waigeoG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: waigeoTexture }));
+				waigeoG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: waigeoTexture }));
 				waigeoG.position.set( 0, gheight, -.75); 
 				scene.add( waigeoG);
 				waigeoG.visible = false;
-				dimiriG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: dimiriTexture }));
+				dimiriG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: dimiriTexture }));
 				dimiriG.position.set( 0, gheight, -.75); 
 				scene.add(dimiriG);
 				dimiriG.visible = false;
-				kaiepG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: kaiepTexture }));
+				kaiepG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: kaiepTexture }));
 				kaiepG.position.set( 0, gheight, -.75); 
 				scene.add(kaiepG);
 				kaiepG.visible = false;
-				tumleoG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: tumleoTexture }));
+				tumleoG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: tumleoTexture }));
 				tumleoG.position.set( 0, gheight, -.75); 
 				scene.add( tumleoG);
 				tumleoG.visible = false;
-				huonG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: huonTexture }));
+				huonG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: huonTexture }));
 				huonG.position.set( 0, gheight, -.75); 
 				scene.add(  huonG);
 				huonG.visible = false;
 
-				yabobG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: yabobTexture }));
+				yabobG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize ), new THREE.MeshBasicMaterial({ map: yabobTexture }));
 				yabobG.position.set( 0, gheight, -.75); 
 				scene.add(yabobG);
 				yabobG.visible = false;
-				malukuG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: malukuTexture }));
+				malukuG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: malukuTexture }));
 				malukuG.position.set( 0, gheight, -.75); 
 				scene.add(malukuG);
 				malukuG.visible = false;
-				ilesalesG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: ilesalesTexture }));
+				ilesalesG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: ilesalesTexture }));
 				ilesalesG.position.set( 0, gheight, -.75); 
 				scene.add( ilesalesG);
 				ilesalesG.visible = false;
-				pubineriG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: pubineriTexture }));
+				pubineriG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: pubineriTexture }));
 				pubineriG.position.set( 0, gheight, -.75); 
 				scene.add(  pubineriG);
 				pubineriG.visible = false;
 
-				manusG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: manusTexture }));
+				manusG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: manusTexture }));
 				manusG.position.set( 0, gheight, -.75); 
 				scene.add(manusG);
 				manusG.visible = false;
-				//menoG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: menoTexture }));
-				//menoG.position.set( 0, gheight, -.75); 
-				//scene.add( menoG);
-				//menoG.visible = false;
-				triobriandG = new THREE.Mesh( new THREE.PlaneGeometry( 0.5, 0.5 ), new THREE.MeshBasicMaterial({ map: triobriandTexture }));
+
+				triobriandG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: triobriandTexture }));
 				triobriandG.position.set( 0, gheight, -.75); 
 				scene.add( triobriandG);
 				triobriandG.visible = false;
@@ -700,6 +730,41 @@
 				scene.add( torus );
 				const sectionTorus = []		
 
+				const lumiSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				lumiSite.position.set(0.25* ratio, desk + 0.01, -0.80* ratio);
+				lumiSite.scale.set( piecescale, piecescale, piecescale);
+				lumiSite.rotation.x = -Math.PI * 1/2;
+				lumiSite.userData.planes = lumiG;
+				torus.add(lumiSite); 
+
+				const boikinSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				boikinSite.position.set(0.37* ratio, desk + 0.01, -0.08* ratio);
+				boikinSite.scale.set( piecescale, piecescale, piecescale);
+				boikinSite.rotation.x = -Math.PI * 1/2;
+				boikinSite.userData.planes = boikinG;
+				torus.add(boikinSite); 
+
+				const abelamSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				abelamSite.position.set(0.33* ratio, desk + 0.01, -0.06* ratio);
+				abelamSite.scale.set( piecescale, piecescale, piecescale);
+				abelamSite.rotation.x = -Math.PI * 1/2;
+				abelamSite.userData.planes = abelamG;
+				torus.add(abelamSite); 
+
+				const biwariaSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				biwariaSite.position.set(0.76* ratio, desk + 0.01, 0.34* ratio);
+				biwariaSite.scale.set( piecescale, piecescale, piecescale);
+				biwariaSite.rotation.x = -Math.PI * 1/2;
+				biwariaSite.userData.planes = biwariaG;
+				torus.add(biwariaSite); 
+
+				const guhuSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
+				guhuSite.position.set(0.67* ratio, desk + 0.01, 0.22* ratio);
+				guhuSite.scale.set( piecescale, piecescale, piecescale);
+				guhuSite.rotation.x = -Math.PI * 1/2;
+				guhuSite.userData.planes = guhuG;
+				torus.add(guhuSite); 
+
 				const agarabiSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20  ), new THREE.MeshStandardMaterial({color: 0x006400}));
 				agarabiSite.position.set(0.55 * ratio, desk + 0.01, 0.15 *ratio);
 				agarabiSite.scale.set( piecescale, piecescale, piecescale);
@@ -839,13 +904,6 @@
 				kombioSite.rotation.x = -Math.PI * 1/2;
 				kombioSite.userData.planes = kombioG;
 				torus.add( kombioSite);
-
-/* 				const menoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				menoSite.position.set(0.33* ratio, desk + 0.01, -0.08* ratio);
-				menoSite.scale.set( piecescale, piecescale, piecescale);
-				menoSite.rotation.x = -Math.PI * 1/2;
-				menoSite.userData.planes = menoG;
-				torus.add(menoSite); */
 
 				const tumleoSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
 				tumleoSite.position.set(0.27* ratio, desk + 0.01, -0.12* ratio);
