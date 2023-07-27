@@ -731,7 +731,7 @@
 				const sectionTorus = []		
 
 				const lumiSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				lumiSite.position.set(0.25* ratio, desk + 0.01, -0.80* ratio);
+				lumiSite.position.set(0.25* ratio, desk + 0.01, -0.08* ratio);
 				lumiSite.scale.set( piecescale, piecescale, piecescale);
 				lumiSite.rotation.x = -Math.PI * 1/2;
 				lumiSite.userData.planes = lumiG;
@@ -759,7 +759,7 @@
 				torus.add(biwariaSite); 
 
 				const guhuSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
-				guhuSite.position.set(0.67* ratio, desk + 0.01, 0.22* ratio);
+				guhuSite.position.set(0.65* ratio, desk + 0.01, 0.23* ratio);
 				guhuSite.scale.set( piecescale, piecescale, piecescale);
 				guhuSite.rotation.x = -Math.PI * 1/2;
 				guhuSite.userData.planes = guhuG;
