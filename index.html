@@ -117,6 +117,25 @@
 				gallery3.position.set( -1.25, gheight, -.75); 
 				scene.add( gallery3);
 
+				const parameters = {
+			    materialColor: '#9c5315',
+				ringTopColor: '#19ffE7',
+				coilColor: '#ff0000',
+				paddleColor: '#1e2f97',
+				coilBeatenColor: '#e8e337',
+				paddleAddColor: '#a61ef4',
+				wangelaColor: '#BEBEBE',
+				amphColor: '#fc9483',
+				nabColor: '#209F00'
+				}
+				//spheres for key
+				const sphere = new THREE.SphereGeometry( 0.1, 10, 5); 
+				const sphere1 = new THREE.Mesh( sphere,  new THREE.MeshBasicMaterial( {color: parameters.coilColor })); 
+				sphere1.position.set( 1.25, gheight + psize/2, -.75); 
+				scene.add( sphere1 );
+
+
+
 
 				gallery = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: introTexture }));
 				gallery.position.set( 0, gheight, -.75); 
@@ -286,17 +305,7 @@
  				dracoLoader.setDecoderPath( '/draco/' );
  				loader.setDRACOLoader( dracoLoader );
 
-				const parameters = {
-			    materialColor: '#9c5315',
-				ringTopColor: '#19ffE7',
-				coilColor: '#ff0000',
-				paddleColor: '#1e2f97',
-				coilBeatenColor: '#e8e337',
-				paddleAddColor: '#a61ef4',
-				wangelaColor: '#BEBEBE',
-				amphColor: '#fc9483',
-				nabColor: '#209F00'
-				}
+
 
 // really should change so scale or colour accepted as argument if pos
 				
