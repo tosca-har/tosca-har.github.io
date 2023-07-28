@@ -129,11 +129,13 @@
 				nabColor: '#209F00'
 				}
 				//spheres for key
-				const sphere = new THREE.SphereGeometry( 0.1, 10, 5); 
-				const sphere1 = new THREE.Mesh( sphere,  new THREE.MeshBasicMaterial( {color: parameters.coilColor })); 
-				sphere1.position.set( 1.25, gheight + psize/2, -.75); 
+				const sphere = new THREE.SphereGeometry( 0.05, 10, 5); 
+				const sphere1 = new THREE.Mesh( sphere,  new THREE.MeshBasicMaterial( {color: parameters.materialColor })); 
+				sphere1.position.set( 0.80, gheight + (psize *.45), -.75); 
 				scene.add( sphere1 );
-
+				const sphere2 = new THREE.Mesh( sphere,  new THREE.MeshBasicMaterial( {color: parameters.coilColor })); 
+				sphere2.position.set( 0.80, gheight + (psize *.4), -.75); 
+				scene.add( sphere2 );
 
 
 
