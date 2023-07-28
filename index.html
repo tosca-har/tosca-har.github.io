@@ -118,9 +118,9 @@
 				scene.add( gallery3);
 
 				const parameters = {
-			    materialColor: '#9c5315',
+			    materialColor: '#9c5315', // ring on hemi base
 				ringTopColor: '#19ffE7',
-				coilColor: '#ff0000',
+				coilColor: '#ff0000', // spiral coil
 				paddleColor: '#1e2f97',
 				coilBeatenColor: '#e8e337',
 				paddleAddColor: '#a61ef4',
@@ -129,17 +129,17 @@
 				nabColor: '#209F00'
 				}
 				//spheres for key
-				const sphere = new THREE.SphereGeometry( 0.05, 10, 5); 
-				const sphere1 = new THREE.Mesh( sphere,  new THREE.MeshBasicMaterial( {color: parameters.materialColor })); 
-				sphere1.position.set( 0.83, gheight + (psize *.25), -.75); 
+				const sphere = new THREE.SphereGeometry( 0.04, 10, 5); 
+				const sphere1 = new THREE.Mesh( sphere,  new THREE.MeshStandardMaterial( {color: parameters.materialColor })); 
+				sphere1.position.set( 0.83, gheight + (psize *.27), -.75); 
 				scene.add( sphere1 );
-				const sphere2 = new THREE.Mesh( sphere,  new THREE.MeshBasicMaterial( {color: parameters.coilColor })); 
+				const sphere2 = new THREE.Mesh( sphere,  new THREE.MeshStandardMaterial( {color: parameters.coilColor })); 
 				sphere2.position.set( 0.83, gheight + (psize *.20), -.75); 
 				scene.add( sphere2 );
-				const sphere3 = new THREE.Mesh( sphere,  new THREE.MeshBasicMaterial( {color: parameters.wangelaColor })); 
+				const sphere3 = new THREE.Mesh( sphere,  new THREE.MeshStandardMaterial( {color: parameters.wangelaColor })); 
 				sphere3.position.set( 0.83, gheight - (psize *.05), -.75); 
 				scene.add( sphere3 );
-				const sphere4 = new THREE.Mesh( sphere,  new THREE.MeshBasicMaterial( {color: parameters.nabColor })); 
+				const sphere4 = new THREE.Mesh( sphere,  new THREE.MeshStandardMaterial( {color: parameters.nabColor })); 
 				sphere4.position.set( 0.83, gheight + (psize), -.75); 
 				scene.add( sphere4 );
 				const sphere5 = new THREE.Mesh( sphere,  new THREE.MeshStandardMaterial( {color: parameters.paddleAddColor})); 
@@ -148,7 +148,7 @@
 				const sphere6 = new THREE.Mesh( sphere,  new THREE.MeshStandardMaterial( {color: parameters.coilBeatenColor})); 
 				sphere6.position.set( 0.83, gheight + (psize *.15), -.75); 
 				scene.add( sphere6 );
-				const sphere7 = new THREE.Mesh( sphere,  new THREE.MeshBasicMaterial( {color: parameters.amphColor })); 
+				const sphere7 = new THREE.Mesh( sphere,  new THREE.MeshStandardMaterial( {color: parameters.amphColor })); 
 				sphere7.position.set( 0.83, gheight + (psize *.10), -.75); 
 				scene.add( sphere7 );
 				const sphere8 = new THREE.Mesh( sphere,  new THREE.MeshStandardMaterial( {color: parameters.paddleColor})); 
