@@ -122,7 +122,7 @@
 				ringTopColor: '#19ffE7',
 				coilColor: '#ff0000', // spiral coil
 				paddleColor: '#1e2f97',
-				coilBeatenColor: '#e8e337',
+				coilBeatenColor: '#e8e337', //
 				paddleAddColor: '#a61ef4',
 				wangelaColor: '#BEBEBE',
 				amphColor: '#fc9483',
@@ -336,6 +336,7 @@
 					const y = 1.2;
 					const z = Math.random() * 0.5 - 0.3 ;
 					lumiM = model.children[0];
+					lumiM.material = new THREE.MeshStandardMaterial();
 					lumiM.position.set( x, y, z );
 					lumiM.scale.set( piecescale, piecescale, piecescale);
 					lumiM.material.color.set(parameters.coilColor);
