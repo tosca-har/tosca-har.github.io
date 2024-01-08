@@ -33,7 +33,6 @@
 			import { XRControllerModelFactory } from './jsm/webxr/XRControllerModelFactory.js';
 			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 			import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
-			//import { GUI } from './jsm/libs/lil-gui.module.min.js';
 			
 			let container;
 			let camera, scene, renderer;
@@ -158,11 +157,14 @@
 				sphere7.position.set( 0.84, gheight - (psize *.44), -.75); 
 				scene.add( sphere7 );
 
+				//add the instruction panel at start.
 				gallery = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: introTexture }));
 				gallery.position.set( 0, gheight, -.75); 
 				scene.add( gallery);
 				selectedPlane = gallery;
 
+
+				//add the information panels but hide them until the jar is selected. Panels are planes with textures.
 				lumiG = new THREE.Mesh( new THREE.PlaneGeometry(psize, psize  ), new THREE.MeshBasicMaterial({ map: lumiTexture }));
 				lumiG.position.set( 0, gheight, -.75); 
 				scene.add( lumiG);
@@ -202,14 +204,17 @@
 				bauG.position.set( 0, gheight, -.75); 
 				scene.add( bauG);
 				bauG.visible = false;
+
 				begilamG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: begilamTexture }));
 				begilamG.position.set( 0, gheight, -.75); 
 				scene.add( begilamG);
 				begilamG.visible = false;
+
 				aibomG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: aibomTexture }));
 				aibomG.position.set( 0, gheight, -.75); 
 				scene.add( aibomG);
 				aibomG.visible = false;
+
 				kombioG = new THREE.Mesh( new THREE.PlaneGeometry(psize, psize  ), new THREE.MeshBasicMaterial({ map: kombioTexture }));
 				kombioG.position.set( 0, gheight, -.75); 
 				scene.add( kombioG);
@@ -219,14 +224,17 @@
 				demtaG.position.set( 0, gheight, -.75); 
 				scene.add( demtaG);
 				demtaG.visible = false;
+
 				collG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: collingwoodTexture }));
 				collG.position.set( 0, gheight, -.75); 
 				scene.add( collG);
 				collG.visible = false;
+
 				aloaloG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: aloaloTexture }));
 				aloaloG.position.set( 0, gheight, -.75); 
 				scene.add( aloaloG);
 				aloaloG.visible = false;
+
 				marikG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: marikTexture }));
 				marikG.position.set( 0, gheight, -.75); 
 				scene.add( marikG);
@@ -236,30 +244,37 @@
 				louisadeG.position.set( 0, gheight, -.75); 
 				scene.add( louisadeG);
 				louisadeG.visible = false;
+
 				motoG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: motoTexture }));
 				motoG.position.set( 0, gheight, -.75); 
 				scene.add(motoG);
 				motoG.visible = false;
+
 				mailuG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: mailuTexture }));
 				mailuG.position.set( 0, gheight, -.75); 
 				scene.add( mailuG);
 				mailuG.visible = false;
+
 				waigeoG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: waigeoTexture }));
 				waigeoG.position.set( 0, gheight, -.75); 
 				scene.add( waigeoG);
 				waigeoG.visible = false;
+
 				dimiriG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: dimiriTexture }));
 				dimiriG.position.set( 0, gheight, -.75); 
 				scene.add(dimiriG);
 				dimiriG.visible = false;
+
 				kaiepG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: kaiepTexture }));
 				kaiepG.position.set( 0, gheight, -.75); 
 				scene.add(kaiepG);
 				kaiepG.visible = false;
+
 				tumleoG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: tumleoTexture }));
 				tumleoG.position.set( 0, gheight, -.75); 
 				scene.add( tumleoG);
 				tumleoG.visible = false;
+
 				huonG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: huonTexture }));
 				huonG.position.set( 0, gheight, -.75); 
 				scene.add(  huonG);
@@ -269,14 +284,17 @@
 				yabobG.position.set( 0, gheight, -.75); 
 				scene.add(yabobG);
 				yabobG.visible = false;
+
 				malukuG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: malukuTexture }));
 				malukuG.position.set( 0, gheight, -.75); 
 				scene.add(malukuG);
 				malukuG.visible = false;
+
 				ilesalesG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: ilesalesTexture }));
 				ilesalesG.position.set( 0, gheight, -.75); 
 				scene.add( ilesalesG);
 				ilesalesG.visible = false;
+
 				pubineriG = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: pubineriTexture }));
 				pubineriG.position.set( 0, gheight, -.75); 
 				scene.add(  pubineriG);
@@ -293,8 +311,6 @@
 				triobriandG.visible = false;
 			
 
-
-
 				//the Map
 				const mapGeometry = new THREE.PlaneGeometry( 3.0 * ratio, 1.5 * ratio );
 				const mapTexture = textureLoader.load('textures/png.png'); //from google maps
@@ -306,10 +322,8 @@
 
 
 				//Lights
-				//scene.add( new THREE.HemisphereLight( 0x808080, 0x606060 ) ); 
-				scene.add( new THREE.HemisphereLight( 0xffffbb, 0x080820, .5) ); //sky, ground, intensity 0xffffbb, 0x080820, 1
+				scene.add( new THREE.HemisphereLight( 0xffffbb, 0x080820, .5) );
 				const light = new THREE.DirectionalLight( 0xffffff );
-				//const light = new THREE.AmbientLight( 0x404040, 1 );
 				light.position.set( 1, 6, 2 );
 				scene.add( light );
 
@@ -326,9 +340,6 @@
  				dracoLoader.setDecoderPath( '/draco/' );
  				loader.setDRACOLoader( dracoLoader );
 
-
-
-// really should change so scale or colour accepted as argument if pos
 				
 				function onLoadLumi( gltf ) {
 					const model = gltf.scene;					
@@ -337,10 +348,10 @@
 					const z = Math.random() * 0.5 - 0.3 ;
 					lumiM = model.children[0];
 					lumiM.material = new THREE.MeshStandardMaterial();
-					lumiM.position.set( x, y, z );
+					lumiM.userData.loc = new THREE.Vector3(0.25* ratio, desk + 0.01, -0.08* ratio);
+					lumiM.position.set( lumiM.userData.loc);
 					lumiM.scale.set( piecescale, piecescale, piecescale);
 					lumiM.material.color.set(parameters.coilColor);
-					lumiM.userData.loc = new THREE.Vector3(0.25* ratio, desk + 0.01, -0.08* ratio);
 					jars.add(lumiM);
 					sectionMeshes.push(lumiM);
 				}
