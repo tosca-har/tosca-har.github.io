@@ -349,7 +349,7 @@
 					lumiM = model.children[0];
 					lumiM.material = new THREE.MeshStandardMaterial();
 					lumiM.userData.loc = new THREE.Vector3(0.25* ratio, desk + 0.01, -0.08* ratio);
-					lumiM.position.set( lumiM.userData.loc);
+					lumiM.position.set( x,y,z);
 					lumiM.scale.set( piecescale, piecescale, piecescale);
 					lumiM.material.color.set(parameters.coilColor);
 					jars.add(lumiM);
