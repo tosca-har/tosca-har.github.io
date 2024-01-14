@@ -17,7 +17,7 @@
 <body>
 
 	<div id="info">
-		<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> The Jars of Papua
+		<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> intersect change
 	</div>
 
 	<script type="module">
@@ -374,18 +374,18 @@
 			}
 		}
 
-		function getIntersections( controller ) {
+		function getIntersections( controller, tocheck ) {
 			tempMatrix.identity().extractRotation( controller.matrixWorld );
 			raycaster.ray.origin.setFromMatrixPosition( controller.matrixWorld );
 			raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
-			return raycaster.intersectObjects( torus.children, false );
+			return raycaster.intersectObjects( tocheck, false );
 		}
 	
 		function intersectObjects( controller ) {
 			// Do not highlight when already selected
 			if ( controller.userData.selected !== undefined ) return;
 			const line = controller.getObjectByName( 'line' );
-			const intersections = getIntersections( controller );
+			const intersections = getIntersections( controller, torus.children );
 			if ( intersections.length > 0 ) {
 				const intersection = intersections[ 0 ];
 				const object = intersection.object;
@@ -396,7 +396,6 @@
 				line.scale.z = 5;
 			}
 		}
-
 		function cleanIntersected() {
 			while ( intersected.length ) {
 				const object = intersected.pop();
