@@ -521,7 +521,7 @@
 					if ( aposition.distanceTo( testposition ) < .025 * ratio) {
 						scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
 						object.position.set(testposition.x, testposition.y, testposition.z);
-						let maprotation = new THREE.Vector3(0,0,0);
+						//let maprotation = new THREE.Vector3(0,0,0);
 						let maprotation = new THREE.Quaternion(0,0,0,0)
 						mapGroup.getWorldQuaternion(maprotation); //quaternion
 						object.setRotationFromQuaternion(maprotation)
