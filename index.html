@@ -510,7 +510,7 @@
 			const controller = event.target;
 			if ( controller.userData.selected !== undefined ) {							
 				//controller.remove( mapGroup );
-				aworld.add(mapGroup);								
+				aworld.attach(mapGroup);								
 				controller.userData.selected = undefined;
 
 			}
