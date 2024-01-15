@@ -459,15 +459,14 @@
 		}
 		function onSelectStart2( event ) {
 			const controller = event.target;
-/* 			const intersections = getIntersections2( controller );
+			const intersections = getIntersections2( controller );
 			if ( intersections.length > 0 ) {
 				const intersection = intersections[ 0 ];
 				const object = intersection.object;
 				object.material.emissive.b = 0;
 				controller.attach( object );
 				controller.userData.selected = object;
-			}
-			else { */
+			} else { 
 				const intersections = getIntersections3( controller );
 					if ( intersections.length > 0 ) {
 						scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
@@ -475,7 +474,7 @@
 					const object = intersection.object;
 					controller.attach( mapGroup );
 					controller.userData.selected = mapGroup;
-					//}
+					}
 			}
 		}
 
@@ -507,10 +506,30 @@
 
 		function onSelectEnd3( event ) {
 			const controller = event.target;
-			if ( controller.userData.selected !== undefined ) {							
-				aworld.attach(mapGroup);								
-				controller.userData.selected = undefined;
+			if ( controller.userData.selected !== undefined ) {	
+				if (controller.userData.selected == mapGroup ){						
+					aworld.attach(mapGroup);								
+				} else {
+					const object = controller.userData.selected;
+					object.material.emissive.b = 0;				
+					//test if position is right
+					let aposition = new THREE.Vector3(0,0,0); //needs to be something first
+					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
+					//trueposition = object.userData.loc;
+					trueposition = object.userData.site;			
+					let testposition = new THREE.Vector3(0,0,0); //needs to be something first
+					trueposition.getWorldPosition( testposition ); //a Vector3 (x,y,z)
 
+					jars.attach( object );
+					if ( aposition.distanceTo( testposition ) < .025 * ratio) {
+						scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
+						object.position.set(testposition.x, testposition.y, testposition.z);
+						object.rotation.set(0, 0, 0); //or get the rotation of the mapGroup or site and set it to that?
+						mapGroup.attach( object );
+					}									
+				
+				}
+				controller.userData.selected = undefined;
 			}
 		}
 
