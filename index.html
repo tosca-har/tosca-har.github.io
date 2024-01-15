@@ -469,9 +469,8 @@
 			} else { 
 				const intersections = getIntersections3( controller );
 					if ( intersections.length > 0 ) {
-						scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
-					const intersection = intersections[ 0 ];
-					const object = intersection.object;
+					//const intersection = intersections[ 0 ];
+					//const object = intersection.object;
 					controller.attach( mapGroup );
 					controller.userData.selected = mapGroup;
 					}
@@ -515,16 +514,16 @@
 					//test if position is right
 					let aposition = new THREE.Vector3(0,0,0); //needs to be something first
 					object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
-					//trueposition = object.userData.loc;
 					trueposition = object.userData.site;			
 					let testposition = new THREE.Vector3(0,0,0); //needs to be something first
 					trueposition.getWorldPosition( testposition ); //a Vector3 (x,y,z)
-
 					jars.attach( object );
 					if ( aposition.distanceTo( testposition ) < .025 * ratio) {
 						scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
 						object.position.set(testposition.x, testposition.y, testposition.z);
-						object.rotation.set(0, 0, 0); //or get the rotation of the mapGroup or site and set it to that?
+						let maprotation = new THREE.Vector3(0,0,0);
+
+						object.rotation.set(maprotation.x, maprotation.y, maprotation.z); //or get the rotation of the mapGroup or site and set it to that?
 						mapGroup.attach( object );
 					}									
 				
