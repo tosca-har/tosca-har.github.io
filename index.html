@@ -469,6 +469,7 @@
 			}
 			else { */
 				const intersections = getIntersections3( controller );
+				scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
 					if ( intersections.length > 0 ) {
 						scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
 					const intersection = intersections[ 0 ];
@@ -511,7 +512,7 @@
 			if ( controller.userData.selected !== undefined ) {
 				const object = controller.userData.selected;
 				object.material.emissive.b = 0;								
-				mapGroup.attach( object );								
+				scene.attach( object );								
 				controller.userData.selected = undefined;
 
 			}
