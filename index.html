@@ -522,7 +522,8 @@
 						scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
 						object.position.set(testposition.x, testposition.y, testposition.z);
 						let maprotation = new THREE.Vector3(0,0,0);
-
+						//mapGroup.getWorldQuaternion //quaternion
+						mapGroup.getWorldDirection(maprotation);
 						object.rotation.set(maprotation.x, maprotation.y, maprotation.z); //or get the rotation of the mapGroup or site and set it to that?
 						mapGroup.attach( object );
 					}									
