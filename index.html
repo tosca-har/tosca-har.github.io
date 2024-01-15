@@ -468,9 +468,7 @@
 				controller.userData.selected = object;
 			}
 			else { */
-				scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
 				const intersections = getIntersections3( controller );
-				scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
 					if ( intersections.length > 0 ) {
 						scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
 					const intersection = intersections[ 0 ];
@@ -510,10 +508,9 @@
 
 		function onSelectEnd3( event ) {
 			const controller = event.target;
-			if ( controller.userData.selected !== undefined ) {
-				const object = controller.userData.selected;
-				object.material.emissive.b = 0;								
-				scene.attach( object );								
+			if ( controller.userData.selected !== undefined ) {							
+				controller.remove( mapGroup );
+				scene.add(mapGroup);								
 				controller.userData.selected = undefined;
 
 			}
