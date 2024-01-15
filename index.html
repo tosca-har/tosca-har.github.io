@@ -30,7 +30,7 @@
 		import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
 			
         let container;
-		let camera, scene, renderer, controls, dragControls;
+		let camera, scene, renderer, controls, dragControls, dragControlsM;
 		let controller1, controller2, controllerGrip1, controllerGrip2;
 		let raycasterM, pointer, selectedTorus; // for mouse controls
 		let raycaster; // for VR controls
@@ -49,7 +49,7 @@
 		dracoLoader.setDecoderPath( 'https://unpkg.com/three@0.160.0/examples/jsm/libs/draco/' );
 		loader.setDRACOLoader( dracoLoader );
 
-		let jars, torus, trueposition, unmoveable;
+		let mapGroup, jars, torus, torusA, trueposition, unmoveable;
 		let adzeraM, aibomM, mailuM, louisadeM, dimiriM, yabobM;
 
 		init(); 
@@ -122,7 +122,7 @@
 			const theMap = new THREE.Mesh( mapGeometry, new THREE.MeshBasicMaterial({ map: mapTexture }));
 			theMap.rotation.x = - Math.PI / 2;
 			theMap.position.set( 0, desk, 0); //desk
-			scene.add( theMap);
+			//scene.add( theMap);
         	scene.add( new THREE.HemisphereLight( 0xffffbb, 0x080820, .5) );
 			const light = new THREE.DirectionalLight( 0xffffff );
 			light.position.set( 1, 6, 2 );
@@ -176,49 +176,61 @@
 			scene.add(unmoveable); 
 			let piecescale = ratio;
 			torus = new THREE.Group();
-			scene.add( torus );
+			torusA = [];
+			//scene.add(torus);
+			mapGroup = new THREE.Group();
+			mapGroup.attach(torus);
+			mapGroup.add( theMap);
+			scene.add( mapGroup);
+
 			
 			const dimiriSite = new THREE.Mesh( new THREE.TorusGeometry(0.015, 0.007, 20, 20  ), new THREE.MeshStandardMaterial({color: 0x006400}));
 			dimiriSite.position.set(0.43 *ratio, desk + 0.01, 0 *ratio);
 			dimiriSite.scale.set( piecescale, piecescale, piecescale);
 			dimiriSite.rotation.x = -Math.PI * 1/2;
 			dimiriSite.userData.planes = dimiriG;
-			torus.add(dimiriSite);
+			torus.attach(dimiriSite);
+			torusA.push(dimiriSite);
 
 			const louisadeSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
 			louisadeSite.position.set(0.99* ratio, desk + 0.01, 0.59* ratio);
 			louisadeSite.scale.set( piecescale, piecescale, piecescale);
 			louisadeSite.rotation.x = -Math.PI * 1/2;
 			louisadeSite.userData.planes = louisadeG;
-			torus.add(louisadeSite);
+			torus.attach(louisadeSite);
+			torusA.push(louisadeSite);
 
 			const mailuSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
 			mailuSite.position.set(0.84* ratio, desk + 0.01, 0.48* ratio);
 			mailuSite.scale.set( piecescale, piecescale, piecescale);
 			mailuSite.rotation.x = -Math.PI * 1/2;
 			mailuSite.userData.planes = mailuG;
-			torus.add(mailuSite);
+			torus.attach(mailuSite);
+			torusA.push(mailuSite);
 			
 			const adzeraSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
 			adzeraSite.position.set(0.61* ratio, desk + 0.01, 0.15* ratio);
 			adzeraSite.scale.set( piecescale, piecescale, piecescale);
 			adzeraSite.rotation.x = -Math.PI * 1/2;
 			adzeraSite.userData.planes = adzeraG;
-			torus.add(adzeraSite);
+			torus.attach(adzeraSite);
+			torusA.push(adzeraSite);
 
 			const yabobSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
 			yabobSite.position.set(0.572* ratio, desk + 0.01, 0.0396* ratio);
 			yabobSite.scale.set( piecescale, piecescale, piecescale);
 			yabobSite.rotation.x = -Math.PI * 1/2;
 			yabobSite.userData.planes = yabobG;
-			torus.add(yabobSite);
+			torus.attach(yabobSite);
+			torusA.push(yabobSite);
 				
 			const aibomSite = new THREE.Mesh( new THREE.TorusGeometry( 0.015, 0.007, 20, 20 ), new THREE.MeshStandardMaterial({color: 0x006400}));
 			aibomSite.position.set(0.36* ratio, desk + 0.01,-0.01* ratio);
 			aibomSite.scale.set( piecescale, piecescale, piecescale);
 			aibomSite.rotation.x = -Math.PI * 1/2;
 			aibomSite.userData.planes = aibomG;
-			torus.add(aibomSite);
+			torus.attach(aibomSite);
+			torusA.push(aibomSite);
 
 			selectedTorus = aibomSite; 
 
@@ -230,6 +242,8 @@
 				adzeraM.scale.set( piecescale, piecescale, piecescale);
 				adzeraM.material.color.set(parameters.coilBeatenColor);
 				adzeraM.userData.loc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
+				adzeraM.userData.site = adzeraSite;
+				adzeraM.userData.type = 1;
 				jars.add( adzeraM);
 			}
 			loader.load( 'models/gltf/adzera.glb', onLoadAdzera, undefined, function ( error ) { console.error( error );} );
@@ -242,6 +256,7 @@
 				aibomM.scale.set( piecescale, piecescale, piecescale);
 				aibomM.material.color.set(parameters.materialColor);
 				aibomM.userData.loc = new THREE.Vector3(0.36* ratio, desk + 0.01,-0.01* ratio);
+				aibomM.userData.site = aibomSite;
 				jars.add( aibomM);
 			}
 			loader.load( 'models/gltf/aibom.glb', onLoadAibom, undefined, function ( error ) {console.error( error );} );	
@@ -254,6 +269,7 @@
 				mailuM.scale.set( piecescale, piecescale, piecescale);
 				mailuM.material.color.set(parameters.nabColor);
 				mailuM.userData.loc = new THREE.Vector3(0.84* ratio, desk + 0.01, 0.48* ratio);
+				mailuM.userData.site = mailuSite;
 				jars.add( mailuM);
 			}
 			loader.load( 'models/gltf/mailu.glb', onLoadMailu, undefined, function ( error ) { console.error( error );} );
@@ -266,6 +282,7 @@
 				louisadeM.scale.set( piecescale, piecescale, piecescale);
 				louisadeM.material.color.set(parameters.ringTopColor);
 				louisadeM.userData.loc = new THREE.Vector3(0.99* ratio, desk + 0.01, 0.59* ratio);
+				louisadeM.userData.site = louisadeSite;
 				jars.add( louisadeM);
 			}
 			loader.load( 'models/gltf/louisade.glb', onLoadLouisade, undefined, function ( error ) {console.error( error );} );
@@ -278,6 +295,7 @@
 				dimiriM.scale.set( piecescale, piecescale, piecescale);
 				dimiriM.material.color.set(parameters.coilColor);
 				dimiriM.userData.loc = new THREE.Vector3(0.43* ratio, desk + 0.01, 0* ratio);
+				dimiriM.userData.site = dimiriSite;
 				jars.add( dimiriM);
 			}
 			loader.load( 'models/gltf/dimiri.glb', onLoadDimiri, undefined, function ( error ) { console.error( error );} );
@@ -290,6 +308,7 @@
 				yabobM.scale.set( piecescale, piecescale, piecescale);
 				yabobM.material.color.set(parameters.paddleColor);
 				yabobM.userData.loc = new THREE.Vector3(0.572* ratio, desk + 0.01, 0.0396* ratio);
+				yabobM.userData.site = yabobSite;
 				jars.add( yabobM);
 				}
 			loader.load( 'models/gltf/yabob.glb', onLoadYabob, undefined, function ( error ) {console.error( error );} );
@@ -305,21 +324,43 @@
 			controls.update();
 
 			dragControls = new DragControls( [ jars ], camera, renderer.domElement );
-    	dragControls.addEventListener('dragstart', function (event) {
+    		dragControls.addEventListener('dragstart', function (event) {
+        	controls.enabled = false;
+			dragControlsM.enabled = false;
+    		})
+
+			dragControls.addEventListener('dragend', function (event) {
+				controls.enabled = true
+				dragControlsM.enabled = true;
+				let object = event.object;
+				let aposition = object.position; 
+
+				trueposition = object.userData.site;
+				
+				let testposition = new THREE.Vector3(0,0,0); //needs to be something first
+				trueposition.getWorldPosition( testposition ); //a Vector3 (x,y,z)
+
+				if ( aposition.distanceTo( testposition ) < .025 * ratio) {
+					scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
+					object.position.set(testposition.x, testposition.y, testposition.z);
+					object.rotation.set(0, 0, 0);
+					mapGroup.attach( object );
+				}		
+    		})
+
+
+			dragControlsM = new DragControls(  [ mapGroup ] , camera, renderer.domElement );
+			dragControlsM.transformGroup = true;
+		
+    		dragControlsM.addEventListener('dragstart', function (event) {
         	controls.enabled = false
-    	})
-		dragControls.addEventListener('dragend', function (event) {
-    	controls.enabled = true
-		let object = event.object;
-		let aposition = object.position; 			
-		trueposition = object.userData.loc;
-		if ( aposition.distanceTo( trueposition ) < .025 * ratio) {
-			scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
-			object.position.set(trueposition.x, trueposition.y, trueposition.z);
-			object.rotation.set(0, 0, 0);
-			unmoveable.attach( object );
-		}		
-    })
+    		})
+
+			dragControlsM.addEventListener('dragend', function (event) {
+				controls.enabled = true	
+    		})
+ 
+
 			controller1 = renderer.xr.getController( 0 );
 			controller1.addEventListener( 'selectstart', onSelectStart );
 			controller1.addEventListener( 'selectend', onSelectEnd );
@@ -434,13 +475,17 @@
 			//test if position is right
 			let aposition = new THREE.Vector3(0,0,0); //needs to be something first
 			object.getWorldPosition( aposition ); //a Vector3 (x,y,z)
-			trueposition = object.userData.loc;
+			//trueposition = object.userData.loc;
+			trueposition = object.userData.site;			
+			let testposition = new THREE.Vector3(0,0,0); //needs to be something first
+			trueposition.getWorldPosition( testposition ); //a Vector3 (x,y,z)
+
 			jars.attach( object );
-			if ( aposition.distanceTo( trueposition ) < .025 * ratio) {
+			if ( aposition.distanceTo( testposition ) < .025 * ratio) {
 				scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
-				object.position.set(trueposition.x, trueposition.y, trueposition.z);
+				object.position.set(testposition.x, testposition.y, testposition.z);
 				object.rotation.set(0, 0, 0);
-				unmoveable.attach( object );
+				mapGroup.attach( object );
 			}									
 			controller.userData.selected = undefined;
 		}
