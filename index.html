@@ -50,7 +50,7 @@
 		dracoLoader.setDecoderPath( 'https://unpkg.com/three@0.160.0/examples/jsm/libs/draco/' );
 		loader.setDRACOLoader( dracoLoader );
 
-		let mapGroup, jars, torus, torusA, trueposition, unmoveable;
+		let mapGroup, jars, torus, torusA, trueposition, aworld;
 		let adzeraM, aibomM, mailuM, louisadeM, dimiriM, yabobM;
 
 		init(); 
@@ -173,8 +173,8 @@
 
 			jars = new THREE.Group();
 			scene.add( jars );
-			unmoveable = new THREE.Group();
-			scene.add(unmoveable); 
+			aworld = new THREE.Group();
+			scene.add(aworld); 
 			let piecescale = ratio;
 			torus = new THREE.Group();
 			torusA = [];
@@ -182,7 +182,7 @@
 			mapGroup = new THREE.Group();
 			mapGroup.attach(torus);
 			mapGroup.add( theMap);
-			scene.add( mapGroup);
+			aworld.add( mapGroup);
 
 			
 			const dimiriSite = new THREE.Mesh( new THREE.TorusGeometry(0.015, 0.007, 20, 20  ), new THREE.MeshStandardMaterial({color: 0x006400}));
@@ -509,8 +509,8 @@
 		function onSelectEnd3( event ) {
 			const controller = event.target;
 			if ( controller.userData.selected !== undefined ) {							
-				controller.remove( mapGroup );
-				//scene.add(mapGroup);								
+				//controller.remove( mapGroup );
+				aworld.add(mapGroup);								
 				controller.userData.selected = undefined;
 
 			}
