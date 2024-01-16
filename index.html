@@ -38,7 +38,7 @@
 		const intersected2 = [];
 		const intersected3 = [];
 		const tempMatrix = new THREE.Matrix4(); //for VR controllers
-		let ratio = 2;
+		let ratio = 4;
 		let desk = 0.8; // desk height
 		let gheight = desk + 0.55; //panel height
 		let psize = 1.0; // panel dimensions
@@ -689,7 +689,7 @@
 					malukuM.scale.set( piecescale, piecescale, piecescale);
 					malukuM.material.color.set(parameters.paddleAddColor);
 					malukuM.userData.loc = new THREE.Vector3(-0.86* ratio, desk + 0.01, -0.08* ratio);
-					malukuM.userData.site = mailuSite;
+					malukuM.userData.site = malukuSite;
 					jars.add( malukuM);
 				}
 				loader.load( 'models/gltf/maluku.glb', onLoadMaluku, undefined, function ( error ) {console.error( error );} );
