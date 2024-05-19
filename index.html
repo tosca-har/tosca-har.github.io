@@ -106,86 +106,86 @@
 			ndoP.rotation.y =  Math.PI / 2;
 			ndoP.position.set(pdist, pbot + 1.1, 0); 
 			scene.add( ndoP);
-			ndoP.visible = true;
+			ndoP.visible = false;
 
 			nkeP = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nkeTexture }));
 			nkeP.rotation.y =  Math.PI / 2;
 			nkeP.position.set(pdist, pbot + 2.2, 0); 
 			scene.add( nkeP);
-			nkeP.visible = true;
+			nkeP.visible = false;
 
 			noqP = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: noqTexture }));
 			noqP.rotation.y =  Math.PI / 2;
 			noqP.position.set(pdist, pbot , 1.1); 
 			scene.add( noqP);
-			noqP.visible = true;
+			noqP.visible = false;
 
 			nmnP = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nmnTexture }));
 			nmnP.rotation.y =  Math.PI / 2;
 			nmnP.position.set(pdist, pbot + 1.1, 1.1); 
 			scene.add( nmnP);
-			nmnP.visible = true;
+			nmnP.visible = false;
 
 			nmtP = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nmtTexture }));
 			nmtP.rotation.y =  Math.PI / 2;
 			nmtP.position.set(pdist, pbot + 2.2, 1.1); 
 			scene.add( nmtP);
-			nmtP.visible = true;
+			nmtP.visible = false;
 
 			nkcP = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nkcTexture }));
 			nkcP.rotation.y =  Math.PI / 2;
 			nkcP.position.set(pdist, pbot , -1.1); 
 			scene.add( nkcP);
-			nkcP.visible = true;
+			nkcP.visible = false;
 
 			nnjP = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nnjTexture }));
 			nnjP.rotation.y =  Math.PI / 2;
 			nnjP.position.set(pdist, pbot + 1.1, -1.1); 
 			scene.add( nnjP);
-			nnjP.visible = true;
+			nnjP.visible = false;
 
 			nngP = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nngTexture }));
 			nngP.rotation.y =  Math.PI / 2;
 			nngP.position.set(pdist, pbot + 2.2, -1.1); 
 			scene.add( nngP);
-			nngP.visible = true;
+			nngP.visible = false;
 
 			nlqP = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nlqTexture }));
 			nlqP.rotation.y =  Math.PI / 2;
 			nlqP.position.set(pdist, pbot + 2.2, 2.2); 
 			scene.add( nlqP);
-			nlqP.visible = true;
+			nlqP.visible = false;
 
 			nloP = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nloTexture }));
 			nloP.rotation.y =  Math.PI / 2;
 			nloP.position.set(pdist, pbot + 1.1, 2.2); 
 			scene.add( nloP);
-			nloP.visible = true;
+			nloP.visible = false;
 
 			nmlP = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nmlTexture }));
 			nmlP.rotation.y =  Math.PI / 2;
 			nmlP.position.set(pdist, pbot , 2.2); 
 			scene.add( nmlP);
-			nmlP.visible = true;
+			nmlP.visible = false;
 
 
 			nnfP = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nnfTexture }));
 			nnfP.rotation.y =  Math.PI / 2;
 			nnfP.position.set(pdist, pbot + 2.2, -2.2); 
 			scene.add( nnfP);
-			nnfP.visible = true;
+			nnfP.visible = false;
 
 			nouP = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nouTexture }));
 			nouP.rotation.y =  Math.PI / 2;
 			nouP.position.set(pdist, pbot + 1.1, -2.2); 
 			scene.add( nouP);
-			nouP.visible = true;
+			nouP.visible = false;
 
 			nieP = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nieTexture }));
 			nieP.rotation.y =  Math.PI / 2;
 			nieP.position.set(pdist, pbot , -2.2); 
 			scene.add( nieP);
-			nieP.visible = true;
+			nieP.visible = false;
 
 
 
@@ -241,8 +241,10 @@
 			agarabiSite.scale.set( piecescale, piecescale, piecescale);
 			torus.attach( agarabiSite);
 
+			let petroposition = new THREE.Vector3(-2.5, 0.8, 0);
+
 			const petroSite = new THREE.Mesh( new THREE.BoxGeometry( 0.4, 0.1, .6), new THREE.MeshStandardMaterial({color: 0x964B00}));
-			petroSite.position.set(-2.5, 0.8, 0);
+			petroSite.position.set(petroposition.x, petroposition.y, petroposition.z);
 			torus.attach(petroSite);
 			
 
@@ -253,7 +255,7 @@
 				ndoM = model.children[0];
 				ndoM.position.set( -0.44 * ratio, desk, 0.61 * ratio );
 				ndoM.scale.set( piecescale, piecescale, piecescale);
-				//ndoM.userData.loc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
+				ndoM.userData.plane = ndoP;
 				ndoM.userData.site = adzeraSite;
 				jars.add( ndoM);
 			}
@@ -264,7 +266,7 @@
 				nieM = model.children[0];
 				nieM.position.set( -0.40 * ratio, desk , -0.19 * ratio );
 				nieM.scale.set( piecescale, piecescale, piecescale);
-				//ndoM.userData.loc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
+				nieM.userData.plane = nieP;
 				nieM.userData.site = agarabiSite;
 				jars.add( nieM);
 			}
@@ -275,7 +277,7 @@
 				nkcM = model.children[0];
 				nkcM.position.set(  -0.41 * ratio, desk, .17 * ratio );
 				nkcM.scale.set( piecescale, piecescale, piecescale);
-				//ndoM.userData.loc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
+				nkcM.userData.plane = nkcP;
 				nkcM.userData.site = adzeraSite;
 				jars.add( nkcM);
 			}
@@ -286,7 +288,7 @@
 				nkeM = model.children[0];
 				nkeM.position.set( -0.39 * ratio, desk, .23 * ratio );
 				nkeM.scale.set( piecescale, piecescale, piecescale);
-				//ndoM.userData.loc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
+				nkeM.userData.plane = nkeP;
 				nkeM.userData.site = agarabiSite;
 				jars.add( nkeM);
 			}
@@ -297,7 +299,7 @@
 				nloM = model.children[0];
 				nloM.position.set(  0.19 * ratio, desk, .30 * ratio );
 				nloM.scale.set( piecescale, piecescale, piecescale);
-				//ndoM.userData.loc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
+				nloM.userData.plane = nloP;
 				nloM.userData.site = adzeraSite;
 				jars.add( nloM);
 			}
@@ -308,7 +310,7 @@
 				nlqM = model.children[0];
 				nlqM.position.set( 0.29 * ratio, desk -.02, .25 * ratio  );
 				nlqM.scale.set( piecescale, piecescale, piecescale);
-				//ndoM.userData.loc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
+				nlqM.userData.plane = nlqP;
 				nlqM.userData.site = adzeraSite;
 				jars.add( nlqM);
 			}
@@ -319,7 +321,7 @@
 				nmlM = model.children[0];
 				nmlM.position.set( 0.39 * ratio, desk - .07, .25 * ratio  );
 				nmlM.scale.set( piecescale, piecescale, piecescale);
-				//ndoM.userData.loc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
+				nmlM.userData.plane = nmlP;
 				nmlM.userData.site = adzeraSite;
 				jars.add( nmlM);
 			}
@@ -330,7 +332,7 @@
 				nmnM = model.children[0];
 				nmnM.position.set(  -0.11 * ratio, desk , .56 * ratio  );
 				nmnM.scale.set( piecescale, piecescale, piecescale);
-				//ndoM.userData.loc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
+				nmnM.userData.plane = nmnP;
 				nmnM.userData.site = agarabiSite;
 				jars.add( nmnM);
 			}
@@ -341,7 +343,7 @@
 				nmtM = model.children[0];
 				nmtM.position.set( -0.04 * ratio, desk , .46 * ratio  );
 				nmtM.scale.set( piecescale, piecescale, piecescale);
-				//ndoM.userData.loc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
+				nmtM.userData.plane = nmtP;
 				nmtM.userData.site = adzeraSite;
 				jars.add( nmtM);
 			}
@@ -352,7 +354,7 @@
 				nnfM = model.children[0];
 				nnfM.position.set( -0.50 * ratio, desk, -0.33 * ratio);
 				nnfM.scale.set( piecescale, piecescale, piecescale);
-				//ndoM.userData.loc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
+				nnfM.userData.plane = nnfP;
 				nnfM.userData.site = agarabiSite;
 				jars.add( nnfM);
 			}
@@ -363,7 +365,7 @@
 				nngM = model.children[0];
 				nngM.position.set(  -0.33 * ratio, desk, .19 * ratio );
 				nngM.scale.set( piecescale, piecescale, piecescale);
-				//ndoM.userData.loc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
+				nngM.userData.plane = nngP;
 				nngM.userData.site = agarabiSite;
 				jars.add( nngM);
 			}
@@ -374,7 +376,7 @@
 				nnjM = model.children[0];
 				nnjM.position.set(  -0.31 * ratio, desk, .25 * ratio  );
 				nnjM.scale.set( piecescale, piecescale, piecescale);
-				//ndoM.userData.loc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
+				nnjM.userData.plane = nnjP;
 				nnjM.userData.site = adzeraSite;
 				jars.add( nnjM);
 			}
@@ -385,7 +387,7 @@
 				noqM = model.children[0];
 				noqM.position.set(  0.12 * ratio, desk , .42 * ratio );
 				noqM.scale.set( piecescale, piecescale, piecescale);
-				//ndoM.userData.loc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
+				noqM.userData.plane = noqP;
 				noqM.userData.site = adzeraSite;
 				jars.add( noqM);
 			}
@@ -396,7 +398,7 @@
 				nouM = model.children[0];
 				nouM.position.set( -0.43 * ratio, desk, -0.27 * ratio );
 				nouM.scale.set( piecescale, piecescale, piecescale);
-				//ndoM.userData.loc = new THREE.Vector3(0.61 * ratio, desk + 0.01, 0.15 * ratio);
+				nouM.userData.plane = nouP;
 				nouM.userData.site = agarabiSite;
 				jars.add( nouM);
 			}
@@ -407,6 +409,7 @@
 			renderer = new THREE.WebGLRenderer( { antialias: true } );
 			renderer.setPixelRatio( window.devicePixelRatio );
 			renderer.setSize( window.innerWidth, window.innerHeight );
+			renderer.outputEncoding = THREE.sRGBEncoding;
 			renderer.xr.enabled = true;
 			container.appendChild( renderer.domElement );
 			document.body.appendChild( VRButton.createButton( renderer ) );
@@ -432,8 +435,13 @@
 
 				if ( aposition.distanceTo( testposition ) < .25 * ratio) {
 					scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
-					jars.attach( object );
-				}		
+
+				}
+				else if (aposition.distanceTo( petroposition ) < .25 * ratio){
+					selectedPlane = object.userData.plane;
+					selectedPlane.visible = true;
+				}
+				
     		})
 
 
@@ -495,8 +503,8 @@
 			if ( controller.userData.selected !== undefined ) {
 				const object = controller.userData.selected;
 				object.material.emissive.b = 0;				
-				selectedPlane.visible = false;
-				selectedPlane = object.userData.planes;
+		
+				selectedPlane = object.userData.plane;
 				selectedPlane.visible = true;
 				controller.userData.selected = undefined;
 			}
@@ -559,7 +567,12 @@
 				if ( aposition.distanceTo( testposition ) < .25 * ratio) {
 					scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
 					jars.attach( object );
-				}									
+				}	
+				else if (aposition.distanceTo( petroposition ) < .25 * ratio){
+					selectedPlane = object.userData.plane;
+					selectedPlane.visible = true;
+					jars.attach( object );
+				}								
 				controller.userData.selected = undefined;
 			}
 		}
