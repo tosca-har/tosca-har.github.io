@@ -44,7 +44,7 @@
 		let psize = 1.0; // panel dimensions
 		let pdist = -2.7; // petro panel x
 		let pbot = 1.3; // petro panel bottom
-		let gallery, adzeraG;
+		let gallery, resultP;
 		let selectedPlane;	
 
 		const loader = new GLTFLoader();
@@ -69,7 +69,8 @@
 			const textureLoader = new THREE.TextureLoader()
 
 			const keyTexture = textureLoader.load( 'textures/petro.jpg' );
-
+			const corTexture = textureLoader.load( 'textures/correct.jpg' );
+			const taTexture = textureLoader.load( 'textures/tryagain.jpg' );
 
 			const introTexture = textureLoader.load( 'textures/Intro.jpg' );
 			const refTexture = textureLoader.load( 'textures/sources.jpg' );			
@@ -101,6 +102,10 @@
 			gallery2.position.set( pdist, pbot-.2, 0); 
 			scene.add(gallery2);
 
+			resultP = new THREE.Mesh( new THREE.PlaneGeometry( 0.3, 0.15  ), new THREE.MeshBasicMaterial({ map: corTexture }));
+			resultP.position.set(0, desk + .2 , -1.15* ratio); 
+			scene.add( resultP);
+			resultP.visible = false;
 
 			ndoP = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: ndoTexture }));
 			ndoP.rotation.y =  Math.PI / 2;
@@ -434,12 +439,17 @@
 				trueposition.getWorldPosition( testposition ); //a Vector3 (x,y,z)
 
 				if ( aposition.distanceTo( testposition ) < .25 * ratio) {
-					scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
+					//scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
+					resultP.visible = true;
 
 				}
 				else if (aposition.distanceTo( petroposition ) < .25 * ratio){
 					selectedPlane = object.userData.plane;
 					selectedPlane.visible = true;
+					resultP.visible = false;
+				}
+				else {
+					resultP.visible = false;
 				}
 				
     		})
@@ -565,14 +575,19 @@
 				trueposition.getWorldPosition( testposition ); //a Vector3 (x,y,z)
 				jars.attach( object );
 				if ( aposition.distanceTo( testposition ) < .25 * ratio) {
-					scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
+					//scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
+					resultP.visible = true;
 					jars.attach( object );
 				}	
 				else if (aposition.distanceTo( petroposition ) < .25 * ratio){
 					selectedPlane = object.userData.plane;
 					selectedPlane.visible = true;
+					resultP.visible = false;
 					jars.attach( object );
-				}								
+				}	
+				else {
+					resultP.visible = false;
+				}							
 				controller.userData.selected = undefined;
 			}
 		}
