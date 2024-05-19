@@ -210,11 +210,11 @@
 			const theMap = new THREE.Mesh( mapGeometry, new THREE.MeshBasicMaterial({ map: mapTexture }));
 			theMap.rotation.x = - Math.PI / 2;
 			theMap.position.set( 0, desk, 0); //desk
-        	scene.add( new THREE.HemisphereLight( 0xffffbb, 0x080820, .5) );
+			scene.add( new THREE.HemisphereLight( 0x808080, 0x606060 ) );
+       
 			const light = new THREE.DirectionalLight( 0xffffff );
-			light.position.set( 1, 6, 2 );
+			light.position.set( 0, 6, 0 );
 			scene.add( light );
-			
     		
 			jars = new THREE.Group();
 			scene.add( jars );
