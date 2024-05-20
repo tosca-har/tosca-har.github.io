@@ -48,7 +48,7 @@
 		let selectedPlane;	
 
 		const loader = new GLTFLoader();
-
+		let petroposition = new THREE.Vector3(-2.5, 0.8, 0);
 		let mapGroup, jars, torus, torusA, trueposition, aworld;
 		let ndoM, nieM, nkcM, nkeM, nloM, nlqM, nmlM, nmnM, nmtM, nnfM, nngM, nnjM, noqM, nouM;
 		let ndoP, nieP, nkcP, nkeP, nloP, nlqP, nmlP, nmnP, nmtP, nnfP, nngP, nnjP, noqP, nouP;
@@ -247,7 +247,7 @@
 			agarabiSite.scale.set( piecescale, piecescale, piecescale);
 			torus.attach( agarabiSite);
 
-			let petroposition = new THREE.Vector3(-2.5, 0.8, 0);
+			
 
 			const petroSite = new THREE.Mesh( new THREE.BoxGeometry( 0.4, 0.1, .6), new THREE.MeshStandardMaterial({color: 0x964B00}));
 			petroSite.position.set(petroposition.x, petroposition.y, petroposition.z);
