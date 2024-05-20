@@ -576,20 +576,18 @@
 				trueposition.getWorldPosition( testposition ); //a Vector3 (x,y,z)
 				
 				if ( aposition.distanceTo( testposition ) < .25 * ratio) {
-					//scene.background = new THREE.Color( Math.random() * 0xffffff ); // random
+					scene.background = new THREE.Color( 0x00ff00 );
 					resultP.visible = true;
-					jars.attach( object );
-				}	
-				else if (aposition.distanceTo( petroposition ) < .25 * ratio){
+					//jars.attach( object );
+				} else { resultP.visible = false};	
+				if (aposition.distanceTo( petroposition ) < .25 * ratio){
+					scene.background =  new THREE.Color( 0xff0000 );
 					selectedPlane = object.userData.plane;
 					selectedPlane.visible = true;
 					resultP.visible = false;
-					jars.attach( object );
+					//jars.attach( object );
 				}	
-				else {
-					resultP.visible = false;
-					jars.attach( object );
-				}							
+				jars.attach( object );						
 				controller.userData.selected = undefined;
 			}
 		}
