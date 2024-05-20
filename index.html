@@ -574,12 +574,6 @@
 				trueposition = object.userData.site;			
 				let testposition = new THREE.Vector3(0,0,0); //needs to be something first
 				trueposition.getWorldPosition( testposition ); //a Vector3 (x,y,z)
-				
-				if ( aposition.distanceTo( testposition ) < .25 * ratio) {
-					scene.background = new THREE.Color( 0x00ff00 );
-					resultP.visible = true;
-					//jars.attach( object );
-				} else { resultP.visible = false};	
 				if (aposition.distanceTo( petroposition ) < .25 * ratio){
 					scene.background =  new THREE.Color( 0xff0000 );
 					selectedPlane = object.userData.plane;
@@ -587,6 +581,12 @@
 					resultP.visible = false;
 					//jars.attach( object );
 				}	
+				if ( aposition.distanceTo( testposition ) < .25 * ratio) {
+					scene.background = new THREE.Color( 0x00ff00 );
+					resultP.visible = true;
+					//jars.attach( object );
+				} else { resultP.visible = false};	
+	
 				jars.attach( object );						
 				controller.userData.selected = undefined;
 			}
@@ -598,12 +598,12 @@
 				raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
 				return raycaster.intersectObjects( jars.children, false );
 			}
-			function getIntersections3( controller ) {
+/* 			function getIntersections3( controller ) {
 				tempMatrix.identity().extractRotation( controller.matrixWorld );
 				raycaster.ray.origin.setFromMatrixPosition( controller.matrixWorld );
 				raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
 				return raycaster.intersectObjects( mapGroup.children, false );
-			}
+			} */
 			function intersectObjects2( controller ) {
 			// Do not highlight when already selected
 			if ( controller.userData.selected !== undefined ) return;
