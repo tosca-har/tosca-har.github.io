@@ -42,13 +42,14 @@
 
 		let gheight = desk + 0.55; //panel height
 		let psize = 1.0; // panel dimensions
-		let pdist = -2.7; // petro panel x
+		let pdist = -2.2; // petro panel x
 		let pbot = 1.3; // petro panel bottom
 		let gallery, resultP;
 		let selectedPlane;	
 
 		const loader = new GLTFLoader();
-		let petroposition = new THREE.Vector3(-2.5, 0.8, 0);
+		//let petroposition = new THREE.Vector3(-2.5, 0.8, 0);
+		let petroposition = new THREE.Vector3(-1.95, 0.8, 0);
 		let mapGroup, jars, torus, torusA, trueposition, aworld;
 		let ndoM, nieM, nkcM, nkeM, nloM, nlqM, nmlM, nmnM, nmtM, nnfM, nngM, nnjM, noqM, nouM;
 		let ndoP, nieP, nkcP, nkeP, nloP, nlqP, nmlP, nmnP, nmtP, nnfP, nngP, nnjP, noqP, nouP;
@@ -92,12 +93,113 @@
 			const ndoTexture = textureLoader.load( 'textures/ndo.png' );
 
 
+			const keyTextureX = textureLoader.load( 'textures/pxrf.jpg' );
+			const nnfTextureX = textureLoader.load( 'textures/nnf.png' );
+			const nnjTextureX = textureLoader.load( 'textures/nnj.png' );
+			const nngTextureX = textureLoader.load( 'textures/nng.png' );
+			const nouTextureX = textureLoader.load( 'textures/nou.png' );
+			const nkeTextureX = textureLoader.load( 'textures/nke.png' );
+			const nieTextureX = textureLoader.load( 'textures/nie.png' );
+			const nkcTextureX = textureLoader.load( 'textures/nkc.png' );
+			const noqTextureX = textureLoader.load( 'textures/noq.png' );
+			const nloTextureX = textureLoader.load( 'textures/nlo.png' );
+			const nlqTextureX = textureLoader.load( 'textures/nlq.png' );
+			const nmlTextureX = textureLoader.load( 'textures/nml.png' );
+			const nmtTextureX = textureLoader.load( 'textures/nmt.png' );
+			const nmnTextureX = textureLoader.load( 'textures/nmn.png' );
+			const ndoTextureX = textureLoader.load( 'textures/ndo.png' );
 
+//PXRF lab
+			const galleryX = new THREE.Mesh(new THREE.PlaneGeometry( 1, 0.5 ), new THREE.MeshBasicMaterial({ map: keyTextureX }));
+			galleryX.rotation.y =  -Math.PI / 2;
+			galleryX.position.set( -pdist, pbot-.2, 0); 
+			scene.add(galleryX);
 
+			ndoX = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: ndoTextureX }));
+			ndoX.rotation.y =  -Math.PI / 2;
+			ndoX.position.set(-pdist, pbot + 1.1, 0); 
+			scene.add( ndoX);
+			ndoX.visible = false;
 
+			nkeX = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nkeTextureX }));
+			nkeX.rotation.y =  -Math.PI / 2;
+			nkeX.position.set(-pdist, pbot + 2.2, 0); 
+			scene.add( nkeX);
+			nkeX.visible = false;
 
-			
+			noqX = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: noqTextureX }));
+			noqX.rotation.y =  -Math.PI / 2;
+			noqX.position.set(-pdist, pbot , 1.1); 
+			scene.add( noqX);
+			noqX.visible = false;
 
+			nmnX = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nmnTextureX }));
+			nmnX.rotation.y =  -Math.PI / 2;
+			nmnX.position.set(-pdist, pbot + 1.1, 1.1); 
+			scene.add( nmnX);
+			nmnX.visible = false;
+
+			nmtX = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nmtTextureX }));
+			nmtX.rotation.y =  -Math.PI / 2;
+			nmtX.position.set(-pdist, pbot + 2.2, 1.1); 
+			scene.add( nmtX);
+			nmtX.visible = false;
+
+			nkcX = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nkcTextureX }));
+			nkcX.rotation.y =  -Math.PI / 2;
+			nkcX.position.set(-pdist, pbot , -1.1); 
+			scene.add( nkcX);
+			nkcX.visible = false;
+
+			nnjX = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nnjTextureX }));
+			nnjX.rotation.y =  -Math.PI / 2;
+			nnjX.position.set(-pdist, pbot + 1.1, -1.1); 
+			scene.add( nnjX);
+			nnjX.visible = false;
+
+			nngX = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nngTextureX }));
+			nngX.rotation.y =  -Math.PI / 2;
+			nngX.position.set(-pdist, pbot + 2.2, -1.1); 
+			scene.add( nngX);
+			nngX.visible = false;
+
+			nlqX = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nlqTextureX }));
+			nlqX.rotation.y =  -Math.PI / 2;
+			nlqX.position.set(-pdist, pbot + 2.2, 2.2); 
+			scene.add( nlqX);
+			nlqX.visible = false;
+
+			nloX = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nloTextureX }));
+			nloX.rotation.y =  -Math.PI / 2;
+			nloX.position.set(-pdist, pbot + 1.1, 2.2); 
+			scene.add( nloX);
+			nloX.visible = false;
+
+			nmlX = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nmlTextureX }));
+			nmlX.rotation.y =  -Math.PI / 2;
+			nmlX.position.set(-pdist, pbot , 2.2); 
+			scene.add( nmlX);
+			nmlX.visible = false;
+
+			nnfX = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nnfTextureX }));
+			nnfX.rotation.y =  -Math.PI / 2;
+			nnfX.position.set(-pdist, pbot + 2.2, -2.2); 
+			scene.add( nnfX);
+			nnfX.visible = false;
+
+			nouX = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nouTexture }));
+			nouX.rotation.y =  -Math.PI / 2;
+			nouX.position.set(-pdist, pbot + 1.1, -2.2); 
+			scene.add( nouX);
+			nouX.visible = false;
+
+			nieX = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nieTextureX }));
+			nieX.rotation.y =  -Math.PI / 2;
+			nieX.position.set(-pdist, pbot , -2.2); 
+			scene.add( nieX);
+			nieX.visible = false;
+
+	//PETRO lab
 			const gallery2 = new THREE.Mesh(new THREE.PlaneGeometry( 1, 0.5 ), new THREE.MeshBasicMaterial({ map: keyTexture }));
 			gallery2.rotation.y =  Math.PI / 2;
 			gallery2.position.set( pdist, pbot-.2, 0); 
@@ -174,7 +276,6 @@
 			scene.add( nmlP);
 			nmlP.visible = false;
 
-
 			nnfP = new THREE.Mesh( new THREE.PlaneGeometry( psize, psize  ), new THREE.MeshBasicMaterial({ map: nnfTexture }));
 			nnfP.rotation.y =  Math.PI / 2;
 			nnfP.position.set(pdist, pbot + 2.2, -2.2); 
@@ -192,6 +293,8 @@
 			nieP.position.set(pdist, pbot , -2.2); 
 			scene.add( nieP);
 			nieP.visible = false;
+
+
 
 
 
@@ -238,12 +341,12 @@
 			
 			
 			const adzeraSite = new THREE.Mesh( new THREE.BoxGeometry( 0.6, 0.1, .3), new THREE.MeshStandardMaterial({color:  0xFFFF00}));
-			adzeraSite.position.set(0.65* ratio, desk , -1.15* ratio);
+			adzeraSite.position.set(0.65* ratio, desk , -.8* ratio);
 			adzeraSite.scale.set( piecescale, piecescale, piecescale);
 			torus.attach(adzeraSite);
 
 			const agarabiSite = new THREE.Mesh( new THREE.BoxGeometry( 0.6, 0.1, .3  ), new THREE.MeshStandardMaterial({color: 0x0000FF}));
-			agarabiSite.position.set(-0.65 * ratio, desk, -1.15 *ratio);
+			agarabiSite.position.set(-0.65 * ratio, desk, -.8 *ratio);
 			agarabiSite.scale.set( piecescale, piecescale, piecescale);
 			torus.attach( agarabiSite);
 
